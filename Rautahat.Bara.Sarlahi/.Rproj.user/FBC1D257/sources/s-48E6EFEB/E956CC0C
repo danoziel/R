@@ -1,0 +1,33 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1582191887236.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "E956CC0C",
+    "lastKnownWriteTime" : 2202974214056,
+    "last_content_update" : 1582191887236,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "CEF09125",
+        "caption" : "Agriculture_Baseline_2018_",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=Agriculture_Baseline_2018_&cache_key=CEF09125",
+        "displayedObservations" : 544,
+        "environment" : "",
+        "expression" : "Agriculture_Baseline_2018_",
+        "object" : "Agriculture_Baseline_2018_",
+        "preview" : 0,
+        "totalObservations" : 544,
+        "variables" : 16
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

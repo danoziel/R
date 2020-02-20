@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1582188481331.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "0|13|3|0|\n4|34|19|0|\n93|16|100|0|\n101|40|152|0|\n",
+    "hash" : "0",
+    "id" : "23BEAB5C",
+    "lastKnownWriteTime" : 1582124792,
+    "last_content_update" : 1582189808545,
+    "path" : "~/R/Rautahat.Bara.Sarlahi/agriculture_.R",
+    "project_path" : "agriculture_.R",
+    "properties" : {
+        "cursorPosition" : "40,29",
+        "scrollLine" : "35"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,512 @@
+season!="ANNAUL 2074-75")%>% group_by(season) %>%
+summarise(count= n(),mean = mean(total_land_cultivated),
+sd = sd(total_land_cultivated))
+Agriculture_Baseline_2018_ %>% filter(!is.na(cult_area_under_crop))%>%
+group_by(name_of_crop) %>%
+summarise(count = n(),mean = mean(cult_area_under_crop))
+land_TC_18 %>% filter(!is.na(total_land_cultivated))%>%
+group_by(season) %>%
+summarise(count= n(),mean = mean(total_land_cultivated),
+sd = sd(total_land_cultivated))
+land_TC_18 %>% filter(!is.na(total_land_cultivated))%>%
+summarise(count= n(),mean = mean(total_land_cultivated),
+sd = sd(total_land_cultivated))
+land_TC_18 %>% filter(!is.na(total_land_cultivated))%>%
+group_by(season) %>%
+summarise(count= n(),mean = mean(total_land_cultivated),
+sd = sd(total_land_cultivated))
+land_TC_18 %>% filter(!is.na(total_land_cultivated))%>%
+summarise(count= n(),mean = mean(total_land_cultivated),
+sd = sd(total_land_cultivated))
+and_TC_18 %>% filter(Ir_Retio<=1,season!="ANNAUL 2074-75")
+land_TC_18 %>% filter(Ir_Retio<=1,season!="ANNAUL 2074-75")
+land_TC_18 %>% filter(Ir_Retio<=1,season!="ANNAUL 2074-75")%>%
+summarise(count = n(),mean = mean(Ir_Retio))
+irrigation_ratio18%>% group_by(season) %>%
+summarise(count = n(),mean = mean(Ir_Retio))
+irrigation_ratio18%>% group_by(season) %>%
+summarise(count = n(),mean = mean(Ir_Retio,SD=sd(Ir_Retio)))
+land_TC_18 %>% filter(Ir_Retio<=1,season!="ANNAUL 2074-75")%>%
+summarise(count = n(),mean = mean(Ir_Retio))
+land_TC_18 %>% filter(Ir_Retio<=1,season!="ANNAUL 2074-75")%>%
+summarise(count = n(),mean = mean(Ir_Retio),SD=sd(Ir_Retio))
+irrigation_ratio18%>% group_by(season) %>%
+summarise(count = n(),mean = mean(Ir_Retio,SD=sd(Ir_Retio)))
+irrigation_ratio18%>% group_by(season) %>%
+summarise(count = n(),mean = mean(Ir_Retio,SD=sd(Ir_Retio)))
+irrigation_ratio18%>% group_by(season) %>%
+summarise(count = n(),mean = mean(Ir_Retio,SD=sd(Ir_Retio))
+irrigation_ratio18%>% group_by(season) %>%
+summarise(count = n(),
+mean = mean(Ir_Retio),SD=sd(Ir_Retio)))
+irrigation_ratio18%>% group_by(season) %>%
+summarise(count = n(),
+mean = mean(Ir_Retio),
+SD=sd(Ir_Retio))
+attach(Aquaculture_Baseline_2018_)
+practice_aquaculture
+table(Aquaculture_Baseline_2018_$practice_aquaculture)
+prop.table(pq)
+table(Aquaculture_Baseline_2018_$practice_aquaculture)
+table(Aquaculture_Baseline_2018_$total_area_of_pond)
+summary(total_area_of_pond)
+Aquaculture_Baseline_2018_$ponds_cul_fish
+table(Aquaculture_Baseline_2018_$ponds_cul_fish)
+View(Aquaculture_Baseline_2018_)
+table(Aquaculture_Baseline_2018_$type_wem_aquaculture)
+table(Aquaculture_Baseline_2018_$average_tofill_pond)
+table(Aquaculture_Baseline_2018_$average_time_drainpond)
+Aquaculture_Baseline_2018_$average_tofill_pond
+Aquaculture_Baseline_2018_$type_wem_aquaculture
+table(Aquaculture_Baseline_2018_$type_of_wem_aqua_p1) #  1 Electric / 2   Diesel
+Aquaculture_Baseline_2018_$type_of_wem_aqua_p1
+Aquaculture_Baseline_2018_$type_of_wem_aqua_p2
+table(Aquaculture_Baseline_2018_$type_of_wem_aqua_p1) #  1 Electric / 2   Diesel
+table(Aquaculture_Baseline_2018_$type_of_wem_aqua_p2)
+Aquaculture_Baseline_2018_$type_of_wem_aqua_p1
+table(Aquaculture_Baseline_2018_$type_of_wem_aqua_p1)
+Aquaculture_Baseline_2018_$type_of_wem_aqua_p2
+table(Aquaculture_Baseline_2018_$type_of_wem_aqua_p2)
+View(Aquaculture_Baseline_2018_)
+table(Aquaculture_Baseline_2018_$average_time_drainpond)
+table(Aquaculture_Baseline_2018_$average_tofill_pond)
+table(Aquaculture_Baseline_2018_$type_of_wem_aqua_p1) #  1 Electric / 2   Diesel
+table(Aquaculture_Baseline_2018_$type_of_wem_aqua_p2)
+table(Demography_2_Baseline_2018_$apart_from_this_main_house__h)
+prop.table(aft)
+aft<-table(Demography_2_Baseline_2018_$apart_from_this_main_house__h)
+prop.table(aft)
+Demography_2_Baseline_2018_$what_is_the_main_source_of_wa
+wit<-table(Demography_2_Baseline_2018_$what_is_the_main_source_of_wa)
+prop.table(wit)
+table(Demography_2_Baseline_2018_$what_is_the_main_source_of_wa)
+(Demography_2_Baseline_2018_$hh_source_of_lighting
+Demography_2_Baseline_2018_$hh_source_of_lighting
+attach(Demography_2_Baseline_2018_)
+hh_source_of_lighting
+sol<-table(Demography_2_Baseline_2018_$hh_source_of_lighting)
+hh_source_of_lighting
+sol
+prop.table(sol)
+ep<-table(Demography_2_Baseline_2018_$electric_pump)
+prop.table(ep)
+ep
+dp<-table(Demography_2_Baseline_2018_$diesel_pump)
+prop.table(dp)
+dp
+Procurement_Baseline_2018_$do_you_buy_fuel_for_the_pump
+Procurement_Baseline_2018_$do_you_buy_fuel_for_the_pump
+table(Procurement_Baseline_2018_$do_you_buy_fuel_for_the_pump)
+table(Procurement_Baseline_2018_$do_you_buy_fuel_for_the_pump)
+iywf<-table(Procurement_Baseline_2018_$if_yes__which_fuel_do_you_use)
+prop.table(iywf)
+#     1 Diesel  # 2 Kerosene #
+have_to_pay_black_market_rat
+Procurement_Baseline_2018_$have_to_pay_black_market_rat
+Procurement_Baseline_2018_$diesel_available_when_needed
+Procurement_Baseline_2018_$at_which_price_did_you_buy_it
+table(Procurement_Baseline_2018_$total_expenses_on_electricit)
+Procurement_Baseline_2018_$total_litres_consumed_dieselkero
+View(Procurement_Baseline_2018_)
+rm(a,ir,noc)
+View(aaTC)
+library(haven)
+Financial_migration_Baseline_2018_ <- read_dta("~/Nepal Data/REWSSPC/Baseline/Financial migration_Baseline(2018).dta")
+View(Financial_migration_Baseline_2018_)
+total_expenses_on_electricit
+Procurement_Baseline_2018_$total_expenses_on_electricit
+table(Procurement_Baseline_2018_$total_expenses_on_electricit)
+summary(Procurement_Baseline_2018_$total_expenses_on_electricit)
+View(Procurement_Baseline_2018_)
+View(land_TC_18)
+View(agri_TC_18)
+attach(agri_TC_18)
+table(unit_harvest)
+agri_TC_18$unit_harvest
+table(agri_TC_18$unit_harvest)
+View(Lands_Baseline_2018_)
+library(haven)
+Lands_I_Baseline_2018_ <- read_dta("~/Nepal Data/REWSSPC/Baseline/Lands_I_Baseline(2018).dta")
+View(Lands_I_Baseline_2018_)
+attach(Lands_I_Baseline_2018_)
+homestead_dwelling_area
+Lands_I_Baseline_2018_$land_owned_women
+land_owned_women
+landarea_women
+total_property
+orchard_land
+total_property
+perm_fallow_land
+land_for_aquaculture_ponds
+land_for_cultivation
+homestead_dwelling_area
+Lands_I_Baseline_2018_$homestead_dwelling_area
+summary(Lands_I_Baseline_2018_$homestead_dwelling_area)
+summary(Lands_I_Baseline_2018_$homestead_dwelling_area)
+summary(Lands_I_Baseline_2018_$land_for_cultivation)
+summary(Lands_I_Baseline_2018_$land_for_aquaculture_ponds)
+summary(Lands_I_Baseline_2018_$perm_fallow_land)
+summary(Lands_I_Baseline_2018_$orchard_land)
+summary(Lands_I_Baseline_2018_$total_property)
+summary(Lands_I_Baseline_2018_$land_owned_women)
+summary(Lands_I_Baseline_2018_$landarea_women)
+land_for_aquaculture_ponds
+n(land_for_aquaculture_ponds)
+count.fields(homestead_dwelling_area)
+count(homestead_dwelling_area)
+la
+table(homestead_dwelling_area)
+homestead_dwelling_area
+land_owned_women
+table(Lands_I_Baseline_2018_$land_owned_women)
+landarea_women
+summary(Lands_I_Baseline_2018_$landarea_women)
+table(Lands_I_Baseline_2018_$since_when_year)
+summary(Lands_I_Baseline_2018_$since_when_year)
+woman_homestead
+summary(Lands_I_Baseline_2018_$woman_homestead)
+summary(Lands_I_Baseline_2018_$woman_perm_fallow_land)
+summary(Lands_I_Baseline_2018_$woman_aquaculture_ponds)
+summary(Lands_I_Baseline_2018_$woman_orchard)
+summary(Lands_I_Baseline_2018_$woman_land_cultivation)
+woman_land_cultivation
+woman_orchard
+woman_aquaculture_ponds
+summary(Lands_I_Baseline_2018_$woman_homestead)
+summary(Lands_I_Baseline_2018_$woman_perm_fallow_land)
+summary(Lands_I_Baseline_2018_$woman_aquaculture_ponds)
+summary(Lands_I_Baseline_2018_$woman_orchard)
+summary(Lands_I_Baseline_2018_$woman_land_cultivation)
+Lands_I_Baseline_2018_$how_many_agricultural_plots
+#rest----
+summary(Lands_I_Baseline_2018_$how_many_agricultural_plots)
+table(Lands_I_Baseline_2018_$how_many_agricultural_plots)
+save.image("~/R/story/d.RData")
+View(Lands_I_Baseline_2018_)
+View(Lands_Baseline_2018_)
+View(Procurement_Baseline_2018_)
+View(Demography_2_Baseline_2018_)
+View(Financial_migration_Baseline_2018_)
+View(Agriculture_Baseline_2018_)
+View(Financial_migration_Baseline_2018_)
+View(Water_buying_details_Baseline_2018_)
+#Water_buying_details_
+summary(Water_buying_details_Baseline_2018_$dist_plot_frm_borewell_buy)
+table(Water_buying_details_Baseline_2018_$dist_plot_frm_borewell_buy)
+#Water_selling_
+summary(Water_selling_Baseline_2018_$dist_plot_frm_borewell_sell)
+table(Water_selling_Baseline_2018_$dist_plot_frm_borewell_sell)
+Water_buying_details_Baseline_2018_$dell_buy
+Water_buying_details_Baseline_2018_$dist_plot_frm_borewell_buy
+View(Water_buying_details_Baseline_2018_)
+Water_extraction_mechanism_Baseline_2018_$how_many_bore_wells_do_you_ow
+hmbw<-table(Water_extraction_mechanism_Baseline_2018_$how_many_bore_wells_do_you_ow)
+hmbw
+prop.table(hmbw)
+summary(Water_extraction_mechanism_Baseline_2018_$how_many_bore_wells_do_you_ow)
+hmbw
+1-.3211
+.07
+=
+.073+.0072+.0073
+Water_extraction_mechanism_Baseline_2018_$plot_no_bore_a
+Water_extraction_mechanism_Baseline_2018_$plot_no_bore_b
+Water_extraction_mechanism_Baseline_2018_$plot_no_bore_c
+table(Water_extraction_mechanism_Baseline_2018_$plot_no_bore_a)
+table(Water_extraction_mechanism_Baseline_2018_$plot_no_bore_b)
+table(Water_extraction_mechanism_Baseline_2018_$plot_no_bore_c)
+View(Water_extraction_mechanism_Baseline_2018_)
+summary(Water_extraction_mechanism_Baseline_2018_$cost_of_construction__bw_a)
+table(Water_extraction_mechanism_Baseline_2018_$cost_of_construction__bw_a)
+attach(Water_extraction_mechanism_Baseline_2018_)
+cost_of_construction__bw_a
+cost_of_construction__bw_b
+summary(Water_extraction_mechanism_Baseline_2018_$cost_of_construction__bw_a)
+summary(Water_extraction_mechanism_Baseline_2018_$cost_of_construction__bw_b)
+library(dplyr)
+bind_rows(cost_of_construction__bw_a,cost_of_construction__bw_b)
+Multiple_dataframe <- data.frame(cost_of_construction__bw_a,cost_of_construction__bw_b)
+Multiple_dataframe
+Multiple_dataframe <- data.frame(cost_of_construction__bw_a,cost_of_construction__bw_b,cost_of_construction__bw_c)
+Multiple_dataframe
+data.frame(cost_of_construction__bw = unlist( Multiple_dataframe, use.names = FALSE))
+137*3
+cost_of_construction__3bw <- data.frame(cost_of_construction__bw = unlist( Multiple_dataframe, use.names = FALSE))
+cost_of_construction__3bw
+rm(Multiple_dataframe)
+summary(cost_of_construction__3bw)
+fix(cost_of_construction__3bw)
+cost_of_construction__3bw
+fix(cost_of_construction__3bw)
+class(Demography_2_Baseline_2018_)
+class(cost_of_construction__3bw)
+summary(cost_of_construction__3bw)
+cost_of_construction__3bw[-9]
+cost_of_construction__3bw[c(-9)]
+cost_of_construction__3bw[-9,]
+cost_of_construction__3bw
+cost_of_construction__3bw[-9,]
+summarycost_of_construction__3bw[-9,]
+summary(cost_of_construction__3bw)[-9,]
+summary(cost_of_construction__3bw)
+cost_of_construction__3bw[-9,]
+cost_of_construction__3bw <- cost_of_construction__3bw[-9,]
+summary(cost_of_construction__3bw)
+View(Water_extraction_mechanism_Baseline_2018_)
+View(land_TC_18)
+table(Water_extraction_mechanism_Baseline_2018_$fund_the_cost__bw_a)
+table(Water_extraction_mechanism_Baseline_2018_$fund_the_cost__bw_b)
+table(Water_extraction_mechanism_Baseline_2018_$fund_the_cost__bw_a)
+table(Water_extraction_mechanism_Baseline_2018_$fund_the_cost__bw_b)
+table(Water_extraction_mechanism_Baseline_2018_$fund_the_cost__bw_c)
+table(Water_extraction_mechanism_Baseline_2018_$fund_the_cost__bw_a)
+table(Water_extraction_mechanism_Baseline_2018_$fund_the_cost__bw_b)
+table(Water_extraction_mechanism_Baseline_2018_$fund_the_cost__bw_c)
+87+28+9
+124+4+9
+124/137
+4/137
+9/137
+fund_the_cost__bw_a
+Water_extraction_mechanism_Baseline_2018_$subsidy__bw_a
+table(Agriculture_Baseline_2018_$name_of_crop)
+mean(Agriculture_Baseline_2018_$name_of_crop)
+table(Agriculture_Baseline_2018_$when_is_crop_sowed)
+cult_area_under_crop>0) %>%
+summarise(mean=mean(cult_area_under_crop),
+median=median(cult_area_under_crop),
+sd=sd(cult_area_under_crop),
+min=min(cult_area_under_crop),
+max=max(cult_area_under_crop))
+library(dplyr)
+cult_area_under_crop>0) %>%
+summarise(mean=mean(cult_area_under_crop),
+median=median(cult_area_under_crop),
+sd=sd(cult_area_under_crop),
+min=min(cult_area_under_crop),
+max=max(cult_area_under_crop))
+Agriculture_Baseline_2018_
+Agriculture_Baseline_2018_%>% filter(!is.na(cult_area_under_crop),
+cult_area_under_crop>0) %>%
+summarise(mean=mean(cult_area_under_crop),
+median=median(cult_area_under_crop),
+sd=sd(cult_area_under_crop),
+min=min(cult_area_under_crop),
+max=max(cult_area_under_crop))
+cult_area_under_crop
+cult_area_under_crop
+attach(Agriculture_Baseline_2018_)
+cult_area_under_crop
+cult_area_crop18<- agri_TC_18 %>% filter(!is.na(cult_area_under_crop))
+cult_area_crop18
+cult_area_crop18 %>%
+summarise(
+count= n(),
+mean = mean(cult_area_under_crop,na.rm = T),
+sd = sd(cult_area_under_crop,na.rm = T))
+Agriculture_Baseline_2018_%>% filter(!is.na(cult_area_under_crop),
+cult_area_under_crop>0) %>%
+summarise(mean=mean(cult_area_under_crop),
+median=median(cult_area_under_crop),
+sd=sd(cult_area_under_crop),
+min=min(cult_area_under_crop),
+max=max(cult_area_under_crop))
+tidyverse?
+library(tidyverse)
+install.packages("tidyverse")
+Agriculture_Baseline_2018_ %>% select(name_of_crop,no_of_irrigation_for_1_katha,
+hrs_irr_1katha) %>%
+filter(!is.na(no_of_irrigation_for_1_katha),!is.na(hrs_irr_1katha)
+,name_of_crop %in% c("RED LENTIL","PADDY",
+"WHEAT","SUGARCANE","MAIZE")) %>%
+group_by(name_of_crop) %>%
+mutate(ir=no_of_irrigation_for_1_katha*hrs_irr_1katha) %>%
+summarise(mean=mean(ir),median=median(ir),sd=sd(ir),
+min=min(ir),max=max(ir))
+library(tidyverse)
+library(dplyr)
+Agriculture_Baseline_2018_ %>% select(name_of_crop,no_of_irrigation_for_1_katha,
+hrs_irr_1katha) %>%
+filter(!is.na(no_of_irrigation_for_1_katha),!is.na(hrs_irr_1katha)
+,name_of_crop %in% c("RED LENTIL","PADDY",
+"WHEAT","SUGARCANE","MAIZE")) %>%
+group_by(name_of_crop) %>%
+mutate(ir=no_of_irrigation_for_1_katha*hrs_irr_1katha) %>%
+summarise(mean=mean(ir),median=median(ir),sd=sd(ir),
+min=min(ir),max=max(ir))
+View(aaTC)
+library(dplyr)
+library(tidyverse)
+View(aaTC)
+View(Agriculture_Baseline_2018_)
+View(Aquaculture_Baseline_2018_)
+View(Agriculture_Baseline_2018_)
+View(Lands_I_Baseline_2018_)
+View(Lands_Baseline_2018_)
+View(land_TC_18)
+View(Aquaculture_Baseline_2018_)
+#annaul
+land_TC_18 %>% filter(!is.na(total_land_cultivated))%>%
+summarise(count= n(),mean = mean(total_land_cultivated),
+sd = sd(total_land_cultivated))
+library(dplyr)
+land_TC_18 %>% filter(!is.na(total_land_cultivated))%>%
+summarise(count= n(),mean = mean(total_land_cultivated),
+sd = sd(total_land_cultivated))
+a<-land_TC_18 %>% filter(!is.na(total_land_cultivated)
+a<-land_TC_18 %>% filter(!is.na(total_land_cultivated))
+attach(land_TC_18)
+a<-land_TC_18 %>% filter(!is.na(total_land_cultivated))
+hist(A)
+a
+a<-!is.na(total_land_cultivated)
+a
+hist(total_land_lease_sharecrop_in)
+hist(total_land_cultivated)
+attach(Aquaculture_Baseline_2018_)
+hist(practice_aquaculture)
+hist(total_area_of_pond)
+View(Agriculture_Baseline_2018_)
+View(agri_TC_18)
+library(dplyr)
+View(aaTC)
+rm(aaTC)
+View(agri_TC_18)
+View(Agriculture_Baseline_2018_)
+a <- c(1,3,7)
+s <- a
+a <- s
+a <- s
+R.Agriculture_Baseline_2018_ <- agri_TC_18
+View(R.Agriculture_Baseline_2018_)
+rm(agri_TC_18)
+View(Agriculture_Baseline_2018_)
+View(Aquaculture_Baseline_2018_)
+View(cult_area_crop18)
+cult_area_crop18
+View(Agriculture_Baseline_2018_)
+View(cultivated_size)
+View(tblcult_area_crop18)
+View(tbl_cultivated_size18)
+View(tblcult_area_crop18)
+View(cult_area_crop18)
+View(R.Agriculture_Baseline_2018_)
+agri_TC_18
+Agriculture_Baseline_2018_ %>% filter(!is.na(cult_area_under_crop))
+Agriculture_Baseline_2018_ %>% filter(!is.na(cult_area_under_crop))%>%
+summarise(
+count= n(),
+mean = mean(cult_area_under_crop,na.rm = T),
+sd = sd(cult_area_under_crop,na.rm = T))
+tblcult_area_crop18
+rm(tblcult_area_crop18)
+View(tbl_cultivated_size18)
+land_TC_18
+View(land_TC_18)
+View(irrigation_ratio18)
+View(Lands_Baseline_2018_)
+Lands_Baseline_2018_ %>% filter(!is.na(total_land_cultivated))%>%
+group_by(season) %>%
+summarise(count= n(),mean = mean(total_land_cultivated),
+sd = sd(total_land_cultivated))
+Lands_Baseline_2018_ %>% filter(!is.na(total_land_cultivated))%>%
+summarise(count= n(),mean = mean(total_land_cultivated),
+sd = sd(total_land_cultivated))
+irrigation_ratio18
+irrigation_ratio18%>% group_by(season) %>%
+summarise(count = n(),
+mean = mean(Ir_Retio),
+SD=sd(Ir_Retio))
+View(tbl_cultivated_size18)
+View(irrigation_ratio18)
+View(land_TC_18)
+Lands_Baseline_2018_ %>% filter(Ir_Retio<=1,season!="ANNAUL 2074-75")%>%
+summarise(count = n(),mean = mean(Ir_Retio),SD=sd(Ir_Retio))
+rm(irrigation_ratio18)
+R.Lands_Baseline_2018_ <- land_TC_18
+View(R.Lands_Baseline_2018_)
+View(land_TC_18)
+View(R.Lands_Baseline_2018_)
+rm(land_TC_18)
+R.Lands_Baseline_2018_%>% group_by(season) %>%
+summarise(count = n(),
+mean = mean(Ir_Retio),
+SD=sd(Ir_Retio))
+R.Lands_Baseline_2018_%>% group_by(season) %>%
+summarise(count = n(),
+mean = mean(Ir_Retio,na.rm = T),
+SD=sd(Ir_Retio,na.rm = T))
+View(cult_area_crop18)
+View(Agriculture_Baseline_2018_)
+View(R.Agriculture_Baseline_2018_)
+rm(cult_area_crop18)
+View(R.Lands_Baseline_2018_)
+View(R.Agriculture_Baseline_2018_)
+R.Lands_Baseline_2018_ %>% rename( ir= )
+attach(R.Agriculture_Baseline_2018_)
+R.Lands_Baseline_2018_ %>% rename( no_ir_hr_cropseason =ir_katha )
+R.Lands_Baseline_2018_ %>% rename(no_ir_hr_cropseason=ir_katha)
+R.Agriculture_Baseline_2018_ %>% rename(no_ir_hr_cropseason=ir_katha)
+View(R.Agriculture_Baseline_2018_)
+View(R.Agriculture_Baseline_2018_)
+R.Agriculture_Baseline_2018_
+View(tbl_cultivated_size18)
+View(R.Agriculture_Baseline_2018_)
+View(cultivated_size)
+View(R.Agriculture_Baseline_2018_)
+View(cultivated_size)
+View(R.Lands_Baseline_2018_)
+rm(cultivated_size)
+View(tbl_cultivated_size18)
+rm(tbl_cultivated_size18,a,cost_of_construction__3bw,hmbw,s)
+View(R.Agriculture_Baseline_2018_)
+R.Agriculture_Baseline_2018_ %>% rename(no_ir_hr_cropseason=ir_katha)
+R.Agriculture_Baseline_2018_ <- R.Agriculture_Baseline_2018_ %>% rename(no_ir_hr_cropseason=ir_katha)
+View(R.Agriculture_Baseline_2018_)
+save.image("~/R/story/d.RData")
+table(Agriculture_Baseline_2018_$name_of_crop)
+table(Agriculture_Baseline_2018_$season_of_crop)
+View(R.Agriculture_Baseline_2018_)
+View(R.Lands_Baseline_2018_)
+Lands_Baseline_2018_ %>% filter(Ir_Retio<=1,season!="ANNAUL 2074-75")%>%
+summarise(count = n(),mean = mean(Ir_Retio),SD=sd(Ir_Retio))
+R.Lands_Baseline_2018_ %>% filter(Ir_Retio<=1,season!="ANNAUL 2074-75")%>%
+summarise(count = n(),mean = mean(Ir_Retio),SD=sd(Ir_Retio))
+#total_land_cultivated----
+#seasons
+Lands_Baseline_2018_ %>% filter(!is.na(total_land_cultivated))%>%
+group_by(season) %>%
+summarise(count= n(),mean = mean(total_land_cultivated),
+sd = sd(total_land_cultivated))
+#Year
+Lands_Baseline_2018_ %>% filter(!is.na(total_land_cultivated))%>%
+summarise(count= n(),mean = mean(total_land_cultivated),
+sd = sd(total_land_cultivated))
+#Irrigation ratio----
+#ANNAUL
+R.Lands_Baseline_2018_ %>% filter(Ir_Retio<=1,season!="ANNAUL 2074-75")%>%
+summarise(count = n(),mean = mean(Ir_Retio),SD=sd(Ir_Retio))
+#season
+R.Lands_Baseline_2018_%>% group_by(season) %>%
+summarise(count = n(),
+mean = mean(Ir_Retio,na.rm = T),
+SD=sd(Ir_Retio,na.rm = T))
+Lands_Baseline_2018_ %>% filter(!is.na(total_land_cultivated))%>%
+group_by(season) %>%
+summarise(count= n(),mean = mean(total_land_cultivated),
+sd = sd(total_land_cultivated))
+Lands_Baseline_2018_ %>% filter(!is.na(total_land_cultivated))%>%
+summarise(count= n(),mean = mean(total_land_cultivated),
+sd = sd(total_land_cultivated))
+R.Lands_Baseline_2018_ %>% filter(Ir_Retio<=1,season!="ANNAUL 2074-75")%>%
+summarise(count = n(),mean = mean(Ir_Retio),SD=sd(Ir_Retio))
+R.Lands_Baseline_2018_%>% group_by(season) %>%
+summarise(count = n(),
+mean = mean(Ir_Retio,na.rm = T),
+SD=sd(Ir_Retio,na.rm = T))
+renamed "~/story" as "~/story1"
+renamed "~/story" as "~/story1"
+renamed "~/story" as "~/myproject1"
+View(Agriculture_Baseline_2018_)
+View(Lands_I_Baseline_2018_)
+View(Lands_Baseline_2018_)

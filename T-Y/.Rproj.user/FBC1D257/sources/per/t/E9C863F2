@@ -1,0 +1,27 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1578422776408.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3826279805",
+    "id" : "E9C863F2",
+    "lastKnownWriteTime" : 1581354052,
+    "last_content_update" : 1581354052615,
+    "path" : "~/R/T-Y/height.R",
+    "project_path" : "height.R",
+    "properties" : {
+        "cursorPosition" : "9,0",
+        "notebook_format" : "pdf_document",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

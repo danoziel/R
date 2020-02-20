@@ -1,0 +1,8 @@
+#Water_buying_details_
+summary(Water_buying_details_Baseline_2018_$dist_plot_frm_borewell_buy)
+table(Water_buying_details_Baseline_2018_$dist_plot_frm_borewell_buy)
+
+
+#Water_selling_
+summary(Water_selling_Baseline_2018_$dist_plot_frm_borewell_sell)
+table(Water_selling_Baseline_2018_$dist_plot_frm_borewell_sell)

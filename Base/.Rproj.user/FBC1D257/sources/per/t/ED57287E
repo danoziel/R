@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1580915637627.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4263036536",
+    "id" : "ED57287E",
+    "lastKnownWriteTime" : 1580980012,
+    "last_content_update" : 1580980012,
+    "path" : "~/R/Base/total land.R",
+    "project_path" : "total land.R",
+    "properties" : {
+        "cursorPosition" : "6,19",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

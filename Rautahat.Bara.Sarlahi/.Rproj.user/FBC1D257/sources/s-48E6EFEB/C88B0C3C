@@ -1,0 +1,33 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1582192071629.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "C88B0C3C",
+    "lastKnownWriteTime" : 3548067076488918113,
+    "last_content_update" : 1582192071629,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "E12F588A",
+        "caption" : "Aquaculture_Baseline_2018_",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=Aquaculture_Baseline_2018_&cache_key=E12F588A",
+        "displayedObservations" : 137,
+        "environment" : "",
+        "expression" : "Aquaculture_Baseline_2018_",
+        "object" : "Aquaculture_Baseline_2018_",
+        "preview" : 0,
+        "totalObservations" : 137,
+        "variables" : 20
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

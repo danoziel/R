@@ -1,0 +1,33 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1581943652713.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "864A3E5A",
+    "lastKnownWriteTime" : 7234321835778667369,
+    "last_content_update" : 1581943652713,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "86CDFC5E",
+        "caption" : "Tal_YA_vegetables_Weekly_Survey",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=Tal_YA_vegetables_Weekly_Survey&cache_key=86CDFC5E",
+        "displayedObservations" : "29",
+        "environment" : "",
+        "expression" : "Tal_YA_vegetables_Weekly_Survey",
+        "object" : "Tal_YA_vegetables_Weekly_Survey",
+        "preview" : "0",
+        "totalObservations" : "29",
+        "variables" : "110"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}
