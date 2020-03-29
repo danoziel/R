@@ -59,6 +59,7 @@ table_match1 <- CreateTableOne(vars =xvars ,strata = "TC",data = match1.data,tes
 print(table_match1, smd = TRUE)
 
 ####### Nearest Neighbour Matching-----
+####### Nearest Neighbour Matching-----
 match2 <- matchit(pscores.model, method="nearest", radio=1,data=Data)
 match2.data <- match.data(match2)
 
