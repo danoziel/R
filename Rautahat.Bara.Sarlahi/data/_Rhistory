@@ -1,0 +1,101 @@
+load("~/Rautahat.Bara.Sarlahi/d.RData")
+#name_of_crop----
+noc<-table(Agriculture_Baseline_2018_$name_of_crop)
+source('C:/Users/db32/Google Drive/Rautahat.Bara.Sarlahi/Aquaculture_.R', encoding = 'UTF-8')
+load("C:/Users/db32/Google Drive/Rautahat.Bara.Sarlahi/d.RData")
+View(Agriculture_Baseline_2018_)
+View(Agriculture_Baseline_2018_)
+noc<-table(Agriculture_Baseline_2018_$name_of_crop)
+prop.table(noc)
+prop.table(noc)[c("RED LENTIL","PADDY","WHEAT","SUGARCANE","MAIZE")]
+barplot(prop.table(noc)[c("RED LENTIL","PADDY","WHEAT","SUGARCANE","MAIZE")]
+, main="Crop %",col="red")
+mean(Agriculture_Baseline_2018_$name_of_crop)
+soc<-table(Agriculture_Baseline_2018_$season_of_crop)[c(-4)]
+prop.table(soc)
+barplot(prop.table(soc))
+soc<-table(Agriculture_Baseline_2018_$season_of_crop)[c(-4)]
+prop.table(soc)
+barplot(prop.table(soc))
+#Monsoon  Winter  Summer  Annual
+#   1       2       3       4
+wics<-table(Agriculture_Baseline_2018_$when_is_crop_sowed)
+prop.table(wics)[c("3","7","8")]
+barplot(prop.table(wics)[c("3","7","8")])
+wich<-table(Agriculture_Baseline_2018_$when_is_crop_harvested)
+prop.table(wich)[c("8","11","12")]
+barplot(prop.table(wich)[c("8","11","12")])
+Agriculture_Baseline_2018_%>% filter(!is.na(cult_area_under_crop),
+cult_area_under_crop>0) %>%
+summarise(mean=mean(cult_area_under_crop),
+median=median(cult_area_under_crop),
+sd=sd(cult_area_under_crop),
+min=min(cult_area_under_crop),
+max=max(cult_area_under_crop))
+Agriculture_Baseline_2018_ %>% filter(!is.na(cult_area_under_crop))%>%
+summarise(
+count= n(),
+mean = mean(cult_area_under_crop,na.rm = T),
+sd = sd(cult_area_under_crop,na.rm = T))
+Agriculture_Baseline_2018_ %>% select(name_of_crop,no_of_irrigation_for_1_katha, hrs_irr_1katha) %>%
+filter(!is.na(no_of_irrigation_for_1_katha),!is.na(hrs_irr_1katha)
+,name_of_crop %in% c("RED LENTIL","PADDY",
+"WHEAT","SUGARCANE","MAIZE")) %>%
+group_by(name_of_crop) %>%
+mutate(ir=no_of_irrigation_for_1_katha*hrs_irr_1katha) %>%
+summarise(mean=mean(ir),median=median(ir),sd=sd(ir),
+min=min(ir),max=max(ir))
+Agriculture_Baseline_2018_%>% filter(!is.na(cult_area_under_crop),
+cult_area_under_crop>0) %>%
+summarise(mean=mean(cult_area_under_crop),
+median=median(cult_area_under_crop),
+sd=sd(cult_area_under_crop),
+min=min(cult_area_under_crop),
+max=max(cult_area_under_crop))
+install.packages("magrittr")
+library(magrittr)
+Agriculture_Baseline_2018_%>% filter(!is.na(cult_area_under_crop),
+cult_area_under_crop>0) %>%
+summarise(mean=mean(cult_area_under_crop),
+median=median(cult_area_under_crop),
+sd=sd(cult_area_under_crop),
+min=min(cult_area_under_crop),
+max=max(cult_area_under_crop))
+Agriculture_Baseline_2018_%>% filter(!is.na(cult_area_under_crop), cult_area_under_crop>0) %>%
+summarise(mean=mean(cult_area_under_crop),
+median=median(cult_area_under_crop),
+sd=sd(cult_area_under_crop),
+min=min(cult_area_under_crop),
+max=max(cult_area_under_crop))
+Agriculture_Baseline_2018_$cult_area_under_crop
+load("C:/Users/db32/Google Drive/Rautahat.Bara.Sarlahi/d.RData")
+View(Agriculture_Baseline_2018_)
+View(Agriculture_Baseline_2018_)
+View(Agriculture_Baseline_2018_)
+View(Agriculture_Baseline_2018_)
+View(Aquaculture_Baseline_2018_)
+View(Aquaculture_Baseline_2018_)
+table(Aquaculture_Baseline_2018_$type_of_wem_aqua_p1) #  1 Electric / 2   Diesel
+View(Aquaculture_Baseline_2018_)
+View(Aquaculture_Baseline_2018_)
+summary(Aquaculture_Baseline_2018_$type_of_wem_aqua_p1)
+summary(mean(Aquaculture_Baseline_2018_$type_of_wem_aqua_p1))
+replace(Aquaculture_Baseline_2018_$type_of_wem_aqua_p1=. if Aquaculture_Baseline_2018_$type_of_wem_aqua_p1=NA)
+replace.value(Aquaculture_Baseline_2018_$type_wem_aquaculture,c("NA","NaN"))
+mean(Aquaculture_Baseline_2018_$type_of_wem_aqua_p1)
+mean((Aquaculture_Baseline_2018_$type_of_wem_aqua_p1), na.rm=TRUE)
+COUNT((Aquaculture_Baseline_2018_$type_of_wem_aqua_p1), na.rm=TRUE)
+load("C:/Users/db32/Google Drive/Rautahat.Bara.Sarlahi/.RData")
+View(Agriculture_Baseline_2018_)
+setwd("C:/Users/db32/Google Drive/Rautahat.Bara.Sarlahi")
+load("C:/Users/db32/Google Drive/Rautahat.Bara.Sarlahi/.RData")
+View(Agriculture_Baseline_2018_)
+barplot(prop.table(noc)[c("RED LENTIL","PADDY","WHEAT","SUGARCANE","MAIZE")]
+, main="Crop %",col="red")
+noc<-table(Agriculture_Baseline_2018_$name_of_crop)
+prop.table(noc)
+prop.table(noc)[c("RED LENTIL","PADDY","WHEAT","SUGARCANE","MAIZE")]
+barplot(prop.table(noc)[c("RED LENTIL","PADDY","WHEAT","SUGARCANE","MAIZE")]
+, main="Crop %",col="red")
+mean(Agriculture_Baseline_2018_$name_of_crop)
+library(zrsaSpatialWorkshop)

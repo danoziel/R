@@ -1,0 +1,7 @@
+# RBS
+table(Water_extraction_mechanism_Baseline_2018_$)
+table(Water_extraction_mechanism_Endline_EPC_2019_$)
+# saptari
+table(Water_extraction_mechanism_Baseline_2017_$)
+table(Water_extraction_mechanism_Midline_2018_$)
+table(Water_extraction_mechanisms_Endline_2019_Saptari$)
