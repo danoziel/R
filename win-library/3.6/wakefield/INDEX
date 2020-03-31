@@ -1,0 +1,96 @@
+age                     Generate Random Vector of Ages
+animal                  Generate Random Vector of animals
+animal_list             Animal List
+answer                  Generate Random Vector of Answers (Yes/No)
+area                    Generate Random Vector of Areas
+as_integer              Convert a Factor Data Frame to Integer
+car                     Generate Random Vector of Cars
+children                Generate Random Vector of Number of Children
+coin                    Generate Random Vector of Coin Flips
+color                   Generate Random Vector of Colors
+date_stamp              Generate Random Vector of Dates
+death                   Generate Random Vector of Deaths Outcomes
+dice                    Generate Random Vector of Dice Throws
+dna                     Generate Random Vector of DNA Nucleobases
+dob                     Generate Random Vector of Birth Dates
+dummy                   Generate Random Dummy Coded Vector
+education               Generate Random Vector of Educational
+                        Attainment Level
+employment              Generate Random Vector of Employment Statuses
+eye                     Generate Random Vector of Eye Colors
+grade                   Generate Random Vector of Grades
+grade_level             Generate Random Vector of Grade Levels
+grady_augmented         Augmented List of Grady Ward's English Words
+                        and Mark Kantrowitz's Names List
+group                   Generate Random Vector of Control/Treatment
+                        Groups
+hair                    Generate Random Vector of Hair Colors
+height                  Generate Random Vector of Heights
+hour                    Generate a Random Sequence of H:M:S Times
+id                      Identification Numbers
+income                  Generate Random Gamma Vector of Incomes
+internet_browser        Generate Random Vector of Internet Browsers
+interval                Cut Numeric Into Factor
+iq                      Generate Random Vector of Intelligence
+                        Quotients (IQs)
+language                Generate Random Vector of Languages
+languages               Languages of the World
+level                   Generate Random Vector of Levels
+likert                  Generate Random Vector of Likert-Type Responses
+lorem_ipsum             Generate Random Lorem Ipsum Strings
+marital                 Generate Random Vector of Marital Statuses
+military                Generate Random Vector of Military Branches
+minute                  Generate a Random Sequence of Minutes in H:M:S
+                        Format
+month                   Generate Random Vector of Months
+name                    Generate Random Vector of Names
+name_neutral            Gender Neutral Names
+normal                  Generate Random Normal Vector
+peek                    Data Frame Viewing
+plot.tbl_df             Plots a tbl_df Object
+political               Generate Random Vector of Political Parties
+presidential_debates_2012
+                        2012 U.S. Presidential Debate Dialogue
+print.available         Prints an available Object.
+print.variable          Prints a variable Object
+probs                   Generate a Random Vector of Probabilities.
+r_data                  Pre-Selected Column Data Set
+r_data_frame            Data Frame Production (From Variable Functions)
+r_dummy                 Generate Random Dummy Values
+r_insert                Insert Data Frames Into 'r_data_frame'
+r_list                  List Production (From Variable Functions)
+r_na                    Replace a Proportion of Values With NA
+r_sample                Generate Random Vector
+r_sample_binary         Generate Random Binary Vector
+r_sample_factor         Generate Random Factor Vector
+r_sample_integer        Generate Random Integer Vector
+r_sample_logical        Generate Random Logical Vector
+r_sample_ordered        Generate Random Ordered Factor Vector
+r_sample_replace        Generate Random Vector (Without Replacement)
+r_series                Data Frame Series (Repeated Measures)
+race                    Generate Random Vector of Races
+relate                  Create Related Numeric Columns
+religion                Generate Random Vector of Religions
+sat                     Generate Random Vector of Scholastic Aptitude
+                        Test (SATs)
+second                  Generate a Random Sequence of Seconds in H:M:S
+                        Format
+sentence                Generate Random Vector of Sentences
+seriesname              Add Internal Name to Data Frame
+sex                     Generate Random Vector of Genders
+sex_inclusive           Generate Random Vector of Non-Binary Genders
+smokes                  Generate Random Logical Smokes Vector
+speed                   Generate Random Vector of Speeds
+state                   Generate Random Vector of states
+state_populations       State Populations (2010)
+string                  Generate Random Vector of Strings
+table_heat              View Data Table Column Types as Heat Map
+time_stamp              Generate a Random Sequence of Times in H:M:S
+                        Format
+upper                   Generate Random Letter Vector
+valid                   Generate Random Logical Vector
+variables               Available Variable Functions
+varname                 Add Internal Name to Vector
+wakefield               Generate Random Data Sets
+year                    Generate Random Vector of Years
+zip_code                Generate Random Vector of Zip Codes

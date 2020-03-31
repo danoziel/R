@@ -15,12 +15,6 @@ Data <- Data %>% filter(most_imp_source!=0) %>%  na.omit()
 
 Data <- data.frame(Data)
 
-DDDDDD <- Data %>% 
-  mutate(sell = sample(0:1, n(), replace = T))
-
-Data$TC[Data$TC == 1] <- 0
-Data$TC[Data$TC == 2] <- 1
-
 Treats <- subset(Data,  TC == 1)
 colMeans(Treats)
 
@@ -30,8 +24,6 @@ colMeans(Control)
 # Linear regression model-------------------------------------------------------------
 model_1 <- lm(irri_for_season ~ TC + most_imp_source + cult_area_under_crop,data=Data)
 model_1
-
-
 
 Effect <- model_1$coefficients[2]
 Effect
@@ -58,7 +50,6 @@ match1.data <- match.data(match1)
 table_match1 <- CreateTableOne(vars =xvars ,strata = "TC",data = match1.data,test = FALSE)
 print(table_match1, smd = TRUE)
 
-####### Nearest Neighbour Matching-----
 ####### Nearest Neighbour Matching-----
 match2 <- matchit(pscores.model, method="nearest", radio=1,data=Data)
 match2.data <- match.data(match2)
