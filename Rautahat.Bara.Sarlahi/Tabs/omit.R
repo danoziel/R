@@ -10,6 +10,6 @@ Data$TC[Data$TC == 2] <- 1 #replace 2 to 1
 land_Treats <- subset(R.Lands_Baseline_2018_,  TC == 1)
 colMeans(land_Treats)
 
-R.Agriculture_Baseline_2018_$TC[R.Agriculture_Baseline_2018_$TC == 1] <- 0
-R.Agriculture_Baseline_2018_$TC[R.Agriculture_Baseline_2018_$TC == 2] <- 1
+Control_and_treatment_4_districts$TC[Control_and_treatment_4_districts$TC == 1] <- 0
+Control_and_treatment_4_districts$TC[Control_and_treatment_4_districts$TC == 2] <- 1
 

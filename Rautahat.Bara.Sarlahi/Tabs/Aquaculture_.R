@@ -15,7 +15,7 @@ table(R.Aquaculture_Baseline_2018_$ponds_cul_fish)
 summary(R.Aquaculture_Baseline_2018_$total_area_of_pond)
 
 
-#Do all ponds have sufficient water for aquaculture throughout the year?----
+#[11.4] Do all ponds have sufficient water for aquaculture throughout the year?----
 table(R.Aquaculture_Baseline_2018_$suff_water_aquaculture)  # 1 Yes # 2 No #
 
 group_by(R.Aquaculture_Baseline_2018_,suff_water_aquaculture)%>%
@@ -24,8 +24,7 @@ group_by(R.Aquaculture_Baseline_2018_,suff_water_aquaculture)%>%
               sum(R.Aquaculture_Baseline_2018_$total_area_of_pond,na.rm = T)
             )
 
-
-#Is a WEM already in use for filling and draining the ponds?----
+#[11.5] Is a WEM already in use for filling and draining the ponds?----
 table(R.Aquaculture_Baseline_2018_$wem_used_forpond)
 
 group_by(R.Aquaculture_Baseline_2018_,wem_used_forpond)%>%

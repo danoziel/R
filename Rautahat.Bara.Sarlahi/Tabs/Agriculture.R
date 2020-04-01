@@ -3,8 +3,8 @@ R.Agriculture_Baseline_2018_ %>%
   group_by(household_questionnaire_id,name_of_crop) %>%
   summarise(sum_cult_area=sum(cult_area_under_crop))%>%
   group_by(name_of_crop) %>% 
-  summarise(no.HH=n(),no.HH/133
-  )
+  summarise(no.HH=n(),no.HH/133)
+
 # How much of the cultivated area was under this crop: mean & %----
 
 #Monsoon  Winter  Summer  Annual 
@@ -32,7 +32,7 @@ ses <- R.Agriculture_Baseline_2018_ %>%
 # area crop out of area seasom----
 #season_of_crop / name_of_crop 
 
-R.Agriculture_Baseline_2018_ %>%
+ses <- R.Agriculture_Baseline_2018_ %>%
   select(1,3,4,7) %>% 
   group_by(household_questionnaire_id,season_of_crop,name_of_crop) %>%
   summarise(sum1=sum(cult_area_under_crop)) %>% 
@@ -66,20 +66,11 @@ ses <- R.Agriculture_Baseline_2018_ %>%
   select(household_questionnaire_id,cult_area_under_crop,irri_for_season) %>%
   filter(!is.na(irri_for_season))%>% 
   group_by(household_questionnaire_id) %>%
-  summarise(count = n(),m_t=mean(cult_area_under_crop),m_irri = mean(irri_for_season)) %>% 
-  summarise(n(),mean(m_t), mean(m_irri))
+  summarise(n(),cult_area=sum(cult_area_under_crop),irri_season=sum(irri_for_season)) %>% 
+  summarise(mean(irri_season),mean(cult_area),n.HH= n())
+
 
 #irrigationfor one crop season IN HOURS
-#season/crop
-
-ses <- R.Agriculture_Baseline_2018_ %>%
-  filter(!is.na(irri_for_season))%>%
-  group_by(household_questionnaire_id,season_of_crop,name_of_crop) %>%
-  summarise(count = n(),
-            sum_irri=sum(irri_for_season),
-            m_irri=mean(irri_for_season)) %>% 
-  group_by(season_of_crop,name_of_crop) %>% 
-  summarise(n(), mean(m_irri))
 
 # season
 ses <- R.Agriculture_Baseline_2018_ %>%
@@ -102,26 +93,26 @@ ses <- R.Agriculture_Baseline_2018_ %>%
   group_by(name_of_crop) %>% 
   summarise(n(), mean(m_irri))
 
+#season/crop
+
+ses <- R.Agriculture_Baseline_2018_ %>%
+  filter(!is.na(irri_for_season))%>%
+  group_by(household_questionnaire_id,season_of_crop,name_of_crop) %>%
+  summarise(count = n(),
+            sum_irri=sum(irri_for_season)) %>% 
+  group_by(season_of_crop,name_of_crop) %>% 
+  summarise(n(), mean(sum_irri))
+
+
 #--------------irrigation IN HOURS------TC---
 Treats <- subset(R.Agriculture_Baseline_2018_,  TC == 1)
 
-#irrigation for HH IN HOURS-TC
-ses <- Treats %>%
-  select(household_questionnaire_id,cult_area_under_crop,irri_for_season) %>%
-  filter(!is.na(irri_for_season))%>% 
-  group_by(household_questionnaire_id) %>%
-  summarise(count = n(),m_cult_area=mean(cult_area_under_crop),m_irri = mean(irri_for_season)) %>% 
-  summarise(n(),mean(m_cult_area), mean(m_irri))
 
-# season -TC
-ses <- Treats %>%
-  filter(!is.na(irri_for_season),!is.na(season_of_crop))%>% 
-  group_by(household_questionnaire_id,season_of_crop) %>% 
-  summarise(count = n(),
-            sum=sum(irri_for_season),
-            m_irri=mean(irri_for_season)) %>% 
-  group_by(season_of_crop) %>% 
-  summarise(n(), mean(m_irri))
+
+
+
+
+
 
 
 #[5.6] most_imp_source--------

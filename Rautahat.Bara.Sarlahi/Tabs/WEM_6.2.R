@@ -63,6 +63,11 @@ ses <- R.WEM_liter_hr_season %>%
             monsoon=mean(p123_m), summer=mean(p123_s), winter=mean(p123_w),
             Year=mean(p123_year))
 
+ses <- R.WEM_liter_hr_season %>%
+  summarise(HH=n(),
+            monsoon=sum(p123_m), summer=sum(p123_s), winter=sum(p123_w),
+            Year=sum(p123_year))
+
 # [6.19] How many horse power (HP)?----
 R.Water_extraction_mechanism_Baseline_2018_ %>% 
   select(1,67:69) %>%
@@ -89,7 +94,7 @@ ses <- R.Water_extraction_mechanism_Baseline_2018_ %>%
 table(R.Water_extraction_mechanism_Baseline_2018_$sell_water_or_rent_out__p_1) #all 18 have fuel pumps
 
 # [6.33] what percentage was for selling?----		
-ses <- R.Water_extraction_mechanism_Baseline_2018_ %>% 
+selling <- R.Water_extraction_mechanism_Baseline_2018_ %>% 
   select(1,pump_type__p_1,100:101,112:113,124,125,136,137) %>% 
   filter(!is.na(pump_type__p_1),sell_water_or_rent_out__p_1=="1",
          !(household_questionnaire_id %in% c("T300901113","T300901112"))) %>%
@@ -101,7 +106,7 @@ ses <- R.Water_extraction_mechanism_Baseline_2018_ %>%
             mean_per_sell_w=mean(avw_sell),mean_per_sell_y=mean(avy_sell))
 
 # [6.32]what percentage was for self-use/own plot?----		
-ses <- R.Water_extraction_mechanism_Baseline_2018_ %>% 
+self <- R.Water_extraction_mechanism_Baseline_2018_ %>% 
   select(1,pump_type__p_1,100:101,109:110,121,122,133,134) %>% 
   filter(!is.na(pump_type__p_1),sell_water_or_rent_out__p_1=="1",
          !(household_questionnaire_id %in% c("T300901113","T300901112"))) %>%
