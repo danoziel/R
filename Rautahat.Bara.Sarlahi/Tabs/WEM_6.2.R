@@ -4,17 +4,20 @@
 #|---------------------------------------------|#
 
 # [6.17]What is the type of the pump?----
-table(Water_extraction_mechanism_Baseline_2018_$pump_type__p_1) # 104 p for all HH
-# 1=Electric pump 
+ # 1=Electric pump 
 # 2=Diesel pump
 # 3= CD pump/Vuplator
 # 4= Solar pump
 
-ses <- R.Water_extraction_mechanism_Baseline_2018_ %>%
+# "T302501007" "T305001121"- own electric pump-said yes to 'buy fuel' at 7.2 section
+# "T302608007" - own fuel pump-NA to 'buy fuel' at 7.2 section
+# "T309303010" - own fuel pump-said no to 'buy fuel' at 7.2 section
+
+# [6.17]
+as <- R.Water_extraction_mechanism_Baseline_2018_ %>%
   filter(!is.na(pump_type__p_1)) %>% 
   group_by(pump_type__p_1) %>% 
   summarise(n(),Percent= n()/104)
-
 
 # Editing the df:"total liter for a season"----
 
@@ -26,8 +29,8 @@ R.WEM_liter_hr_season[R.WEM_liter_hr_season == 0] <- NA
 
 # rm liters [6.18]: higt amount & NA                      
 R.WEM_liter_hr_season <- R.WEM_liter_hr_season %>%
-  filter(!is.na(liters_of_fuels_p_hour_p_1)|!is.na(liters_of_fuels_p_hour_p_2),
-         liters_of_fuels_p_hour_p_2>0|liters_of_fuels_p_hour_p_1<5)
+  filter(!is.na(liters_of_fuels_p_hour_p_1)|!is.na(liters_of_fuels_p_hour_p_2))
+         # liters_of_fuels_p_hour_p_2>0|liters_of_fuels_p_hour_p_1<5)
 
 # rm [6.31 6.35 6.39] hr>24
 library(naniar)
@@ -54,8 +57,7 @@ R.WEM_liter_hr_season[, 23:31][is.na(R.WEM_liter_hr_season[, 23:31])] <- 0 # Rep
 
 R.WEM_liter_hr_season <- R.WEM_liter_hr_season %>%
   mutate(p123_s=p1_s+p2_s+p3_s, p123_m=p1_m+p2_m+p3_m, p123_w=p1_w+p2_w+p3_w,
-         p123_year=p1_s+p2_s+p3_s+p1_m+p2_m+p3_m+p1_w+p2_w+p3_w)%>%
-  filter(p123_year>0)
+         p123_year=p1_s+p2_s+p3_s+p1_m+p2_m+p3_m+p1_w+p2_w+p3_w)
 
 # how many liters of fuel in a season per HH (df: R.WEM_liter_hr_season)----
 ses <- R.WEM_liter_hr_season %>%
@@ -63,10 +65,6 @@ ses <- R.WEM_liter_hr_season %>%
             monsoon=mean(p123_m), summer=mean(p123_s), winter=mean(p123_w),
             Year=mean(p123_year))
 
-ses <- R.WEM_liter_hr_season %>%
-  summarise(HH=n(),
-            monsoon=sum(p123_m), summer=sum(p123_s), winter=sum(p123_w),
-            Year=sum(p123_year))
 
 # [6.19] How many horse power (HP)?----
 R.Water_extraction_mechanism_Baseline_2018_ %>% 
@@ -106,7 +104,7 @@ selling <- R.Water_extraction_mechanism_Baseline_2018_ %>%
             mean_per_sell_w=mean(avw_sell),mean_per_sell_y=mean(avy_sell))
 
 # [6.32]what percentage was for self-use/own plot?----		
-self <- R.Water_extraction_mechanism_Baseline_2018_ %>% 
+aa <- R.Water_extraction_mechanism_Baseline_2018_ %>% 
   select(1,pump_type__p_1,100:101,109:110,121,122,133,134) %>% 
   filter(!is.na(pump_type__p_1),sell_water_or_rent_out__p_1=="1",
          !(household_questionnaire_id %in% c("T300901113","T300901112"))) %>%
@@ -116,9 +114,4 @@ self <- R.Water_extraction_mechanism_Baseline_2018_ %>%
   mutate(avy_self=rowMeans(.[names(.)[5:10]], na.rm = T)) %>% 
   summarise(mean_per_self_m=mean(avm_self),mean_per_self_s=mean(avs_self),
             mean_per_self_w=mean(avw_self,na.rm = T),mean_per_self_y=mean(avy_self))
-
-
-
-
-
 

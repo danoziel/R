@@ -32,7 +32,8 @@ R.Agriculture_Baseline_2018_<- R.Agriculture_Baseline_2018_ %>%
          household_questionnaire_id != "T309708020",
          household_questionnaire_id != "T308707002")
 
-R.Agriculture_Baseline_2018_ <- R.Agriculture_Baseline_2018_ %>% mutate( name_of_crop_detail = name_of_crop ) 
+R.Agriculture_Baseline_2018_ <- R.Agriculture_Baseline_2018_ %>%
+  mutate( name_of_crop_detail = name_of_crop ) 
 
 R.Agriculture_Baseline_2018_$name_of_crop[R.Agriculture_Baseline_2018_$name_of_crop %in%
                                             c("TOMATO","BITTER","BRINJAL","OKRA","GARLIC","ONIONS","RADISH"
@@ -48,11 +49,17 @@ R.Agriculture_Baseline_2018_$name_of_crop[R.Agriculture_Baseline_2018_$name_of_c
 R.Agriculture_Baseline_2018_$name_of_crop[R.Agriculture_Baseline_2018_$name_of_crop %in%
                                             c("GRASS","OATS","BARLEY","MUSTARD","OTHER"
                                             )] <- "others"
+#  Agriculture Endline  # -------------------------------------------------------#
+R.Agriculture_Endline_EPC_2019_ <- R.Agriculture_Endline_EPC_2019_ %>%
+  filter(!is.na(season_of_crop)) #Clear observations with missing values
 
+R.Agriculture_Endline_EPC_2019_ <- R.Agriculture_Endline_EPC_2019_ %>% mutate( name_of_crop_detail = name_of_crop ) 
 
+R.Agriculture_Endline_EPC_2019_$name_of_crop[R.Agriculture_Endline_EPC_2019_$name_of_crop %in%
+                                            c("GREEN GRAM","GRASS PEA","OTHER PULSES")] <- "pulses"
 
-
-
+R.Agriculture_Endline_EPC_2019_$name_of_crop[
+  R.Agriculture_Endline_EPC_2019_$name_of_crop=="GREEN LEAFY VEGETABLE"] <- "vegetables"
 
 
 # WEM----

@@ -1,82 +1,42 @@
 #proprty-----
 
-#Omitting unreliable observations
+###########  Omitting unreliable observations  ########
 R.Lands_I_Baseline_2018_  <- Lands_I_Baseline_2018_ %>% 
   filter(homestead_dwelling_area<80,
-         land_for_aquaculture_ponds<300
-  )
+         land_for_aquaculture_ponds<300)
 
 #homestead_dwelling_area
-ses <- R.Lands_I_Baseline_2018_ %>% 
-  summarise(count = n(),
-            sum=sum(homestead_dwelling_area),
-            mean=mean(homestead_dwelling_area),
-            min=min(homestead_dwelling_area),
-            max=max(homestead_dwelling_area)
-  )
+R_Lands_I_Baseline_2018_ %>% summarise(n(),n()/133,mean(homestead_dwelling_area),n()/133)
 
 # land_for_cultivation
-ses <- R.Lands_I_Baseline_2018_ %>% 
-  filter(land_for_cultivation>0) %>% 
-  summarise(count = n(),
-            sum= sum(land_for_cultivation),
-            mean=mean(land_for_cultivation),
-            min=min(land_for_cultivation),
-            max=max(land_for_cultivation)
-  )
+R_Lands_I_Baseline_2018_ %>% filter(land_for_cultivation>0) %>% 
+  summarise(n(),mean(land_for_cultivation),n()/133)
 
 # land_for_aquaculture_ponds
-ses <- R.Lands_I_Baseline_2018_ %>% 
-  filter(land_for_aquaculture_ponds>0) %>% 
-  summarise(count = n(),
-            sum=sum(land_for_aquaculture_ponds),
-            mean=mean(land_for_aquaculture_ponds),
-            min=min(land_for_aquaculture_ponds),
-            max=max(land_for_aquaculture_ponds)
-  )
+R_Lands_I_Baseline_2018_ %>% filter(land_for_aquaculture_ponds>0) %>% 
+  summarise(n(),mean(land_for_aquaculture_ponds),n()/133)
 
 # perm_fallow_land
-ses <- R.Lands_I_Baseline_2018_ %>% 
-  filter(perm_fallow_land>0) %>% 
-  summarise(count = n(),
-            sum=sum(perm_fallow_land),
-            mean=mean(perm_fallow_land),
-            min=min(perm_fallow_land),
-            max=max(perm_fallow_land)
-  )
+ses <- R_Lands_I_Baseline_2018_ %>% filter(perm_fallow_land>0) %>% 
+  summarise(n(),mean(perm_fallow_land),n()/133)
 
 #orchard_land            
-ses <- R.Lands_I_Baseline_2018_ %>% 
-  filter(orchard_land>0) %>% 
-  summarise(count = n(),
-            sum=sum(orchard_land),
-            mean=mean(orchard_land),
-            min=min(orchard_land),
-            max=max(orchard_land)
-  )  
+ses <- R_Lands_I_Baseline_2018_ %>% filter(orchard_land>0) %>% 
+  summarise(n(),mean(orchard_land),n()/133) 
 
 # total_property
-ses <- R.Lands_I_Baseline_2018_ %>% 
-  filter(total_property>0) %>% 
-  summarise(count = n(),
-            sum=sum(total_property),
-            mean=mean(total_property),
-            min=min(total_property),
-            max=max(total_property)
-  )
+ses <- R_Lands_I_Baseline_2018_ %>% filter(total_property>0) %>% 
+  summarise(n(),mean(total_property),n()/133)
 
 
 
 #women land-----
 
-ses <- R.Lands_I_Baseline_2018_ %>%
+ses <- R_Lands_I_Baseline_2018_ %>%
   filter(woman_homestead>0) %>%
   summarise(count = n(),
             sum=sum(woman_homestead),
-            mean=mean(woman_homestead),
-            min=min(woman_homestead),
-            max=max(woman_homestead),
-            )
+            mean=mean(woman_homestead))
 
 
 ses <- R.Lands_I_Baseline_2018_ %>%
