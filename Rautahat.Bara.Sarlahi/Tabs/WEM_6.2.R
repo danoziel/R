@@ -14,27 +14,27 @@
 # "T309303010" - own fuel pump-said no to 'buy fuel' at 7.2 section
 
 # [6.17]
-as <- R.Water_extraction_mechanism_Baseline_2018_ %>%
+as <- RWater_extraction_mechanism_Baseline_2018_ %>%
   filter(!is.na(pump_type__p_1)) %>% 
   group_by(pump_type__p_1) %>% 
   summarise(n(),Percent= n()/104)
 
 # Editing the df:"total liter for a season"----
 
-R.WEM_liter_hr_season <- R.Water_extraction_mechanism_Baseline_2018_ %>% 
+R_WEM_liter_hr_season <- Water_extraction_mechanism_Baseline_2018_ %>% 
   select(1,61:63,103:108,115:120,127:132)
 
 # Replace all 0 values to NA
 R.WEM_liter_hr_season[R.WEM_liter_hr_season == 0] <- NA
 
 # rm liters [6.18]: higt amount & NA                      
-R.WEM_liter_hr_season <- R.WEM_liter_hr_season %>%
+R_WEM_liter_hr_season <- R_WEM_liter_hr_season %>%
   filter(!is.na(liters_of_fuels_p_hour_p_1)|!is.na(liters_of_fuels_p_hour_p_2))
          # liters_of_fuels_p_hour_p_2>0|liters_of_fuels_p_hour_p_1<5)
 
 # rm [6.31 6.35 6.39] hr>24
 library(naniar)
-R.WEM_liter_hr_season <- R.WEM_liter_hr_season %>%
+R_WEM_liter_hr_season <- R_WEM_liter_hr_season %>%
   replace_with_na(replace = list(hours_per_day_use_s__p_1=c(25,80),
                                  hours_per_day_use_s__p_2=c(40,60),
                                  hours_per_day_use_m__p_1=c(25),
@@ -42,7 +42,7 @@ R.WEM_liter_hr_season <- R.WEM_liter_hr_season %>%
                                  hours_per_day_use_w__p_1=c(24) ))
 
 # "total liter for a season" - New VARs
-R.WEM_liter_hr_season <- R.WEM_liter_hr_season %>% 
+R_WEM_liter_hr_season <- R_WEM_liter_hr_season %>% 
   mutate(p1_s=liters_of_fuels_p_hour_p_1*days_in_a_season_pump_use_s_p1*hours_per_day_use_s__p_1,
          p2_s=liters_of_fuels_p_hour_p_2*days_in_a_season_pump_use_s_p2*hours_per_day_use_s__p_2,
          p3_s=liters_of_fuels_p_hour_p_3*days_in_a_season_pump_use_s_p3*hours_per_day_use_s__p_3) %>%
@@ -53,17 +53,21 @@ R.WEM_liter_hr_season <- R.WEM_liter_hr_season %>%
          p2_w=liters_of_fuels_p_hour_p_2*days_in_a_season_pump_use_w_p2*hours_per_day_use_w__p_2,
          p3_w=liters_of_fuels_p_hour_p_3*days_in_a_season_pump_use_w_p3*hours_per_day_use_w__p_3)
 
-R.WEM_liter_hr_season[, 23:31][is.na(R.WEM_liter_hr_season[, 23:31])] <- 0 # Replace  NA values to 0 on new VARs
+R_WEM_liter_hr_season[, 23:31][is.na(R_WEM_liter_hr_season[, 23:31])] <- 0 # Replace  NA values to 0 on new VARs
 
-R.WEM_liter_hr_season <- R.WEM_liter_hr_season %>%
+R_WEM_liter_hr_season <- R_WEM_liter_hr_season %>%
   mutate(p123_s=p1_s+p2_s+p3_s, p123_m=p1_m+p2_m+p3_m, p123_w=p1_w+p2_w+p3_w,
          p123_year=p1_s+p2_s+p3_s+p1_m+p2_m+p3_m+p1_w+p2_w+p3_w)
 
+R_WEM_liter_hr_season[,32:35][R_WEM_liter_hr_season[,32:35] == 0] <- NA
+
+R_WEM_liter_hr_season[,32:35][is.na(R_WEM_liter_hr_season[,32:35])] <- 0 # Replace  NA values to 0 on new VARs
+
 # how many liters of fuel in a season per HH (df: R.WEM_liter_hr_season)----
-ses <- R.WEM_liter_hr_season %>%
-  summarise(HH=n(),
-            monsoon=mean(p123_m), summer=mean(p123_s), winter=mean(p123_w),
-            Year=mean(p123_year))
+ses <- R_WEM_liter_hr_season %>%filter(p123_m>0|p123_s>0|p123_w>0|p123_year>0) %>%
+  inner_join(matchig) %>% 
+  inner_join(Control_and_treatment_4_districts) %>% group_by(TreatmentControl) %>% #count()
+  summarise(monsoon=mean(p123_m),summer=mean(p123_s),winter=mean(p123_w),Year=mean(p123_year))
 
 
 # [6.19] How many horse power (HP)?----

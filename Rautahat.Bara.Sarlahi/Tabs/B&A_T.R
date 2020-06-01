@@ -67,7 +67,7 @@ R.Agriculture_Baseline_2018_ %>% filter(TC==1) %>%
   group_by(season_of_crop) %>%
   summarise(n.HH=n(), mean(sum_ir),mean(mean_hr),mints=mean(mean_hr)*60,p_HH=n.HH/26)
 
-R.Agriculture_Endline_EPC_2019_ %>% filter(TC==1) %>%   
+tc <- R.Agriculture_Endline_EPC_2019_ %>% filter(TC==1) %>%   
   drop_na(irri_for_season,season_of_crop)%>% 
   group_by(household_questionnaire_id,season_of_crop) %>% 
   summarise(sum_ir=sum(irri_for_season),mean_hr=mean(hrs_irr_1katha)) %>% 
@@ -282,3 +282,7 @@ a <- R_Demography_2_Baseline_2018_ %>% select(1,37,35,38,39,41,40,63) %>%
   
 a <- R_Demography_2_Endline_EPC_2019_ %>% select(1,37,35,38,39,41,40,63) %>%
   filter(diesel_pump!=0 | cd_pump_vuplator!=0,TC==1)
+
+# intensity----
+a <- R_intensity_Baseline%>% group_by(TC) %>% 
+  summarise(mean(cropping_intensity))

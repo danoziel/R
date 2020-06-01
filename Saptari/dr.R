@@ -8,5 +8,11 @@ R_Lands_Baseline_2017_ %>%
   summarise(mean(total_irri)*0.0338)
   
 
+S_Lands_Baseline_2017_ <- R_Lands_Baseline_2017_
+S_Lands_I_Baseline_2017_ <- R_Lands_I_Baseline_2017_
 
+saveRDS(S_Lands_Baseline_2017_, "S_Lands_Baseline_2017_.rds")
+load(file = "S_Lands_Baseline_2017_.rda")
+write.dta(S_Lands_I_Baseline_2017_, "S_Lands_I_Baseline_2017_.dta")
+library(foreign)
 

@@ -21,11 +21,6 @@ table(Procurement_Endline_EPC_2019_$how_many_electric_pumps_do_yp)
 # RBS
 # "T302501007" "T305001121"- own electric pump-said yes to 'buy fuel' at 7.2 
 
-as <- Procurement_Baseline_2018_ %>% 
-  filter(!household_questionnaire_id %in% c("T302501007","T305001121")) %>%
-  group_by(do_you_buy_fuel_for_the_pump) %>% 
-  summarise(n())
-  
 table(Procurement_Baseline_2018_$do_you_buy_fuel_for_the_pump)
 table(Procurement_Endline_EPC_2019_$do_you_buy_fuel_for_the_pump)
 
@@ -33,12 +28,21 @@ table(Procurement_Endline_EPC_2019_$do_you_buy_fuel_for_the_pump)
 table(Procurement_Baseline_2018_$if_yes__which_fuel_do_you_use)
 table(Procurement_Endline_EPC_2019_$if_yes__which_fuel_do_you_use)
 
-# [7.16]Total litres of diesel/kerosene consumed for agriculture pumps
+# [7.16]Total litres of diesel/kerosene consumed for agriculture pumps----
 summary(Procurement_Baseline_2018_$total_litres_consumed_dieselkero)
-summary(TreatsB_proc$total_litres_consumed_dieselkero)
-summary(TreatsE_proc$total_litres_consumed_dieselkero)
+
+Procurement_Baseline_2018_ %>% inner_join(Control_and_treatment_4_districts) %>%
+  group_by(TreatmentControl) %>%filter(total_litres_consumed_dieselkero>0) %>% 
+  summarise(mean(total_litres_consumed_dieselkero,na.rm = T),n())
+
+p <- Procurement_Baseline_2018_ %>% inner_join(Control_and_treatment_4_districts) %>%
+  filter(TC==1 | household_questionnaire_id %in% c()) %>% 
+  group_by(TreatmentControl) %>%filter(total_litres_consumed_dieselkero>0) %>% 
+  summarise(mean(total_litres_consumed_dieselkero,na.rm = T),n())
 
 
+
+# tc-----
 TreatsB_proc <- R_Procurement_Baseline_2018_ %>% filter(TC==1)
 TreatsE_proc <- R_Procurement_Endline_EPC_2019_ %>% filter(TC==1)
 table(rp$do_you_own_use_a_krishi_meter)

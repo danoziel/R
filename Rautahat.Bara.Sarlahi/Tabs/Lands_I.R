@@ -1,9 +1,37 @@
 #proprty-----
+# land_for_aquaculture_ponds
+# [4.1c] Land for aquaculture, ponds
+x <- Lands_I_Baseline_2018_ %>%filter(land_for_aquaculture_ponds>0 & land_for_aquaculture_ponds<300) %>% 
+  summarise(mean(land_for_aquaculture_ponds)*0.0338,n())
 
-###########  Omitting unreliable observations  ########
-R.Lands_I_Baseline_2018_  <- Lands_I_Baseline_2018_ %>% 
-  filter(homestead_dwelling_area<80,
-         land_for_aquaculture_ponds<300)
+x <- Lands_I_Baseline_2018_ %>%filter(land_for_aquaculture_ponds>0 & land_for_aquaculture_ponds<300) %>% 
+  inner_join(Control_and_treatment_4_districts) %>%group_by(TreatmentControl) %>%
+  summarise(mean(land_for_aquaculture_ponds)*0.0338,n())
+
+y <- R_Lands_I_Endline_EPC_2019_ %>%
+  filter(land_for_aquaculture_ponds>0 & land_for_aquaculture_ponds<300) %>% 
+  group_by(TreatmentControl) %>%
+  summarise(mean(land_for_aquaculture_ponds)*0.0338,n())
+
+
+# [11.3] What is the total area of the pond? (in kathas)				
+xx <- Aquaculture_Baseline_2018_ %>%inner_join(Control_and_treatment_4_districts) %>%
+  filter(total_area_of_pond>0 & total_area_of_pond<300) %>%
+  summarise(n(),mean(total_area_of_pond)*0.0338)
+
+xx<- Aquaculture_Baseline_2018_ %>%inner_join(Control_and_treatment_4_districts) %>%
+  filter(total_area_of_pond>0 & total_area_of_pond<300) %>%group_by(TreatmentControl) %>%
+  summarise(n(),mean(total_area_of_pond)*0.0338)
+
+yy <- Aquaculture_Endline_EPC_2019_%>%inner_join(Control_and_treatment_4_districts) %>%
+  filter(total_area_of_pond>0 & total_area_of_pond<300) %>%group_by(TreatmentControl) %>%
+  summarise(n(),mean(total_area_of_pond)*0.0338)
+  
+
+
+
+
+
 
 #homestead_dwelling_area
 R_Lands_I_Baseline_2018_ %>% summarise(n(),n()/133,mean(homestead_dwelling_area),n()/133)
@@ -11,10 +39,6 @@ R_Lands_I_Baseline_2018_ %>% summarise(n(),n()/133,mean(homestead_dwelling_area)
 # land_for_cultivation
 R_Lands_I_Baseline_2018_ %>% filter(land_for_cultivation>0) %>% 
   summarise(n(),mean(land_for_cultivation),n()/133)
-
-# land_for_aquaculture_ponds
-R_Lands_I_Baseline_2018_ %>% filter(land_for_aquaculture_ponds>0) %>% 
-  summarise(n(),mean(land_for_aquaculture_ponds),n()/133)
 
 # perm_fallow_land
 ses <- R_Lands_I_Baseline_2018_ %>% filter(perm_fallow_land>0) %>% 
