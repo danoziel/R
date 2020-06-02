@@ -8,7 +8,7 @@ Treats_Lands <- subset(R.Lands_Endline_EPC_2019_,  TC == 1)
 w <- Treats_Lands %>% group_by(household_questionnaire_id) %>% tally()
 
 # by HH / Year-Treatment
-R.Lands_Baseline_2018_ %>% filter(TC == 1) %>% 
+R_Lands_Baseline_2018_ %>% filter(TC == 1) %>% 
   select(household_questionnaire_id,irrigated_out_of_tot_land_cult,Ir_Retio) %>%
   filter(Ir_Retio<=1)%>% 
   group_by(household_questionnaire_id) %>%
@@ -60,7 +60,7 @@ R.Agriculture_Endline_EPC_2019_ %>% filter(TC==1) %>%
 
 
 # season
-R.Agriculture_Baseline_2018_ %>% filter(TC==1) %>% 
+cc <- R_Agriculture_Baseline_2018_ %>% filter(TC==1) %>% 
   drop_na(irri_for_season,season_of_crop)%>% 
   group_by(household_questionnaire_id,season_of_crop) %>% 
   summarise(sum_ir=sum(irri_for_season),mean_hr=mean(hrs_irr_1katha)) %>% 
