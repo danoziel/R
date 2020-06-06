@@ -1,71 +1,67 @@
 ###-------------------------------------------------------###
-###     befor and after - treatment group B&A_T      ###
+###     befor and after - treatment group B&A_T           ###
 ###-------------------------------------------------------###
-
-#R.Lands_Baseline_2018_ vs Lands_Endline_EPC_2019_----
-#[4.9]Irrigated area out of total land cultivated = $Ir_Retio
 Treats_Lands <- subset(R.Lands_Endline_EPC_2019_,  TC == 1)
 w <- Treats_Lands %>% group_by(household_questionnaire_id) %>% tally()
 
-# by HH / Year-Treatment
-R_Lands_Baseline_2018_ %>% filter(TC == 1) %>% 
-  select(household_questionnaire_id,irrigated_out_of_tot_land_cult,Ir_Retio) %>%
-  filter(Ir_Retio<=1)%>% 
-  group_by(household_questionnaire_id) %>%
-  summarise(sum_Ir = mean(Ir_Retio), sum_total=sum(irrigated_out_of_tot_land_cult), n()) %>% 
-  summarise(mean(sum_Ir), mean(sum_total),n())
+# R_Lands_Baseline_2018_ \/ R_Lands_Endline_EPC_2019_    ----
+#----------------------------------------------------    
 
-R.Lands_Endline_EPC_2019_ %>%filter(TC==1) %>%
-  select(household_questionnaire_id,irrigated_out_of_tot_land_cult,Ir_Retio) %>%
-  filter(Ir_Retio<=1)%>% 
-  group_by(household_questionnaire_id) %>%
-  summarise(sum_Ir = mean(Ir_Retio), sum_total=sum(irrigated_out_of_tot_land_cult), n()) %>% 
-  summarise(mean(sum_Ir), mean(sum_total),n())
+# total_ownland_cultivated
+# total_land_cultivated
+# irrigated_out_of_tot_land_cult
+# crop_intensity
+# irrigate_intensity
 
-#Season -Treatment
-R.Lands_Baseline_2018_ %>% filter(TC == 1) %>% 
-  select(household_questionnaire_id,irrigated_out_of_tot_land_cult,season,Ir_Retio) %>%
-  filter(Ir_Retio<=1)%>% 
-  group_by(season) %>%
-  summarise(n(),mean(irrigated_out_of_tot_land_cult),mean(Ir_Retio))
+x <- R_Lands_Baseline_2018_ %>% 
+  filter(total_land_cultivated_year>0,!is.na(irrigated_out_of_tot_land_cult)) %>%
+  mutate(ci=total_land_cultivated/nca,ii=irrigated_out_of_tot_land_cult/nca) %>%
+  group_by(TreatmentControl, household_questionnaire_id) %>%
+  summarise(own=sum(total_ownland_cultivated,na.rm = T)*0.0338,
+            cult=sum(total_land_cultivated)*0.0338,
+            irrigated=sum(irrigated_out_of_tot_land_cult)*0.0338,
+            crop_intensity=sum(ci),irrigate_intensity=sum(ii)) %>% 
+  group_by(TreatmentControl) %>%
+  summarise(n(), mean(own),mean(cult),mean(irrigated),
+            mean(crop_intensity),mean(irrigate_intensity)) 
 
-R.Lands_Endline_EPC_2019_ %>%filter(TC==1) %>%
-  select(household_questionnaire_id,irrigated_out_of_tot_land_cult,season,Ir_Retio) %>%
-  filter(Ir_Retio<=1)%>% 
-  group_by(season) %>%
-  summarise(n(),mean(irrigated_out_of_tot_land_cult),mean(Ir_Retio))
-
-
-
-
+x <- R_Lands_Endline_EPC_2019_ %>% 
+  filter(total_land_cultivated_year>0,!is.na(irrigated_out_of_tot_land_cult)) %>%
+  mutate(ci=total_land_cultivated/nca,ii=irrigated_out_of_tot_land_cult/nca) %>%
+  group_by(TreatmentControl, household_questionnaire_id) %>%
+  summarise(own=sum(total_ownland_cultivated,na.rm = T)*0.0338,
+            cult=sum(total_land_cultivated)*0.0338,
+            irrigated=sum(irrigated_out_of_tot_land_cult)*0.0338,
+            crop_intensity=sum(ci),irrigate_intensity=sum(ii)) %>% 
+  group_by(TreatmentControl) %>%
+  summarise(n(), mean(own),mean(cult),mean(irrigated),
+            mean(crop_intensity),mean(irrigate_intensity)) 
 
 
 # R.Agriculture_Baseline_2018_ vs R.Agriculture_Endline_EPC_2019_----
+#--------------------------------------------------------------------
 #irrigation- IN HOURS: n=HH 
 #time taken to irrigate the cultivated area.A single crop season IN HOURS
 Treats <- subset(R.Agriculture_Endline_EPC_2019_,  TC == 1)
 
 # HH level in a year
-R.Agriculture_Baseline_2018_ %>% filter(TC==1) %>% 
-  drop_na(irri_for_season,season_of_crop)%>% 
-  group_by(household_questionnaire_id) %>% 
-  summarise(count = n(),mean_hr=mean(hrs_irr_1katha),sum_ir=sum(irri_for_season)) %>% 
-  summarise(n.HH=n(),mean(sum_ir),mean(mean_hr),mints= mean(mean_hr)*60)
+x <- R_Agriculture_Baseline_2018_ %>%
+  group_by(TreatmentControl, household_questionnaire_id) %>% 
+  summarise(hr_per_ha=mean(hrs_irr_1katha)/0.0339,irrigate_hr=sum(irri_for_season)) %>% 
+  summarise(n(),mean(hr_per_ha,na.rm = T),mean(irrigate_hr,na.rm = T))
 
-R.Agriculture_Endline_EPC_2019_ %>% filter(TC==1) %>%   
-  drop_na(irri_for_season,season_of_crop)%>% 
-  group_by(household_questionnaire_id) %>% 
-  summarise(count = n(),mean_hr=mean(hrs_irr_1katha),sum_ir=sum(irri_for_season)) %>% 
-  summarise(n.HH=n(),mean(sum_ir),mean(mean_hr),mints= mean(mean_hr)*60)
-
+x <- R_Agriculture_Endline_EPC_2019_ %>%
+  group_by(TreatmentControl, household_questionnaire_id) %>% 
+  summarise(hr_per_ha=mean(hrs_irr_1katha)/0.0339,irrigate_hr=sum(irri_for_season)) %>% 
+  summarise(n(),mean(hr_per_ha,na.rm = T),mean(irrigate_hr,na.rm = T))
 
 # season
-cc <- R_Agriculture_Baseline_2018_ %>% filter(TC==1) %>% 
-  drop_na(irri_for_season,season_of_crop)%>% 
+cc <- R_Agriculture_Baseline_2018_ %>% 
   group_by(household_questionnaire_id,season_of_crop) %>% 
-  summarise(sum_ir=sum(irri_for_season),mean_hr=mean(hrs_irr_1katha)) %>% 
+  summarise(hr_per_ha=mean(hrs_irr_1katha)/0.0339,irrigate_hr=sum(irri_for_season)) %>% 
   group_by(season_of_crop) %>%
-  summarise(n.HH=n(), mean(sum_ir),mean(mean_hr),mints=mean(mean_hr)*60,p_HH=n.HH/26)
+  summarise(n=n(), mean(irrigate_hr),mean(hr_per_ha,na.rm = T),
+            p_HH=n/26)
 
 tc <- R.Agriculture_Endline_EPC_2019_ %>% filter(TC==1) %>%   
   drop_na(irri_for_season,season_of_crop)%>% 

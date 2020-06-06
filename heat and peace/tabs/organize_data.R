@@ -1,3 +1,31 @@
+# org----
+data <- tibble::rowid_to_column(panel_jews_273_panels, "ID")
+
+data <- panel_jews_273_panels %>% select(survey_year,yishuv) %>%
+  filter(!yishuv=="**",!yishuv=="",!yishuv=="'רושלים",!yishuv=="-")
+
+class (data$yishuv)
+data$yishuv <- as.numeric (data$yishuv)
+
+with_yishuv_name <- data %>% filter(is.na(yishuv)) %>% group_by(survey_year)%>% tally()
+
+sub_by_year <- data %>% select(survey_year,yishuv) %>%group_by(survey_year)%>% tally()
+
+# -----
+civilians_yesha <- Suicide_and_Bombing_Attacks_in_Israel_
+civilians_il <- Suicide_and_Bombing_Attacks_in_Israel_
+security_forces_yesha<- Suicide_and_Bombing_Attacks_in_Israel_
+security_forces_il <- Suicide_and_Bombing_Attacks_in_Israel_
+
+# reformat exel date to d/m/y
+library(openxlsx)
+civilians_IL_Attacks_in_Israel$`Date of the attack` <- convertToDateTime(civilians_IL_Attacks_in_Israel$`Date of the attack`,origin = "1900-01-01")
+
+Attacks_Btselem_data <- Attacks_Btselem_data[,c(1,3,4,7,8,5,2,6,10,11)]
+Attacks_Foreign_Office_data <- Attacks_Foreign_Office_data[,c(1,3,4,5,6,7,2,10)]
+
+
+
 colnames(Attacks_in_Israel)[2] <-"attack_location" 
 colnames(Attacks_in_Israel)[c(3,5)] <- c("injured","type_of_attack")
 levels(`location: IL(1)  Yesha(2)`)
@@ -41,7 +69,8 @@ class(panels$date)
 panel_date <- pd
 
 
-colnames(temperature_BeitDagan)[c(4,5,6)] <- c("max_temp","max_temp","min_temp_near_ground")
+colnames(temperature_BeitDagan)[c(4,5,6)] <- c("max_temp","min_temp","min_temp_near_ground")
 
+colnames(temperature_BeitDagan)[3] <-"date"
 
 
