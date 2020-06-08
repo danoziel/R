@@ -1,11 +1,6 @@
 ###-------------------------------------------------------###
 ###     befor and after - treatment group B&A_T           ###
 ###-------------------------------------------------------###
-Treats_Lands <- subset(R.Lands_Endline_EPC_2019_,  TC == 1)
-w <- Treats_Lands %>% group_by(household_questionnaire_id) %>% tally()
-
-# R_Lands_Baseline_2018_ \/ R_Lands_Endline_EPC_2019_    ----
-#----------------------------------------------------    
 
 # total_ownland_cultivated
 # total_land_cultivated
@@ -13,8 +8,28 @@ w <- Treats_Lands %>% group_by(household_questionnaire_id) %>% tally()
 # crop_intensity
 # irrigate_intensity
 
-x <- R_Lands_Baseline_2018_ %>% 
-  filter(total_land_cultivated_year>0,!is.na(irrigated_out_of_tot_land_cult)) %>%
+# total_litres_consumed_dieselkero
+
+
+Treats_Lands <- subset(R.Lands_Endline_EPC_2019_,  TC == 1)
+w <- Treats_Lands %>% group_by(household_questionnaire_id) %>% tally()
+
+# R_Lands_Baseline_2018_ \/ R_Lands_Endline_EPC_2019_    ----
+#----------------------------------------------------    
+cc <-bind_rows( R_Lands_Baseline_2018_,R_Lands_Endline_EPC_2019_)
+
+R_Lands_Endline_EPC_2019_$year
+
+
+
+# total_ownland_cultivated
+# total_land_cultivated
+# irrigated_out_of_tot_land_cult
+# crop_intensity
+# irrigate_intensity
+
+y <- R_Lands_Baseline_2018_ %>% 
+  filter(total_land_cultivated_year>0) %>%
   mutate(ci=total_land_cultivated/nca,ii=irrigated_out_of_tot_land_cult/nca) %>%
   group_by(TreatmentControl, household_questionnaire_id) %>%
   summarise(own=sum(total_ownland_cultivated,na.rm = T)*0.0338,
@@ -22,11 +37,12 @@ x <- R_Lands_Baseline_2018_ %>%
             irrigated=sum(irrigated_out_of_tot_land_cult)*0.0338,
             crop_intensity=sum(ci),irrigate_intensity=sum(ii)) %>% 
   group_by(TreatmentControl) %>%
-  summarise(n(), mean(own),mean(cult),mean(irrigated),
-            mean(crop_intensity),mean(irrigate_intensity)) 
+  summarise(n(), mean(own),mean(cult),mean(irrigated,na.rm = T),
+            mean(crop_intensity),mean(irrigate_intensity,na.rm = T)) 
+
 
 x <- R_Lands_Endline_EPC_2019_ %>% 
-  filter(total_land_cultivated_year>0,!is.na(irrigated_out_of_tot_land_cult)) %>%
+  filter(total_land_cultivated_year>0) %>%
   mutate(ci=total_land_cultivated/nca,ii=irrigated_out_of_tot_land_cult/nca) %>%
   group_by(TreatmentControl, household_questionnaire_id) %>%
   summarise(own=sum(total_ownland_cultivated,na.rm = T)*0.0338,
@@ -34,41 +50,49 @@ x <- R_Lands_Endline_EPC_2019_ %>%
             irrigated=sum(irrigated_out_of_tot_land_cult)*0.0338,
             crop_intensity=sum(ci),irrigate_intensity=sum(ii)) %>% 
   group_by(TreatmentControl) %>%
-  summarise(n(), mean(own),mean(cult),mean(irrigated),
-            mean(crop_intensity),mean(irrigate_intensity)) 
+  summarise(n(), mean(own),mean(cult),mean(irrigated,na.rm = T),
+            mean(crop_intensity),mean(irrigate_intensity,na.rm = T)) 
 
 
 # R.Agriculture_Baseline_2018_ vs R.Agriculture_Endline_EPC_2019_----
 #--------------------------------------------------------------------
+R_Agriculture_Baseline_2018_ <- R_Agriculture_Baseline_2018_%>%select(16,everything())
+R_Agriculture_Endline_EPC_2019_ <- R_Agriculture_Endline_EPC_2019_%>%select(15,everything())
+
+Agriculture_18_19 <- R_Agriculture_Baseline_2018_%>%bind_rows(R_Agriculture_Endline_EPC_2019_)
+
 #irrigation- IN HOURS: n=HH 
 #time taken to irrigate the cultivated area.A single crop season IN HOURS
 Treats <- subset(R.Agriculture_Endline_EPC_2019_,  TC == 1)
 
-# HH level in a year
-x <- R_Agriculture_Baseline_2018_ %>%
-  group_by(TreatmentControl, household_questionnaire_id) %>% 
+# year
+Agriculture_18_19%>% filter(year==2018) %>% 
+  group_by(household_questionnaire_id) %>% 
   summarise(hr_per_ha=mean(hrs_irr_1katha)/0.0339,irrigate_hr=sum(irri_for_season)) %>% 
-  summarise(n(),mean(hr_per_ha,na.rm = T),mean(irrigate_hr,na.rm = T))
-
-x <- R_Agriculture_Endline_EPC_2019_ %>%
-  group_by(TreatmentControl, household_questionnaire_id) %>% 
+  summarise(N=n(),average_hr_per_ha=mean(hr_per_ha,na.rm = T),
+            total_irrigate_hr=mean(irrigate_hr,na.rm = T))
+Agriculture_18_19%>% 
+  group_by(year,TreatmentControl, household_questionnaire_id) %>% 
   summarise(hr_per_ha=mean(hrs_irr_1katha)/0.0339,irrigate_hr=sum(irri_for_season)) %>% 
-  summarise(n(),mean(hr_per_ha,na.rm = T),mean(irrigate_hr,na.rm = T))
-
+  summarise(N=n(),average_hr_per_ha=mean(hr_per_ha,na.rm = T),
+            total_irrigate_hr=mean(irrigate_hr,na.rm = T))
 # season
-cc <- R_Agriculture_Baseline_2018_ %>% 
-  group_by(household_questionnaire_id,season_of_crop) %>% 
-  summarise(hr_per_ha=mean(hrs_irr_1katha)/0.0339,irrigate_hr=sum(irri_for_season)) %>% 
-  group_by(season_of_crop) %>%
-  summarise(n=n(), mean(irrigate_hr),mean(hr_per_ha,na.rm = T),
-            p_HH=n/26)
 
-tc <- R.Agriculture_Endline_EPC_2019_ %>% filter(TC==1) %>%   
-  drop_na(irri_for_season,season_of_crop)%>% 
-  group_by(household_questionnaire_id,season_of_crop) %>% 
-  summarise(sum_ir=sum(irri_for_season),mean_hr=mean(hrs_irr_1katha)) %>% 
-  group_by(season_of_crop) %>%
-  summarise(n.HH=n(), mean(sum_ir),mean(mean_hr),mints=mean(mean_hr)*60,p_HH=n.HH/21)
+Agriculture_18_19 %>%
+  group_by(year,household_questionnaire_id,season_of_crop) %>%
+  summarise(hr_per_ha=mean(hrs_irr_1katha)/0.0339,irrigate_hr=sum(irri_for_season)) %>% 
+  group_by(year,season_of_crop) %>%
+  summarise(N=n(),average_hr_per_ha=mean(hr_per_ha,na.rm = T),
+            total_irrigate_hr=mean(irrigate_hr,na.rm = T))
+
+cc <- Agriculture_18_19 %>%
+  group_by(year,TreatmentControl,household_questionnaire_id,season_of_crop) %>%
+  summarise(hr_per_ha=mean(hrs_irr_1katha)/0.0339,irrigate_hr=sum(irri_for_season)) %>% 
+  group_by(year, TreatmentControl,season_of_crop) %>%
+  summarise(N=n(),average_hr_per_ha=mean(hr_per_ha,na.rm = T),
+            total_irrigate_hr=mean(irrigate_hr,na.rm = T))
+
+
 
 
 # most_imp_source ----
@@ -158,30 +182,35 @@ R.Agriculture_Endline_EPC_2019_ %>% filter(TC==1) %>%
 
 # SECTION 7 - PROCUREMENT: ELECTRICITY, FUEL----
 
+Procurement_18_19 <- Procurement_Baseline_2018_ %>%bind_rows(Procurement_Endline_EPC_2019_) %>% 
+  inner_join(Control_and_treatment_4_districts) %>% select(28,everything()) 
+
+# [7.16] Total litres of diesel/kerosene consumed for agriculture pumps
+
+Procurement_18_19 %>%  
+  filter(year==2018,!is.na(total_litres_consumed_dieselkero),total_litres_consumed_dieselkero<10000) %>%
+  summarise(N=n(), liters_yearly=mean(total_litres_consumed_dieselkero))
+
+Procurement_18_19 %>%  
+  filter(!is.na(total_litres_consumed_dieselkero),total_litres_consumed_dieselkero<10000) %>%
+  group_by(year,TreatmentControl) %>%
+  summarise(N=n(), liters_yearly=mean(total_litres_consumed_dieselkero))
 # [7.12] Did you buy fuel for the pump?
-R_Procurement_Baseline_2018_ %>% filter(TC==1) %>%
-  group_by(do_you_buy_fuel_for_the_pump) %>% tally()
+Procurement_18_19 %>% filter(year==2018) %>% 
+group_by(do_you_buy_fuel_for_the_pump) %>% tally()
 
-R_Procurement_Endline_EPC_2019_ %>% filter(TC==1) %>%
-  group_by(do_you_buy_fuel_for_the_pump) %>% tally()
-
+Procurement_18_19 %>% filter(year==2018,!is.na(do_you_buy_fuel_for_the_pump)) %>% 
+  group_by(do_you_buy_fuel_for_the_pump,TreatmentControl) %>% tally()
+  
 # [7.13] If yes, which fuel is predominantly used for your pump?
 table(R_Procurement_Baseline_2018_$if_yes__which_fuel_do_you_use)
 #     1 Diesel  # 2 Kerosene #
-R_Procurement_Baseline_2018_ %>% filter(TC==1) %>%
+
+Procurement_18_19 %>% filter(year==2018) %>% 
   group_by(if_yes__which_fuel_do_you_use) %>% tally()
 
-R_Procurement_Endline_EPC_2019_ %>% filter(TC==1) %>%
-  group_by(if_yes__which_fuel_do_you_use) %>% tally()
-
-
-
-# [7.16] Total litres of diesel/kerosene consumed for agriculture pumps
-aa <- R_Procurement_Baseline_2018_ %>% filter(!is.na(total_litres_consumed_dieselkero),TC==1) %>% 
-  summarise(mean(total_litres_consumed_dieselkero),n())
-
-aa <- R_Procurement_Endline_EPC_2019_ %>% filter(!is.na(total_litres_consumed_dieselkero),TC==1) %>% 
-  summarise(mean(total_litres_consumed_dieselkero),n())
+Procurement_18_19 %>% filter(year==2018,!is.na(if_yes__which_fuel_do_you_use)) %>% 
+  group_by(if_yes__which_fuel_do_you_use,TreatmentControl) %>% tally()
 
 
 aa <- R_Demography_2_Baseline_2018_%>%select(1,37,35,38,39,41,40,63)

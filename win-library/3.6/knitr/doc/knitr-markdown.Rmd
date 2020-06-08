@@ -23,9 +23,8 @@ To enable Markdown vignettes in an R package, you need to
 And R will load the **knitr** package to build these vignettes to HTML files, and you can see them when you open the HTML help:
 
 ```{r eval=FALSE}
-help(package = 'YourPackage', help_type = 'html')
-# or see a standalone list of vignettes
-browseVignettes('YourPackage')
+summ(model)
+
 ```
 
 ## Examples

@@ -94,3 +94,4 @@ pd$date[pd$date == "May 2010"] <-"30 05 10"
 
 pd %>% select(date,survey_year) %>% filter(survey_year=="2016") %>% count(date)
 
+

@@ -33,7 +33,7 @@ R.Agriculture_Baseline_2018_<- R.Agriculture_Baseline_2018_ %>%
          household_questionnaire_id != "T308707002")
 
 R.Agriculture_Baseline_2018_ <- R.Agriculture_Baseline_2018_ %>%
-  mutate( name_of_crop_detail = name_of_crop ) 
+  mutate( name_of_crop_detail = name_of_crop ) #(copy=original)
 
 
 R.Agriculture_Baseline_2018_$name_of_crop[R.Agriculture_Baseline_2018_$name_of_crop %in%

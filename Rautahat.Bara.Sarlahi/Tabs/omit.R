@@ -8,10 +8,14 @@ drop_na(irri_for_season,season_of_crop)%>% library(tidyverse)
 R_intensity_Baseline %>% 
   rename(net_cropped_area = land_for_cultivation) #renam column land_ TO net_
 
+# freq by % symbol
 mutate(freq = paste0(round(100 * total_land_cultivated/nca, 0), "%"))
 
-mutate(label_percent()(x))
+mutate(freq = paste0(round(100 * n/sum(n), 0), "%"))
 
+mutate(label_percent()(x))
+--------
+  
 x$land_cult [is.na(x$land_cult)] <- 0 #replace NA to 0
 
 mutate(x= sub(NaN, NA, x)) %>% #replace NaN to Na, x=column
@@ -19,6 +23,9 @@ mutate(x= sub(NaN, NA, x)) %>% #replace NaN to Na, x=column
 Data$TC[Data$TC == 2] <- 1 #replace 2 to 1
 
 R_Lands_I_Baseline_2018_[6,3]<- 40
+
+Q1 <- spread(Q1, oslosp, freq) #from rows to column
+
 
 land_Treats <- subset(R.Lands_Baseline_2018_,  TC == 1)
 colMeans(land_Treats)

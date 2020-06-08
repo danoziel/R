@@ -1,8 +1,7 @@
-S_Lands_Baseline_2017_ %>%filter(season=="SUMMER 2074",total_ownland_cultivated>0) %>% 
-  group_by(TreatmentControl)%>%summarise(m=mean(total_ownland_cultivated),ha=m*0.0338,n())
+S_Agriculture_Baseline_2018_ %>%
+  group_by(TreatmentControl, household_questionnaire_id) %>% 
+  summarise(hr_per_ha=mean(hrs_irr_1katha)/0.0339,irrigate_hr=sum(irri_for_season)) %>% 
+  summarise(n(),mean(hr_per_ha,na.rm = T),mean(irrigate_hr,na.rm = T))
 
-S_Lands_I_Baseline_2017_ %>% group_by(TC) %>% tally()
-rm(x)
 
-S_Lands_Baseline_2017_ %>%filter(total_ownland_cultivated>0) %>%  group_by(household_questionnaire_id,season,TC)%>%
-  summarise(sum=sum(total_ownland_cultivated)) %>%group_by(TC,season) %>%  summarise(mean(sum), n())
+
