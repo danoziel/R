@@ -34,6 +34,14 @@ R.Agriculture_Baseline_2018_<- R.Agriculture_Baseline_2018_ %>%
 
 R.Agriculture_Baseline_2018_ <- R.Agriculture_Baseline_2018_ %>%
   mutate( name_of_crop_detail = name_of_crop ) #(copy=original)
+ 
+
+Summer
+Annual
+Agriculture_18_19$season_of_crop[Agriculture_18_19$season_of_crop == "1"] <- "Monsoon"
+Agriculture_18_19$season_of_crop[Agriculture_18_19$season_of_crop == "2"] <- "Winter"
+Agriculture_18_19$season_of_crop[Agriculture_18_19$season_of_crop == "3"] <- "Summer"
+Agriculture_18_19$season_of_crop[Agriculture_18_19$season_of_crop == "4"] <- "Annual"
 
 
 R.Agriculture_Baseline_2018_$name_of_crop[R.Agriculture_Baseline_2018_$name_of_crop %in%

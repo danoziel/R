@@ -1,0 +1,60 @@
+---
+title: "Q3"
+author: "dan"
+date: "11 6 2020"
+output: html_document
+---
+מספר פיגועים, פיגועים 0/1,  מספר הרוגים, כנ״ל בישראל, בשטחים רק, ישראל והשטחים באוצתה רגרסיה).
+
+דתך לגבי ניהול משא ומתן לשלום בין ישראל לרשות הפלסטינית?
+ * 1 -  מאוד בעד
+ * 2 - די בעד 
+ * 3 - די נגד 
+ * 4 - מאוד נגד 
+
+
+  VAR no. | b|condition
+ -----|------|------
+ 11 | number of attacks | general
+ 12  | number of attacks Intifada |
+13  | number of attacks Intifadaless |
+  14| number of killed |
+    |   |
+  21 | number of attacks | in Israel
+ 22 |  number of attacks Intifada |
+ 23 |  number of attacks Intifadaless |
+ 24 |  number of killed |
+     |   |
+ 31 |  number of attacks | In Yesha
+ 32 |  number of attacks Intifada |
+ 33 |  number of attacks Intifadaless |
+ 34 |  number of killed |
+
+
+
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

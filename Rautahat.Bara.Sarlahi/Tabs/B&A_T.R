@@ -9,7 +9,7 @@
 # irrigate_intensity
 
 # total_litres_consumed_dieselkero
-
+getwd(Agriculture_18_19.Rmd)
 
 Treats_Lands <- subset(R.Lands_Endline_EPC_2019_,  TC == 1)
 w <- Treats_Lands %>% group_by(household_questionnaire_id) %>% tally()
@@ -60,11 +60,13 @@ R_Agriculture_Baseline_2018_ <- R_Agriculture_Baseline_2018_%>%select(16,everyth
 R_Agriculture_Endline_EPC_2019_ <- R_Agriculture_Endline_EPC_2019_%>%select(15,everything())
 
 Agriculture_18_19 <- R_Agriculture_Baseline_2018_%>%bind_rows(R_Agriculture_Endline_EPC_2019_)
+write.csv(Agriculture_18_19,"C:/Users/Dan/Documents/R/Rautahat.Bara.Sarlahi/Agriculture_18_19.csv", row.names = FALSE)
 
 #irrigation- IN HOURS: n=HH 
 #time taken to irrigate the cultivated area.A single crop season IN HOURS
 Treats <- subset(R.Agriculture_Endline_EPC_2019_,  TC == 1)
 
+summary(Agriculture_18_19$hrs_irr_1katha/0.0339)
 # year
 Agriculture_18_19%>% filter(year==2018) %>% 
   group_by(household_questionnaire_id) %>% 
@@ -79,21 +81,33 @@ Agriculture_18_19%>%
 # season
 
 Agriculture_18_19 %>%
-  group_by(year,household_questionnaire_id,season_of_crop) %>%
+  group_by(household_questionnaire_id,season_of_crop) %>%
   summarise(hr_per_ha=mean(hrs_irr_1katha)/0.0339,irrigate_hr=sum(irri_for_season)) %>% 
-  group_by(year,season_of_crop) %>%
+  group_by(season_of_crop) %>%
   summarise(N=n(),average_hr_per_ha=mean(hr_per_ha,na.rm = T),
-            total_irrigate_hr=mean(irrigate_hr,na.rm = T))
-
-cc <- Agriculture_18_19 %>%
-  group_by(year,TreatmentControl,household_questionnaire_id,season_of_crop) %>%
-  summarise(hr_per_ha=mean(hrs_irr_1katha)/0.0339,irrigate_hr=sum(irri_for_season)) %>% 
-  group_by(year, TreatmentControl,season_of_crop) %>%
-  summarise(N=n(),average_hr_per_ha=mean(hr_per_ha,na.rm = T),
-            total_irrigate_hr=mean(irrigate_hr,na.rm = T))
+            total_irrigate_hr=mean(irrigate_hr,na.rm = T)) %>% 
 
 
+cc <- Agriculture_18_19 %>% filter(season_of_crop=="Summer") %>% 
+  group_by(year,TreatmentControl,household_questionnaire_id) %>%
+  summarise(hr_per_ha=mean(hrs_irr_1katha)/0.0339,irrigate_hr=sum(irri_for_season))%>% 
+  group_by(year, TreatmentControl) %>%
+  summarise(n=n(),average_hr_per_ha=mean(hr_per_ha,na.rm = T),
+            total_irrigate_hr=mean(irrigate_hr,na.rm = T)) 
 
+z <- data.frame(year=c(2018," ",2019," "),tc=c("Treatment","Control"),n = c(33,7,38,11),
+           N=c(107,26,95,21),freq=n/N,Percentage_increase=c(" "," ",0.29,0.94))
+install.packages("kableExtra")
+library(kableExtra)
+
+
+    ---------------------------
+#   | 2018 | Control    | 107 |
+#   |      | Treatment  |  26 |
+    ---------------------------
+#   | 2019 | Control    |  95 |
+#   |      | Treatment  |  21 |
+    ---------------------------
 
 # most_imp_source ----
 R.Agriculture_Baseline_2018_ %>%filter(TC==1) %>%  

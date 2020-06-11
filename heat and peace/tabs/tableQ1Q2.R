@@ -131,8 +131,10 @@ at_btselem$total_events_located_yesha <- as.numeric(at_btselem$total_events_loca
 at_btselem$total_events_target_civilian <- as.numeric(at_btselem$total_events_target_civilian)
 at_btselem$total_events_target_security_forces <- as.numeric(at_btselem$total_events_target_security_forces)
 
-btselemWeeks <- at_btselem %>%  rename(total_killed = `number of killed`) %>% 
-  rename(total_attacks = number_of_attacks) %>% 
+at_btselem <- at_btselem %>%  rename(total_killed = `number of killed`) %>% 
+  rename(total_attacks = number_of_attacks)
+
+btselemWeeks <- at_btselem %>%
   group_by(yearweek,week_range) %>% 
   summarise_at(vars(total_killed:total_attacks), sum, na.rm = TRUE)
   
