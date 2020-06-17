@@ -17,6 +17,9 @@ talya <- TAL.YA..farmer19_20 %>%
          ) 
 
 x <- talya %>%group_by (farmer_name) %>% summarise(mean(harvest_KG_talya100))
+at_btselem %>%
+  group_by(yearweek,week_range) %>% 
+  summarise_at(vars(total_killed:total_attacks), sum, na.rm = TRUE)
 
 
 

@@ -1,4 +1,8 @@
 
+library(sjPlot)
+library(sjmisc)
+library(sjlabelled) 
+
 [1] "yearweek"                            "total_killed"                       
 [3] "total_events_located_IL"             "total_events_located_yesha"         
 [5] "total_events_target_civilian"        "total_events_target_security_forces"
@@ -48,6 +52,9 @@ dfQ2 <- bt_il %>% filter(q2>0)
 model2_il  <- lm(q2 ~week0ago+ week1ago + week2ago + week3ago + week4ago,data = dfQ2)
 summary(model2_il)
 summ(model2_il)
+
+
+
 
 
 

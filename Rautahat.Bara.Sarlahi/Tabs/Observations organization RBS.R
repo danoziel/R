@@ -38,7 +38,7 @@ R.Agriculture_Baseline_2018_ <- R.Agriculture_Baseline_2018_ %>%
 
 Summer
 Annual
-Agriculture_18_19$season_of_crop[Agriculture_18_19$season_of_crop == "1"] <- "Monsoon"
+Land_18_19$season[Land_18_19$season == "ANNUAL 2075-76"] <- "Annual"
 Agriculture_18_19$season_of_crop[Agriculture_18_19$season_of_crop == "2"] <- "Winter"
 Agriculture_18_19$season_of_crop[Agriculture_18_19$season_of_crop == "3"] <- "Summer"
 Agriculture_18_19$season_of_crop[Agriculture_18_19$season_of_crop == "4"] <- "Annual"

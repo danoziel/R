@@ -121,3 +121,6 @@ legend("topleft", c("temperature", "attack"),
        col = c("blue", "red"), lty = c(1, 1), cex=0.6)
 
 
+at_btselem %>%
+  group_by(yearweek,week_range) %>% 
+  summarise_at(vars(total_killed:total_attacks), sum, na.rm = TRUE)
