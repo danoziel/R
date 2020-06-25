@@ -12,5 +12,5 @@ Packaged: 2019-10-24 14:50:27 UTC; hornik
 NeedsCompilation: yes
 Repository: CRAN
 Date/Publication: 2019-10-24 14:51:52 UTC
-Built: R 3.6.1; x86_64-w64-mingw32; 2019-10-25 22:53:32 UTC; windows
+Built: R 4.0.0; x86_64-w64-mingw32; 2020-04-26 13:21:49 UTC; windows
 Archs: i386, x64

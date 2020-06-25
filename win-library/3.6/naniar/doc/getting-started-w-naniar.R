@@ -123,6 +123,7 @@ airquality %>%
 ## ----simpute-visible, echo = TRUE, fig.height = 3-----------------------------
 
 aq_shadow %>%
+  as.data.frame() %>% 
   impute_lm(Ozone ~ Temp + Wind) %>%
   ggplot(aes(x = Temp,
              y = Ozone,

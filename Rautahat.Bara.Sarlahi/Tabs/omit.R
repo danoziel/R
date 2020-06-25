@@ -1,3 +1,10 @@
+write.csv(Land_18_19, file = "C:/Users/Dan/Documents/R/Rautahat.Bara.Sarlahi/Land_18_19.csv", row.names=FALSE)
+write.csv(Agriculture_18_19, file = "C:/Users/Dan/Documents/R/Rautahat.Bara.Sarlahi/Agriculture_18_19.csv", row.names=FALSE)
+write.csv(Procurement_18_19, file = "C:/Users/Dan/Documents/R/Rautahat.Bara.Sarlahi/Procurement_18_19.csv", row.names=FALSE)
+write.csv(WEM_fueliter_18_19, file = "C:/Users/Dan/Documents/R/Rautahat.Bara.Sarlahi/WEM_fueliter_18_19.csv", row.names=FALSE)
+
+
+
 
 filter(!is.na(irri_for_season),name_of_crop %in% c("PADDY","WHEAT"))
 
@@ -12,6 +19,9 @@ R.Agriculture_Baseline_2018_ <- R.Agriculture_Baseline_2018_ %>%
   mutate( name_of_crop_detail = name_of_crop ) #(copy=original)
 
 Treats_Lands <- subset(R.Lands_Endline_EPC_2019_,  TC == 1) #subset
+
+mutate(across(is.numeric, round, 2)) #Controlling number of decimal digits
+
 
 # freq by % symbol
 mutate(freq = paste0(round(100 * total_land_cultivated/nca, 0), "%"))

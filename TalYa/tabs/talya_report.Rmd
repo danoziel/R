@@ -1,0 +1,29 @@
+---
+output: 
+  pdf_document: 
+    fig_height: 3.5
+    fig_width: 4
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+talya11 <- read.csv("~/R/TalYa/talya11.csv", row.names=1)
+library(dplyr)
+```
+
+### 
+### The graphs refer to 9 tomato fearmers in AP
+Planting and tray installation: Dec 2019-Feb 2020
+
+Harvest: 20/02/2020 	- 03/06/2020 	
+
+image: ![](C:/Users/Dan/Documents/R/TalYa/Revenue.jpeg)
+
+
+image: ![](C:/Users/Dan/Documents/R/TalYa/sold.jpeg)
+
+
+image: ![](C:/Users/Dan/Documents/R/TalYa/harvest.jpeg)
+
+
+

@@ -43,6 +43,9 @@ Agriculture_18_19$season_of_crop[Agriculture_18_19$season_of_crop == "2"] <- "Wi
 Agriculture_18_19$season_of_crop[Agriculture_18_19$season_of_crop == "3"] <- "Summer"
 Agriculture_18_19$season_of_crop[Agriculture_18_19$season_of_crop == "4"] <- "Annual"
 
+Agriculture_18_19$name_of_crop[
+  Agriculture_18_19$name_of_crop=="vegetables"] <- "Vegetables"
+
 
 R.Agriculture_Baseline_2018_$name_of_crop[R.Agriculture_Baseline_2018_$name_of_crop %in%
                                             c("TOMATO","BITTER","BRINJAL","OKRA","GARLIC","ONIONS","RADISH"
@@ -59,8 +62,11 @@ R.Agriculture_Baseline_2018_$name_of_crop[R.Agriculture_Baseline_2018_$name_of_c
                                             c("GRASS","OATS","BARLEY","MUSTARD","OTHER"
                                             )] <- "others"
 
-R_Agriculture_Baseline_2018_$name_of_crop[
-  R_Agriculture_Baseline_2018_$name_of_crop=="MUSTARD"] <- "oilseeds"
+Agriculture_18_19$name_of_crop[
+  Agriculture_18_19$name_of_crop=="MUSTARD"] <- "oilseeds"
+
+Agriculture_18_19$name_of_crop[
+  Agriculture_18_19$name_of_crop=="RED LENTILS"] <- "pulses"
 
 #  Agriculture Endline  # -------------------------------------------------------#
 R.Agriculture_Endline_EPC_2019_ <- R.Agriculture_Endline_EPC_2019_ %>%

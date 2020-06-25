@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Probability of not being in ROPE</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for p_rope {bayestestR}"><tr><td>p_rope {bayestestR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Probability of not being in ROPE</h2>
+
+<h3>Description</h3>
+
+<p>Compute the proportion of the posterior distribution that doesn't lie within a region of practical equivalence (ROPE). It is equivalent to running <code>rope(..., ci = 1)</code>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+p_rope(x, ...)
+
+## Default S3 method:
+p_rope(x, ...)
+
+## S3 method for class 'numeric'
+p_rope(x, range = "default", ...)
+
+## S3 method for class 'data.frame'
+p_rope(x, range = "default", ...)
+
+## S3 method for class 'emmGrid'
+p_rope(x, range = "default", ...)
+
+## S3 method for class 'BFBayesFactor'
+p_rope(x, range = "default", ...)
+
+## S3 method for class 'MCMCglmm'
+p_rope(x, range = "default", ...)
+
+## S3 method for class 'stanreg'
+p_rope(
+  x,
+  range = "default",
+  effects = c("fixed", "random", "all"),
+  parameters = NULL,
+  ...
+)
+
+## S3 method for class 'brmsfit'
+p_rope(
+  x,
+  range = "default",
+  effects = c("fixed", "random", "all"),
+  component = c("conditional", "zi", "zero_inflated", "all"),
+  parameters = NULL,
+  ...
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>Vector representing a posterior distribution. Can also be a <code>stanreg</code> or <code>brmsfit</code> model.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Currently not used.</p>
+</td></tr>
+<tr valign="top"><td><code>range</code></td>
+<td>
+<p>ROPE's lower and higher bounds. Should be a vector of length two (e.g., <code>c(-0.1, 0.1)</code>) or <code>"default"</code>. If <code>"default"</code>, the range is set to <code>c(-0.1, 0.1)</code> if input is a vector, and based on <code><a href="rope_range.html">rope_range()</a></code> if a Bayesian model is provided.</p>
+</td></tr>
+<tr valign="top"><td><code>effects</code></td>
+<td>
+<p>Should results for fixed effects, random effects or both be returned?
+Only applies to mixed models. May be abbreviated.</p>
+</td></tr>
+<tr valign="top"><td><code>parameters</code></td>
+<td>
+<p>Regular expression pattern that describes the parameters that
+should be returned. Meta-parameters (like <code>lp__</code> or <code>prior_</code>) are
+filtered by default, so only parameters that typically appear in the
+<code>summary()</code> are returned. Use <code>parameters</code> to select specific parameters
+for the output.</p>
+</td></tr>
+<tr valign="top"><td><code>component</code></td>
+<td>
+<p>Should results for all parameters, parameters for the conditional model
+or the zero-inflated part of the model be returned? May be abbreviated. Only
+applies to <span class="pkg">brms</span>-models.</p>
+</td></tr>
+</table>
+
+
+<h3>Examples</h3>
+
+<pre>
+library(bayestestR)
+
+p_rope(x = rnorm(1000, 0, 0.01), range = c(-0.1, 0.1))
+p_rope(x = mtcars, range = c(-0.1, 0.1))
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>bayestestR</em> version 0.7.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

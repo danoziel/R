@@ -1,6 +1,10 @@
 {
-    "path" : "~/R/Rautahat.Bara.Sarlahi/Tabs",
+    "path" : "~/R/heat and peace/tabs",
     "sortOrder" : [
+        {
+            "ascending" : false,
+            "columnIndex" : 4
+        },
         {
             "ascending" : true,
             "columnIndex" : 2

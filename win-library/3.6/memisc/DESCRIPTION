@@ -26,5 +26,5 @@ NeedsCompilation: yes
 Packaged: 2020-02-13 23:28:24 UTC; elff
 Repository: CRAN
 Date/Publication: 2020-02-14 07:10:12 UTC
-Built: R 3.6.3; x86_64-w64-mingw32; 2020-06-09 09:33:32 UTC; windows
+Built: R 4.0.0; x86_64-w64-mingw32; 2020-06-15 00:41:45 UTC; windows
 Archs: i386, x64

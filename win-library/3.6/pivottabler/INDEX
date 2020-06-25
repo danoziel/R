@@ -1,38 +1,46 @@
-PivotBatch              A class that represents a batch calculation.
-PivotBatchCalculator    A class that calculates the values for multiple
-                        cells.
-PivotBatchStatistics    A class that provides summary statistics for
+PivotBatch              R6 class the represents a Calculation Batch
+PivotBatchCalculator    R6 class that calculates the values for
+                        multiple cells in batches.
+PivotBatchStatistics    R6 class that provides summary statistics for
                         batch calculations.
-PivotCalculation        A class that defines a calculation.
-PivotCalculationGroup   A class that defines a group of calculations.
+PivotCalculation        R6 class that defines a calculation.
+PivotCalculationGroup   R6 class that defines a group of calculations.
 PivotCalculationGroups
-                        A class that contains multiple calculation
+                        R6 class that contains multiple calculation
                         groups.
-PivotCalculator         A class that computes the value of a cell.
-PivotCell               A class that represents a cell in a pivot table
-PivotCells              A class that contains the cells from a pivot
+PivotCalculator         R6 class that computes the value of a cell or
+                        cells.
+PivotCell               R6 class that represents a cell in a pivot
                         table.
-PivotData               A class that contains named data frames.
-PivotDataGroup          A class that defines a row or column heading.
-PivotFilter             A class that defines a filter condition.
-PivotFilterOverrides    A class that defines a set of filter overrides
-PivotFilters            A class that defines a set of filter conditions
-PivotHtmlRenderer       A class that renders a pivot table in HTML.
-PivotLatexRenderer      A class that renders a pivot table in Latex.
-PivotOpenXlsxRenderer   A class that renders a pivot table into an
+PivotCells              R6 class that contains the cells in a pivot
+                        table.
+PivotData               R6 class that contains named data frames and
+                        associated totals.
+PivotDataGroup          R6 class that defines a row or column data
+                        group.
+PivotFilter             R6 class that defines a filter condition.
+PivotFilterOverrides    R6 class that defines a set of filter
+                        overrides.
+PivotFilters            R6 class that defines a set of filter
+                        conditions.
+PivotHtmlRenderer       R6 class that renders a pivot table in HTML.
+PivotLatexRenderer      R6 class that renders a pivot table in Latex.
+PivotOpenXlsxRenderer   R6 class that renders a pivot table into an
                         Excel worksheet.
-PivotOpenXlsxStyle      A class that specifies Excel styling as used by
-                        the openxlsx package.
-PivotOpenXlsxStyles     A class that defines a collection of Excel
+PivotOpenXlsxStyle      R6 class that specifies Excel styling as used
+                        by the openxlsx package.
+PivotOpenXlsxStyles     R6 class that defines a collection of Excel
                         styles as used by the openxlsx package.
-PivotStyle              A class that specifies styling.
-PivotStyles             A class that defines a collection of styles.
-PivotTable              A class that defines a pivot table.
+PivotStyle              R6 class that specifies styling.
+PivotStyles             R6 class that defines a collection of styles.
+PivotTable              R6 class that represents a pivot table.
 bhmtraindisruption      Birmingham Train Disruptions, Dec 2016-Feb
                         2017.
 bhmtrains               Birmingham Trains, Dec 2016-Feb 2017.
 checkArgument           Perform basic checks on a function argument.
 cleanCssValue           Cleans up a CSS attribute value.
+cleanOutlineArg         Clean the arguments specified for an outline
+                        group
 containsText            Check whether a text value is present in
                         another text value.
 convertPvtStyleToBasicStyle
@@ -94,3 +102,23 @@ renderPivottabler       Standard function for Shiny scaffolding.
 skipExportingValue      Should the current value be skipped during
                         export?
 trainstations           Train Stations
+vreConvertSimpleNumericRange
+                        Convert a simple range expression to a standard
+                        R logical expression.
+vreGetSingleValue       Read the value from a single-valued value range
+                        expression.
+vreHexToClr             Convert a colour in hex format (#RRGGBB) into a
+                        list.
+vreIsEqual              Test if two numeric values are equal within
+                        tolerance.
+vreIsMatch              Test whether a value matches a value range
+                        expression.
+vreIsSimpleNumericRange
+                        Determine if a value range expression is a
+                        simple range expression.
+vreIsSingleValue        Determine if a value range expression is a
+                        single value.
+vreScale2Colours        Scale a number from a range into a colour
+                        gradient.
+vreScaleNumber          Rescale a number from one range into another
+                        range.

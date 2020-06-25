@@ -2,119 +2,112 @@
 ###     befor and after - treatment group B&A_T           ###
 ###-------------------------------------------------------###
 
-x <- R_WEM_liter_hr_season %>% select(1,32:35)
-
-x <- left_join(x,Water_extraction_mechanism_Baseline_2018_[,c(1,139,1)])
-
-
-View(R_WEM_liter_hr_season)
-View(R_WEM_liter_hr_season_Endline)
-View(Water_extraction_mechanism_Baseline_2018_)
-View(Water_extraction_mechanism_Endline_EPC_2019_)
-
-
-
-
-
-
-
-
-
 # R_Lands_Baseline_2018_ \/ R_Lands_Endline_EPC_2019_    ----
 ----------------------------------------------------    
 Land_18_19 <-bind_rows( R_Lands_Baseline_2018_,R_Lands_Endline_EPC_2019_)
+
+mutate(across(is.numeric, round, 2))
 
 
 # In the following variables: total_land_cultivated_year>0  to omit HH 
 # butttt Including the value 0 in the variables themselves 
 
-# total_ownland_cultivated
-# total_land_cultivated
-# irrigated_out_of_tot_land_cult
-# crop_intensity
-# irrigate_intensity
-
-x <- R_Lands_Endline_EPC_2019_ %>% filter(season=="SUMMER 2076",total_ownland_cultivated>0)
-  
-
-# baseline 2018
-R_Lands_Baseline_2018_ %>% 
+# total_ownland_cultivated----
+df2 <- Land_18_19%>% 
   filter(total_land_cultivated_year>0) %>%
-  mutate(ci=total_land_cultivated/nca,ii=irrigated_out_of_tot_land_cult/nca) %>%
-  group_by( household_questionnaire_id) %>%
-  summarise(own=sum(total_ownland_cultivated)*0.0338,
-            cult=sum(total_land_cultivated)*0.0338,
-            irrigated=sum(irrigated_out_of_tot_land_cult)*0.0338,
-            crop_intensity=sum(ci),irrigate_intensity=sum(ii)) %>% 
-  summarise(n(), mean(own),mean(cult),mean(irrigated),
-            mean(crop_intensity),mean(irrigate_intensity)) 
-
-# TreatmentControl 2018 
-y <- Land_18_19%>% 
-  filter(total_land_cultivated_year>0) %>%
-  mutate(ci=total_land_cultivated/nca,ii=irrigated_out_of_tot_land_cult,na.rm = T/nca) %>%
   group_by(year,TreatmentControl, household_questionnaire_id) %>%
-  summarise(own=sum(total_ownland_cultivated)*0.0338,
-            cult=sum(total_land_cultivated)*0.0338,
-            irrigated=sum(irrigated_out_of_tot_land_cult)*0.0338,
-            crop_intensity=sum(ci),irrigate_intensity=sum(ii)) %>% 
+  summarise(own=sum(total_ownland_cultivated)*0.0338) %>% 
   group_by(year, TreatmentControl) %>%
-  summarise(n(), mean(own),mean(cult),mean(irrigated),
-            mean(crop_intensity),mean(irrigate_intensity)) 
+  summarise(N=n(), own=mean(own)) %>% 
+  mutate(across(is.numeric, round, 2))
 
-# in "monsoon" and "winter" no much difference if includ 0 or not
-
-# NOT Including the value 0 - for "Summer" an "Annual"
-
-# "Summer"
-# total_ownland_cultivated 
-yy <- Land_18_19 %>% filter(season=="Summer") %>% 
-  filter(total_land_cultivated_year>0,total_land_cultivated>0) %>%
+# total_land_cultivated-----
+Land_18_19%>% 
+  filter(total_land_cultivated_year>0) %>%
   group_by(year,TreatmentControl, household_questionnaire_id) %>%
   summarise(cult=sum(total_land_cultivated)*0.0338) %>% 
-  group_by(year,TreatmentControl) %>%
-  summarise(n(), mean(cult)) 
+  group_by(year, TreatmentControl) %>%
+  summarise(N=n(), cult=mean(cult))
 
-# irrigated_out_of_tot_land_cult + crop_intensity
-y <- Land_18_19%>%  filter(season=="Summer") %>% 
+# irrigated_out_of_tot_land_cult----
+Land_18_19%>% 
+  filter(total_land_cultivated_year>0) %>%
+  group_by(year,TreatmentControl, household_questionnaire_id) %>%
+  summarise(irrigated=sum(irrigated_out_of_tot_land_cult)*0.0338) %>% 
+  group_by(year, TreatmentControl) %>%
+  summarise(N=n(), irrigated=mean(irrigated))
+
+
+# TreatmentControl 2018 2019 
+spread(df2, HH, own)
+
+# crop_intensity----
+x <- Land_18_19%>% 
+  filter(total_land_cultivated_year>0) %>%
+  group_by(year,TreatmentControl, household_questionnaire_id) %>%
+  summarise(cult=sum(total_land_cultivated),net=mean(nca))%>%mutate(ci=cult/net*100) %>% 
+  group_by(year, TreatmentControl) %>%
+  summarise(N=n(),crop_intensity=mean(ci)) %>% 
+  mutate(across(is.numeric, round, 2))
+
+# irrigate_intensity----
+year <- Land_18_19%>% 
+  filter(total_land_cultivated_year>0) %>%
+  mutate(ii=irrigated_out_of_tot_land_cult/nca)%>%
+  group_by(year,TreatmentControl,household_questionnaire_id) %>%
+  summarise(sumii=sum(ii)) %>% summarise(irrigate_intensity=mean(sumii)*100)
+              
+seasons <- Land_18_19%>% 
+  filter(total_land_cultivated_year>0) %>%
+  mutate(ii=irrigated_out_of_tot_land_cult/nca)%>%
+  group_by(year,TreatmentControl,season,household_questionnaire_id) %>%
+  summarise(sumii=sum(ii)) %>% summarise(irrigate_intensity=mean(sumii)*100)
+
+# chaking changes in number of HH----
+
+# in "Monsoon" and "Winter" -2018 2019 same same
+# in "Annual" wired numbers
+------------------------------------------------------------------
+# total_land_cultivated
+Land_18_19 %>% filter(season=="Summer") %>% 
   filter(total_land_cultivated_year>0,total_land_cultivated>0) %>%
-  mutate(ii=irrigated_out_of_tot_land_cult,
-         cult_ha=total_land_cultivated*0.0338) %>%
   group_by(year,TreatmentControl) %>%
-  summarise(n(),mean(cult_ha),mean(crop_intensity)) 
+  summarise(n = n())
 
-# "Annual"
+Land_18_19 %>% filter(season=="Summer") %>% 
+  filter(total_land_cultivated_year>0,total_land_cultivated>0) %>%
+  group_by(year,TreatmentControl) %>%
+  summarise(n = n())
+
+-------------------------------------------------------------------
+# irrigated_out_of_tot_land_cult
+Land_18_19%>%  filter(season=="Annual") %>% 
+  filter(total_land_cultivated_year>0,irrigated_out_of_tot_land_cult>0) %>%
+  group_by(year,TreatmentControl) %>%
+  summarise(n = n()) 
+
+-------------------------------------------------------------------
 # total_ownland_cultivated
-yy <- Land_18_19 %>% filter(season=="Annual") %>% 
-  filter(total_land_cultivated_year>0,total_land_cultivated>0) %>%
-  group_by(year,TreatmentControl, household_questionnaire_id) %>%
-  summarise(cult=sum(total_land_cultivated)*0.0338) %>% 
+Land_18_19 %>% filter(season=="Summer") %>% 
+  filter(total_land_cultivated_year>0,total_ownland_cultivated>0) %>%
   group_by(year,TreatmentControl) %>%
-  summarise(n(), mean(cult)) 
+  summarise(n = n())
 
-# irrigated_out_of_tot_land_cult + crop_intensity
-y <- Land_18_19%>%  filter(season=="Annual") %>% 
-  filter(total_land_cultivated_year>0,total_land_cultivated>0) %>%
-  mutate(ii=irrigated_out_of_tot_land_cult,
-         cult_ha=total_land_cultivated*0.0338) %>%
+Land_18_19 %>% filter(season=="Annual") %>% 
+  filter(total_land_cultivated_year>0,total_ownland_cultivated>0) %>%
   group_by(year,TreatmentControl) %>%
-  summarise(n(),mean(cult_ha),mean(crop_intensity)) 
-
-
-
+  summarise(n = n())
 
 ---------------------------------------------------------------------
   
 # R.Agriculture_Baseline_2018_ vs R.Agriculture_Endline_EPC_2019_----
 
 ---------------------------------------------------------------------
-   -----------------------------
-  #   | 2018 | Control    | 107 |
-  #   |      | Treatment  |  26 |
-  ------------------------------
-  #   | 2019 | Control    |  95 |
-  #   |      | Treatment  |  21 |
-  ------------------------------
+  
+df2 <- Agriculture_18_19 %>% group_by(year,TreatmentControl,household_questionnaire_id) %>%
+  summarise(mean(cult_area_under_crop)) %>% 
+  count()
+
   
 R_Agriculture_Baseline_2018_ <- R_Agriculture_Baseline_2018_%>%select(16,everything())
 R_Agriculture_Endline_EPC_2019_ <- R_Agriculture_Endline_EPC_2019_%>%select(15,everything())
@@ -122,7 +115,7 @@ R_Agriculture_Endline_EPC_2019_ <- R_Agriculture_Endline_EPC_2019_%>%select(15,e
 Agriculture_18_19 <- R_Agriculture_Baseline_2018_%>%bind_rows(R_Agriculture_Endline_EPC_2019_)
 write.csv(Agriculture_18_19,"C:/Users/Dan/Documents/R/Rautahat.Bara.Sarlahi/Agriculture_18_19.csv", row.names = FALSE)
 
-#irrigation- IN HOURS: n=HH 
+#irrigation- IN HOURS: n=HH ---Agriculture_18_19----
 #time taken to irrigate the cultivated area.A single crop season IN HOURS
 Treats <- subset(R.Agriculture_Endline_EPC_2019_,  TC == 1)
 
@@ -137,11 +130,12 @@ Agriculture_18_19%>% filter(year==2018) %>%
             total_irrigate_hr=mean(irrigate_hr,na.rm = T))
 
 # # TreatmentControl 2018 2019
-Agriculture_18_19%>% 
+df3 <- Agriculture_18_19%>% 
   group_by(year,TreatmentControl, household_questionnaire_id) %>% 
   summarise(hr_per_ha=mean(hrs_irr_1katha)/0.0339,irrigate_hr=sum(irri_for_season)) %>% 
   summarise(N=n(),average_hr_per_ha=mean(hr_per_ha,na.rm = T),
-            total_irrigate_hr=mean(irrigate_hr,na.rm = T))
+            total_irrigate_hr=mean(irrigate_hr,na.rm = T)) %>% 
+  mutate(across(is.numeric, round, 2))
 
 ## season  ##
 #baseline 2018
@@ -163,92 +157,35 @@ cc <- Agriculture_18_19 %>% filter(season_of_crop=="Summer") %>%
 HH_summer <- data.frame(year=c(2018," ",2019," "),tc=c("Control","Treatment"),n = c(33,7,38,11),
            N=c(107,26,95,21),freq=n/N,Percentage_increase=c(" "," ",0.1515,0.5714))
 
+# Water_extraction_mechanism_Baseline_2018_$time_to_irrigate_1_katha__p_----
+
+Wem_18_19_time_to_irrigate_1_ha <- bind_rows(Water_extraction_mechanism_Baseline_2018_[,c(140,1,73)],
+      Water_extraction_mechanism_Endline_EPC_2019_[,c(136,1,70)] ) %>%
+  inner_join(Control_and_treatment_4_districts) %>% 
+  filter(!is.na(time_to_irrigate_1_katha__p_1)) %>%
+  group_by(year,TreatmentControl) %>% 
+  summarise(mean(time_to_irrigate_1_katha__p_1)/60/0.0339,n())
+        
 
 
-# most_imp_source ----omit----
-R.Agriculture_Baseline_2018_ %>%filter(TC==1) %>%  
-  select(1,8,17) %>% 
-  filter(most_imp_source>0) %>% 
-  group_by(household_questionnaire_id,most_imp_source) %>% 
-  summarise(n()) %>% 
-  group_by(most_imp_source) %>% 
-  summarise(n() ,p_HH=n()/26)
+# crop pattern----
 
-R.Agriculture_Endline_EPC_2019_ %>% filter(TC==1) %>% 
-  select(1,8,17) %>% 
-  filter(most_imp_source>0) %>% 
-  group_by(household_questionnaire_id,most_imp_source) %>% 
-  summarise(n()) %>% 
-  group_by(most_imp_source) %>% 
-  summarise(n() ,p_HH=n()/21)
-
-
-R.Lands_Endline_EPC_2019_ %>% filter(TC==1) %>% group_by(household_questionnaire_id) %>% tally()
-
-# frequency HH grow type of crop----
-
-# year
-R.Agriculture_Baseline_2018_ %>% filter( TC==1) %>% group_by(household_questionnaire_id,name_of_crop) %>%
-  summarise(sum_cult_area=sum(cult_area_under_crop))%>% group_by(name_of_crop) %>%
-  summarise(no.HH=n(),no.HH/26)
-
-R.Agriculture_Endline_EPC_2019_ %>% filter(!is.na(cult_area_under_crop),TC==1) %>%
-  group_by(household_questionnaire_id,name_of_crop) %>%
-  summarise(sum_cult_area=sum(cult_area_under_crop))%>% group_by(name_of_crop) %>%
-  summarise(no.HH=n(),no.HH/21)
-
-# crop
-R.Agriculture_Baseline_2018_ %>%  filter(TC==1) %>%  
-  group_by(household_questionnaire_id,season_of_crop,name_of_crop) %>%
-  summarise(sum_cult_area=sum(cult_area_under_crop))%>%
-  group_by(season_of_crop ,name_of_crop) %>% 
-  summarise(no.HH=n(),no.HH/26)
-
-R.Agriculture_Endline_EPC_2019_ %>% filter(!is.na(cult_area_under_crop),TC==1) %>%
-  group_by(household_questionnaire_id,season_of_crop,name_of_crop) %>%
-  summarise(sum_cult_area=sum(cult_area_under_crop))%>%
-  group_by(season_of_crop ,name_of_crop) %>% 
-  summarise(no.HH=n(),no.HH/21)
-
-
+# frequency HH grow type of crop
 # How much of the cultivated area was under this crop: mean & %
-
 #Monsoon  Winter  Summer  Annual 
 #   1       2       3       4 
 
-#season
-R.Agriculture_Baseline_2018_ %>% filter(TC==1) %>% 
-  group_by(household_questionnaire_id,season_of_crop) %>%
-  summarise(sum_cult_area=sum(cult_area_under_crop))%>%
-  group_by(season_of_crop) %>% 
-  summarise(mean = mean(sum_cult_area),
-            per=sum(sum_cult_area)/
-              sum(TreatsB_agri$cult_area_under_crop,na.rm = T))
 
-R.Agriculture_Endline_EPC_2019_ %>% filter(TC==1) %>% 
-  group_by(household_questionnaire_id,season_of_crop) %>%
-  summarise(sum_cult_area=sum(cult_area_under_crop))%>%
-  group_by(season_of_crop) %>% 
-  summarise(mean = mean(sum_cult_area),
-            per=sum(sum_cult_area)/
-              sum(TreatsE_agri$cult_area_under_crop,na.rm = T),n())
+# year
+Agriculture_18_19 %>% group_by(year,TreatmentControl, household_questionnaire_id,name_of_crop) %>%
+  summarise(sum_cult_area=sum(cult_area_under_crop))%>% group_by(year,TreatmentControl, name_of_crop) %>%
+  summarise(no.HH=n(),mean(sum_cult_area))
 
-# crop
-R.Agriculture_Baseline_2018_ %>% filter(TC==1) %>% 
-  group_by(household_questionnaire_id,name_of_crop) %>%
+# crop/season
+x <- Agriculture_18_19 %>% group_by(year,TreatmentControl, household_questionnaire_id,season_of_crop,name_of_crop) %>%
   summarise(sum_cult_area=sum(cult_area_under_crop))%>%
-  group_by(name_of_crop) %>% 
-  summarise(mean = mean(sum_cult_area),
-            per= sum(sum_cult_area)/
-              sum(TreatsB_agri$cult_area_under_crop,na.rm = T))
-
-R.Agriculture_Endline_EPC_2019_ %>% filter(TC==1) %>% 
-  group_by(household_questionnaire_id,name_of_crop) %>%
-  summarise(sum_cult_area=sum(cult_area_under_crop))%>%
-  group_by(name_of_crop) %>% 
-  summarise(mean = mean(sum_cult_area),
-            per= sum(sum_cult_area)/
-              sum(TreatsE_agri$cult_area_under_crop,na.rm = T))
+  group_by(year,TreatmentControl,season_of_crop ,name_of_crop) %>% 
+  summarise(no.HH=n(),mean(sum_cult_area))
 
 # SECTION 7 - PROCUREMENT: ELECTRICITY, FUEL----
 
@@ -269,7 +206,7 @@ Procurement_18_19 %>%
 # buy fuel----
 #[7.12] Did you buy fuel for the pump?
 Procurement_18_19 %>% filter(year==2018) %>% 
-group_by(do_you_buy_fuel_for_the_pump) %>% tally()
+  group_by(do_you_buy_fuel_for_the_pump) %>% tally()
 
 Procurement_18_19 %>% filter(!is.na(do_you_buy_fuel_for_the_pump),do_you_buy_fuel_for_the_pump==1) %>% 
   group_by(year,do_you_buy_fuel_for_the_pump,TreatmentControl) %>% tally()
@@ -282,20 +219,44 @@ Procurement_18_19 %>% filter(year==2018) %>%
   group_by(if_yes__which_fuel_do_you_use) %>% tally()
 
 Procurement_18_19 %>% filter(!is.na(if_yes__which_fuel_do_you_use)) %>% 
-  group_by(year,if_yes__which_fuel_do_you_use,TreatmentControl) %>% tally()
+  group_by(year,if_yes__which_fuel_do_you_use,TreatmentControl) %>%tally()
+
+# fuel use by the 'Water_extraction_mechanism'files----
+x <- R_WEM_liter_hr_season %>% select(1,32:35) %>%
+  left_join(Water_extraction_mechanism_Baseline_2018_[,c(1,139:140)]) %>% 
+  inner_join(Control_and_treatment_4_districts) %>% select(7,1:5,8:9,6)
+y <- R_WEM_liter_hr_season_Endline %>% select(1,32:35) %>% 
+  inner_join(Control_and_treatment_4_districts) %>% 
+  left_join(Water_extraction_mechanism_Endline_EPC_2019_ [,c(1,136:137)]) %>% 
+  select(8,everything())
+WEM_fueliter_18_19 <- rbind(x,y)
+
+WEM_fueliter_18_19 %>% filter(year==2018) %>%
+  summarise(summer=mean(p123_s),monsoon=mean(p123_m),winter=mean(p123_w),yearly=mean(p123_year))
+            
+WEM_fueliter_18_19 %>% group_by(year,TreatmentControl) %>% 
+  summarise(summer=mean(p123_s),monsoon=mean(p123_m),winter=mean(p123_w),yearly=mean(p123_year),n())
 
 
-aa <- R_Demography_2_Baseline_2018_%>%select(1,37,35,38,39,41,40,63)
+            
+
+
+
+
 
 
 # Aquaculture----
 R_Aquaculture_Endline_EPC_2019_ <- inner_join(Aquaculture_Endline_EPC_2019_,Control_and_treatment_4_districts)
 
 # [11.1] Do you practice aquaculture/fish farming? # 1 Yes # 2 No #
-a <- R_Aquaculture_Baseline_2018_ %>% filter(!is.na(practice_aquaculture),TC==1) %>% 
+
+
+a <- R_Aquaculture_Baseline_2018_ %>% filter(!is.na(practice_aquaculture)) %>% 
+  group_by(TreatmentControl) %>% 
   count(practice_aquaculture) %>% mutate(freq = n / sum(n))
 
-a <- R_Aquaculture_Endline_EPC_2019_ %>% filter(!is.na(practice_aquaculture),TC==1) %>% 
+a <- R_Aquaculture_Endline_EPC_2019_ %>% filter(!is.na(practice_aquaculture)) %>%
+  group_by(TreatmentControl) %>% 
   count(practice_aquaculture) %>% mutate(freq = n / sum(n))
 
 # [11.3]What is the total area of the pond? (in kathas)

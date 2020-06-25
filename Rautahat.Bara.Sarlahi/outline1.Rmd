@@ -1,0 +1,125 @@
+---
+title: "outline"
+output:
+  pdf_document: default
+  word_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(kableExtra)
+library(formattable)
+library(knitr)
+opts_chunk$set(echo = FALSE)
+```
+
+## R Markdown
+
+This is an R Markdown document.
+Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+---  
+
+ > When you click the **Knit** button a document will be generated that includes both content  >as well as the output of any embedded R code chunks within the document. You can embed an R  code chunk like this:
+ 
+## Land
+
+Table 1: Baseline
+```{r base, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+Land_18_19 <- read.csv("~/R/Rautahat.Bara.Sarlahi/data/Land_18_19.csv")
+dfb <- Land_18_19 %>% 
+  filter(year==2018,total_land_cultivated_year>0) %>%
+  mutate(ci=total_land_cultivated/nca,ii=irrigated_out_of_tot_land_cult/nca) %>%
+  group_by( household_questionnaire_id) %>%
+  summarise(own=sum(total_ownland_cultivated)*0.0338,
+            cult=sum(total_land_cultivated)*0.0338) %>% 
+  summarise(N=n(), `Ownland Cultivated`=mean(own),`Land Cultivated`=mean(cult)) %>% 
+  mutate(across(is.numeric, round, 2))
+
+kable(dfb, "latex", booktabs = T,align = "lccccc") %>% 
+row_spec(0, bold = T, color = "black", background = NULL )
+
+```
+&nbsp;
+
+&nbsp;
+
+Table 1.1: Total Ownland Cultivated
+```{r pressure, echo=FALSE}
+
+dt <-tribble(~" " ,~N,~mean,~N,~mean,2018,105,3.74,24,5.36, 2019,95,3.59,22,7.05)
+kable(dt, "latex", booktabs = T, align = "lcccc",linesep = "") %>%
+kable_styling(latex_options = "striped", stripe_index = 2,position = "left") %>% 
+column_spec(1:5, width = "1.5cm",border_left = F) %>% column_spec(3,border_right = T ,width = "1.5cm") %>%
+add_header_above(c(" " = 1, "Control" = 2, "Treatment" = 2), bold = F, align = "c")
+
+```
+&nbsp;
+
+&nbsp;
+
+Table 1.2: Total Land Cultivated
+```{r Table 2, echo=FALSE}
+
+dt2 <-tribble(~" " ,~N,~mean,~N,~mean,2018,105,3.99,24,5.46,2019,95,3.66,22,7.07)
+kable(dt2, "latex", booktabs = T,align = "lcccc",linesep = "") %>%
+kable_styling(latex_options = "striped", stripe_index = 2,position = "left") %>% 
+column_spec(1:5, width = "1.5cm",border_left = F) %>% column_spec(3,border_right = T ,width = "1.5cm") %>%
+add_header_above(c(" " = 1, "Control" = 2, "Treatment" = 2), bold = F, align = "c")
+
+```
+&nbsp;
+
+&nbsp;
+
+## Irrigation
+
+ * Irrigated Out Of Total Land Cultivated
+ 
+ - Irrigation in Hours
+ 
+Table 3: Basline
+ 
+
+Table 3: Irrigated Out Of Total Land Cultivated
+```{r Table 3, echo=FALSE}
+
+dt2 <-tribble(~" " ,~N,~mean,~N,~mean,2018,105,2.48,24,3.94,2019,95,3.21,22,5.13)
+kable(dt2, "latex", booktabs = T,align = "lcccc",linesep = "") %>%
+kable_styling(latex_options = "striped", stripe_index = 2,position = "left") %>% 
+column_spec(1:5, width = "1.5cm",border_left = F) %>% column_spec(3,border_right = T ,width = "1.5cm") %>%
+add_header_above(c(" " = 1, "Control" = 2, "Treatment" = 2), bold = F, align = "c")
+
+```
+&nbsp;
+
+&nbsp;
+
+Table 4: Irrigation in Hours
+
+>Table 4.1: By year 
+
+>Table 4.2: By seasons
+
+
+## Intensity
+Baseline
+```{r Intensity, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+dfI <- Land_18_19 %>% 
+  filter(year==2018,total_land_cultivated_year>0) %>%
+  mutate(ci=total_land_cultivated/nca,ii=irrigated_out_of_tot_land_cult/nca) %>%
+  group_by( household_questionnaire_id) %>%
+  summarise(own=sum(total_ownland_cultivated)*0.0338,
+            cult=sum(total_land_cultivated)*0.0338,
+            irrigated=sum(irrigated_out_of_tot_land_cult)*0.0338,
+            crop_intensity=sum(ci),irrigate_intensity=sum(ii)) %>% 
+  summarise(N=n(),`Croping Intensity`=mean(crop_intensity),`Irrigation Intensity`=mean(irrigate_intensity)) %>% 
+  mutate(across(is.numeric, round, 2))
+
+kable(dfI, "latex", booktabs = T,align = "lccccc") %>% 
+row_spec(0, bold = T, color = "black", background = NULL )
+
+```
+
+

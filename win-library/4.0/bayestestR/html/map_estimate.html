@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Maximum A Posteriori probability estimate (MAP)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for map_estimate {bayestestR}"><tr><td>map_estimate {bayestestR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Maximum A Posteriori probability estimate (MAP)</h2>
+
+<h3>Description</h3>
+
+<p>Find the <strong>Highest Maximum A Posteriori probability estimate (MAP)</strong> of a posterior, i.e., the value associated with the highest probability density (the &quot;peak&quot; of the posterior distribution). In other words, it is an estimation of the <em>mode</em> for continuous parameters. Note that this function relies on <a href="estimate_density.html">estimate_density</a>, which by default uses a different smoothing bandwidth (<code>"SJ"</code>) compared to the legacy default implemented the base R <a href="../../stats/html/density.html">density</a> function (<code>"nrd0"</code>).
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+map_estimate(x, precision = 2^10, method = "kernel", ...)
+
+## S3 method for class 'numeric'
+map_estimate(x, precision = 2^10, method = "kernel", ...)
+
+## S3 method for class 'bayesQR'
+map_estimate(x, precision = 2^10, method = "kernel", ...)
+
+## S3 method for class 'stanreg'
+map_estimate(
+  x,
+  precision = 2^10,
+  method = "kernel",
+  effects = c("fixed", "random", "all"),
+  parameters = NULL,
+  ...
+)
+
+## S3 method for class 'brmsfit'
+map_estimate(
+  x,
+  precision = 2^10,
+  method = "kernel",
+  effects = c("fixed", "random", "all"),
+  component = c("conditional", "zi", "zero_inflated", "all"),
+  parameters = NULL,
+  ...
+)
+
+## S3 method for class 'data.frame'
+map_estimate(x, precision = 2^10, method = "kernel", ...)
+
+## S3 method for class 'emmGrid'
+map_estimate(x, precision = 2^10, method = "kernel", ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>Vector representing a posterior distribution, or a data frame of such
+vectors. Can also be a Bayesian model (<code>stanreg</code>, <code>brmsfit</code>,
+<code>MCMCglmm</code>, <code>mcmc</code> or <code>bcplm</code>) or a <code>BayesFactor</code> model.</p>
+</td></tr>
+<tr valign="top"><td><code>precision</code></td>
+<td>
+<p>Number of points of density data. See the <code>n</code> parameter in <code>density</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>method</code></td>
+<td>
+<p>Density estimation method. Can be <code>"kernel"</code> (default), <code>"logspline"</code> or <code>"KernSmooth"</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Currently not used.</p>
+</td></tr>
+<tr valign="top"><td><code>effects</code></td>
+<td>
+<p>Should results for fixed effects, random effects or both be returned?
+Only applies to mixed models. May be abbreviated.</p>
+</td></tr>
+<tr valign="top"><td><code>parameters</code></td>
+<td>
+<p>Regular expression pattern that describes the parameters that
+should be returned. Meta-parameters (like <code>lp__</code> or <code>prior_</code>) are
+filtered by default, so only parameters that typically appear in the
+<code>summary()</code> are returned. Use <code>parameters</code> to select specific parameters
+for the output.</p>
+</td></tr>
+<tr valign="top"><td><code>component</code></td>
+<td>
+<p>Should results for all parameters, parameters for the conditional model
+or the zero-inflated part of the model be returned? May be abbreviated. Only
+applies to <span class="pkg">brms</span>-models.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A numeric value if <code>posterior</code> is a vector. If <code>posterior</code>
+is a model-object, returns a data frame with following columns:
+</p>
+
+<ul>
+<li> <p><code>Parameter</code> The model parameter(s), if <code>x</code> is a model-object. If <code>x</code> is a vector, this column is missing.
+</p>
+</li>
+<li> <p><code>MAP_Estimate</code> The MAP estimate for the posterior or each model parameter.
+</p>
+</li></ul>
+
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+library(bayestestR)
+
+posterior &lt;- rnorm(10000)
+map_estimate(posterior)
+
+plot(density(posterior))
+abline(v = map_estimate(posterior), col = "red")
+
+library(rstanarm)
+model &lt;- rstanarm::stan_glm(mpg ~ wt + cyl, data = mtcars)
+map_estimate(model)
+
+library(brms)
+model &lt;- brms::brm(mpg ~ wt + cyl, data = mtcars)
+map_estimate(model)
+
+## End(Not run)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>bayestestR</em> version 0.7.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -62,6 +62,33 @@ btselm20 <- cbind(btselm20,weeks0_8)
 print(btselm20)
 View(btselm20)
 
+attach(btselm20)
+plot(week3ago, q3)
+
+plot(NULL, ylim=c(1,2.5),xlim=c(0,15), 
+     xlab = " Attackes 3 week ago", 
+     ylab = "Peace Index Q3", 
+     font.lab = 6,
+     main = "Peace Index vs. Attackes",
+     font.main = 7,
+     col.main = "black",)
+abline(v = 0:15, col = "aliceblue", lwd = 200)
+abline(v = 0:15, col = "white")
+abline(h=0:4, col = "white")
+points(week3ago, q3, 
+       pch = 20,
+       cex = 1,col="darkblue")
+
+
+
+
+
+
+
+
+
+
+
 ----------------------------------------------------------------------------
                               regression                               
 ----------------------------------------------------------------------------

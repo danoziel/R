@@ -1,7 +1,7 @@
 Package: naniar
 Type: Package
 Title: Data Structures, Summaries, and Visualisations for Missing Data
-Version: 0.5.0
+Version: 0.5.1
 Authors@R: c(
   person("Nicholas", "Tierney", 
          role = c("aut", "cre"),
@@ -41,8 +41,8 @@ Suggests: knitr, rmarkdown, testthat (>= 2.1.0), rpart, rpart.plot,
         imputeTS, gdtools, Hmisc, spelling
 VignetteBuilder: knitr
 Depends: R (>= 3.1.2)
-Imports: dplyr, ggplot2, purrr, tidyr, tibble, magrittr, stats, visdat,
-        rlang, forcats, viridis, glue, UpSetR
+Imports: dplyr, ggplot2, purrr, tidyr, tibble (>= 2.0.0), magrittr,
+        stats, visdat, rlang, forcats, viridis, glue, UpSetR
 Collate: 'add-cols.R' 'add-n-prop-miss.R' 'cast-shadows.R'
         'data-common-na-numbers.R' 'data-common-na-strings.R'
         'data-oceanbuoys.R' 'data-pedestrian.R' 'data-riskfactors.R'
@@ -64,10 +64,10 @@ Collate: 'add-cols.R' 'add-n-prop-miss.R' 'cast-shadows.R'
 URL: https://github.com/njtierney/naniar
 BugReports: https://github.com/njtierney/naniar/issues
 Encoding: UTF-8
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0
 Language: en-US
 NeedsCompilation: no
-Packaged: 2020-02-26 22:29:26 UTC; ntie0001
+Packaged: 2020-04-30 11:36:04 UTC; ntie0001
 Author: Nicholas Tierney [aut, cre] (<https://orcid.org/0000-0003-1460-8722>),
   Di Cook [aut] (<https://orcid.org/0000-0002-3813-7155>),
   Miles McBain [aut] (<https://orcid.org/0000-0003-2865-2548>),
@@ -77,5 +77,5 @@ Author: Nicholas Tierney [aut, cre] (<https://orcid.org/0000-0003-1460-8722>),
   Luke Smith [ctb]
 Maintainer: Nicholas Tierney <nicholas.tierney@gmail.com>
 Repository: CRAN
-Date/Publication: 2020-02-28 07:20:08 UTC
-Built: R 3.6.3; ; 2020-03-16 22:01:38 UTC; windows
+Date/Publication: 2020-04-30 22:00:11 UTC
+Built: R 4.0.0; ; 2020-06-15 03:30:29 UTC; windows

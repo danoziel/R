@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Highest Density Interval (HDI)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for hdi {bayestestR}"><tr><td>hdi {bayestestR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Highest Density Interval (HDI)</h2>
+
+<h3>Description</h3>
+
+<p>Compute the <strong>Highest Density Interval (HDI)</strong> of posterior distributions. All points within this interval have a higher probability density than points outside the interval. The HDI can be used in the context of uncertainty characterisation of posterior distributions as <strong>Credible Interval (CI)</strong>.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+hdi(x, ...)
+
+## S3 method for class 'numeric'
+hdi(x, ci = 0.89, verbose = TRUE, ...)
+
+## S3 method for class 'data.frame'
+hdi(x, ci = 0.89, verbose = TRUE, ...)
+
+## S3 method for class 'MCMCglmm'
+hdi(x, ci = 0.89, verbose = TRUE, ...)
+
+## S3 method for class 'bayesQR'
+hdi(x, ci = 0.89, verbose = TRUE, ...)
+
+## S3 method for class 'sim.merMod'
+hdi(
+  x,
+  ci = 0.89,
+  effects = c("fixed", "random", "all"),
+  parameters = NULL,
+  verbose = TRUE,
+  ...
+)
+
+## S3 method for class 'sim'
+hdi(x, ci = 0.89, parameters = NULL, verbose = TRUE, ...)
+
+## S3 method for class 'emmGrid'
+hdi(x, ci = 0.89, verbose = TRUE, ...)
+
+## S3 method for class 'stanreg'
+hdi(
+  x,
+  ci = 0.89,
+  effects = c("fixed", "random", "all"),
+  parameters = NULL,
+  verbose = TRUE,
+  ...
+)
+
+## S3 method for class 'brmsfit'
+hdi(
+  x,
+  ci = 0.89,
+  effects = c("fixed", "random", "all"),
+  component = c("conditional", "zi", "zero_inflated", "all"),
+  parameters = NULL,
+  verbose = TRUE,
+  ...
+)
+
+## S3 method for class 'BFBayesFactor'
+hdi(x, ci = 0.89, verbose = TRUE, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+<p>Vector representing a posterior distribution, or a data frame of such
+vectors. Can also be a Bayesian model (<code>stanreg</code>, <code>brmsfit</code>,
+<code>MCMCglmm</code>, <code>mcmc</code> or <code>bcplm</code>) or a <code>BayesFactor</code> model.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Currently not used.</p>
+</td></tr>
+<tr valign="top"><td><code>ci</code></td>
+<td>
+<p>Value or vector of probability of the (credible) interval - CI (between 0 and 1)
+to be estimated. Default to <code>.89</code> (89%).</p>
+</td></tr>
+<tr valign="top"><td><code>verbose</code></td>
+<td>
+<p>Toggle off warnings.</p>
+</td></tr>
+<tr valign="top"><td><code>effects</code></td>
+<td>
+<p>Should results for fixed effects, random effects or both be returned?
+Only applies to mixed models. May be abbreviated.</p>
+</td></tr>
+<tr valign="top"><td><code>parameters</code></td>
+<td>
+<p>Regular expression pattern that describes the parameters that
+should be returned. Meta-parameters (like <code>lp__</code> or <code>prior_</code>) are
+filtered by default, so only parameters that typically appear in the
+<code>summary()</code> are returned. Use <code>parameters</code> to select specific parameters
+for the output.</p>
+</td></tr>
+<tr valign="top"><td><code>component</code></td>
+<td>
+<p>Should results for all parameters, parameters for the conditional model
+or the zero-inflated part of the model be returned? May be abbreviated. Only
+applies to <span class="pkg">brms</span>-models.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Unlike equal-tailed intervals (see <code>eti()</code>) that typically exclude 2.5%
+from each tail of the distribution and always include the median, the HDI is
+<em>not</em> equal-tailed and therefore always includes the mode(s) of posterior
+distributions.
+<br /> <br />
+By default, <code>hdi()</code> and <code>eti()</code> return the 89% intervals (<code>ci = 0.89</code>),
+deemed to be more stable than, for instance, 95% intervals (<cite>Kruschke, 2014</cite>).
+An effective sample size of at least 10.000 is recommended if 95% intervals
+should be computed (<cite>Kruschke, 2014, p. 183ff</cite>). Moreover, 89 indicates
+the arbitrariness of interval limits - its only remarkable property is being
+the highest prime number that does not exceed the already unstable 95%
+threshold (<cite>McElreath, 2015</cite>).
+<br /> <br />
+A 90% equal-tailed interval (ETI) has 5% of the distribution on either
+side of its limits. It indicates the 5th percentile and the 95h percentile.
+In symmetric distributions, the two methods of computing credible intervals,
+the ETI and the <a href="hdi.html">HDI</a>, return similar results.
+<br /> <br />
+This is not the case for skewed distributions. Indeed, it is possible that
+parameter values in the ETI have lower credibility (are less probable) than
+parameter values outside the ETI. This property seems undesirable as a summary
+of the credible values in a distribution.
+<br /> <br />
+On the other hand, the ETI range does change when transformations are applied
+to the distribution (for instance, for a log odds scale to probabilities):
+the lower and higher bounds of the transformed distribution will correspond
+to the transformed lower and higher bounds of the original distribution.
+On the contrary, applying transformations to the distribution will change
+the resulting HDI.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A data frame with following columns:
+</p>
+
+<ul>
+<li> <p><code>Parameter</code> The model parameter(s), if <code>x</code> is a model-object. If <code>x</code> is a vector, this column is missing.
+</p>
+</li>
+<li> <p><code>CI</code> The probability of the credible interval.
+</p>
+</li>
+<li> <p><code>CI_low</code>, <code>CI_high</code> The lower and upper credible interval limits for the parameters.
+</p>
+</li></ul>
+
+
+
+<h3>Note</h3>
+
+<p>There is also a <a href="https://easystats.github.io/see/articles/bayestestR.html"><code>plot()</code>-method</a> implemented in the <a href="https://easystats.github.io/see/"><span class="pkg">see</span>-package</a>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Credits go to <a href="https://rdrr.io/cran/ggdistribute/src/R/stats.R">ggdistribute</a> and <a href="https://github.com/mikemeredith/HDInterval">HDInterval</a>.
+</p>
+
+
+<h3>References</h3>
+
+
+<ul>
+<li><p> Kruschke, J. (2014). Doing Bayesian data analysis: A tutorial with R, JAGS, and Stan. Academic Press.
+</p>
+</li>
+<li><p> McElreath, R. (2015). Statistical rethinking: A Bayesian course with examples in R and Stan. Chapman and Hall/CRC.
+</p>
+</li></ul>
+
+
+
+<h3>Examples</h3>
+
+<pre>
+library(bayestestR)
+
+posterior &lt;- rnorm(1000)
+hdi(posterior, ci = .89)
+hdi(posterior, ci = c(.80, .90, .95))
+
+df &lt;- data.frame(replicate(4, rnorm(100)))
+hdi(df)
+hdi(df, ci = c(.80, .90, .95))
+
+## Not run: 
+library(rstanarm)
+model &lt;- stan_glm(mpg ~ wt + gear, data = mtcars, chains = 2, iter = 200, refresh = 0)
+hdi(model)
+hdi(model, ci = c(.80, .90, .95))
+
+library(emmeans)
+hdi(emtrends(model, ~1, "wt"))
+
+library(brms)
+model &lt;- brms::brm(mpg ~ wt + cyl, data = mtcars)
+hdi(model)
+hdi(model, ci = c(.80, .90, .95))
+
+library(BayesFactor)
+bf &lt;- ttestBF(x = rnorm(100, 1, 1))
+hdi(bf)
+hdi(bf, ci = c(.80, .90, .95))
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>bayestestR</em> version 0.7.0 <a href="00Index.html">Index</a>]</div>
+</body></html>
