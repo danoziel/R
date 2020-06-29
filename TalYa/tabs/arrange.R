@@ -1,10 +1,13 @@
-TAL.YA..farmer19_20 <- read.csv("~/R/TalYa/TAL-YA -farmer19_20.csv", stringsAsFactors=FALSE)
+>TALYAfarmer <- read.csv("~/R/TalYa/data/TALYAfarmer.csv")
+area_talya_farmers <- read.csv("~/R/TalYa/data/area_talya_farmers.csv")
 
 write.csv(talya,"C:/Users/Dan/Documents/R/TalYa/talya11.csv")
+
+
 # harvesting tomato data----
 #eliminate: Vijaya narasimha (bitter guord Summer 2019)
 #           R Chenna kista(maskmelon Rabi 2020)
-talya <- TALYA_farmer %>%
+talya <- TALYAfarmer %>%
   filter(farmer_name!="Vijaya narasimha") %>%
   filter(farmer_name!="R Chenna kista") %>%
   filter(harvest_yesno_talya100=="Yes") %>%
@@ -12,26 +15,56 @@ talya <- TALYA_farmer %>%
   select(2,18,19,20,harvest_KG_talya100,harvest_KG_CONTROL,harvest_damage_talya100,
          harvest_damage_CONTROL,KG_sold_TALYA100,KG_sold_CONTROL,average_price_TALYA100,
          revenue_TALYA100,revenue_CONTROL,average_price_TALYA100,8,harvest_yesno_talya100,
-         week_number,year) 
+         week_number,year)
 
-talya <- full_join(talya,area_talya_farmers)
+talya <- talya[-26,]
 
-fix(talya)
+talya <- full_join(talya,area_talya_farmers,by="farmer_name")
 
-talya <- talya %>% mutate(ty_harvest_kg_ac = harvest_KG_talya100 /talya_ac,
-    ctrl_harvest_kg_ac = harvest_KG_CONTROL /control_ac,
-    ty_damage_kg_ac = harvest_damage_talya100 /talya_ac,
-    ctrl_damage_kg_ac = harvest_damage_CONTROL /control_ac,
-    ty_kg_sold_ac = KG_sold_TALYA100 /talya_ac,
-    ctrl_kg_sold_ac = KG_sold_CONTROL /control_ac,
-    ty_revenue_ac = revenue_TALYA100 /talya_ac,
-    ctrl_revenue_ac = revenue_CONTROL /control_ac)
+talya <- talya %>% mutate(ty_harvest_kg_ac = harvest_KG_talya100 /acre,
+                          ctrl_harvest_kg_ac = harvest_KG_CONTROL /acre,
+                          ty_damage_kg_ac = harvest_damage_talya100 /acre,
+                          ctrl_damage_kg_ac = harvest_damage_CONTROL /acre,
+                          ty_kg_sold_ac = KG_sold_TALYA100 /acre,
+                          ctrl_kg_sold_ac = KG_sold_CONTROL /acre,
+                          ty_revenue_ac = revenue_TALYA100 /acre,
+                          ctrl_revenue_ac = revenue_CONTROL /acre)
+
+talya <- talya %>% group_by(id) %>% 
+  summarise_at(vars(ty_harvest_kg_ac :ctrl_revenue_ac), sum, na.rm = TRUE) 
+
+
+# g_revenue-----
+g_revenue <- talya%>%
+  summarise(`Tal-Ya plot`=mean(ty_revenue_ac),
+            `Control Plot`=mean(ctrl_revenue_ac)) %>% 
+  mutate(across(is.numeric, round)) %>%
+  summarise((`Tal-Ya plot`-`Control Plot`)/`Control Plot`)
+
+g_revenue <- g_revenue %>% tidyr::gather("plot", "Revenue", 1:2)
+
+g_revenue <- ggplot(g_revenue, 
+                    aes(x=plot, y=Revenue, fill=plot)) + 
+  geom_bar(stat="identity",width=0.4)+
+  theme_gray()+
+  ggtitle("Revenue Per Acre") +
+  xlab(" ") +
+  ylab("Revenue ")+
+  geom_text(aes(label=Revenue), vjust=1.5, colour="white", size=4)+ 
+  scale_fill_manual(name="Plot", values=c("#a1d99b","#31a354"))+
+  theme(legend.position = "none",
+        plot.title = element_text(size = rel(1.2), face = "bold", hjust = 0.5))
+
+g_revenue
+
 
 # g-harvest----
 
-g_harvest <- talya %>% summarise(`Tal-Ya plot`=mean(ty_harvest_kg_ac,na.rm = T),
-                               `Control Plot`=mean(ctrl_harvest_kg_ac,na.rm = T)) %>%
-  mutate(across(is.numeric, round))
+g_harvest <- talya%>%
+  summarise(`Tal-Ya plot`=mean(ty_harvest_kg_ac),
+            `Control Plot`=mean(ctrl_harvest_kg_ac)) %>% 
+  mutate(across(is.numeric, round)) %>%
+  summarise((`Tal-Ya plot`-`Control Plot`)/`Control Plot`)
 
 g_harvest <- g_harvest %>% tidyr::gather("plot", "harvest", 1:2)
 
@@ -49,10 +82,11 @@ g_harvest <- ggplot(g_harvest,
   
 
 # g-sold------
-g_sold <- talya %>%
-  summarise(`Tal-Ya plot`=mean(ty_kg_sold_ac,na.rm = T),
-                               `Control Plot`=mean(ctrl_kg_sold_ac,na.rm = T)) %>%
-  mutate(across(is.numeric, round))
+g_sold <- talya%>%
+  summarise(`Tal-Ya plot`=mean(ty_kg_sold_ac),
+            `Control Plot`=mean(ctrl_kg_sold_ac)) %>% 
+  mutate(across(is.numeric, round)) %>%
+  summarise((`Tal-Ya plot`-`Control Plot`)/`Control Plot`)
 
 g_sold <- g_sold %>% tidyr::gather("plot", "sold", 1:2)
 
@@ -70,39 +104,17 @@ g_sold <- ggplot(g_sold,
 
 g_sold
 
-# g_revenue-----
-
-g_revenue <- talya %>% summarise(`Tal-Ya plot`=mean(ty_revenue_ac,na.rm = T),
-                         `Control Plot`=mean(ctrl_revenue_ac,na.rm = T)) %>% 
-  mutate(across(is.numeric, round))
-
-
-g_revenue <- g_revenue %>% tidyr::gather("plot", "Revenue", 1:2)
-
-g_revenue <- ggplot(g_revenue, 
-       aes(x=plot, y=Revenue, fill=plot)) + 
-  geom_bar(stat="identity",width=0.4)+
-  theme_gray()+
-  ggtitle("Revenue Per Acre") +
-  xlab(" ") +
-  ylab("Revenue ")+
-  geom_text(aes(label=Revenue), vjust=1.5, colour="white", size=4)+ 
-  scale_fill_manual(name="Plot", values=c("#a1d99b","#31a354"))+
-  theme(legend.position = "none",
- plot.title = element_text(size = rel(1.2), face = "bold", hjust = 0.5))
-
-g_revenue
-
 # g_damage-----
 
 # damaged harvest as percent of the total harvest
-g_damage <- talya %>% mutate(AVt=harvest_damage_talya100/harvest_KG_talya100,
-                 AVc=harvest_damage_CONTROL/harvest_KG_CONTROL) %>% 
+g_damage <- talya %>% mutate(AVt=ty_damage_kg_ac/ty_harvest_kg_ac,
+                 AVc=ctrl_damage_kg_ac/ctrl_harvest_kg_ac) %>% 
   summarise(`Tal-Ya plot`=mean(AVt)*100,`Control Plot`=mean(AVc)*100) %>% 
   mutate(across(is.numeric, round,2)) 
 
 g_damage <- g_damage %>% tidyr::gather("plot", "damage", 1:2)
 
+library(scales)
 g_damage <- ggplot(g_damage, aes(x=plot, y=damage, fill=plot)) + 
   geom_bar(stat="identity",width=0.4)+
   theme_gray()+
@@ -116,6 +128,82 @@ g_damage <- ggplot(g_damage, aes(x=plot, y=damage, fill=plot)) +
         plot.title = element_text(size = rel(1.2), face = "bold", hjust = 0.5))+
   scale_y_continuous(labels = function(x) paste0(x*1, "%"))
 
+# g_farmers_revenue----
+
+g_farmers_revenue <- talya %>% select(id,ty_revenue_ac,ctrl_revenue_ac) %>% 
+  rename(`Tal-Ya`=ty_revenue_ac,`Control`= ctrl_revenue_ac) %>% 
+  mutate(across(is.numeric, round))
+
+g_farmers_revenue <- gather(g_farmers_revenue, "Group", "value", 2:3)
+
+df.mean = g_farmers_revenue %>% 
+  group_by(Group) %>% 
+  mutate(ymean = mean(value))
+
+ggplot(g_farmers_revenue, aes(id, value, fill=Group)) +
+  geom_bar(stat="identity" ,width=0.8, position=position_dodge())+
+  geom_errorbar(data=df.mean, aes(id, ymax = ymean, ymin = ymean),
+                size=0.5, linetype = "longdash", inherit.aes = F, width = 1)
+
+g_farmers_revenue <- ggplot(data=g_farmers_revenue, aes(x=id, y=value, fill=Group)) +
+  geom_bar(stat="identity" ,width=0.8, position=position_dodge())+
+  theme_update()+
+  ggtitle("Revenue Per Acre") +
+  xlab("Farmer id") +
+  ylab("Revenue")+
+  geom_text(
+    aes(x = id, y = value, label = value, group = Group),
+    position = position_dodge(width = 1),
+    vjust = -0.5, size = 2)+
+  theme(axis.text.x = element_text(angle=0, vjust = 0.7))
+
+
+# g_farmers_harvest----
+
+g_farmers_harvest <- talya %>% select(id,ty_harvest_kg_ac,ctrl_harvest_kg_ac) %>% 
+  rename(`Tal-Ya`=ty_harvest_kg_ac,`Control`= ctrl_harvest_kg_ac) %>% 
+  mutate(across(is.numeric, round))
+
+g_farmers_harvest <- gather(g_farmers_harvest, "Group", "value", 2:3)
+
+g_farmers_harvest <- ggplot(data=g_farmers_harvest, aes(x=id, y=value, fill=Group)) +
+  geom_bar(stat="identity" ,width=0.8, position=position_dodge())+
+  theme_update()+
+  ggtitle("Harvest Kg Per Acre") +
+  xlab("Farmer id") +
+  ylab("Kg")+
+  geom_text(
+    aes(x = id, y = value, label = value, group = Group),
+    position = position_dodge(width = 1),
+    vjust = -0.5, size = 2)
+
+# g_kg_price------
+
+talya$starttime <- as.Date(talya$starttime, "%d/%m/%y")
+
+class(talya$starttime)
+
+
+
+
+g_price_kg_tomato <- talya %>% group_by(week_number) %>%
+  filter(!is.na(average_price_TALYA100),average_price_TALYA100!=1.25) %>% 
+  summarise(average_price= mean(average_price_TALYA100)) %>% 
+  mutate(across(is.numeric, round,2))
+
+
+g_price_kg_tomato <- ggplot(g_price_kg_tomato) +theme_grey()+
+  geom_line(aes(y = average_price, x = week_number),
+            size=0.7, stat="identity", color = "darkgreen")+
+  ggtitle("Prices per kg of tomatoes (In IRs.)") +
+  labs(x="Week number", y="Kg Price")+
+  geom_vline(xintercept = 16)+
+  scale_x_continuous(breaks=seq(8,22,1))+
+  scale_y_continuous(breaks=seq(1.5,8,1))+
+  theme(panel.grid.minor = element_blank())
+
+-----------------------------------------------------------------
+  
 
 
 # ----sctters-harvest vs. sold-harvest vs. revenue----
@@ -154,66 +242,3 @@ gridar
 
 p1 + facet_wrap( ~ farmer_name, nrow = 1) + theme(legend.position = "none") +
   ggtitle("facetted plot")
-#----farmer level----
-
-# harvest
-
-farmer_harvest <- talya %>% select(id,ty_harvest_kg_ac,ctrl_harvest_kg_ac) %>% 
-  group_by(id) %>% filter(ctrl_harvest_kg_ac>0) %>% 
-  summarise(`Tal-Ya`=mean(ty_harvest_kg_ac),
-            `Control`= mean(ctrl_harvest_kg_ac)) %>% 
-  mutate(across(is.numeric, round))
-
-farmer_harvest <- gather(farmer_harvest, "Group", "value", 2:3)
-
-farmer_harvest <- ggplot(data=farmer_harvest, aes(x=id, y=value, fill=Group)) +
-  geom_bar(stat="identity" ,width=0.8, position=position_dodge())+
-  theme_update()+
-  ggtitle("Harvest Kg Per Acre- Farmer Level") +
-  xlab("Farmer id") +
-  ylab("Kg")+
-  geom_text(
-    aes(x = id, y = value, label = value, group = Group),
-    position = position_dodge(width = 1),
-    vjust = -0.5, size = 2)
-
-#----revenue
-
-farmer_revenue <- talya %>% select(id,ty_revenue_ac,ctrl_revenue_ac) %>% 
-  group_by(id) %>% filter(ctrl_revenue_ac >0,ty_revenue_ac>0) %>% 
-  summarise(`Tal-Ya`=mean(ty_revenue_ac),
-            `Control`= mean(ctrl_revenue_ac)) %>% 
-  mutate(across(is.numeric, round))
-
-farmer_revenue <- gather(farmer_revenue, "Group", "value", 2:3)
-
-farmer_revenue <- ggplot(data=farmer_revenue, aes(x=id, y=value, fill=Group)) +
-  geom_bar(stat="identity" ,width=0.8, position=position_dodge())+
-  theme_update()+
-  ggtitle("Revenue Per Acre- Farmers Level") +
-  xlab("Farmer id") +
-  ylab("Revenue")+
-  geom_text(
-    aes(x = id, y = value, label = value, group = Group),
-    position = position_dodge(width = 1),
-    vjust = -0.5, size = 2)
-
------
-price <- talya %>% group_by(week_number) %>%filter(average_price_TALYA100!=8) %>% 
-  summarise(average_price= mean(average_price_TALYA100,na.rm = T)) %>% 
-  mutate(across(is.numeric, round,2))
-
-  
-ggplot(price) + 
-  geom_line(aes(y = average_price, x = week_number),
-            size=1, stat="identity", color = "darkred")+
-  ggtitle("Prices per kg of tomatoes 20/2/2020-3/6/2020 (In IRs.)") +
-  labs(x="Week number", y="Kg Price")+
-  geom_vline(xintercept = 15)+
-  geom_vline(xintercept = 18)+
-  scale_x_continuous(breaks=seq(8,22,1))+
-  scale_y_continuous(breaks=seq(1.5,8,1))
-  
-  
-
-
