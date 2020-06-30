@@ -1,0 +1,1846 @@
+"household_questionnaire_id","type_of_crop","name_of_crop","season_of_crop","when_is_crop_sowed","when_is_crop_harvested","cult_area_under_crop","most_imp_source","hrs_irr_1katha","no_of_irrigation_for_1_katha","what_was_your_total_harvest","unit_harvest","percent_for_selling","price_per_kg","year","district","TreatmentControl","TC","irri_for_season"
+"T102007004","1","PADDY","Monsoon",3,8,10,2,1,2,3,1,0,0,2017,"Saptari","Control",0,20
+"T102007004","2","WHEAT","Winter",8,12,8,2,1,2,1,1,0,0,2017,"Saptari","Control",0,16
+"T102007004","47","POTATO","Winter",8,11,2,2,1,1,10,1,0,0,2017,"Saptari","Control",0,2
+"T102007004","53","ONIONS","Summer",9,12,2,2,1,5,20,3,0,0,2017,"Saptari","Control",0,10
+"T102007004","10","OKRA","Summer",10,NA,2,2,1,5,50,3,0,0,2017,"Saptari","Control",0,10
+"T102007004","24","HORSE GRAM","Summer",10,NA,1,2,1,5,15,3,0,0,2017,"Saptari","Control",0,5
+"T102007004","27","GREEN GRAM","Summer",12,NA,5,1,NA,NA,20,3,50,100,2017,"Saptari","Control",0,NA
+"T108803015","1","PADDY","Monsoon",3,8,80,2,1,2,3,1,25,20,2017,"Saptari","Control",0,160
+"T108803015","2","WHEAT","Winter",8,12,20,2,1,2,2,1,25,28,2017,"Saptari","Control",0,40
+"T108803015","47","POTATO","Winter",8,11,5,2,1,2,15,1,50,17,2017,"Saptari","Control",0,10
+"T108803015","43","MUSTARD","Winter",8,12,5,2,1,2,15,3,0,0,2017,"Saptari","Control",0,10
+"T108803015","42","LINSEED","Winter",8,12,5,2,1,1,20,3,75,140,2017,"Saptari","Control",0,5
+"T108803015","44","CAULIFLOWER","Winter",8,11,2,2,1,10,3,1,50,40,2017,"Saptari","Control",0,20
+"T108803015","45","CABBAGE","Winter",8,12,1,2,1,8,4,1,75,30,2017,"Saptari","Control",0,8
+"T108803015","7","TOMATO","Winter",8,NA,1,2,1,10,4,1,75,30,2017,"Saptari","Control",0,10
+"T108803015","10","OKRA","Winter",8,NA,1,2,1,5,30,3,50,25,2017,"Saptari","Control",0,5
+"T108803015","27","GREEN GRAM","Summer",12,NA,10,1,NA,NA,20,3,50,100,2017,"Saptari","Control",0,NA
+"C009006001","1","PADDY","Monsoon",3,8,30,2,1,3,3,1,50,16,2017,"Saptari","Control",0,90
+"C009006001","2","WHEAT","Winter",8,12,10,2,1,3,2,1,50,25,2017,"Saptari","Control",0,30
+"C009006001","43","MUSTARD","Winter",8,12,3,2,1,2,15,3,0,0,2017,"Saptari","Control",0,6
+"C009006001","47","POTATO","Winter",8,11,2,2,1,1,15,1,50,15,2017,"Saptari","Control",0,2
+"C009006001","27","GREEN GRAM","Summer",12,NA,5,1,0,0,10,3,0,0,2017,"Saptari","Control",0,0
+"T106006001","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,2017,"Saptari","Control",0,NA
+"T107609001","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,2017,"Saptari","Control",0,NA
+"T108808014","1","PADDY","Monsoon",3,8,50,2,1,2,4,1,50,18,2017,"Saptari","Control",0,100
+"T108808014","2","WHEAT","Winter",8,12,10,2,1,2,2,1,0,0,2017,"Saptari","Control",0,20
+"T108808014","33","OTHER","Winter",8,11,4,2,1,1,20,3,0,0,2017,"Saptari","Control",0,4
+"T108808014","43","MUSTARD","Winter",8,11,4,2,1,2,20,3,0,0,2017,"Saptari","Control",0,8
+"T108808014","47","POTATO","Winter",8,11,2,2,1,2,13,1,50,15,2017,"Saptari","Control",0,4
+"C001701002","1","PADDY","Monsoon",3,8,40,2,1,2,4,1,50,22,2017,"Saptari","Control",0,80
+"C001701002","2","WHEAT","Winter",8,12,20,2,1,2,2,1,50,28,2017,"Saptari","Control",0,40
+"C001701002","43","MUSTARD","Winter",8,11,4,2,1,2,20,3,0,0,2017,"Saptari","Control",0,8
+"C001701002","42","LINSEED","Winter",8,11,5,1,0,0,10,3,50,140,2017,"Saptari","Control",0,0
+"C001701002","33","OTHER","Winter",8,11,5,1,0,0,10,3,0,0,2017,"Saptari","Control",0,0
+"C001701002","47","POTATO","Winter",8,11,3,2,1,2,12,1,50,15,2017,"Saptari","Control",0,6
+"C001701002","21","GREEN PEA","Winter",8,11,3,2,1,1,10,3,0,0,2017,"Saptari","Control",0,3
+"C001701002","27","GREEN GRAM","Summer",12,NA,5,1,0,0,15,3,0,0,2017,"Saptari","Control",0,0
+"C008508001","1","PADDY","Monsoon",3,8,20,2,0.5,2,4,1,50,20,2017,"Saptari","Control",0,20
+"C008508001","2","WHEAT","Winter",8,12,10,2,0.5,2,2,1,25,28,2017,"Saptari","Control",0,10
+"C008508001","21","GREEN PEA","Winter",8,12,5,1,0.5,0,20,3,50,125,2017,"Saptari","Control",0,0
+"C008508001","43","MUSTARD","Winter",8,12,3,2,0.5,2,15,3,0,0,2017,"Saptari","Control",0,3
+"C008508001","47","POTATO","Winter",8,11,2,2,0.5,2,15,1,50,14,2017,"Saptari","Control",0,2
+"C008508001","27","GREEN GRAM","Summer",12,NA,5,1,0.5,0,25,3,25,100,2017,"Saptari","Control",0,0
+"T107104001","1","PADDY","Monsoon",3,8,10,2,1,3,3,1,0,0,2017,"Saptari","Control",0,30
+"T107104001","2","WHEAT","Winter",8,12,5,2,1,2,1,1,0,0,2017,"Saptari","Control",0,10
+"T107104001","47","POTATO","Winter",8,12,3,2,1,2,15,1,75,15,2017,"Saptari","Control",0,6
+"T107104001","11","CHILLIES","Winter",8,NA,1,2,1,5,125,3,75,125,2017,"Saptari","Control",0,5
+"T107104001","10","OKRA","Winter",11,NA,1,2,1,5,50,3,0,0,2017,"Saptari","Control",0,5
+"T107104001","27","GREEN GRAM","Summer",12,NA,10,1,0,0,15,3,75,100,2017,"Saptari","Control",0,0
+"T102009002","1","PADDY","Monsoon",3,8,54,2,1,2,4,1,75,18,2017,"Saptari","Control",0,108
+"T102009002","2","WHEAT","Winter",8,12,10,2,1,2,2,1,75,28,2017,"Saptari","Control",0,20
+"T102009002","47","POTATO","Winter",8,11,5,2,1,3,10,1,75,25,2017,"Saptari","Control",0,15
+"T102009002","44","CAULIFLOWER","Winter",8,10,3,2,1,5,20,1,95,40,2017,"Saptari","Control",0,15
+"T102009002","45","CABBAGE","Winter",8,11,2,2,1,4,25,1,95,30,2017,"Saptari","Control",0,8
+"T102009002","27","GREEN GRAM","Summer",12,NA,10,1,0,0,20,3,75,100,2017,"Saptari","Control",0,0
+"T102007003","1","PADDY","Monsoon",3,8,17,2,1,2,3,1,50,18,2017,"Saptari","Control",0,34
+"T102007003","2","WHEAT","Winter",8,12,5,2,1,3,2,1,0,0,2017,"Saptari","Control",0,15
+"T102007003","47","POTATO","Winter",8,11,2,2,1,2,5,1,50,15,2017,"Saptari","Control",0,4
+"T106006002","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,2017,"Saptari","Control",0,NA
+"C009006002","1","PADDY","Monsoon",3,8,35,2,1,2,4,1,75,19,2017,"Saptari","Control",0,70
+"C009006002","2","WHEAT","Winter",8,12,15,2,1,3,2,1,50,28,2017,"Saptari","Control",0,45
+"C009006002","47","POTATO","Winter",8,11,5,2,1,3,5,1,60,15,2017,"Saptari","Control",0,15
+"C009006002","6","OTHER CEREALS","Summer",12,NA,7,2,1,8,4,1,80,20,2017,"Saptari","Control",0,56
+"T211002001","1","PADDY","Monsoon",3,8,35,2,1,4,3,1,0,0,2017,"Saptari","Control",0,140
+"T211002001","2","WHEAT","Winter",8,12,25,2,1,3,2,1,50,30,2017,"Saptari","Control",0,75
+"T211002001","27","GREEN GRAM","Summer",12,NA,5,1,0,0,10,3,25,100,2017,"Saptari","Control",0,0
+"T107605005","1","PADDY","Monsoon",3,8,20,2,2,2,4,1,50,15,2017,"Saptari","Control",0,80
+"T107605005","2","WHEAT","Winter",8,12,15,2,2,2,2,1,50,27,2017,"Saptari","Control",0,60
+"C009006003","1","PADDY","Monsoon",3,8,40,2,1,4,3,1,25,18,2017,"Saptari","Control",0,160
+"C009006003","2","WHEAT","Winter",8,12,15,2,1,3,2,1,50,25,2017,"Saptari","Control",0,45
+"C009006003","47","POTATO","Winter",8,11,5,2,0.5,2,7,1,25,15,2017,"Saptari","Control",0,5
+"T107104002","1","PADDY","Monsoon",3,8,50,2,1,2,3,1,50,15,2017,"Saptari","Control",0,100
+"T107104002","2","WHEAT","Winter",8,12,15,2,1,2,1,1,0,0,2017,"Saptari","Control",0,30
+"T102007001","1","PADDY","Monsoon",3,8,160,2,1,2,3,1,90,18,2017,"Saptari","Treatment",1,320
+"T102007001","2","WHEAT","Winter",8,12,40,2,1,3,2,1,75,28,2017,"Saptari","Treatment",1,120
+"T102007001","47","POTATO","Winter",8,11,10,2,1,3,5,1,75,20,2017,"Saptari","Treatment",1,30
+"T102007001","43","MUSTARD","Winter",8,11,10,2,1,2,20,3,50,100,2017,"Saptari","Treatment",1,20
+"T102007001","27","GREEN GRAM","Summer",12,NA,10,1,0,0,20,3,75,125,2017,"Saptari","Treatment",1,0
+"T104305001","1","PADDY","Monsoon",3,7,20,2,2,1,2.5,1,0,0,2017,"Saptari","Control",0,40
+"T104305001","2","WHEAT","Winter",7,12,10,2,2,2,2,1,0,0,2017,"Saptari","Control",0,40
+"T104305001","42","LINSEED","Winter",7,12,2,0,0,0,25,3,0,0,2017,"Saptari","Control",0,0
+"T104305001","53","ONIONS","Winter",8,1,4,2,2,5,1,4,15,12,2017,"Saptari","Control",0,40
+"T104305001","47","POTATO","Winter",8,11,4,2,2,5,2,1,25,8,2017,"Saptari","Control",0,40
+"T110505001","1","PADDY","Winter",3,7,40,2,1,1,3,1,65,15,2017,"Saptari","Treatment",1,40
+"T110505001","2","WHEAT","Winter",7,12,37,2,2,2,1.5,1,30,15,2017,"Saptari","Treatment",1,148
+"T110505001","42","LINSEED","Winter",7,12,3,2,1,1,30,3,0,0,2017,"Saptari","Treatment",1,3
+"T110505001","1","PADDY","Summer",3,12,8,2,2,4,2.5,1,0,0,2017,"Saptari","Treatment",1,64
+"T110505001","12","CUCUMBER","Summer",3,11,5,2,2,4,0,NA,40,8,2017,"Saptari","Treatment",1,40
+"T109202002","1","PADDY","Monsoon",3,7,50,2,1,1,3,1,70,18,2017,"Saptari","Control",0,50
+"T109202002","2","WHEAT","Winter",7,12,40,2,1.5,2,1.5,3,50,20,2017,"Saptari","Control",0,120
+"T109202002","42","LINSEED","Winter",7,12,2,2,0,0,25,3,0,0,2017,"Saptari","Control",0,0
+"T109202002","33","RED LENTIL","Winter",7,11,2,2,0,0,30,3,0,0,2017,"Saptari","Control",0,0
+"T109202002","47","POTATO","Winter",8,11,6,2,1.5,4,12,1,70,10,2017,"Saptari","Control",0,36
+"T109202002","1","PADDY","Summer",3,12,20,2,1.5,4,2.5,1,0,0,2017,"Saptari","Control",0,120
+"T203907006","1","PADDY","Monsoon",3,7,20,2,1.5,1,2.5,1,20,19,2017,"Saptari","Control",0,30
+"T203907006","2","WHEAT","Winter",7,12,15,2,2,2,1,1,40,20,2017,"Saptari","Control",0,60
+"T203907006","47","POTATO","Winter",7,9,3,2,2,2,14,1,70,14,2017,"Saptari","Control",0,12
+"T203907006","53","ONIONS","Winter",8,12,2,2,2,6,1,1,80,12,2017,"Saptari","Control",0,24
+"T203907006","1","PADDY","Summer",12,3,10,2,2,7,2,1,0,0,2017,"Saptari","Control",0,140
+"T210703008","1","PADDY","Monsoon",3,7,15,2,1,1,3,1,0,0,2017,"Saptari","Control",0,15
+"T210703008","2","WHEAT","Winter",7,12,10,2,1,2,2.5,1,0,0,2017,"Saptari","Control",0,20
+"T210703008","42","LINSEED","Winter",7,12,1,0,0,0,25,3,0,0,2017,"Saptari","Control",0,0
+"T210703008","33","RED LENTIL","Winter",7,11,2,2,2,1,28,3,50,50,2017,"Saptari","Control",0,4
+"T210703008","47","POTATO","Winter",7,10,3,2,2,4,12,1,70,10,2017,"Saptari","Control",0,24
+"T210703008","1","PADDY","Summer",12,3,10,2,2,4,2,1,0,0,2017,"Saptari","Control",0,80
+"T210703008","12","CUCUMBER","Summer",11,3,5,2,1,4,0,NA,70,10,2017,"Saptari","Control",0,20
+"T110502004","1","PADDY","Monsoon",3,7,35,2,1,1,3,1,0,0,2017,"Saptari","Control",0,35
+"T110502004","2","WHEAT","Winter",7,12,8,2,2,2,2.5,1,0,0,2017,"Saptari","Control",0,32
+"T110502004","42","LINSEED","Winter",7,12,2,0,0,0,20,3,0,0,2017,"Saptari","Control",0,0
+"T204807001","1","PADDY","Winter",3,7,60,3,0.5,1,3,1,40,18,2017,"Saptari","Control",0,30
+"T204807001","2","WHEAT","Winter",7,12,25,2,0.5,2,2.5,1,0,0,2017,"Saptari","Control",0,25
+"T204807001","42","LINSEED","Winter",7,12,2,0,0,0,25,3,0,0,2017,"Saptari","Control",0,0
+"T204807001","33","RED LENTIL","Winter",7,11,3,2,0.5,1,30,3,10,58,2017,"Saptari","Control",0,1.5
+"T204807001","1","PADDY","Summer",12,3,8,3,0.5,3,2,1,0,0,2017,"Saptari","Control",0,12
+"T204807001","12","CUCUMBER","Summer",11,2,2,2,0.5,4,0,NA,50,8,2017,"Saptari","Control",0,4
+"T103209004","1","PADDY","Monsoon",3,7,6,2,2.5,1,3,1,0,0,2017,"Saptari","Control",0,15
+"T103209004","2","WHEAT","Winter",7,12,6,2,2.5,2,2.5,1,0,0,2017,"Saptari","Control",0,30
+"T103209004","1","PADDY","Summer",12,3,6,2,3,5,2.5,1,0,0,2017,"Saptari","Control",0,90
+"C001401001","1","PADDY","Monsoon",3,7,15,2,2,1,3,1,0,0,2017,"Saptari","Control",0,30
+"C001401001","2","WHEAT","Winter",8,12,8,2,2,2,2.5,1,0,0,2017,"Saptari","Control",0,32
+"C001401001","53","ONIONS","Winter",9,1,2,2,2,5,1,1,40,12,2017,"Saptari","Control",0,20
+"C001401001","47","POTATO","Winter",7,11,5,2,2,4,9,1,70,10,2017,"Saptari","Control",0,40
+"C001401001","1","PADDY","Summer",12,3,10,2,2,4,2.5,1,0,0,2017,"Saptari","Control",0,80
+"C001401001","27","GREEN GRAM","Summer",12,2,5,2,2,1,30,3,20,57,2017,"Saptari","Control",0,10
+"T210709003","1","PADDY","Winter",3,7,80,2,1,1,2,1,60,18,2017,"Saptari","Treatment",1,80
+"T210709003","2","WHEAT","Winter",7,12,50,2,2,2,1,1,40,17,2017,"Saptari","Treatment",1,200
+"T210709003","47","POTATO","Winter",8,11,10,2,2,4,10,1,45,10,2017,"Saptari","Treatment",1,80
+"T210709003","42","LINSEED","Winter",7,12,15,2,2,1,20,3,70,15,2017,"Saptari","Treatment",1,30
+"T210709003","43","MUSTARD","Winter",7,12,5,2,2,2,25,3,50,10,2017,"Saptari","Treatment",1,20
+"T210709003","1","PADDY","Winter",12,3,12,2,2,5,1.5,1,0,0,2017,"Saptari","Treatment",1,120
+"T210407003","1","PADDY","Monsoon",3,7,60,2,0.5,2,3,1,70,20,2017,"Saptari","Control",0,60
+"T210407003","2","WHEAT","Winter",7,12,50,2,1,2,2,1,30,18,2017,"Saptari","Control",0,100
+"T210407003","42","LINSEED","Winter",7,12,1,0,0,0,30,3,0,0,2017,"Saptari","Control",0,0
+"T210407003","43","MUSTARD","Winter",7,11,4,2,0.5,2,30,3,40,50,2017,"Saptari","Control",0,4
+"T210407003","33","RED LENTIL","Winter",7,11,5,2,0.5,1,25,3,40,95,2017,"Saptari","Control",0,2.5
+"T210407003","1","PADDY","Summer",12,3,15,2,1,4,2,1,0,0,2017,"Saptari","Control",0,60
+"T104201003","1","PADDY","Monsoon",3,7,15,2,2,1,4,1,0,0,2017,"Saptari","Control",0,30
+"T104201003","42","LINSEED","Winter",8,11,8,2,2,3,10,1,80,9,2017,"Saptari","Control",0,48
+"T104201003","33","RED LENTIL","Winter",7,11,2,2,2,1,30,3,5,50,2017,"Saptari","Control",0,4
+"T109205004","1","PADDY","Monsoon",3,7,60,2,1,1,4,1,20,18,2017,"Saptari","Treatment",1,60
+"T109205004","2","WHEAT","Winter",7,12,42,2,1.5,2,2,1,15,15,2017,"Saptari","Treatment",1,126
+"T109205004","53","ONIONS","Winter",7,1,10,2,2,6,5,1,50,12,2017,"Saptari","Treatment",1,120
+"T109205004","12","CUCUMBER","Winter",7,1,3,2,2,4,0,NA,75,8,2017,"Saptari","Treatment",1,24
+"T109205004","11","CHILLIES","Winter",7,1,2,2,2,3,0,NA,50,12,2017,"Saptari","Treatment",1,12
+"T109205004","24","HORSE GRAM","Winter",7,1,3,2,2,4,0,NA,70,12,2017,"Saptari","Treatment",1,24
+"T109205004","1","PADDY","Summer",12,3,10,2,2,5,2.5,1,0,0,2017,"Saptari","Treatment",1,100
+"T109203003","1","PADDY","Monsoon",3,7,21,2,0.5,1,4,1,0,0,2017,"Saptari","Control",0,10.5
+"T109203003","2","WHEAT","Winter",7,12,15,2,0.5,2,2.5,1,0,0,2017,"Saptari","Control",0,15
+"T109203003","43","MUSTARD","Winter",7,9,2,2,2,2,25,3,40,70,2017,"Saptari","Control",0,8
+"T109203003","33","OTHER PULSES","Winter",7,11,1,0,0,0,30,3,25,80,2017,"Saptari","Control",0,0
+"T109203003","47","POTATO","Winter",7,9,3,2,2,4,13,1,50,15,2017,"Saptari","Control",0,24
+"T109201006","1","PADDY","Monsoon",3,7,23,2,1.5,2,4,1,0,0,2017,"Saptari","Control",0,69
+"T109201006","2","WHEAT","Winter",7,12,18,2,2,2,3,1,0,0,2017,"Saptari","Control",0,72
+"T109201006","1","PADDY","Summer",12,3,13,2,2,5,2.5,1,0,0,2017,"Saptari","Control",0,130
+"T210405002","1","PADDY","Monsoon",3,7,45,2,0.5,2,3,1,40,18,2017,"Saptari","Control",0,45
+"T210405002","2","WHEAT","Winter",7,12,35,2,1,2,2.5,1,0,0,2017,"Saptari","Control",0,70
+"T210405002","33","RED LENTIL","Winter",7,11,5,0,0,0,30,3,20,59,2017,"Saptari","Control",0,0
+"T210405002","47","POTATO","Winter",8,12,5,2,1,5,13,1,70,10,2017,"Saptari","Control",0,25
+"T210405002","1","PADDY","Summer",12,3,15,2,1,4,2,1,0,0,2017,"Saptari","Control",0,60
+"T203908005","1","PADDY","Monsoon",3,7,15,2,1,1,3,1,30,18,2017,"Saptari","Control",0,15
+"T203908005","2","WHEAT","Winter",7,12,8,2,2,2,2,1,0,0,2017,"Saptari","Control",0,32
+"T203908005","42","LINSEED","Winter",7,12,2,0,0,0,25,3,0,0,2017,"Saptari","Control",0,0
+"T203908005","1","PADDY","Summer",12,3,10,2,2,5,2.5,1,0,0,2017,"Saptari","Control",0,100
+"T203900307","1","PADDY","Monsoon",3,7,15,2,1.5,1,2.5,1,0,0,2017,"Saptari","Control",0,22.5
+"T203900307","2","WHEAT","Winter",7,12,10,2,2,2,1,1,0,0,2017,"Saptari","Control",0,40
+"T203900307","47","POTATO","Winter",7,9,5,2,2,2,5,1,50,23,2017,"Saptari","Control",0,20
+"T106604005","1","PADDY","Monsoon",3,7,20,2,2.5,1,3,1,0,0,2017,"Saptari","Control",0,50
+"T106604005","2","WHEAT","Winter",7,12,15,2,3,2,1.5,1,0,0,2017,"Saptari","Control",0,90
+"T106604005","42","LINSEED","Winter",7,12,3,0,0,0,25,3,60,20,2017,"Saptari","Control",0,0
+"T106604005","21","GREEN PEA","Winter",7,12,2,2,2,1,15,3,50,65,2017,"Saptari","Control",0,4
+"T203901004","1","PADDY","Monsoon",3,7,17,2,1,1,2.5,1,0,0,2017,"Saptari","Control",0,17
+"T203901004","2","WHEAT","Winter",7,12,12,2,2,2,3,1,0,0,2017,"Saptari","Control",0,48
+"T203901004","42","LINSEED","Winter",7,10,2,2,0,0,25,3,0,0,2017,"Saptari","Control",0,0
+"T203901004","33","RED LENTIL","Winter",7,10,3,2,0,0,30,3,0,0,2017,"Saptari","Control",0,0
+"T203901004","1","PADDY","Summer",12,3,10,2,2,4,2,1,0,0,2017,"Saptari","Control",0,80
+"C001401004","1","PADDY","Monsoon",3,8,16,4,0,2,3.5,1,0,0,2017,"Saptari","Control",0,0
+"C001401004","2","WHEAT","Winter",9,12,10,4,0,2,1.5,1,0,0,2017,"Saptari","Control",0,0
+"C001401004","42","LINSEED","Winter",9,12,3,0,0,0,20,3,0,0,2017,"Saptari","Control",0,0
+"C001401004","33","OTHER","Winter",9,12,3,0,0,0,25,3,0,0,2017,"Saptari","Control",0,0
+"C001401004","27","GREEN GRAM","Summer",12,3,10,1,0,0,30,3,60,90,2017,"Saptari","Control",0,0
+"T104203004","1","PADDY","Monsoon",3,8,40,4,0,3,3.5,1,25,18,2017,"Saptari","Control",0,0
+"T110502003","1","PADDY","Monsoon",3,8,9,2,2,3,3.5,1,0,0,2017,"Saptari","Control",0,54
+"T110502003","2","WHEAT","Winter",9,12,5,2,2,2,1.5,1,0,0,2017,"Saptari","Control",0,20
+"T110502003","47","POTATO","Winter",9,12,1,0,0,0,8,1,0,0,2017,"Saptari","Control",0,0
+"T110502003","42","LINSEED","Winter",9,12,1,0,0,0,20,3,0,0,2017,"Saptari","Control",0,0
+"T110502003","33","OTHER","Winter",9,12,2,0,0,0,25,3,25,90,2017,"Saptari","Control",0,0
+"T110502003","27","GREEN GRAM","Summer",12,3,7,1,0,0,20,3,50,93,2017,"Saptari","Control",0,0
+"T210708002","1","PADDY","Monsoon",3,8,60,2,1.5,3,4,1,50,16,2017,"Saptari","Treatment",1,270
+"T210708002","2","WHEAT","Winter",9,12,25,2,1.5,2,1.5,1,50,21,2017,"Saptari","Treatment",1,75
+"T210708002","21","GREEN PEA","Winter",9,12,5,0,0,0,25,3,50,95,2017,"Saptari","Treatment",1,0
+"T210708002","22","GRASS PEA","Winter",9,12,10,0,0,0,20,3,50,80,2017,"Saptari","Treatment",1,0
+"T210708002","43","MUSTARD","Winter",9,12,10,0,0,0,30,3,50,100,2017,"Saptari","Treatment",1,0
+"T210708002","33","OTHER PULSES","Winter",9,12,10,0,0,0,25,3,50,90,2017,"Saptari","Treatment",1,0
+"T210708002","1","PADDY","Summer",12,3,15,2,1.5,10,3,1,60,12,2017,"Saptari","Treatment",1,225
+"T203908001","1","PADDY","Monsoon",3,8,25,2,2,3,3,1,50,14,2017,"Saptari","Treatment",1,150
+"T203908001","2","WHEAT","Winter",9,12,10,2,2,2,1.5,1,60,21,2017,"Saptari","Treatment",1,40
+"T203908001","21","GREEN PEA","Winter",9,12,5,0,0,0,30,3,70,90,2017,"Saptari","Treatment",1,0
+"T203908001","43","MUSTARD","Winter",9,12,7,0,0,0,20,3,50,100,2017,"Saptari","Treatment",1,0
+"T203908001","33","OTHER PULSES","Winter",9,12,3,0,0,0,22,3,60,95,2017,"Saptari","Treatment",1,0
+"T203908001","1","PADDY","Summer",12,3,10,2,2,10,2.5,1,60,12,2017,"Saptari","Treatment",1,200
+"T203903003","1","PADDY","Monsoon",3,8,30,2,1.5,2,4,1,40,14,2017,"Saptari","Control",0,90
+"T203903003","2","WHEAT","Winter",9,12,30,2,1.5,2,1.5,1,50,19,2017,"Saptari","Control",0,90
+"T203903003","1","PADDY","Summer",12,3,10,2,1.5,7,2.5,1,60,10,2017,"Saptari","Control",0,105
+"T203903003","27","GREEN GRAM","Summer",12,3,10,0,0,0,25,3,50,95,2017,"Saptari","Control",0,0
+"T206702001","1","PADDY","Monsoon",3,8,80,1,0,0,3,1,70,14,2017,"Saptari","Control",0,0
+"T206702001","2","WHEAT","Winter",9,12,40,2,1,2,1.5,1,70,22,2017,"Saptari","Control",0,80
+"T206702001","42","LINSEED","Winter",8,12,10,0,0,0,20,3,50,100,2017,"Saptari","Control",0,0
+"T206702001","21","GREEN PEA","Winter",9,12,5,0,0,0,35,3,50,120,2017,"Saptari","Control",0,0
+"T206702001","47","POTATO","Winter",9,12,5,0,0,0,8,1,80,10,2017,"Saptari","Control",0,0
+"T106604004","1","PADDY","Monsoon",3,8,32,1,0,0,3,1,50,15,2017,"Saptari","Control",0,0
+"T106604004","2","WHEAT","Winter",9,12,20,2,2,2,1.5,1,50,20,2017,"Saptari","Control",0,80
+"T106604004","47","POTATO","Winter",9,12,2,2,2,1,10,1,50,13,2017,"Saptari","Control",0,4
+"T106604004","44","CAULIFLOWER","Winter",9,12,1,2,2,6,7,1,85,25,2017,"Saptari","Control",0,12
+"T106604004","58","CORIANDER","Winter",9,12,1,2,2,2,35,3,60,105,2017,"Saptari","Control",0,4
+"T106604004","8","BRINJAL","Winter",9,12,1,2,2,10,6,1,85,30,2017,"Saptari","Control",0,20
+"T106604004","21","GREEN PEA","Winter",9,12,2,0,0,0,20,3,50,90,2017,"Saptari","Control",0,0
+"T106604004","22","GRASS PEA","Winter",9,12,2,0,0,0,20,3,50,82,2017,"Saptari","Control",0,0
+"T106604004","43","MUSTARD","Winter",9,12,2,0,0,0,25,3,60,96,2017,"Saptari","Control",0,0
+"T106604004","33","OTHER PULSES","Winter",9,12,1,0,0,0,25,3,50,90,2017,"Saptari","Control",0,0
+"T106604004","1","PADDY","Summer",12,3,10,2,2,10,2.5,1,60,10,2017,"Saptari","Control",0,200
+"T106604004","27","GREEN GRAM","Summer",12,3,10,0,0,0,25,3,50,100,2017,"Saptari","Control",0,0
+"T109202010","1","PADDY","Winter",3,8,20,2,2,3,3,1,0,0,2017,"Saptari","Control",0,120
+"T109202010","2","WHEAT","Winter",9,12,10,2,2,2,1.5,1,0,0,2017,"Saptari","Control",0,40
+"T109202010","53","ONIONS","Winter",8,12,1,2,2,10,8,1,50,15,2017,"Saptari","Control",0,20
+"T109202010","44","CAULIFLOWER","Winter",8,12,1,2,2,5,7,1,90,28,2017,"Saptari","Control",0,10
+"T109202010","11","CHILLIES","Winter",8,12,1,2,2,10,50,3,70,125,2017,"Saptari","Control",0,20
+"T109202010","21","GREEN PEA","Winter",9,12,2,0,0,0,30,3,50,90,2017,"Saptari","Control",0,0
+"T109202010","43","MUSTARD","Winter",9,12,2,0,0,0,20,3,50,130,2017,"Saptari","Control",0,0
+"T109202010","47","POTATO","Winter",9,12,2,0,0,0,9,1,50,10,2017,"Saptari","Control",0,0
+"T109202010","33","OTHER PULSES","Winter",9,12,1,0,0,0,20,3,0,0,2017,"Saptari","Control",0,0
+"T109202010","27","GREEN GRAM","Summer",12,3,10,1,0,0,20,3,70,85,2017,"Saptari","Control",0,0
+"T109203001","1","PADDY","Monsoon",3,8,36,3,0,4,3,1,25,18,2017,"Saptari","Treatment",1,0
+"T109203001","2","WHEAT","Winter",9,12,14,2,2,2,1.5,1,50,21,2017,"Saptari","Treatment",1,56
+"T109203001","53","ONIONS","Winter",8,12,1,2,2,8,7,1,50,16,2017,"Saptari","Treatment",1,16
+"T109203001","55","GARLIC","Winter",8,12,1,2,2,7,4,1,50,90,2017,"Saptari","Treatment",1,14
+"T109203001","44","CAULIFLOWER","Winter",9,12,1,2,2,6,8,1,80,20,2017,"Saptari","Treatment",1,12
+"T109203001","37","GREENLEAFY VEGETABLE","Winter",9,12,1,2,2,4,1.5,1,70,25,2017,"Saptari","Treatment",1,8
+"T109203001","8","BRINJAL","Winter",9,12,1,2,2,6,5,1,80,30,2017,"Saptari","Treatment",1,12
+"T109203001","11","CHILLIES","Winter",9,12,1,2,2,9,1.5,1,70,120,2017,"Saptari","Treatment",1,18
+"T109203001","47","POTATO","Winter",9,12,3,0,0,0,8,1,70,9,2017,"Saptari","Treatment",1,0
+"T109203001","43","MUSTARD","Winter",9,12,5,0,0,0,30,3,60,95,2017,"Saptari","Treatment",1,0
+"T109203001","42","LINSEED","Winter",9,12,4,0,0,0,25,3,70,90,2017,"Saptari","Treatment",1,0
+"T109203001","21","GREEN PEA","Winter",9,12,4,0,0,0,35,3,60,100,2017,"Saptari","Treatment",1,0
+"T109203001","1","PADDY","Summer",12,3,5,2,2,10,2.5,1,60,14,2017,"Saptari","Treatment",1,100
+"T109203001","27","GREEN GRAM","Summer",12,3,8,0,0,0,20,3,50,90,2017,"Saptari","Treatment",1,0
+"T109201007","1","PADDY","Monsoon",3,8,25,2,2,3,3,1,25,18,2017,"Saptari","Control",0,150
+"T109201007","2","WHEAT","Winter",9,12,10,2,2,2,1.5,1,50,21,2017,"Saptari","Control",0,40
+"T109201007","21","GREEN PEA","Winter",9,12,3,0,0,0,30,3,60,110,2017,"Saptari","Control",0,0
+"T109201007","43","MUSTARD","Winter",9,12,2,0,0,0,35,3,50,95,2017,"Saptari","Control",0,0
+"T109201007","47","POTATO","Winter",9,12,1,0,0,0,6,1,0,0,2017,"Saptari","Control",0,0
+"T109201007","22","GRASS PEA","Winter",9,12,2,0,0,0,20,3,50,85,2017,"Saptari","Control",0,0
+"T109201007","33","OTHER PULSES","Winter",9,12,2,0,0,0,25,3,50,90,2017,"Saptari","Control",0,0
+"T210407004","1","PADDY","Monsoon",3,8,30,3,0,0,3,1,40,16,2017,"Saptari","Control",0,0
+"T210407004","2","WHEAT","Winter",9,12,5,2,0.5,2,1.5,1,0,0,2017,"Saptari","Control",0,5
+"T210407004","42","LINSEED","Winter",9,12,5,0,0,0,25,3,50,90,2017,"Saptari","Control",0,0
+"T210407004","43","MUSTARD","Winter",9,12,5,0,0,0,30,3,50,92,2017,"Saptari","Control",0,0
+"T210407004","47","POTATO","Winter",9,12,2,0,0,0,10,1,50,8,2017,"Saptari","Control",0,0
+"T210407004","33","OTHER PULSES","Winter",9,12,3,0,0,0,25,3,50,95,2017,"Saptari","Control",0,0
+"T210407004","1","PADDY","Summer",12,3,5,2,0.5,10,2.5,1,0,0,2017,"Saptari","Control",0,25
+"T210407004","27","GREEN GRAM","Summer",12,3,5,0,0,0,20,3,50,80,2017,"Saptari","Control",0,0
+"C008109001","1","PADDY","Monsoon",3,8,240,2,1.5,3,4,1,60,16,2017,"Saptari","Control",0,1080
+"C008109001","2","WHEAT","Winter",9,12,161,2,1.5,2,1.5,1,50,22,2017,"Saptari","Control",0,483
+"C008109001","20","PEA","Winter",9,12,20,0,0,0,20,3,50,80,2017,"Saptari","Control",0,0
+"C008109001","21","GREEN PEA","Winter",9,12,25,0,0,0,30,3,50,85,2017,"Saptari","Control",0,0
+"C008109001","22","GRASS PEA","Winter",9,12,15,0,0,0,17,3,50,72,2017,"Saptari","Control",0,0
+"C008109001","42","LINSEED","Winter",9,12,10,0,0,0,25,3,50,83,2017,"Saptari","Control",0,0
+"C008109001","33","OTHER PULSES","Winter",9,12,9,0,0,0,30,3,50,70,2017,"Saptari","Control",0,0
+"T110510001","1","PADDY","Monsoon",3,8,40,4,0,2,3,1,0,0,2017,"Saptari","Control",0,0
+"T103207003","1","PADDY","Monsoon",3,8,70,4,0,2,3.5,1,40,16,2017,"Saptari","Control",0,0
+"T103207003","2","WHEAT","Winter",9,12,30,4,0,2,1.5,1,10,20,2017,"Saptari","Control",0,0
+"T103207003","21","GREEN PEA","Winter",9,12,10,0,0,0,35,3,50,100,2017,"Saptari","Control",0,0
+"T103207003","22","GRASS PEA","Winter",9,12,5,0,0,0,20,3,0,0,2017,"Saptari","Control",0,0
+"T103207003","26","RED GRAM","Winter",9,12,5,0,0,0,25,3,50,92,2017,"Saptari","Control",0,0
+"T103207003","40","SESAME","Winter",9,12,5,0,0,0,20,3,80,110,2017,"Saptari","Control",0,0
+"T103207003","42","LINSEED","Winter",9,12,5,0,0,0,25,3,0,0,2017,"Saptari","Control",0,0
+"T103207003","33","OTHER PULSES","Winter",9,12,10,0,0,0,25,3,65,95,2017,"Saptari","Control",0,0
+"T103207003","27","GREEN GRAM","Summer",12,3,20,1,0,0,20,3,50,85,2017,"Saptari","Control",0,0
+"T103204001","1","PADDY","Monsoon",3,8,47,4,3,0,4,1,25,18,2017,"Saptari","Treatment",1,0
+"T103204001","2","WHEAT","Winter",9,12,17,4,2,0,1,1,25,21,2017,"Saptari","Treatment",1,0
+"T103204001","47","POTATO","Winter",9,12,2,0,0,0,8,1,25,8,2017,"Saptari","Treatment",1,0
+"T103204001","58","CORIANDER","Winter",9,12,3,4,0,0,30,3,50,100,2017,"Saptari","Treatment",1,0
+"T103204001","21","GREEN PEA","Winter",9,12,5,0,0,0,30,3,50,90,2017,"Saptari","Treatment",1,0
+"T103204001","22","GRASS PEA","Winter",9,12,5,0,0,0,20,3,50,80,2017,"Saptari","Treatment",1,0
+"T103204001","42","LINSEED","Winter",9,12,8,0,0,0,25,3,50,85,2017,"Saptari","Treatment",1,0
+"T103204001","43","MUSTARD","Winter",9,12,2,0,0,0,30,3,0,0,2017,"Saptari","Treatment",1,0
+"T103204001","33","OTHER PULSES","Winter",9,12,5,0,0,0,25,3,50,95,2017,"Saptari","Treatment",1,0
+"T103204001","27","GREEN GRAM","Summer",12,3,8,0,0,0,30,3,50,90,2017,"Saptari","Treatment",1,0
+"T103204001","3","MAIZE","Summer",12,3,6,0,0,0,2,1,50,14,2017,"Saptari","Treatment",1,0
+"T210701004","1","PADDY","Monsoon",3,8,120,1,0,0,4.5,1,0,0,2017,"Saptari","Treatment",1,0
+"T210701004","2","WHEAT","Winter",9,12,45,2,1,2,1.5,1,0,0,2017,"Saptari","Treatment",1,90
+"T210701004","47","POTATO","Winter",9,12,10,0,0,0,7,1,0,0,2017,"Saptari","Treatment",1,0
+"T210701004","20","PEA","Winter",9,12,15,0,0,0,20,3,0,0,2017,"Saptari","Treatment",1,0
+"T210701004","21","GREEN PEA","Winter",9,12,10,0,0,0,30,3,0,0,2017,"Saptari","Treatment",1,0
+"T210701004","22","GRASS PEA","Winter",9,12,10,0,0,0,20,3,0,0,2017,"Saptari","Treatment",1,0
+"T210701004","42","LINSEED","Winter",9,12,10,0,0,0,25,3,0,0,2017,"Saptari","Treatment",1,0
+"T210701004","43","MUSTARD","Winter",9,12,10,0,0,0,30,3,0,0,2017,"Saptari","Treatment",1,0
+"T210701004","33","OTHER PULSES","Winter",9,12,10,0,0,0,20,3,0,0,2017,"Saptari","Treatment",1,0
+"T210701004","1","PADDY","Summer",12,3,25,2,1,10,3,1,0,0,2017,"Saptari","Treatment",1,250
+"T210701007","1","PADDY","Monsoon",3,8,15,1,0,0,3.5,1,0,0,2017,"Saptari","Control",0,0
+"T210701007","2","WHEAT","Winter",9,12,7,2,2,2,1.5,1,0,0,2017,"Saptari","Control",0,28
+"T210701007","43","MUSTARD","Winter",9,12,3,0,0,0,30,3,50,90,2017,"Saptari","Control",0,0
+"T210701007","47","POTATO","Winter",9,12,2,0,0,0,8,1,50,8,2017,"Saptari","Control",0,0
+"T210701007","33","OTHER PULSES","Winter",9,12,3,0,0,0,25,3,50,85,2017,"Saptari","Control",0,0
+"T210701007","1","PADDY","Summer",12,3,5,2,2,8,3,1,0,0,2017,"Saptari","Control",0,80
+"T100502005","1","PADDY","Monsoon",3,7,40,2,1,1,4,1,0,0,2017,"Saptari","Control",0,40
+"T100502005","2","WHEAT","Winter",8,12,30,2,2,2,3,1,0,0,2017,"Saptari","Control",0,120
+"T100502005","47","POTATO","Winter",8,12,5,2,2,2,3,1,50,20,2017,"Saptari","Control",0,20
+"T100502005","53","ONIONS","Winter",8,12,5,2,2,3,3,1,50,30,2017,"Saptari","Control",0,30
+"T100502005","37","GREENLEAFY VEGETABLE","Summer",12,3,10,2,2,6,0,NA,50,20,2017,"Saptari","Control",0,120
+"T200103002","1","PADDY","Monsoon",3,7,30,2,1,1,5,1,0,0,2017,"Saptari","Treatment",1,30
+"T200103002","2","WHEAT","Winter",8,12,25,2,2,2,3,1,0,0,2017,"Saptari","Treatment",1,100
+"T200103002","47","POTATO","Winter",8,12,3,2,1,1,4,1,0,0,2017,"Saptari","Treatment",1,3
+"T200103002","53","ONIONS","Winter",8,12,2,2,2,3,3,1,0,0,2017,"Saptari","Treatment",1,12
+"T200103002","27","GREEN GRAM","Summer",12,3,20,2,2,1,20,3,0,0,2017,"Saptari","Treatment",1,40
+"T200103002","37","GREENLEAFY VEGETABLE","Summer",12,3,10,2,2,5,0,NA,0,0,2017,"Saptari","Treatment",1,100
+"T107607004","1","PADDY","Monsoon",3,7,25,2,1,1,3,1,50,25,2017,"Saptari","Control",0,25
+"T107607004","2","WHEAT","Winter",8,12,20,2,2,2,3,1,50,25,2017,"Saptari","Control",0,80
+"T107607004","47","POTATO","Winter",8,12,2,2,1,2,4,1,0,0,2017,"Saptari","Control",0,4
+"T107607004","53","ONIONS","Winter",8,12,3,2,1,2,5,1,0,0,2017,"Saptari","Control",0,6
+"T107607004","37","GREENLEAFY VEGETABLE","Summer",12,3,5,2,1,5,0,NA,0,0,2017,"Saptari","Control",0,25
+"T108803001","1","PADDY","Monsoon",3,7,45,2,2,1,3,1,0,0,2017,"Saptari","Control",0,90
+"T108803001","2","WHEAT","Winter",8,12,20,2,2,2,2,1,0,0,2017,"Saptari","Control",0,80
+"T108803001","37","GREENLEAFY VEGETABLE","Summer",12,3,10,2,2,5,0,NA,0,0,2017,"Saptari","Control",0,100
+"T108804002","1","PADDY","Monsoon",3,7,30,2,2,1,4,1,0,0,2017,"Saptari","Control",0,60
+"T108804002","2","WHEAT","Winter",8,12,30,2,2,2,3,1,0,0,2017,"Saptari","Control",0,120
+"T108804002","37","GREENLEAFY VEGETABLE","Summer",12,3,10,2,2,4,0,NA,0,0,2017,"Saptari","Control",0,80
+"T203309001","1","PADDY","Monsoon",3,7,80,2,1,1,3,1,50,15,2017,"Saptari","Control",0,80
+"T203309001","2","WHEAT","Winter",8,12,70,2,1,2,2,1,50,25,2017,"Saptari","Control",0,140
+"T203309001","47","POTAT0","Winter",8,12,5,2,1,2,5,1,50,20,2017,"Saptari","Control",0,10
+"T203309001","53","ONIONS","Winter",8,12,5,2,1,2,5,1,50,30,2017,"Saptari","Control",0,10
+"T203309001","37","GREENLEAFY VEGETABLE","Summer",12,3,5,2,1,6,0,NA,50,20,2017,"Saptari","Control",0,30
+"T203308002","1","PADDY","Monsoon",3,8,60,2,2,2,4,1,25,25,2017,"Saptari","Control",0,240
+"T203308002","53","ONIONS","Winter",8,12,10,2,2,3,2,1,0,0,2017,"Saptari","Control",0,60
+"T203308002","47","POTATO","Winter",8,12,5,2,2,4,4,1,25,20,2017,"Saptari","Control",0,40
+"T203308002","37","GREENLEAFY VEGETABLE","Summer",12,3,5,2,2,5,20,3,75,20,2017,"Saptari","Control",0,50
+"T203308002","8","BRINJAL","Summer",12,3,3,2,2,3,25,3,75,30,2017,"Saptari","Control",0,18
+"T203308002","12","CUCUMBER","Summer",12,3,2,2,2,3,15,3,75,35,2017,"Saptari","Control",0,12
+"T100503002","1","PADDY","Monsoon",3,7,20,2,2,5,3,1,25,12,2017,"Saptari","Treatment",1,200
+"T100503002","2","WHEAT","Winter",8,12,20,2,2,5,2,1,25,20,2017,"Saptari","Treatment",1,200
+"T100503002","37","GREENLEAFY VEGETABLE","Summer",12,3,2,2,4,6,15,3,0,0,2017,"Saptari","Treatment",1,48
+"T100501007","1","PADDY","Monsoon",3,7,20,2,2,1,3,1,0,0,2017,"Saptari","Control",0,40
+"T100501007","2","WHEAT","Winter",8,12,15,2,2,2,2,1,0,0,2017,"Saptari","Control",0,60
+"T100501007","47","POTATO","Winter",8,12,3,2,1,2,5,1,50,20,2017,"Saptari","Control",0,6
+"T100501007","53","ONIONS","Winter",8,12,2,2,2,3,4,1,50,30,2017,"Saptari","Control",0,12
+"T100501007","27","GREEN GRAM","Summer",12,3,10,2,1,1,20,3,50,100,2017,"Saptari","Control",0,10
+"T100501007","8","BRINJAL","Summer",12,3,1,2,1,2,0,NA,95,25,2017,"Saptari","Control",0,2
+"T100501007","37","GREENLEAFY VEGETABLE","Summer",12,3,5,2,1,4,0,NA,95,20,2017,"Saptari","Control",0,20
+"T100501007","12","CUCUMBER","Summer",12,3,1,2,1,4,0,NA,95,25,2017,"Saptari","Control",0,4
+"T100501007","17","POINTED GOURD","Summer",12,3,1,2,1,5,0,NA,95,30,2017,"Saptari","Control",0,5
+"T100501007","30","YARD LONG BEANS","Summer",12,3,2,2,1,3,0,NA,95,30,2017,"Saptari","Control",0,6
+"T100505008","1","PADDY","Monsoon",3,6,45,2,1,2,3,1,25,15,2017,"Saptari","Control",0,90
+"T100505008","2","WHEAT","Winter",8,12,30,2,2,3,1,1,0,0,2017,"Saptari","Control",0,180
+"T100505008","47","POTATO","Winter",8,12,5,2,2,2,4,1,50,20,2017,"Saptari","Control",0,20
+"T100505008","53","ONIONS","Winter",8,12,5,2,2,4,5,1,50,25,2017,"Saptari","Control",0,40
+"T100505008","44","CAULIFLOWER","Winter",8,12,5,2,2,3,0,NA,95,30,2017,"Saptari","Control",0,30
+"T100505008","14","BOTTLE GOURD","Summer",12,3,3,2,1,4,0,NA,85,30,2017,"Saptari","Control",0,12
+"T100505008","8","BRINJAL","Summer",12,3,5,2,1,3,0,NA,85,30,2017,"Saptari","Control",0,15
+"T100505008","12","CUCUMBER","Summer",12,3,2,2,2,2,0,NA,85,40,2017,"Saptari","Control",0,8
+"T100505008","15","BELL PEPPER","Summer",12,3,5,2,2,2,0,NA,85,50,2017,"Saptari","Control",0,20
+"T100505008","37","GREENLEAFY VEGETABLE","Summer",12,3,5,1,1,2,0,NA,95,20,2017,"Saptari","Control",0,10
+"T109901004","1","PADDY","Monsoon",3,8,15,2,2,1,4,1,0,0,2017,"Saptari","Control",0,30
+"T109901004","2","WHEAT","Winter",8,12,15,2,3,2,3,1,0,0,2017,"Saptari","Control",0,90
+"T109901004","37","GREENLEAFY VEGETABLE","Summer",12,3,10,2,2,3,0,NA,0,0,2017,"Saptari","Control",0,60
+"T109901004","12","CUCUMBER","Summer",12,3,3,2,2,3,0,NA,0,0,2017,"Saptari","Control",0,18
+"T109901004","11","CHILLIES","Summer",12,3,2,2,2,3,0,NA,0,0,2017,"Saptari","Control",0,12
+"T109901005","1","PADDY","Monsoon",3,7,54,2,1,1,4,1,50,15,2017,"Saptari","Control",0,54
+"T109901005","2","WHEAT","Winter",8,12,40,2,1,2,3,1,50,25,2017,"Saptari","Control",0,80
+"T109901005","47","POTATO","Winter",8,12,5,2,1,3,5,1,50,20,2017,"Saptari","Control",0,15
+"T109901005","53","ONIONS","Winter",8,12,5,2,1,3,5,1,50,30,2017,"Saptari","Control",0,15
+"T109901005","27","GREEN GRAM","Summer",12,3,25,2,1,1,30,3,0,0,2017,"Saptari","Control",0,25
+"T109901005","37","GREENLEAFY VEGETABLE","Summer",12,3,5,2,1,5,0,NA,0,0,2017,"Saptari","Control",0,25
+"T205105003","1","PADDY","Monsoon",3,7,40,2,2,2,2,1,0,0,2017,"Saptari","Treatment",1,160
+"T205105003","2","WHEAT","Winter",8,12,40,2,2,3,2,1,0,0,2017,"Saptari","Treatment",1,240
+"T205105003","3","MAIZE","Winter",12,3,5,2,2,4,20,3,0,0,2017,"Saptari","Treatment",1,40
+"T205105003","27","GREEN GRAM","Summer",12,3,15,2,2,3,25,3,0,0,2017,"Saptari","Treatment",1,90
+"T110507002","1","PADDY","Monsoon",3,7,25,2,2,1,5,1,50,15,2017,"Saptari","Control",0,50
+"T110507002","2","WHEAT","Winter",8,12,25,2,2,2,3,1,50,25,2017,"Saptari","Control",0,100
+"T110507002","37","GREENLEAFY VEGETABLE","Summer",12,3,10,2,2,4,0,NA,95,20,2017,"Saptari","Control",0,80
+"C004703001","1","PADDY","Monsoon",3,7,40,3,1,1,3,1,25,20,2017,"Saptari","Control",0,40
+"C004703001","2","WHEAT","Winter",8,12,20,2,2,2,1,1,25,24,2017,"Saptari","Control",0,80
+"C004703001","43","MUSTARD","Winter",8,12,5,2,2,3,10,3,0,0,2017,"Saptari","Control",0,30
+"C004703001","47","POTATO","Winter",8,12,5,2,2,3,7,1,25,30,2017,"Saptari","Control",0,30
+"C004703001","53","ONIONS","Winter",8,12,5,2,2,4,2,1,50,40,2017,"Saptari","Control",0,40
+"C004703001","44","CAULIFLOWER","Winter",8,12,5,2,2,3,1,2,50,30,2017,"Saptari","Control",0,30
+"C004703001","30","YARD LONG BEANS","Summer",12,3,5,2,2,5,10,3,0,0,2017,"Saptari","Control",0,50
+"C004703001","37","GREENLEAFY VEGETABLE","Summer",12,3,5,2,1,4,10,3,0,0,2017,"Saptari","Control",0,20
+"C001705001","1","PADDY","Monsoon",3,7,30,2,1,2,4,1,50,15,2017,"Saptari","Control",0,60
+"C001705001","2","WHEAT","Winter",8,12,30,2,1,2,3,1,5,25,2017,"Saptari","Control",0,60
+"C001705001","27","GREEN GRAM","Summer",12,3,10,2,1,3,20,3,0,0,2017,"Saptari","Control",0,30
+"C001705001","37","GREENLEAFY VEGETABLE","Summer",12,3,3,2,1,4,30,3,0,0,2017,"Saptari","Control",0,12
+"C001705001","12","CUCUMBER","Summer",12,3,2,2,1,5,25,3,0,0,2017,"Saptari","Control",0,10
+"T200101005","1","PADDY","Monsoon",3,7,30,2,2,1,4,1,0,0,2017,"Saptari","Control",0,60
+"T200101005","2","WHEAT","Winter",8,12,25,2,2,2,3,1,25,28,2017,"Saptari","Control",0,100
+"T200101005","47","POTATO","Winter",8,12,3,2,2,2,5,1,50,30,2017,"Saptari","Control",0,12
+"T200101005","53","ONIONS","Winter",8,12,2,2,2,3,5,1,25,20,2017,"Saptari","Control",0,12
+"T200101005","37","GREENLEAFY VEGETABLE","Summer",12,3,5,2,1,3,3,NA,20,20,2017,"Saptari","Control",0,15
+"T200101005","11","CHILLIES","Summer",12,3,2,2,1,2,0,NA,25,25,2017,"Saptari","Control",0,4
+"T200101005","12","CUCUMBER","Summer",12,3,2,2,1,3,0,NA,25,25,2017,"Saptari","Control",0,6
+"T200101005","16","SPONGE GOURD","Summer",12,3,2,2,1,3,0,NA,25,25,2017,"Saptari","Control",0,6
+"T200101005","30","YARD LONG BEANS","Summer",12,3,2,2,1,3,0,NA,0,0,2017,"Saptari","Control",0,6
+"T200101005","27","GREEN GRAM","Summer",12,3,10,2,2,1,20,3,25,30,2017,"Saptari","Control",0,20
+"T200101005","8","BRINJAL","Summer",12,3,3,2,1,3,0,NA,25,20,2017,"Saptari","Control",0,9
+"T200101005","9","BITTER GOURD","Summer",12,3,2,2,1,3,0,NA,0,0,2017,"Saptari","Control",0,6
+"T200101005","10","OKRA","Summer",12,3,2,2,1,3,0,NA,0,0,2017,"Saptari","Control",0,6
+"T200102004","1","PADDY","Monsoon",3,7,30,2,1,1,3,1,25,15,2017,"Saptari","Control",0,30
+"T200102004","2","WHEAT","Winter",8,12,30,2,1,2,2,1,0,0,2017,"Saptari","Control",0,60
+"T200102004","14","BOTTLE GOURD","Summer",12,3,2,2,2,10,10,3,0,0,2017,"Saptari","Control",0,40
+"T200102004","3","MAIZE","Summer",12,3,3,2,1,2,33,3,0,0,2017,"Saptari","Control",0,6
+"T200104003","1","PADDY","Monsoon",3,7,25,2,2,5,3,1,0,0,2017,"Saptari","Control",0,250
+"T200104003","2","WHEAT","Winter",8,12,25,2,2,5,1,1,0,0,2017,"Saptari","Control",0,250
+"T200104003","37","GREENLEAFY VEGETABLE","Summer",12,3,2,2,2,5,20,3,80,25,2017,"Saptari","Control",0,20
+"T200104003","14","BOTTLE GOURD","Summer",12,3,2,2,2,5,10,5,80,40,2017,"Saptari","Control",0,20
+"T200104003","12","CUCUMBER","Summer",12,3,1,2,2,5,25,3,80,30,2017,"Saptari","Control",0,10
+"T201105001","1","PADDY","Monsoon",3,7,29,2,0.5,1,1,1,50,15,2017,"Saptari","Control",0,14.5
+"T201105001","2","WHEAT","Winter",8,12,29,2,1,2,1,1,0,0,2017,"Saptari","Control",0,58
+"T201105001","37","GREENLEAFY VEGETABLE","Summer",4,1,4,2,2,1,15,3,0,0,2017,"Saptari","Control",0,8
+"C009406001","1","PADDY","Monsoon",3,7,20,2,2,2,3,1,25,15,2017,"Saptari","Control",0,80
+"C009406001","2","WHEAT","Winter",8,12,20,2,2,2,2,1,25,20,2017,"Saptari","Control",0,80
+"C009406001","27","GREEN GRAM","Summer",12,3,10,2,2,4,20,3,0,0,2017,"Saptari","Control",0,80
+"T109902001","1","PADDY","Monsoon",3,7,20,2,1,1,4,1,0,0,2017,"Saptari","Treatment",1,20
+"T109902001","2","WHEAT","Winter",8,12,20,2,2,2,2,1,0,0,2017,"Saptari","Treatment",1,80
+"T109902001","40","SESAME","Summer",12,3,10,2,1,1,30,3,80,150,2017,"Saptari","Treatment",1,10
+"T200101001","1","PADDY","Monsoon",3,8,40,2,1,1,3,1,50,15,2017,"Saptari","Control",0,40
+"T200101001","2","WHEAT","Winter",8,12,30,2,2,3,2,1,50,25,2017,"Saptari","Control",0,180
+"T200101001","47","POTATO","Winter",8,11,5,2,1,5,1,1,0,0,2017,"Saptari","Control",0,25
+"T200101001","43","MUSTARD","Winter",8,12,5,2,1,5,6,1,50,25,2017,"Saptari","Control",0,25
+"T200101001","27","GREEN GRAM","Summer",12,3,20,2,1,1,30,3,0,0,2017,"Saptari","Control",0,20
+"T203309003","1","PADDY","Monsoon",3,8,40,1,2,1,4,1,60,15,2017,"Saptari","Control",0,80
+"T203309003","2","WHEAT","Winter",8,12,10,2,2,4,2,1,20,25,2017,"Saptari","Control",0,80
+"T203309003","43","MUSTARD","Winter",8,12,10,1,2,3,30,3,0,0,2017,"Saptari","Control",0,60
+"T203309003","1","PADDY","Summer",12,3,30,2,2,3,4,1,5,15,2017,"Saptari","Control",0,180
+"T203309003","37","GREENLEAFY VEGETABLE","Summer",12,3,8,2,2,2,20,3,0,0,2017,"Saptari","Control",0,32
+"T203309003","27","GREEN GRAM","Summer",12,3,2,2,0.5,5,2,1,65,10,2017,"Saptari","Control",0,5
+"T107607003","1","PADDY","Monsoon",3,7,40,2,3,5,3,1,25,15,2017,"Saptari","Control",0,600
+"T107607003","2","WHEAT","Winter",8,12,20,2,3,6,2,1,25,26,2017,"Saptari","Control",0,360
+"T107607003","47","POTATO","Winter",8,12,10,2,2,3,2,1,50,20,2017,"Saptari","Control",0,60
+"T107607003","11","CHILLIES","Winter",8,12,5,2,2,3,30,3,50,30,2017,"Saptari","Control",0,30
+"T107607003","53","ONIONS","Winter",8,12,5,2,2,4,1,1,50,40,2017,"Saptari","Control",0,40
+"T107607003","12","CUUCMBER","Summer",12,3,3,2,2,3,20,3,50,30,2017,"Saptari","Control",0,18
+"T107607003","8","BRINJAL","Summer",12,3,3,2,2,4,20,3,50,30,2017,"Saptari","Control",0,24
+"T107607003","17","POINTED GOURD","Summer",12,3,5,2,2,5,30,3,75,40,2017,"Saptari","Control",0,50
+"T107607003","37","GREENLEAFY VEGETABLE","Summer",12,3,5,2,2,4,20,3,75,20,2017,"Saptari","Control",0,40
+"T107607003","24","HORSE GRAM","Summer",12,3,4,2,2,4,10,3,75,30,2017,"Saptari","Control",0,32
+"T107601002","1","PADDY","Monsoon",3,7,60,2,1,2,3,1,0,0,2017,"Saptari","Control",0,120
+"T107601002","2","WHEAT","Winter",8,12,20,2,1,2,2,1,50,25,2017,"Saptari","Control",0,40
+"T107601002","47","POTATO","Winter",7,9,5,2,0.330000013113022,5,5,1,0,0,2017,"Saptari","Control",0,8.25000032782555
+"T107601002","42","LINSEED","Winter",7,12,20,2,0.409999996423721,1,25,3,0,0,2017,"Saptari","Control",0,8.19999992847443
+"T107601002","43","MUSTARD","Winter",8,12,13,2,0.409999996423721,2,30,3,0,0,2017,"Saptari","Control",0,10.6599999070168
+"T107601002","44","CAULIFLOWER","Winter",8,11,2,2,0.409999996423721,5,1,1,0,0,2017,"Saptari","Control",0,4.09999996423721
+"T107601002","27","GREEN GRAM","Summer",12,3,5,2,0.5,1,27,3,0,0,2017,"Saptari","Control",0,2.5
+"T107601002","3","MAIZE","Summer",12,3,5,2,5,2,30,3,0,0,2017,"Saptari","Control",0,50
+"T210904001","1","PADDY","Monsoon",3,7,60,1,1,1,4,1,75,20,2017,"Saptari","Treatment",1,60
+"T210904001","2","WHEAT","Winter",8,12,30,2,2,3,2,1,50,25,2017,"Saptari","Treatment",1,180
+"T210904001","42","LINSEED","Winter",8,12,20,2,1,2,20,3,0,0,2017,"Saptari","Treatment",1,40
+"T210904001","43","MUSTARD","Winter",8,11,10,2,2,2,20,3,0,0,2017,"Saptari","Treatment",1,40
+"T210904001","10","OKRA","Winter",12,3,3,2,1,8,10,3,0,0,2017,"Saptari","Treatment",1,24
+"T200101003","1","PADDY","Monsoon",3,7,7,2,1,1,4,1,0,0,2017,"Saptari","Control",0,7
+"T200101003","2","WHEAT","Winter",7,12,5,2,1,3,2,1,0,0,2017,"Saptari","Control",0,15
+"T200101003","47","POTATO","Winter",7,10,2,2,1,4,5,1,0,0,2017,"Saptari","Control",0,8
+"T200101003","27","GREEN GRAM","Summer",12,3,4,2,1,2,20,3,0,0,2017,"Saptari","Control",0,8
+"T200101003","40","SESAME","Summer",12,3,3,2,1,2,25,3,0,0,2017,"Saptari","Control",0,6
+"T210904002","1","PADDY","Monsoon",3,7,20,2,2,2,3,1,0,0,2017,"Saptari","Control",0,80
+"T210904002","2","WHEAT","Winter",8,12,15,2,2,3,2,1,0,0,2017,"Saptari","Control",0,90
+"T210904002","43","MUSTARD","Winter",8,12,5,2,2,3,20,3,0,0,2017,"Saptari","Control",0,30
+"T210904002","37","GREENLEAFY VEGETABLE","Summer",12,3,5,2,2,4,20,3,0,0,2017,"Saptari","Control",0,40
+"T210904002","8","BRINJAL","Summer",12,3,3,2,2,5,25,3,0,0,2017,"Saptari","Control",0,30
+"T210904002","16","SPONGE GOURD","Summer",12,3,2,2,2,3,15,3,0,0,2017,"Saptari","Control",0,12
+"T210905004","1","PADDY","Monsoon",3,7,22,2,0.5,1,3,1,25,15,2017,"Saptari","Control",0,11
+"T210905004","2","WHEAT","Winter",8,12,22,2,1,2,2,1,25,20,2017,"Saptari","Control",0,44
+"T210905004","27","GREEN GRAM","Summer",12,3,5,2,1,1,15,3,0,0,2017,"Saptari","Control",0,5
+"T210905004","8","BRINJAL","Summer",12,3,2,2,1,3,20,3,0,0,2017,"Saptari","Control",0,6
+"T210905004","37","GREENLEAFY VEGETABLE","Summer",12,3,3,2,1,4,15,3,0,0,2017,"Saptari","Control",0,12
+"T210101002","1","PADDY","Monsoon",3,7,109,1,2,1,3,1,80,20,2017,"Saptari","Treatment",1,218
+"T210101002","2","WHEAT","Winter",8,12,109,2,2,2,2,1,80,25,2017,"Saptari","Treatment",1,436
+"T210101002","27","GREEN GRAM","Summer",12,3,75,2,1,2,3,1,50,102,2017,"Saptari","Treatment",1,150
+"T210101002","10","OKRA","Summer",12,3,2,2,1,3,10,3,50,50,2017,"Saptari","Treatment",1,6
+"T210101002","8","BRINJAL","Summer",12,3,3,2,2,3,20,3,50,50,2017,"Saptari","Treatment",1,18
+"T210102001","1","PADDY","Monsoon",3,7,60,2,2,1,2,1,75,15,2017,"Saptari","Control",0,120
+"T210102001","2","WHEAT","Winter",8,12,60,2,2,2,2,1,75,25,2017,"Saptari","Control",0,240
+"T210102001","40","SESAME","Summer",12,3,4,2,2,3,20,3,0,0,2017,"Saptari","Control",0,24
+"T100509003","1","PADDY","Monsoon",3,7,30,2,2,1,4,1,0,0,2017,"Saptari","Control",0,60
+"T100509003","2","WHEAT","Winter",8,12,30,2,2,2,3,1,0,0,2017,"Saptari","Control",0,120
+"T100509003","37","GREENLEAFY VEGETABLE","Summer",12,3,3,2,2,5,0,NA,0,0,2017,"Saptari","Control",0,30
+"T100509003","1","PADDY","Summer",10,3,5,2,2,30,4,1,0,0,2017,"Saptari","Control",0,300
+"T100503001","1","PADDY","Monsoon",3,7,30,2,0.5,1,3,1,0,0,2017,"Saptari","Control",0,15
+"T100503001","2","WHEAT","Winter",8,12,30,2,1,2,2,1,25,25,2017,"Saptari","Control",0,60
+"T100503001","27","GREEN GRAM","Summer",12,3,5,2,0.5,1,30,3,0,0,2017,"Saptari","Control",0,2.5
+"T100503001","3","MAIZE","Summer",12,3,5,2,0.5,2,30,3,0,0,2017,"Saptari","Control",0,5
+"T100503001","1","PADDY","Summer",12,3,5,2,0.5,30,4,1,100,15,2017,"Saptari","Control",0,75
+"T100502006","1","PADDY","Monsoon",3,7,10,2,2,1,4,1,0,0,2017,"Saptari","Control",0,20
+"T100502006","2","WHEAT","Winter",8,12,5,2,2,2,3,1,0,0,2017,"Saptari","Control",0,20
+"T100502006","42","LINSEED","Winter",8,12,5,2,2,2,20,3,0,0,2017,"Saptari","Control",0,20
+"T100502006","27","GREEN GRAM","Summer",12,3,6,2,2,2,20,3,0,0,2017,"Saptari","Control",0,24
+"T100502006","37","GREENLEAFY VEGETABLE","Summer",12,3,4,2,2,4,0,NA,0,0,2017,"Saptari","Control",0,32
+"T100103003","1","PADDY","Monsoon",3,7,80,1,0.5,1,3,1,25,15,2017,"Saptari","Control",0,40
+"T100103003","2","WHEAT","Winter",8,12,80,2,1,2,3,1,50,20,2017,"Saptari","Control",0,160
+"T100103003","27","GREEN GRAM","Summer",12,3,5,2,1,3,15,3,0,0,2017,"Saptari","Control",0,15
+"T100103003","3","MAIZE","Summer",12,3,3,2,1,3,20,3,0,0,2017,"Saptari","Control",0,9
+"T100103003","8","BRINJAL","Summer",12,3,1,2,1,2,20,3,0,0,2017,"Saptari","Control",0,2
+"T100103003","37","GREENLEAFY VEGETABLE","Summer",12,3,1,2,0.5,3,20,3,0,0,2017,"Saptari","Control",0,1.5
+"T100505004","1","PADDY","Monsoon",3,7,32,2,2,1,3,1,25,20,2017,"Saptari","Control",0,64
+"T100505004","2","WHEAT","Winter",8,12,32,2,2,2,2,1,0,0,2017,"Saptari","Control",0,128
+"T100505004","27","GREEN GRAM","Summer",12,3,15,2,2,2,20,3,0,0,2017,"Saptari","Control",0,60
+"T100505004","37","GREENLEAFY VEGETABLE","Summer",12,3,5,2,2,2,0,0,50,70,2017,"Saptari","Control",0,20
+"T109903002","1","PADDY","Monsoon",3,7,100,1,0.5,1,3,1,25,15,2017,"Saptari","Control",0,50
+"T109903002","12","CUCUMBER","Summer",12,3,2,2,0.5,4,15,3,80,40,2017,"Saptari","Control",0,4
+"T109903002","10","OKRA","Summer",12,3,1,2,0.5,4,15,3,80,30,2017,"Saptari","Control",0,2
+"T109903002","8","BRINJAL","Summer",12,3,1,2,0.5,5,20,3,80,40,2017,"Saptari","Control",0,2.5
+"T109903002","37","GREENLEAFY VEGETABLE","Summer",12,3,2,2,0.5,4,20,3,80,25,2017,"Saptari","Control",0,4
+"T109908003","1","PADDY","Monsoon",3,7,10,2,1,1,4,1,50,25,2017,"Saptari","Control",0,10
+"T109908003","47","POTATO","Winter",8,12,5,2,2,3,3,1,50,25,2017,"Saptari","Control",0,30
+"T109908003","53","ONIONS","Winter",8,12,5,2,2,2,4,1,50,20,2017,"Saptari","Control",0,20
+"C001410002","1","PADDY","Monsoon",3,9,30,1,0,0,3,1,25,17,2017,"Saptari","Control",0,0
+"C001410002","2","WHEAT","Winter",9,12,4,4,0,0,1.5,1,0,0,2017,"Saptari","Control",0,0
+"C001410002","3","MAIZE","Winter",9,12,2,2,2,3,4,1,50,25,2017,"Saptari","Control",0,12
+"C001410002","47","POTATO","Winter",9,11,1,2,2,5,10,1,50,14,2017,"Saptari","Control",0,10
+"C001410002","44","CAULIFLOWER","Winter",9,11,1,2,2,4,0,NA,90,16,2017,"Saptari","Control",0,8
+"C001410002","45","CABBAGE","Winter",9,11,1,2,2,4,0,NA,90,17,2017,"Saptari","Control",0,8
+"C001410002","8","BRINJAL","Winter",9,11,1,2,2,3,0,NA,90,20,2017,"Saptari","Control",0,6
+"C001410002","27","GREEN GRAM","Summer",12,3,6,1,0,0,15,3,0,0,2017,"Saptari","Control",0,0
+"T106604003","1","PADDY","Monsoon",3,8,40,2,2,3,3.5,1,50,22,2017,"Saptari","Control",0,240
+"T106604003","2","WHEAT","Winter",9,12,30,2,2,2,2,1,25,25,2017,"Saptari","Control",0,120
+"T106604003","44","CAULIFLOWER","Winter",9,11,2,2,2,4,0,NA,100,30,2017,"Saptari","Control",0,16
+"T106604003","53","ONIONS","Winter",9,12,2,2,2,5,8,1,50,14,2017,"Saptari","Control",0,20
+"T106604003","21","GREEN PEA","Winter",9,2,2,2,2,2,10,3,0,0,2017,"Saptari","Control",0,8
+"T106604003","47","POTATO","Winter",9,12,4,2,2,3,9,1,50,16,2017,"Saptari","Control",0,24
+"T106604003","27","GREEN GRAM","Summer",12,3,15,1,0,0,0,NA,0,0,2017,"Saptari","Control",0,0
+"T103207002","1","PADDY","Monsoon",4,9,240,4,0,0,4,1,70,24,2017,"Saptari","Control",0,0
+"T103207002","2","WHEAT","Winter",9,12,40,4,0,0,2,1,60,27,2017,"Saptari","Control",0,0
+"T103207002","33","OTHER PULSES","Winter",9,12,10,4,0,0,15,3,0,0,2017,"Saptari","Control",0,0
+"T103207002","42","LINSEED","Winter",9,12,20,4,0,0,20,3,50,30,2017,"Saptari","Control",0,0
+"T103207002","43","MUSTARD","Winter",9,12,21,4,0,0,20,3,50,60,2017,"Saptari","Control",0,0
+"T103207002","47","POTATO","Winter",9,12,2,2,2,4,9,1,50,16,2017,"Saptari","Control",0,16
+"T103207002","53","ONIONS","Winter",9,12,1,2,2,6,6,1,0,0,2017,"Saptari","Control",0,12
+"T103207002","55","GARLIC","Winter",9,12,1,2,2,4,5,1,50,60,2017,"Saptari","Control",0,8
+"T103207002","44","CAULIFLOWER","Winter",9,12,2,2,2,4,0,NA,80,18,2017,"Saptari","Control",0,16
+"T103207002","45","CABBAGE","Winter",9,12,2,2,2,4,0,NA,80,17,2017,"Saptari","Control",0,16
+"T103207002","3","MAIZE","Winter",9,12,1,3,2,3,5,1,0,0,2017,"Saptari","Control",0,6
+"T103207002","27","GREEN GRAM","Summer",1,3,60,1,NA,NA,NA,NA,NA,NA,2017,"Saptari","Control",0,NA
+"T104201002","1","PADDY","Monsoon",3,9,40,4,0,0,4,1,50,19,2017,"Saptari","Control",0,0
+"T104201002","47","POTATO","Winter",9,12,1,2,2,4,10,1,0,0,2017,"Saptari","Control",0,8
+"T104201002","53","ONIONS","Winter",9,12,1,2,2,5,8,1,0,0,2017,"Saptari","Control",0,10
+"T104201002","11","CHILLIES","Winter",9,12,1,2,2,4,0,NA,0,0,2017,"Saptari","Control",0,8
+"T104201002","43","MUSTARD","Winter",9,12,1,2,2,2,25,3,0,0,2017,"Saptari","Control",0,4
+"T205104005","1","PADDY","Monsoon",3,9,20,4,0,0,3.5,1,50,19,2017,"Saptari","Control",0,0
+"T205104005","2","WHEAT","Winter",9,12,15,4,0,0,2,1,0,0,2017,"Saptari","Control",0,0
+"T205104005","47","POTATO","Winter",9,12,2,2,2,5,8,1,50,14,2017,"Saptari","Control",0,20
+"T205104005","44","CAULIFLOWER","Winter",9,12,1,2,2,4,0,NA,90,16,2017,"Saptari","Control",0,8
+"T205104005","45","CABBAGE","Winter",9,12,1,2,2,4,NA,NA,90,15,2017,"Saptari","Control",0,8
+"T205104005","53","ONIONS","Winter",9,11,1,2,2,6,7,1,25,20,2017,"Saptari","Control",0,12
+"T205104005","27","GREEN GRAM","Summer",12,3,10,1,0,0,20,3,0,0,2017,"Saptari","Control",0,0
+"T104209001","1","PADDY","Monsoon",3,9,6,2,2,4,3,1,0,0,2017,"Saptari","Treatment",1,48
+"T104209001","43","MUSTARD","Winter",9,12,6,2,2,2,25,3,50,35,2017,"Saptari","Treatment",1,24
+"T205104006","1","PADDY","Monsoon",3,8,19,4,0,0,4,1,0,0,2017,"Saptari","Control",0,0
+"T205104006","2","WHEAT","Winter",9,12,9,4,0,0,2,1,0,0,2017,"Saptari","Control",0,0
+"T205104006","43","MUSTARD","Winter",9,12,4,2,2,2,30,3,50,40,2017,"Saptari","Control",0,16
+"T205104006","47","POTATO","Winter",9,12,3,2,2,4,10,1,50,18,2017,"Saptari","Control",0,24
+"T205104006","44","CAULIFLOWER","Winter",9,12,1,2,2,5,0,NA,100,22,2017,"Saptari","Control",0,10
+"T205104006","45","CABBAGE","Winter",9,12,1,2,2,5,0,NA,100,20,2017,"Saptari","Control",0,10
+"T205104006","53","ONIONS","Winter",9,12,1,2,2,6,8,1,50,20,2017,"Saptari","Control",0,12
+"T205104006","27","GREEN GRAM","Summer",12,3,5,1,0,0,15,3,0,0,2017,"Saptari","Control",0,0
+"T110503003","1","PADDY","Monsoon",3,8,20,4,0,0,3,1,0,0,2017,"Saptari","Control",0,0
+"T110503003","43","MUSTARD","Winter",8,12,3,2,2,2,20,3,0,0,2017,"Saptari","Control",0,12
+"T110503003","44","CAULIFLOWER","Winter",8,12,1,2,2,4,0,NA,100,16,2017,"Saptari","Control",0,8
+"T110503003","45","CABBAGE","Winter",8,12,1,2,2,4,0,NA,100,18,2017,"Saptari","Control",0,8
+"T110503003","47","POTATO","Winter",8,12,2,2,2,5,10,1,50,14,2017,"Saptari","Control",0,20
+"T110503003","27","GREEN GRAM","Summer",12,3,7,1,0,0,15,3,0,0,2017,"Saptari","Control",0,0
+"T109203005","1","PADDY","Monsoon",3,8,20,2,2,3,2.5,1,0,0,2017,"Saptari","Control",0,120
+"T109203005","2","WHEAT","Winter",9,12,10,2,2,2,1.5,1,0,0,2017,"Saptari","Control",0,40
+"T109202008","1","PADDY","Monsoon",3,9,30,2,2,3,2.5,1,0,0,2017,"Saptari","Control",0,180
+"T109202008","2","WHEAT","Winter",9,12,6,2,2,2,2,1,0,0,2017,"Saptari","Control",0,24
+"T109202008","43","MUSTARD","Winter",9,12,2,2,2,2,20,3,0,0,2017,"Saptari","Control",0,8
+"T109202008","42","LINSEED","Winter",9,12,2,2,2,2,15,3,0,0,2017,"Saptari","Control",0,8
+"T109202008","27","GREEN GRAM","Summer",12,3,10,1,NA,NA,NA,NA,NA,NA,2017,"Saptari","Control",0,NA
+"T210408001","1","PADDY","Monsoon",3,9,30,2,2,4,2.5,1,0,0,2017,"Saptari","Treatment",1,240
+"T210408001","2","WHEAT","Winter",9,12,10,2,2,2,1.5,1,0,0,2017,"Saptari","Treatment",1,40
+"T210408001","27","GREEN GRAM","Summer",5,1,5,1,NA,NA,NA,NA,NA,NA,2017,"Saptari","Treatment",1,NA
+"T106605002","1","PADDY","Monsoon",3,8,25,1,0,0,3,1,0,0,2017,"Saptari","Treatment",1,0
+"T106605002","2","WHEAT","Winter",9,12,8,2,3,2,2,1,0,0,2017,"Saptari","Treatment",1,48
+"T106605002","47","POTATO","Winter",9,11,1.5,2,3,4,9,1,0,0,2017,"Saptari","Treatment",1,18
+"T106605002","44","CAULIFLOWER","Winter",9,11,1,2,3,4,0,NA,100,20,2017,"Saptari","Treatment",1,12
+"T106605002","45","CABBAGE","Winter",9,11,1.5,2,3,3,0,NA,100,25,2017,"Saptari","Treatment",1,13.5
+"T106605002","21","GREEN PEA","Winter",9,11,3,2,3,0,20,3,0,0,2017,"Saptari","Treatment",1,0
+"T106605002","33","RED LENTIL","Winter",9,12,5,1,0,2,15,3,0,0,2017,"Saptari","Treatment",1,0
+"T106605002","42","LINSEED","Winter",9,12,5,2,3,3,10,3,0,0,2017,"Saptari","Treatment",1,45
+"T106605002","11","CHILLIES","Summer",12,2,1,2,3,3,0,NA,0,0,2017,"Saptari","Treatment",1,9
+"T106605002","10","OKRA","Summer",12,2,1.5,2,3,4,0,NA,0,0,2017,"Saptari","Treatment",1,18
+"T106605002","63","OTHER CROPS","Summer",12,3,1,2,3,3,0,NA,0,0,2017,"Saptari","Treatment",1,9
+"T106605002","12","CUCUMBER","Summer",12,2,1.5,2,3,3,0,NA,0,0,2017,"Saptari","Treatment",1,13.5
+"T203901002","1","PADDY","Monsoon",3,9,110,2,1,4,4,1,60,24,2017,"Saptari","Treatment",1,440
+"T203901002","2","WHEAT","Winter",9,12,48,2,1,3,3,1,50,25,2017,"Saptari","Treatment",1,144
+"T203901002","33","OTHER PULSES","Winter",9,12,20,2,1,1,25,3,50,32,2017,"Saptari","Treatment",1,20
+"T203901002","43","MUSTARD","Winter",9,12,10,2,1,2,30,3,50,70,2017,"Saptari","Treatment",1,20
+"T203901002","44","CAULIFLOWER","Winter",9,12,1,2,1,5,20,1,70,18,2017,"Saptari","Treatment",1,5
+"T203901002","45","CABBAGE","Winter",9,12,1,2,1,5,20,1,70,19,2017,"Saptari","Treatment",1,5
+"T203901002","53","ONIONS","Winter",9,12,1,2,1,6,8,1,25,20,2017,"Saptari","Treatment",1,6
+"T203901002","14","BOTTLE GOURD","Winter",9,12,1,2,1,5,0,NA,90,15,2017,"Saptari","Treatment",1,5
+"T203901002","42","LINSEED","Winter",9,12,25,2,1,2,25,3,50,32,2017,"Saptari","Treatment",1,50
+"T203901002","47","POTATO","Winter",9,12,3,2,1,4,12,1,0,0,2017,"Saptari","Treatment",1,12
+"T203901002","27","GREEN GRAM","Summer",12,3,30,2,1,2,20,3,25,110,2017,"Saptari","Treatment",1,60
+"T203901002","1","PADDY","Summer",12,3,55,2,1,10,3.5,1,100,20,2017,"Saptari","Treatment",1,550
+"T210706005","1","PADDY","Monsoon",4,9,45,4,0,0,3,1,50,23,2017,"Saptari","Control",0,0
+"T210706005","2","WHEAT","Winter",9,12,15,2,2,2,1,1,0,0,2017,"Saptari","Control",0,60
+"T210706005","33","OTHER PULSES","Winter",9,12,5,2,1,2,20,3,0,0,2017,"Saptari","Control",0,10
+"T210709001","1","PADDY","Monsoon",3,9,31,2,2,5,3,1,0,0,2017,"Saptari","Treatment",1,310
+"T210709001","2","WHEAT","Winter",9,12,10,2,2,3,2,1,0,0,2017,"Saptari","Treatment",1,60
+"T210709001","33","OTHER PULSES","Winter",9,12,6,2,0,0,20,3,50,42,2017,"Saptari","Treatment",1,0
+"T210709001","1","PADDY","Summer",12,3,2,2,3,15,3,1,100,24,2017,"Saptari","Treatment",1,90
+"T203901008","1","PADDY","Monsoon",3,8,40,1,0,0,3,1,0,0,2017,"Saptari","Control",0,0
+"T203901008","2","WHEAT","Winter",9,12,9,2,3,2,2,1,0,0,2017,"Saptari","Control",0,54
+"T203901008","33","OTHER PULSES","Winter",9,11,5,0,0,0,10,3,0,0,2017,"Saptari","Control",0,0
+"T203901008","43","MUSTARD","Winter",9,12,2,2,3,1,20,3,0,0,2017,"Saptari","Control",0,6
+"T203901008","47","POTATO","Winter",9,11,1,2,3,5,8,1,0,0,2017,"Saptari","Control",0,15
+"T203901008","21","GREEN PEA","Winter",9,11,3,2,3,1,20,3,0,0,2017,"Saptari","Control",0,9
+"T203901008","27","GREEN GRAM","Summer",1,3,16,0,0,0,10,3,0,0,2017,"Saptari","Control",0,0
+"T203908009","1","PADDY","Monsoon",3,8,17,1,0,0,3,1,0,0,2017,"Saptari","Control",0,0
+"T203908009","47","POTATO","Winter",8,11,2,2,3,4,7,1,0,0,2017,"Saptari","Control",0,24
+"T203908009","2","WHEAT","Winter",8,11,5,2,3,2,2,1,0,0,2017,"Saptari","Control",0,30
+"T203908009","53","ONIONS","Winter",8,10,1,2,3,5,6,1,0,0,2017,"Saptari","Control",0,15
+"T203908009","43","MUSTARD","Winter",8,10,2,2,3,2,20,3,0,0,2017,"Saptari","Control",0,12
+"T203908009","27","GREEN GRAM","Summer",11,2,5,2,3,1,0,NA,0,0,2017,"Saptari","Control",0,15
+"T210703006","1","PADDY","Monsoon",3,9,40,1,0,0,2.5,1,0,0,2017,"Saptari","Control",0,0
+"T210703006","2","WHEAT","Winter",9,12,10,2,2,2,1,1,0,0,2017,"Saptari","Control",0,40
+"T210703006","43","MUSTARD","Winter",9,12,5,2,2,2,15,3,0,0,2017,"Saptari","Control",0,20
+"T109202009","1","PADDY","Monsoon",3,8,30,2,2,3,3,1,25,19,2017,"Saptari","Control",0,180
+"T109202009","2","WHEAT","Winter",9,12,3,2,2,2,1.5,1,0,0,2017,"Saptari","Control",0,12
+"T109202009","33","OTHER PULSES","Winter",9,12,1,2,2,1,10,3,0,0,2017,"Saptari","Control",0,2
+"T109202009","47","POTATO","Winter",9,11,1,2,2,4,8,1,10,14,2017,"Saptari","Control",0,8
+"T109202009","43","MUSTARD","Winter",9,11,1,2,2,2,20,3,0,0,2017,"Saptari","Control",0,4
+"T109202009","42","LINSEED","Winter",9,11,3,2,2,1,10,3,0,0,2017,"Saptari","Control",0,6
+"T109202009","53","ONIONS","Winter",9,12,1,2,2,5,6,1,25,15,2017,"Saptari","Control",0,10
+"T109202009","27","GREEN GRAM","Summer",12,3,10,1,2,0,0,NA,0,0,2017,"Saptari","Control",0,0
+"A104507035","1","PADDY","Monsoon",3,8,38,2,0.5,3,4.5,1,25,16,2017,"Saptari","Treatment",1,57
+"A104507035","2","WHEAT","Winter",9,12,10,2,0.5,2,1.5,1,25,21,2017,"Saptari","Treatment",1,10
+"A104507035","22","GRASS PEA","Winter",9,12,3,0,0,0,20,3,50,80,2017,"Saptari","Treatment",1,0
+"A104507035","21","GREEN PEA","Winter",9,12,2,0,0,0,25,3,50,85,2017,"Saptari","Treatment",1,0
+"A104507035","40","SESAME","Winter",9,12,2,0,0,0,20,3,85,120,2017,"Saptari","Treatment",1,0
+"A104507035","42","LINSEED","Winter",9,12,2,0,0,0,20,3,50,90,2017,"Saptari","Treatment",1,0
+"A104507035","43","MUSTARD","Winter",9,12,2,0,0,0,25,3,50,88,2017,"Saptari","Treatment",1,0
+"A104507035","33","OTHER PULSES","Winter",9,12,2,0,0,0,25,3,50,90,2017,"Saptari","Treatment",1,0
+"A110402001","1","PADDY","Monsoon",3,7,40,2,2,1,4,1,75,15,2017,"Saptari","Treatment",1,80
+"A110402001","47","POTATO","Monsoon",3,7,10,2,2,4,5,4,75,20,2017,"Saptari","Treatment",1,80
+"A110402001","2","WHEAT","Winter",8,12,50,2,2,2,3,1,75,25,2017,"Saptari","Treatment",1,200
+"A110402001","15","BELL PEPPER","Summer",12,3,5,2,2,4,30,3,75,40,2017,"Saptari","Treatment",1,40
+"A110402001","8","BRINJAL","Summer",12,3,5,2,2,6,30,3,75,30,2017,"Saptari","Treatment",1,60
+"A110402001","12","CUCUMBER","Summer",12,3,5,2,2,5,35,3,75,30,2017,"Saptari","Treatment",1,50
+"A110402001","14","BOTTLE GOURD","Summer",12,3,1,2,2,6,5,5,50,40,2017,"Saptari","Treatment",1,12
+"A110402001","37","GREENLEAFY VEGETABLE","Summer",12,3,2,2,2,5,20,3,95,20,2017,"Saptari","Treatment",1,20
+"T210703008","1","PADDY","Monsoon",3,7,15,2,1,1,3,1,0,0,2018,"Saptari","Control",0,15
+"T210703008","2","WHEAT","Winter",7,12,7,2,2,2,2,1,0,0,2018,"Saptari","Control",0,28
+"T210703008","42","LINSEED","Winter",7,12,2,0,0,0,10,3,0,0,2018,"Saptari","Control",0,0
+"T210703008","33","RED LENTIL","Winter",7,11,1,2,1,1,15,3,0,0,2018,"Saptari","Control",0,1
+"T210703008","43","MUSTARD","Winter",7,12,1,2,1,0,8,3,70,20,2018,"Saptari","Control",0,0
+"T210703008","47","POTATO","Winter",7,10,4,2,2,3,3,1,50,19,2018,"Saptari","Control",0,24
+"T210709003","1","PADDY","Monsoon",3,7,80,2,1,1,3,1,70,18,2018,"Saptari","Treatment",1,80
+"T210709003","2","WHEAT","Winter",7,12,50,2,2,2,1.5,1,50,20,2018,"Saptari","Treatment",1,200
+"T210709003","47","POTATO","Winter",8,11,15,2,2,4,10,1,40,10,2018,"Saptari","Treatment",1,120
+"T210709003","43","MUSTARD","Winter",7,12,10,2,2,4,20,3,70,15,2018,"Saptari","Treatment",1,80
+"T210709003","42","LINSEED","Winter",7,12,5,2,2,1,25,3,0,0,2018,"Saptari","Treatment",1,10
+"T210709003","1","PADDY","Monsoon",12,3,12,2,2,5,NA,NA,NA,NA,2018,"Saptari","Treatment",1,120
+"T204807001","1","PADDY","Monsoon",3,7,60,2,0.5,1,4,1,70,24,2018,"Saptari","Control",0,30
+"T204807001","2","WHEAT","Winter",7,12,30,2,0.5,2,1.5,1,0,0,2018,"Saptari","Control",0,30
+"T103209004","1","PADDY","Monsoon",3,7,6,1,2.5,1,2,1,0,0,2018,"Saptari","Control",0,15
+"T103209004","2","WHEAT","Winter",7,12,6,2,2.5,2,3,1,0,0,2018,"Saptari","Control",0,30
+"C001401001","1","PADDY","Monsoon",3,7,15,2,2,2,4,1,0,0,2018,"Saptari","Control",0,60
+"C001401001","2","WHEAT","Winter",7,12,7,2,2,2,2,1,0,0,2018,"Saptari","Control",0,28
+"C001401001","47","POTATO","Winter",7,11,4,2,2,4,10,1,50,12,2018,"Saptari","Control",0,32
+"C001401001","53","ONIONS","Winter",9,1,4,2,2,6,1,1,50,15,2018,"Saptari","Control",0,48
+"C001401001","27","GREEN GRAM","Summer",12,2,10,2,2,1,NA,NA,NA,NA,2018,"Saptari","Control",0,20
+"C001401001","40","SESAME","Summer",12,3,5,2,2,1,NA,NA,NA,NA,2018,"Saptari","Control",0,10
+"T110502004","1","PADDY","Monsoon",3,7,35,2,1,2,25,1,0,0,2018,"Saptari","Control",0,70
+"T110502004","42","LINSEED","Winter",7,12,6,0,0,0,30,3,0,0,2018,"Saptari","Control",0,0
+"T110502004","33","RED LENTIL","Winter",7,11,2,2,1,1,20,3,0,0,2018,"Saptari","Control",0,2
+"T104201003","1","PADDY","Monsoon",3,7,15,2,2,2,3,1,10,20,2018,"Saptari","Control",0,60
+"T104201003","42","LINSEED","Winter",7,12,5,2,2,4,7,1,0,0,2018,"Saptari","Control",0,40
+"T109205004","1","PADDY","Monsoon",3,7,60,2,1,2,3,1,25,20,2018,"Saptari","Treatment",1,120
+"T109205004","2","WHEAT","Winter",7,12,40,2,2,2,1.5,1,10,18,2018,"Saptari","Treatment",1,160
+"T109205004","53","ONIONS","Winter",7,1,10,2,2,6,3,1,30,15,2018,"Saptari","Treatment",1,120
+"T109205004","12","CUCUMBER","Winter",7,1,3,2,2,4,NA,NA,70,10,2018,"Saptari","Treatment",1,24
+"T109205004","11","CHILLIES","Winter",7,1,2,2,2,3,NA,NA,0,0,2018,"Saptari","Treatment",1,12
+"T109205004","24","HORSE GRAM","Winter",7,1,3,2,1,3,NA,NA,60,15,2018,"Saptari","Treatment",1,9
+"T109205004","14","BOTTLE","Winter",7,1,2,2,1,4,NA,NA,70,10,2018,"Saptari","Treatment",1,8
+"T109205004","1","PADDY","Winter",12,3,7,2,2,4,NA,NA,NA,NA,2018,"Saptari","Treatment",1,56
+"T109203003","1","PADDY","Monsoon",3,7,21,2,0.5,2,3,1,0,0,2018,"Saptari","Control",0,21
+"T109203003","2","WHEAT","Winter",7,12,16,2,0.5,2,2,1,0,0,2018,"Saptari","Control",0,16
+"T109203003","43","MUSTARD","Winter",7,9,2,2,2,2,20,3,50,85,2018,"Saptari","Control",0,8
+"T109203003","33","RED LENTIL","Winter",7,11,1,NA,NA,NA,30,3,20,95,2018,"Saptari","Control",0,NA
+"T109203003","47","POTATO","Winter",7,9,2,2,2,3,15,1,40,20,2018,"Saptari","Control",0,12
+"T109203003","3","MAIZE","Summer",12,3,4,2,2,3,NA,NA,NA,NA,2018,"Saptari","Control",0,24
+"T109202002","1","PADDY","Monsoon",3,7,50,2,1,2,4,1,80,20,2018,"Saptari","Control",0,100
+"T109202002","2","WHEAT","Winter",7,12,40,2,1,2,1,1,50,22,2018,"Saptari","Control",0,80
+"T109202002","33","RED LENTIL","Winter",7,11,2,0,0,0,20,3,0,0,2018,"Saptari","Control",0,0
+"T109202002","43","MUSTARD","Winter",7,12,6,2,1,3,10,3,0,0,2018,"Saptari","Control",0,18
+"T109202002","42","LINSEED","Winter",7,12,2,0,0,0,20,3,20,13,2018,"Saptari","Control",0,0
+"T109202002","20","PEA","Winter",12,3,20,2,2,5,NA,NA,NA,NA,2018,"Saptari","Control",0,200
+"T110505001","1","PADDY","Monsoon",3,7,20,2,2,1,2.5,1,50,18,2018,"Saptari","Treatment",1,40
+"T110505001","2","WHEAT","Winter",7,12,10,2,2,1,2,1,0,0,2018,"Saptari","Treatment",1,20
+"T110505001","1","PADDY","Summer",12,3,7,2,2,4,2,1,NA,NA,2018,"Saptari","Treatment",1,56
+"T110505001","12","CUCUMBER","Summer",11,1,3,2,2,4,NA,NA,50,8,2018,"Saptari","Treatment",1,24
+"T109201006","1","PADDY","Monsoon",3,7,13,2,1,2,2,1,0,0,2018,"Saptari","Control",0,26
+"T109201006","2","WHEAT","Winter",7,12,13,2,1,2,3,1,0,0,2018,"Saptari","Control",0,26
+"T109201006","1","PADDY","Winter",3,12,3,2,1.5,4,NA,NA,0,0,2018,"Saptari","Control",0,18
+"T210405002","1","PADDY","Monsoon",3,7,45,2,0.5,1,1.5,1,30,20,2018,"Saptari","Control",0,22.5
+"T210405002","2","WHEAT","Winter",7,12,40,2,1,2,1,1,20,21,2018,"Saptari","Control",0,80
+"T210405002","47","POTATO","Winter",8,11,5,2,1,5,10,1,50,12,2018,"Saptari","Control",0,25
+"T210407003","1","PADDY","Monsoon",3,7,60,2,1,1,2.5,1,30,21,2018,"Saptari","Control",0,60
+"T210407003","2","WHEAT","Winter",7,12,50,2,1,2,1.5,1,20,25,2018,"Saptari","Control",0,100
+"T210407003","33","RED LENTIL","Winter",7,11,3,0,0,0,25,3,50,50,2018,"Saptari","Control",0,0
+"T210407003","43","MUSTARD","Winter",7,11,5,2,1,2,30,3,0,0,2018,"Saptari","Control",0,10
+"T210407003","26","RED GRAM","Winter",7,12,1,2,1,2,50,3,0,0,2018,"Saptari","Control",0,2
+"T210407003","42","LINSEED","Winter",7,12,1,0,0,0,20,3,0,0,2018,"Saptari","Control",0,0
+"T210407003","1","PADDY","Summer",12,3,10,2,1.5,6,NA,NA,NA,NA,2018,"Saptari","Control",0,90
+"T203907006","1","PADDY","Monsoon",3,7,20,2,1.5,2,3,1,10,21,2018,"Saptari","Control",0,60
+"T203907006","2","WHEAT","Winter",7,12,10,2,2,2,1.5,1,0,0,2018,"Saptari","Control",0,40
+"T203907006","47","POTATO","Winter",7,9,5,2,2,2,10,1,70,12,2018,"Saptari","Control",0,20
+"T203907006","53","ONIONS","Winter",7,12,2,2,2,7,1,4,70,15,2018,"Saptari","Control",0,28
+"T203907006","14","BOTTLE","Winter",8,12,3,2,2,5,30,5,90,8,2018,"Saptari","Control",0,30
+"T203907006","1","PADDY","Summer",12,NA,5,2,2,5,NA,NA,NA,NA,2018,"Saptari","Control",0,50
+"T203908005","1","PADDY","Monsoon",3,7,15,2,0.5,2,2.5,1,0,0,2018,"Saptari","Control",0,15
+"T203908005","2","WHEAT","Winter",7,12,8,2,2,2,2,1,0,0,2018,"Saptari","Control",0,32
+"T203908005","1","PADDY","Summer",12,NA,5,2,2,4,NA,NA,NA,NA,2018,"Saptari","Control",0,40
+"T203900307","1","PADDY","Monsoon",3,7,15,2,2,2,3,1,0,0,2018,"Saptari","Control",0,60
+"T203900307","2","WHEAT","Winter",7,12,10,2,2,2,1,1,0,0,2018,"Saptari","Control",0,40
+"T203900307","47","POTATO","Winter",7,8,3,2,2.5,2,5,1,40,25,2018,"Saptari","Control",0,15
+"T203900307","53","ONIONS","Winter",8,1,2,2,2.5,6,6,1,50,15,2018,"Saptari","Control",0,30
+"T106604005","1","PADDY","Monsoon",3,7,20,2,2.5,1,2.5,1,0,0,2018,"Saptari","Control",0,50
+"T106604005","2","WHEAT","Winter",7,12,7,2,3,2,1,1,0,0,2018,"Saptari","Control",0,42
+"T106604005","42","LINSEED","Winter",7,12,4,NA,NA,NA,30,3,50,25,2018,"Saptari","Control",0,NA
+"T106604005","21","GREEN PEA","Winter",7,12,5,NA,NA,NA,10,3,50,75,2018,"Saptari","Control",0,NA
+"T106604005","25","BLACK GRAM","Winter",7,12,4,NA,NA,NA,15,3,50,60,2018,"Saptari","Control",0,NA
+"T203901004","1","PADDY","Monsoon",3,7,17,2,1.5,2,2,1,40,19,2018,"Saptari","Control",0,51
+"T203901004","2","WHEAT","Winter",7,12,12,2,1.5,2,4,1,0,0,2018,"Saptari","Control",0,36
+"T203901004","33","RED LENTIL","Winter",7,10,3,0,0,0,25,3,0,0,2018,"Saptari","Control",0,0
+"T203901004","42","LINSEED","Winter",7,10,2,0,0,0,30,3,0,0,2018,"Saptari","Control",0,0
+"T106604003","1","PADDY","Monsoon",4,3,8,1,0,NA,4,1,20,15,2018,"Saptari","Control",0,NA
+"T106604003","2","WHEAT","Winter",7,9,12,2,2,2,2,1,0,0,2018,"Saptari","Control",0,48
+"T106604003","22","GRASS PEA","Winter",5,9,12,2,2,1,20,3,0,0,2018,"Saptari","Control",0,24
+"T106604003","33","OTHER","Winter",10,9,11,1,0,0,15,3,0,0,2018,"Saptari","Control",0,0
+"T106604003","21","GREEN PEA","Winter",2,9,12,2,2,2,10,3,0,0,2018,"Saptari","Control",0,48
+"T106604003","44","CAULI","Winter",2,9,11,2,2,2,NA,NA,0,0,2018,"Saptari","Control",0,44
+"T106604003","47","POTATO","Winter",2,9,12,2,2,3,7,1,25,15,2018,"Saptari","Control",0,72
+"T106604003","53","ONIONS","Winter",2,9,12,2,2,3,5,1,25,20,2018,"Saptari","Control",0,72
+"T106604003","14","BOTTLE","Summer",1,12,3,2,2,4,NA,NA,100,15,2018,"Saptari","Control",0,24
+"T106604003","3","MAIZE","Summer",3,12,3,2,2,5,NA,NA,0,0,2018,"Saptari","Control",0,30
+"T106604003","9","BITTER","Summer",1,12,3,2,2,3,NA,NA,0,0,2018,"Saptari","Control",0,18
+"T106604003","24","HORSE GRAM","Summer",1,12,3,2,0,2,NA,NA,NA,NA,2018,"Saptari","Control",0,0
+"T106604003","27","GREEN GRAM","Summer",4,12,3,2,0,0,NA,NA,NA,NA,2018,"Saptari","Control",0,0
+"T103207002","1","PADDY","Monsoon",3,9,240,1,NA,NA,3,1,70,23,2018,"Saptari","Control",0,NA
+"T103207002","2","WHEAT","Winter",9,12,30,3,NA,NA,1,1,50,26,2018,"Saptari","Control",0,NA
+"T103207002","33","OTHER","Winter",9,12,40,3,NA,NA,20,3,50,32,2018,"Saptari","Control",0,NA
+"T103207002","3","MAIZE","Winter",9,1,11,3,NA,NA,1,1,25,28,2018,"Saptari","Control",0,NA
+"T103207002","47","POTATO","Winter",9,12,3,2,2,3,10,1,0,0,2018,"Saptari","Control",0,18
+"T103207002","43","MUSTARD","Winter",9,12,10,3,NA,NA,15,3,50,30,2018,"Saptari","Control",0,NA
+"T103207002","44","CAULI","Winter",9,12,1,2,2,4,NA,NA,100,18,2018,"Saptari","Control",0,8
+"T103207002","45","CABBAGE","Winter",9,12,2,2,2,4,NA,NA,100,20,2018,"Saptari","Control",0,16
+"T103207002","53","ONIONS","Winter",9,12,2,2,2,5,7,1,25,14,2018,"Saptari","Control",0,20
+"T103207002","55","GARLIC","Winter",9,12,1,2,2,4,5,1,50,60,2018,"Saptari","Control",0,8
+"T103207002","27","GREEN GRAM","Summer",1,3,60,1,NA,NA,NA,NA,NA,NA,2018,"Saptari","Control",0,NA
+"T104201002","1","PADDY","Monsoon",3,9,40,3,NA,NA,3,1,25,25,2018,"Saptari","Control",0,NA
+"T104201002","47","POTATO","Winter",9,12,1,2,2,4,10,1,25,16,2018,"Saptari","Control",0,8
+"T104201002","44","CAULI","Winter",9,12,1,2,2,4,NA,NA,80,18,2018,"Saptari","Control",0,8
+"T104201002","45","CABBAGE","Winter",9,12,1,2,2,5,NA,NA,80,16,2018,"Saptari","Control",0,10
+"T104201002","53","ONIONS","Winter",9,12,1,2,2,6,7,1,0,0,2018,"Saptari","Control",0,12
+"T205104005","1","PADDY","Monsoon",3,9,20,1,0,0,4,1,0,0,2018,"Saptari","Control",0,0
+"T205104005","2","WHEAT","Winter",9,12,10,4,0,0,1.5,1,0,0,2018,"Saptari","Control",0,0
+"T205104005","42","LINSEED","Winter",9,12,5,4,0,0,15,3,0,0,2018,"Saptari","Control",0,0
+"T205104005","47","POTATO","Winter",9,12,2,2,2,4,9,1,50,16,2018,"Saptari","Control",0,16
+"T205104005","44","CAULI","Winter",9,12,1,2,2,4,NA,NA,100,19,2018,"Saptari","Control",0,8
+"T205104005","45","CABBAGE","Winter",9,12,1,2,2,4,NA,NA,100,17,2018,"Saptari","Control",0,8
+"T205104005","53","ONIONS","Winter",9,12,1,2,2,5,8,1,50,15,2018,"Saptari","Control",0,10
+"T205104005","27","GREEN GRAM","Summer",1,3,3,1,0,0,NA,NA,NA,NA,2018,"Saptari","Control",0,0
+"T205104005","13","PUMPKIN","Summer",1,3,1,2,2,NA,NA,NA,NA,NA,2018,"Saptari","Control",0,NA
+"T205104005","14","BOTTLE","Summer",1,3,1,2,2,NA,NA,NA,NA,NA,2018,"Saptari","Control",0,NA
+"C001410002","1","PADDY","Monsoon",3,9,30,1,0,0,3,1,0,0,2018,"Saptari","Control",0,0
+"C001410002","47","POTATO","Winter",9,12,2,2,0,0,8,1,50,14,2018,"Saptari","Control",0,0
+"C001410002","44","CAULI","Winter",9,12,1,2,2,4,NA,NA,100,19,2018,"Saptari","Control",0,8
+"C001410002","45","CABBAGE","Winter",9,12,1,2,2,4,NA,NA,100,16,2018,"Saptari","Control",0,8
+"C001410002","53","ONIONS","Winter",9,12,1,2,2,5,7,1,25,20,2018,"Saptari","Control",0,10
+"C001410002","11","CHILLIES","Winter",9,12,1,2,2,3,NA,NA,25,40,2018,"Saptari","Control",0,6
+"C001410002","60","JUTE","Summer",12,3,6,1,2,0,NA,NA,NA,NA,2018,"Saptari","Control",0,0
+"T104209001","1","PADDY","Monsoon",3,8,6,1,NA,NA,3,1,0,0,2018,"Saptari","Treatment",1,NA
+"T104209001","43","MUSTARD","Winter",9,12,4,2,2,2,20,3,0,0,2018,"Saptari","Treatment",1,16
+"T104209001","47","POTATO","Winter",9,12,1,2,2,4,7,1,0,0,2018,"Saptari","Treatment",1,8
+"T104209001","53","ONIONS","Winter",9,12,1,2,2,4,6,1,0,0,2018,"Saptari","Treatment",1,8
+"T205104006","1","PADDY","Monsoon",3,9,19,1,0,0,4,1,0,0,2018,"Saptari","Control",0,0
+"T205104006","43","MUSTARD","Winter",9,12,5,2,2,3,30,3,50,38,2018,"Saptari","Control",0,30
+"T205104006","47","POTATO","Winter",9,12,2,2,2,5,10,1,70,14,2018,"Saptari","Control",0,20
+"T205104006","44","CAULI","Winter",9,12,1,2,2,4,NA,NA,90,16,2018,"Saptari","Control",0,8
+"T205104006","45","CABBAGE","Winter",9,12,1,2,2,4,NA,NA,90,18,2018,"Saptari","Control",0,8
+"T205104006","10","OKRA","Winter",9,12,1,2,2,5,NA,NA,90,30,2018,"Saptari","Control",0,10
+"T110503003","1","PADDY","Monsoon",3,9,20,1,NA,NA,3,1,0,0,2018,"Saptari","Control",0,NA
+"T110503003","2","WHEAT","Winter",9,12,3,2,3,NA,2,1,0,0,2018,"Saptari","Control",0,NA
+"T110503003","47","POTATO","Winter",9,12,2,2,2,4,10,1,50,15,2018,"Saptari","Control",0,16
+"T110503003","44","CAULI","Winter",9,12,1,2,2,5,NA,NA,80,22,2018,"Saptari","Control",0,10
+"T110503003","45","CABBAGE","Winter",9,12,1,2,2,5,NA,NA,80,20,2018,"Saptari","Control",0,10
+"T110503003","53","ONIONS","Winter",9,12,1,2,2,6,8,1,50,16,2018,"Saptari","Control",0,12
+"T110503003","43","MUSTARD","Winter",9,12,2,2,2,2,20,3,0,0,2018,"Saptari","Control",0,8
+"T110503003","27","GREEN GRAM","Summer",1,3,7,1,NA,NA,NA,NA,NA,NA,2018,"Saptari","Control",0,NA
+"T109203005","1","PADDY","Monsoon",3,9,20,1,NA,NA,4,1,25,17,2018,"Saptari","Control",0,NA
+"T109203005","2","WHEAT","Winter",9,12,10,2,3,2,2,1,0,0,2018,"Saptari","Control",0,60
+"T109203005","43","MUSTARD","Winter",9,12,5,2,3,2,15,3,0,0,2018,"Saptari","Control",0,30
+"T109203005","33","OTHER","Winter",9,12,4,1,NA,NA,20,3,0,0,2018,"Saptari","Control",0,NA
+"T109203005","53","ONIONS","Winter",9,12,1,2,3,4,8,1,50,16,2018,"Saptari","Control",0,12
+"T109202008","25","BLACK GRAM","Monsoon",3,8,30,1,0,0,15,3,50,45,2018,"Saptari","Control",0,0
+"T109202008","2","WHEAT","Winter",8,12,10,2,2,2,2,1,0,0,2018,"Saptari","Control",0,40
+"T109202008","21","GREEN PEA","Winter",8,12,6,1,0,0,10,3,0,0,2018,"Saptari","Control",0,0
+"T109202008","63","GRASS","Summer",12,3,10,1,0,0,NA,NA,NA,NA,2018,"Saptari","Control",0,0
+"T109202008","27","GREEN GRAM","Summer",12,3,10,1,0,0,NA,NA,NA,NA,2018,"Saptari","Control",0,0
+"T210408001","1","PADDY","Monsoon",3,9,30,1,NA,NA,3,1,25,22,2018,"Saptari","Treatment",1,NA
+"T210408001","2","WHEAT","Winter",9,12,5,2,2,2,2,1,0,0,2018,"Saptari","Treatment",1,20
+"T210408001","33","OTHER","Winter",9,12,5,1,NA,NA,20,3,0,0,2018,"Saptari","Treatment",1,NA
+"T106605002","1","PADDY","Monsoon",3,8,25,1,0,NA,3,1,0,0,2018,"Saptari","Treatment",1,NA
+"T106605002","2","WHEAT","Winter",9,12,13,2,2,2,2,1,0,0,2018,"Saptari","Treatment",1,52
+"T106605002","44","CAULI","Winter",9,11,1,2,2,3,NA,NA,0,20,2018,"Saptari","Treatment",1,6
+"T106605002","45","CABBAGE","Winter",9,11,1.5,2,2,3,NA,NA,100,18,2018,"Saptari","Treatment",1,9
+"T106605002","33","OTHER","Winter",9,12,2,2,0,0,15,3,100,0,2018,"Saptari","Treatment",1,0
+"T106605002","21","GREEN PEA","Winter",9,11,2.5,2,2,2,10,3,0,0,2018,"Saptari","Treatment",1,10
+"T106605002","42","LINSEED","Winter",9,12,5,2,2,2,20,3,0,0,2018,"Saptari","Treatment",1,20
+"T106605002","27","GREEN GRAM","Summer",12,3,10,1,0,0,NA,NA,0,0,2018,"Saptari","Treatment",1,0
+"T203901002","1","PADDY","Monsoon",3,9,110,1,NA,NA,4,1,50,23,2018,"Saptari","Treatment",1,NA
+"T203901002","2","WHEAT","Winter",9,12,40,2,1,3,3,1,50,29,2018,"Saptari","Treatment",1,120
+"T203901002","33","OTHER","Winter",9,12,20,2,2,1,20,3,50,26,2018,"Saptari","Treatment",1,40
+"T203901002","42","LINSEED","Winter",9,12,25,2,1,2,25,3,50,30,2018,"Saptari","Treatment",1,50
+"T203901002","43","MUSTARD","Winter",9,12,20,2,1,4,20,3,50,70,2018,"Saptari","Treatment",1,80
+"T203901002","44","CAULI","Winter",9,12,1,2,1,4,18,1,80,20,2018,"Saptari","Treatment",1,4
+"T203901002","45","CABBAGE","Winter",9,12,1,2,1,5,20,1,80,22,2018,"Saptari","Treatment",1,5
+"T203901002","53","ONIONS","Winter",9,12,1,2,2,4,8,1,0,0,2018,"Saptari","Treatment",1,8
+"T203901002","47","POTATO","Winter",9,11,2,2,2,5,10,1,0,0,2018,"Saptari","Treatment",1,20
+"T203901002","1","PADDY","Winter",12,3,70,2,2,15,NA,NA,NA,NA,2018,"Saptari","Treatment",1,2100
+"T203901002","27","GREEN GRAM","Winter",12,3,15,1,NA,NA,NA,NA,NA,NA,2018,"Saptari","Treatment",1,NA
+"T109202009","1","PADDY","Monsoon",3,8,10,1,2,2,3,1,0,0,2018,"Saptari","Control",0,40
+"T109202009","2","WHEAT","Winter",8,12,5,2,2,2,1.5,1,0,0,2018,"Saptari","Control",0,20
+"T109202009","33","OTHER","Winter",8,11,2,2,2,0,20,3,0,0,2018,"Saptari","Control",0,0
+"T109202009","47","POTATO","Winter",8,11,1,2,2,4,10,1,0,0,2018,"Saptari","Control",0,8
+"T109202009","43","MUSTARD","Winter",8,11,1,2,2,2,20,1,0,0,2018,"Saptari","Control",0,4
+"T109202009","53","ONIONS","Winter",8,12,1,2,2,5,6,1,0,0,2018,"Saptari","Control",0,10
+"T210706005","1","PADDY","Monsoon",3,9,45,1,NA,NA,4,1,50,19,2018,"Saptari","Control",0,NA
+"T210706005","2","WHEAT","Winter",9,12,16,2,3,3,1.5,1,0,0,2018,"Saptari","Control",0,144
+"T210706005","33","OTHER","Winter",9,12,10,2,2,1,20,3,50,32,2018,"Saptari","Control",0,20
+"T210706005","43","MUSTARD","Winter",9,12,10,2,2,1,20,3,50,16,2018,"Saptari","Control",0,20
+"T210706005","47","POTATO","Winter",9,12,2,2,2,4,10,1,0,1,2018,"Saptari","Control",0,16
+"T210706005","44","CAULI","Winter",9,12,1,2,2,5,15,1,100,20,2018,"Saptari","Control",0,10
+"T210706005","45","CABBAGE","Winter",9,12,1,2,2,5,15,1,100,22,2018,"Saptari","Control",0,10
+"T210706005","1","PADDY","Summer",12,3,15,2,3,12,NA,NA,NA,NA,2018,"Saptari","Control",0,540
+"T210709001","1","PADDY","Monsoon",3,9,31,1,NA,NA,3.5,1,0,0,2018,"Saptari","Treatment",1,NA
+"T210709001","2","WHEAT","Winter",9,12,6,2,2,3,1.5,1,0,0,2018,"Saptari","Treatment",1,36
+"T210709001","33","OTHER","Winter",9,12,2,2,2,1,20,3,0,0,2018,"Saptari","Treatment",1,4
+"T210709001","43","MUSTARD","Winter",9,12,1,2,2,2,20,3,0,0,2018,"Saptari","Treatment",1,4
+"T210709001","47","POTATO","Winter",9,12,2,2,2,5,10,1,50,14,2018,"Saptari","Treatment",1,20
+"T210709001","53","ONIONS","Winter",9,12,1,2,2,4,8,1,50,20,2018,"Saptari","Treatment",1,8
+"T210709001","1","PADDY","Summer",12,3,7,2,2,9,NA,NA,NA,NA,2018,"Saptari","Treatment",1,126
+"T203901008","1","PADDY","Monsoon",3,9,16,1,NA,NA,3,1,25,19,2018,"Saptari","Control",0,NA
+"T203901008","2","WHEAT","Winter",9,12,14,2,3,2,1,1,0,0,2018,"Saptari","Control",0,84
+"T203901008","42","LINSEED","Winter",9,12,5,2,3,1,10,3,0,0,2018,"Saptari","Control",0,15
+"T203901008","33","OTHER","Winter",9,11,3,0,0,0,15,3,0,0,2018,"Saptari","Control",0,0
+"T203901008","43","MUSTARD","Winter",9,11,2,2,3,2,20,3,0,0,2018,"Saptari","Control",0,12
+"T203901008","21","GREEN PEA","Winter",9,11,1,2,3,1,30,3,0,0,2018,"Saptari","Control",0,3
+"T203901008","14","BOTTLE","Summer",11,1,1,2,3,3,NA,NA,100,NA,2018,"Saptari","Control",0,9
+"T203901008","27","GREEN GRAM","Summer",12,3,5,1,NA,NA,NA,NA,NA,NA,2018,"Saptari","Control",0,NA
+"T203908009","1","PADDY","Monsoon",3,8,17,1,NA,NA,3.5,1,0,NA,2018,"Saptari","Control",0,NA
+"T203908009","2","WHEAT","Winter",8,12,4,2,3,2,2,1,0,NA,2018,"Saptari","Control",0,24
+"T203908009","47","POTATO","Winter",8,11,1,2,3,3,8,1,0,NA,2018,"Saptari","Control",0,9
+"T203908009","53","ONIONS","Winter",8,11,1,2,3,5,6,1,0,NA,2018,"Saptari","Control",0,15
+"T203908009","11","CHILLIES","Winter",8,11,1,2,3,4,20,3,0,NA,2018,"Saptari","Control",0,12
+"T210703006","1","PADDY","Monsoon",3,9,40,1,0,0,3,1,25,22,2018,"Saptari","Control",0,0
+"T210703006","33","OTHER","Winter",9,12,15,1,0,0,15,3,0,0,2018,"Saptari","Control",0,0
+"T210703006","42","LINSEED","Winter",9,12,3,1,0,0,10,3,0,0,2018,"Saptari","Control",0,0
+"T210703006","43","MUSTARD","Winter",9,12,2,2,2,1,20,3,0,0,2018,"Saptari","Control",0,4
+"T108803015","1","PADDY","Monsoon",3,8,68,2,1,1,2,1,NA,NA,2018,"Saptari","Control",0,68
+"T108803015","2","WHEAT","Winter",8,12,23,2,1,2,1.5,1,20,26,2018,"Saptari","Control",0,46
+"T108803015","47","POTATO","Winter",8,11,3,2,1,3,13,1,20,20,2018,"Saptari","Control",0,9
+"T108803015","44","CAULI","Winter",8,11,2,2,1,8,2,1,50,40,2018,"Saptari","Control",0,16
+"T108803015","7","TOMATO","Winter",8,NA,2,2,1,10,4,1,50,25,2018,"Saptari","Control",0,20
+"T108803015","43","MUSTARD","Winter",8,12,5,2,1,1,10,3,NA,NA,2018,"Saptari","Control",0,5
+"T108803015","16","SPONGE","Summer",12,NA,2,2,1,5,50,3,50,25,2018,"Saptari","Control",0,10
+"T108803015","24","HORSE GRAM","Summer",12,NA,1,2,1,5,25,3,50,25,2018,"Saptari","Control",0,5
+"C009006001","1","PADDY","Monsoon",3,8,30,2,1,2,3,1,25,17,2018,"Saptari","Control",0,60
+"C009006001","2","WHEAT","Winter",8,12,10,2,1,3,2,1,50,28,2018,"Saptari","Control",0,30
+"C009006001","33","OTHER","Winter",8,12,5,1,NA,NA,10,3,50,100,2018,"Saptari","Control",0,NA
+"C009006001","27","GREEN GRAM","Summer",12,NA,5,NA,NA,NA,10,3,50,80,2018,"Saptari","Control",0,NA
+"T106006001","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,2018,"Saptari","Control",0,NA
+"T107609001","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,2018,"Saptari","Control",0,NA
+"T108808014","1","PADDY","Monsoon",3,8,50,2,1,2,3,1,50,20,2018,"Saptari","Control",0,100
+"T108808014","2","WHEAT","Winter",8,12,4,2,1,4,1.5,1,0,0,2018,"Saptari","Control",0,16
+"T108808014","43","MUSTARD","Winter",8,11,2,2,1,2,20,3,0,0,2018,"Saptari","Control",0,4
+"T108808014","47","POTATO","Winter",8,11,2,2,1,3,10,1,25,20,2018,"Saptari","Control",0,6
+"T108808014","33","OTHER","Winter",8,11,2,2,1,1,20,3,0,0,2018,"Saptari","Control",0,2
+"T108808014","21","GREEN PEA","Winter",8,11,1,1,NA,NA,15,3,0,0,2018,"Saptari","Control",0,NA
+"C001701002","1","PADDY","Monsoon",3,8,35,1,NA,NA,4,1,50,25,2018,"Saptari","Control",0,NA
+"C001701002","2","WHEAT","Winter",8,12,16,2,1,1,1,1,30,25,2018,"Saptari","Control",0,16
+"C001701002","47","POTATO","Winter",8,11,1,1,NA,NA,15,1,NA,NA,2018,"Saptari","Control",0,NA
+"C001701002","20","PEA","Winter",8,11,5,1,NA,NA,25,3,NA,NA,2018,"Saptari","Control",0,NA
+"C001701002","22","GRASS PEA","Winter",8,11,10,1,NA,NA,20,3,NA,NA,2018,"Saptari","Control",0,NA
+"C001701002","33","OTHER","Winter",8,11,4,1,NA,NA,10,3,NA,NA,2018,"Saptari","Control",0,NA
+"C001701002","43","MUSTARD","Winter",8,11,4,1,NA,NA,15,3,NA,NA,2018,"Saptari","Control",0,NA
+"C008508001","1","PADDY","Monsoon",3,8,15,1,0.5,0,4,1,50,22,2018,"Saptari","Control",0,0
+"C008508001","2","WHEAT","Winter",8,12,7,2,0.5,1,1.5,1,0,0,2018,"Saptari","Control",0,3.5
+"C008508001","21","GREEN PEA","Winter",8,12,3,1,0.5,NA,15,3,0,0,2018,"Saptari","Control",0,NA
+"C008508001","33","OTHER","Winter",8,12,3,2,0.5,1,10,3,0,0,2018,"Saptari","Control",0,1.5
+"C008508001","47","POTATO","Winter",8,11,1,2,0.5,2,10,1,25,15,2018,"Saptari","Control",0,1
+"C008508001","58","CORIANDER","Winter",8,11,1,2,0.5,3,10,1,0,0,2018,"Saptari","Control",0,1.5
+"C008508001","27","GREEN GRAM","Summer",12,NA,2,1,0.5,NA,20,3,0,0,2018,"Saptari","Control",0,NA
+"T107104001","1","PADDY","Monsoon",3,8,9,2,1,1,3,1,NA,NA,2018,"Saptari","Control",0,9
+"T107104001","2","WHEAT","Winter",8,12,9,2,1,2,1,1,NA,NA,2018,"Saptari","Control",0,18
+"T107104001","43","MUSTARD","Winter",8,11,3,2,1,1,20,3,NA,NA,2018,"Saptari","Control",0,3
+"T107104001","33","OTHER","Winter",8,11,2,2,1,1,30,3,NA,NA,2018,"Saptari","Control",0,2
+"T107104001","27","GREEN GRAM","Summer",12,NA,5,1,NA,NA,15,3,NA,NA,2018,"Saptari","Control",0,NA
+"T107104001","11","CHILLIES","Summer",8,NA,1,2,1,8,100,3,75,125,2018,"Saptari","Control",0,8
+"T107104001","24","HORSE GRAM","Summer",11,NA,1,2,1,3,50,3,NA,NA,2018,"Saptari","Control",0,3
+"T107104001","13","PUMPKIN","Summer",11,NA,1,2,1,3,15,1,90,15,2018,"Saptari","Control",0,3
+"T102009002","1","PADDY","Monsoon",3,8,44,2,1,2,4,1,75,20,2018,"Saptari","Control",0,88
+"T102009002","2","WHEAT","Winter",8,12,10,2,1,2,2,1,75,26,2018,"Saptari","Control",0,20
+"T102009002","43","MUSTARD","Winter",8,12,5,2,1,2,1,1,0,0,2018,"Saptari","Control",0,10
+"T102009002","33","OTHER","Winter",8,12,9,2,1,1,20,3,75,125,2018,"Saptari","Control",0,9
+"T102009002","44","CAULI","Winter",8,10,2,2,1,4,25,1,90,30,2018,"Saptari","Control",0,8
+"T102009002","45","CABBAGE","Winter",8,11,5,2,1,4,30,1,95,25,2018,"Saptari","Control",0,20
+"T102009002","47","POTATO","Winter",8,11,1,2,1,4,15,1,80,20,2018,"Saptari","Control",0,4
+"T102009002","7","TOMATO","Winter",8,10,1,2,1,4,20,1,95,25,2018,"Saptari","Control",0,4
+"T102009002","11","CHILLIES","Winter",8,NA,3,2,1,5,10,1,95,40,2018,"Saptari","Control",0,15
+"T102007003","1","PADDY","Monsoon",3,8,17,2,1,1,4,1,50,20,2018,"Saptari","Control",0,17
+"T102007003","2","WHEAT","Winter",8,12,8,2,1,2,1.5,1,0,0,2018,"Saptari","Control",0,16
+"T102007003","51","RADISH","Summer",12,NA,2,1,NA,NA,2,1,75,10,2018,"Saptari","Control",0,NA
+"T106006002","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,2018,"Saptari","Control",0,NA
+"C009006002","1","PADDY","Monsoon",3,8,35,1,NA,NA,4,1,75,20,2018,"Saptari","Control",0,NA
+"C009006002","2","WHEAT","Winter",8,12,11,2,1,3,1.5,1,50,26,2018,"Saptari","Control",0,33
+"C009006002","42","LINSEED","Winter",8,12,5,3,NA,NA,20,3,0,0,2018,"Saptari","Control",0,NA
+"C009006002","43","MUSTARD","Winter",8,12,5,2,1,1,10,3,0,0,2018,"Saptari","Control",0,5
+"C009006002","47","POTATO","Winter",8,11,4,2,1,3,5,1,50,14,2018,"Saptari","Control",0,12
+"C009006002","6","OTHER","Summer",12,NA,10,2,1,8,4,1,90,18,2018,"Saptari","Control",0,80
+"T211002001","1","PADDY","Monsoon",3,8,45,2,1,3,3,1,0,0,2018,"Saptari","Control",0,135
+"T211002001","2","WHEAT","Winter",8,12,25,2,1,3,2,1,25,28,2018,"Saptari","Control",0,75
+"T107605005","1","PADDY","Monsoon",3,8,20,1,NA,NA,5,1,50,16,2018,"Saptari","Control",0,NA
+"T107605005","2","WHEAT","Winter",8,12,10,2,2,2,2,1,25,24,2018,"Saptari","Control",0,40
+"T104305001","1","PADDY","Monsoon",3,7,20,2,2,1,2,1,0,0,2018,"Saptari","Control",0,40
+"T104305001","2","WHEAT","Winter",7,12,10,2,2,2,1.5,1,0,0,2018,"Saptari","Control",0,40
+"T104305001","42","LINSEED","Winter",7,12,2,2,0,0,20,3,0,0,2018,"Saptari","Control",0,0
+"T104305001","47","POTATO","Winter",8,11,4,2,2,4,10,1,10,10,2018,"Saptari","Control",0,32
+"T104305001","53","ONIONS","Winter",7,1,4,2,2,5,1,4,15,15,2018,"Saptari","Control",0,40
+"T104305001","1","PADDY","Summer",12,3,10,2,2,3,1.5,1,0,0,2018,"Saptari","Control",0,60
+"C009006003","1","PADDY","Monsoon",3,8,40,2,1,5,4,1,50,20,2018,"Saptari","Control",0,200
+"C009006003","2","WHEAT","Winter",8,12,20,2,1,3,2,1,50,28,2018,"Saptari","Control",0,60
+"C009006003","43","MUSTARD","Winter",8,12,5,NA,NA,NA,10,3,25,80,2018,"Saptari","Control",0,NA
+"C009006003","33","OTHER","Winter",8,12,5,NA,NA,NA,15,3,25,100,2018,"Saptari","Control",0,NA
+"C009006003","6","OTHER","Summer",12,NA,5,2,1,4,4,1,75,15,2018,"Saptari","Control",0,20
+"T107104002","1","PADDY","Monsoon",3,8,38,2,1,1,2.5,1,50,17,2018,"Saptari","Control",0,38
+"T107104002","2","WHEAT","Winter",8,12,8,2,1,2,1,1,NA,NA,2018,"Saptari","Control",0,16
+"T107104002","42","LINSEED","Winter",8,11,10,2,1,1,3,3,NA,NA,2018,"Saptari","Control",0,10
+"T102007001","1","PADDY","Monsoon",3,8,200,2,1,2,2.5,1,80,20,2018,"Saptari","Treatment",1,400
+"T102007001","2","WHEAT","Winter",8,12,40,2,1,3,1.5,1,50,26,2018,"Saptari","Treatment",1,120
+"T102007001","27","GREEN GRAM","Summer",12,NA,100,1,NA,NA,20,3,75,100,2018,"Saptari","Treatment",1,NA
+"T102007004","10","OKRA","Summer",12,NA,0.5,2,1,4,50,3,0,0,2018,"Saptari","Control",0,2
+"T102007004","24","HORSE GRAM","Summer",12,NA,0.5,2,1,4,5,3,0,0,2018,"Saptari","Control",0,2
+"T102007004","11","CHILLIES","Summer",11,NA,0.5,2,1,4,20,3,0,0,2018,"Saptari","Control",0,2
+"T102007004","27","GREEN GRAM","Summer",12,NA,0.5,2,1,1,20,3,0,0,2018,"Saptari","Control",0,0.5
+"C001401004","1","PADDY","Monsoon",3,8,16,4,0,2,3.5,1,0,0,2018,"Saptari","Control",0,0
+"C001401004","2","WHEAT","Winter",9,12,10,4,0,2,1.5,1,0,0,2018,"Saptari","Control",0,0
+"C001401004","42","LINSEED","Winter",9,12,3,0,0,0,20,3,0,0,2018,"Saptari","Control",0,0
+"C001401004","33","OTHER","Winter",9,12,3,0,0,0,25,3,0,0,2018,"Saptari","Control",0,0
+"C001401004","27","GREEN GRAM","Summer",12,3,10,0,0,0,0,NA,0,0,2018,"Saptari","Control",0,0
+"T104203004","1","PADDY","Monsoon",3,8,40,4,0,3,3,1,25,20,2018,"Saptari","Control",0,0
+"T110502003","1","PADDY","Monsoon",3,8,9,2,2,2,3.5,1,0,0,2018,"Saptari","Control",0,36
+"T110502003","2","WHEAT","Winter",9,12,5,2,2,2,1.5,1,0,0,2018,"Saptari","Control",0,20
+"T110502003","47","POTATO","Winter",9,12,1,0,0,0,8,1,0,0,2018,"Saptari","Control",0,0
+"T110502003","42","LINSEED","Winter",9,12,1,0,0,0,24,3,0,0,2018,"Saptari","Control",0,0
+"T110502003","33","OTHER","Winter",9,12,2,0,0,0,25,3,25,110,2018,"Saptari","Control",0,0
+"T110502003","27","GREEN GRAM","Summer",12,3,7,0,0,0,0,NA,0,0,2018,"Saptari","Control",0,0
+"T210708002","1","PADDY","Monsoon",3,8,60,2,2,2,4,1,50,18,2018,"Saptari","Treatment",1,240
+"T210708002","2","WHEAT","Winter",9,12,25,2,2,2,1.5,1,50,24,2018,"Saptari","Treatment",1,100
+"T210708002","21","GREEN PEA","Winter",9,12,5,0,0,0,20,3,50,110,2018,"Saptari","Treatment",1,0
+"T210708002","22","GRASS PEA","Winter",9,12,10,0,0,0,20,3,25,85,2018,"Saptari","Treatment",1,0
+"T210708002","43","MUSTARD","Winter",9,12,10,0,0,0,30,3,50,110,2018,"Saptari","Treatment",1,0
+"T210708002","33","OTHER","Winter",9,12,10,0,0,0,25,3,50,95,2018,"Saptari","Treatment",1,0
+"T210708002","1","PADDY","Summer",12,3,15,2,2,10,0,NA,0,0,2018,"Saptari","Treatment",1,300
+"T203908001","1","PADDY","Monsoon",3,8,20,2,2,2,3,1,40,18,2018,"Saptari","Treatment",1,80
+"T203908001","2","WHEAT","Winter",9,12,8,2,2,3,1.5,1,50,24,2018,"Saptari","Treatment",1,48
+"T203908001","33","OTHER","Winter",9,12,5,0,0,0,10,3,0,0,2018,"Saptari","Treatment",1,0
+"T203908001","47","POTATO","Winter",8,11,3,0,0,0,10,1,75,16,2018,"Saptari","Treatment",1,0
+"T203908001","53","ONIONS","Winter",8,12,1,2,2,10,12,1,75,20,2018,"Saptari","Treatment",1,20
+"T203908001","12","CUCUMBER","Winter",9,12,1,2,1,7,2,1,90,18,2018,"Saptari","Treatment",1,7
+"T203908001","44","CAULI","Winter",9,12,1,2,2,7,10,1,90,30,2018,"Saptari","Treatment",1,14
+"T203908001","21","GREEN PEA","Winter",9,12,3,0,0,0,70,3,75,100,2018,"Saptari","Treatment",1,0
+"T203908001","22","GRASS PEA","Winter",9,12,2,0,0,0,35,3,50,92,2018,"Saptari","Treatment",1,0
+"T203908001","1","PADDY","Summer",12,3,7,2,2,12,0,NA,0,0,2018,"Saptari","Treatment",1,168
+"T203903003","1","PADDY","Monsoon",3,8,30,2,1.5,1,4,1,25,16,2018,"Saptari","Control",0,45
+"T203903003","2","WHEAT","Winter",9,12,30,2,1.5,2,1.5,1,50,21,2018,"Saptari","Control",0,90
+"T203903003","1","PADDY","Summer",12,3,10,2,1.5,10,0,NA,0,0,2018,"Saptari","Control",0,150
+"T203903003","27","GREEN GRAM","Summer",12,3,10,0,0,0,0,NA,0,0,2018,"Saptari","Control",0,0
+"T106604004","1","PADDY","Monsoon",3,8,32,1,0,0,2.5,1,25,18,2018,"Saptari","Control",0,0
+"T106604004","2","WHEAT","Winter",9,12,18,2,2,2,1.5,1,40,24,2018,"Saptari","Control",0,72
+"T106604004","53","ONIONS","Winter",8,12,1,2,2,9,10,1,50,18,2018,"Saptari","Control",0,18
+"T106604004","44","CAULI","Winter",9,12,1,2,2,5,8,1,80,28,2018,"Saptari","Control",0,10
+"T106604004","37","VEGETABLES","Winter",9,12,1,2,2,4,2.5,1,80,30,2018,"Saptari","Control",0,8
+"T106604004","55","GARLIC","Winter",9,12,1,2,2,6,3,1,70,72,2018,"Saptari","Control",0,12
+"T106604004","11","CHILLIES","Winter",9,12,1,2,2,4,3.5,1,75,40,2018,"Saptari","Control",0,8
+"T106604004","47","POTATO","Winter",9,12,2,2,2,1,18,1,75,15,2018,"Saptari","Control",0,4
+"T106604004","21","GREEN PEA","Winter",9,12,2,0,0,0,40,3,50,130,2018,"Saptari","Control",0,0
+"T106604004","22","GRASS PEA","Winter",9,12,2,0,0,0,35,3,60,90,2018,"Saptari","Control",0,0
+"T106604004","33","OTHER","Winter",9,12,2,0,0,0,40,3,50,110,2018,"Saptari","Control",0,0
+"T106604004","42","LINSEED","Winter",9,12,1,0,0,0,20,3,0,0,2018,"Saptari","Control",0,0
+"T106604004","1","PADDY","Summer",12,3,10,2,2,10,0,NA,0,0,2018,"Saptari","Control",0,200
+"T106604004","27","GREEN GRAM","Summer",12,3,10,0,0,0,0,NA,0,0,2018,"Saptari","Control",0,0
+"T206702001","1","PADDY","Monsoon",3,8,70,1,0,0,3,1,70,18,2018,"Saptari","Control",0,0
+"T206702001","2","WHEAT","Winter",9,12,30,2,1,2,1.5,1,60,24,2018,"Saptari","Control",0,60
+"T206702001","47","POTATO","Winter",9,12,5,0,0,0,8,1,70,10,2018,"Saptari","Control",0,0
+"T206702001","20","PEA","Winter",9,12,5,0,0,0,40,3,60,125,2018,"Saptari","Control",0,0
+"T206702001","43","MUSTARD","Winter",9,12,5,0,0,0,25,3,50,110,2018,"Saptari","Control",0,0
+"T206702001","21","GREEN PEA","Winter",9,12,5,0,0,0,25,3,50,95,2018,"Saptari","Control",0,0
+"T206702001","33","OTHER","Winter",9,12,5,0,0,0,25,3,50,125,2018,"Saptari","Control",0,0
+"T109202010","1","PADDY","Monsoon",3,8,20,1,0,0,3,1,0,0,2018,"Saptari","Control",0,0
+"T109202010","2","WHEAT","Winter",9,12,10,2,2,2,1.5,1,0,0,2018,"Saptari","Control",0,40
+"T109202010","44","CAULI","Winter",9,12,1,2,2,4,7,1,90,30,2018,"Saptari","Control",0,8
+"T109202010","53","ONIONS","Winter",8,12,1,2,2,10,8,1,70,18,2018,"Saptari","Control",0,20
+"T109202010","11","CHILLIES","Winter",8,12,1,2,2,10,45,3,60,140,2018,"Saptari","Control",0,20
+"T109202010","47","POTATO","Winter",9,12,1,0,0,0,9,1,50,12,2018,"Saptari","Control",0,0
+"T109202010","21","GREEN PEA","Winter",9,12,2,0,0,0,30,3,50,90,2018,"Saptari","Control",0,0
+"T109202010","43","MUSTARD","Winter",9,12,2,0,0,0,25,3,50,110,2018,"Saptari","Control",0,0
+"T109202010","42","LINSEED","Winter",9,12,1,0,0,0,20,3,0,0,2018,"Saptari","Control",0,0
+"T109202010","33","OTHER","Winter",9,12,1,0,0,0,20,3,0,0,2018,"Saptari","Control",0,0
+"T109202010","27","GREEN GRAM","Summer",12,3,10,0,0,0,0,NA,0,0,2018,"Saptari","Control",0,0
+"T109201007","1","PADDY","Monsoon",3,8,25,1,0,0,2.5,1,25,20,2018,"Saptari","Control",0,0
+"T109201007","2","WHEAT","Winter",9,12,10,2,2,2,1.5,1,50,24,2018,"Saptari","Control",0,40
+"T109201007","43","MUSTARD","Winter",9,12,5,0,0,0,20,3,50,110,2018,"Saptari","Control",0,0
+"T109201007","21","GREEN PEA","Winter",9,12,2,0,0,0,30,3,50,125,2018,"Saptari","Control",0,0
+"T109201007","33","OTHER","Winter",9,12,3,0,0,0,30,3,50,118,2018,"Saptari","Control",0,0
+"T109201007","27","GREEN GRAM","Summer",12,3,10,0,0,0,0,NA,0,0,2018,"Saptari","Control",0,0
+"T110510001","1","PADDY","Monsoon",3,8,40,4,0,2,3,1,0,0,2018,"Saptari","Control",0,0
+"T103207003","1","PADDY","Monsoon",3,8,70,4,0,2,3.5,1,50,20,2018,"Saptari","Control",0,0
+"T103207003","1","PADDY","Winter",9,12,30,4,0,2,1.5,1,50,21,2018,"Saptari","Control",0,0
+"T103207003","22","GRASS PEA","Winter",9,12,5,0,0,0,20,3,50,90,2018,"Saptari","Control",0,0
+"T103207003","42","LINSEED","Winter",9,12,5,0,0,0,25,3,50,100,2018,"Saptari","Control",0,0
+"T103207003","43","MUSTARD","Winter",9,12,10,0,0,0,30,3,60,105,2018,"Saptari","Control",0,0
+"T103207003","33","OTHER","Winter",9,12,4,0,0,0,35,3,50,95,2018,"Saptari","Control",0,0
+"T103207003","44","CAULI","Winter",9,12,1,2,2,5,5,1,80,30,2018,"Saptari","Control",0,10
+"T103207003","8","BRINJAL","Winter",9,12,1,2,2,7,4.5,1,85,35,2018,"Saptari","Control",0,14
+"T103207003","53","ONIONS","Winter",9,12,2,2,2,8,5,1,50,18,2018,"Saptari","Control",0,32
+"T103207003","47","POTATO","Winter",9,12,1,2,2,1,8,1,0,0,2018,"Saptari","Control",0,2
+"T103207003","37","VEGETABLES","Winter",9,12,1,2,2,3,1.5,1,75,30,2018,"Saptari","Control",0,6
+"T103207003","27","GREEN GRAM","Summer",12,3,20,1,0,0,0,NA,0,0,2018,"Saptari","Control",0,0
+"T103204001","1","PADDY","Monsoon",3,8,47,2,1.5,2,4.5,1,40,20,2018,"Saptari","Treatment",1,141
+"T103204001","2","WHEAT","Winter",9,12,10,2,2,2,1.5,1,40,24,2018,"Saptari","Treatment",1,40
+"T103204001","53","ONIONS","Winter",8,12,2,2,2,9,7,1,25,18,2018,"Saptari","Treatment",1,36
+"T103204001","58","CORIANDER","Winter",9,12,2,2,2,2,30,3,50,120,2018,"Saptari","Treatment",1,8
+"T103204001","43","MUSTARD","Winter",9,12,2,2,2,1,30,3,40,105,2018,"Saptari","Treatment",1,4
+"T103204001","47","POTATO","Winter",9,12,1,2,2,1,10,1,40,10,2018,"Saptari","Treatment",1,2
+"T103204001","42","LINSEED","Winter",9,12,8,0,0,0,20,3,50,100,2018,"Saptari","Treatment",1,0
+"T103204001","21","GREEN PEA","Winter",9,12,8,0,0,0,30,3,50,92,2018,"Saptari","Treatment",1,0
+"T103204001","22","GRASS PEA","Winter",9,12,7,0,0,0,20,3,50,90,2018,"Saptari","Treatment",1,0
+"T103204001","33","OTHER","Winter",9,12,7,0,0,0,25,3,50,82,2018,"Saptari","Treatment",1,0
+"T103204001","27","GREEN GRAM","Summer",12,3,4,0,0,0,0,0,0,0,2018,"Saptari","Treatment",1,0
+"T103204001","3","MAIZE","Summer",12,3,4,0,0,0,0,0,0,0,2018,"Saptari","Treatment",1,0
+"T103204001","10","OKRA","Summer",12,3,2,2,2,5,0,0,0,0,2018,"Saptari","Treatment",1,20
+"T103204001","9","BITTER","Summer",12,3,2,2,2,5,0,0,0,0,2018,"Saptari","Treatment",1,20
+"T103204001","14","BOTTLE","Summer",12,3,2,2,2,5,0,0,0,0,2018,"Saptari","Treatment",1,20
+"T210701004","1","PADDY","Monsoon",3,8,120,1,0,0,4.5,1,0,0,2018,"Saptari","Treatment",1,0
+"T210701004","2","WHEAT","Winter",9,12,45,2,1,2,1.5,1,0,0,2018,"Saptari","Treatment",1,90
+"T210701004","47","POTATO","Winter",9,12,10,0,0,0,7,1,0,0,2018,"Saptari","Treatment",1,0
+"T210701004","20","PEA","Winter",9,12,15,0,0,0,20,3,0,0,2018,"Saptari","Treatment",1,0
+"T210701004","21","GREEN PEA","Winter",9,12,10,0,0,0,30,3,0,0,2018,"Saptari","Treatment",1,0
+"T210701004","22","GRASS PEA","Winter",9,12,10,0,0,0,20,3,0,0,2018,"Saptari","Treatment",1,0
+"T210701004","42","LINSEED","Winter",9,12,10,0,0,0,25,3,0,0,2018,"Saptari","Treatment",1,0
+"T210701004","43","MUSTARD","Winter",9,12,10,0,0,0,30,3,0,0,2018,"Saptari","Treatment",1,0
+"T210701004","33","OTHER","Winter",9,12,10,0,0,0,20,3,0,0,2018,"Saptari","Treatment",1,0
+"T210701004","1","PADDY","Summer",12,3,25,2,1,10,3,1,0,0,2018,"Saptari","Treatment",1,250
+"T210701007","1","PADDY","Monsoon",3,8,15,1,0,0,4,1,0,0,2018,"Saptari","Control",0,0
+"T210701007","2","WHEAT","Winter",9,12,7,2,2,2,1.5,1,0,0,2018,"Saptari","Control",0,28
+"T210701007","47","POTATO","Winter",9,12,2,0,0,0,8,1,50,10,2018,"Saptari","Control",0,0
+"T210701007","42","LINSEED","Winter",9,12,3,0,0,0,25,3,50,100,2018,"Saptari","Control",0,0
+"T210701007","33","OTHER","Winter",9,12,3,0,0,0,30,3,50,95,2018,"Saptari","Control",0,0
+"T210701007","1","PADDY","Summer",12,3,5,2,2,8,0,0,0,0,2018,"Saptari","Control",0,80
+"T109203001","1","PADDY","Monsoon",3,8,36,3,0,0,3.5,1,25,20,2018,"Saptari","Treatment",1,0
+"T109203001","2","WHEAT","Winter",9,12,14,3,0,0,1.5,1,50,24,2018,"Saptari","Treatment",1,0
+"T109203001","53","ONIONS","Winter",8,12,1,2,2,9,6,1,50,18,2018,"Saptari","Treatment",1,18
+"T109203001","55","GARLIC","Winter",9,12,1,2,2,8,4,1,50,100,2018,"Saptari","Treatment",1,16
+"T109203001","44","CAULI","Winter",9,12,1,2,2,6,7,1,85,30,2018,"Saptari","Treatment",1,12
+"T109203001","12","CUCUMBER","Winter",9,12,1,2,2,5,1.5,1,85,30,2018,"Saptari","Treatment",1,10
+"T109203001","14","BOTTLE","Winter",9,12,1,2,2,5,100,5,80,30,2018,"Saptari","Treatment",1,10
+"T109203001","37","VEGETABLES","Winter",9,12,1,2,2,5,1,1,70,30,2018,"Saptari","Treatment",1,10
+"T109203001","21","GREEN PEA","Winter",9,12,5,0,0,0,35,3,60,110,2018,"Saptari","Treatment",1,0
+"T109203001","42","LINSEED","Winter",9,12,6,0,0,0,20,3,60,100,2018,"Saptari","Treatment",1,0
+"T109203001","43","MUSTARD","Winter",9,12,5,0,0,0,25,3,60,105,2018,"Saptari","Treatment",1,0
+"T109203001","1","PADDY","Summer",12,3,7,2,2,10,0,0,0,0,2018,"Saptari","Treatment",1,140
+"T109203001","27","GREEN GRAM","Summer",12,3,6,0,0,0,0,0,0,0,2018,"Saptari","Treatment",1,0
+"T210407004","1","PADDY","Monsoon",3,8,45,3,0,0,3.5,1,25,18,2018,"Saptari","Control",0,0
+"T210407004","2","WHEAT","Winter",9,12,7,2,0.5,2,1.5,1,0,0,2018,"Saptari","Control",0,7
+"T210407004","53","ONIONS","Winter",8,12,1,2,0.5,9,10,1,50,14,2018,"Saptari","Control",0,4.5
+"T210407004","44","CAULI","Winter",9,12,1,2,0.5,5,8,1,85,30,2018,"Saptari","Control",0,2.5
+"T210407004","8","BRINJAL","Winter",9,12,1,2,0.5,8,4,1,90,25,2018,"Saptari","Control",0,4
+"T210407004","11","CHILLIES","Winter",9,12,1,2,0.5,10,3,1,80,40,2018,"Saptari","Control",0,5
+"T210407004","37","VEGETABLES","Winter",9,12,1,2,0.5,4,1.5,1,75,30,2018,"Saptari","Control",0,2
+"T210407004","47","POTATO","Winter",9,12,3,0,0,0,8,1,50,8,2018,"Saptari","Control",0,0
+"T210407004","42","LINSEED","Winter",9,12,10,0,0,0,25,3,60,103,2018,"Saptari","Control",0,0
+"T210407004","43","MUSTARD","Winter",9,12,12,0,0,0,30,3,70,110,2018,"Saptari","Control",0,0
+"T210407004","33","OTHER","Winter",9,12,8,0,0,0,25,3,50,100,2018,"Saptari","Control",0,0
+"T210407004","1","PADDY","Summer",12,3,5,2,0.5,12,0,0,0,0,2018,"Saptari","Control",0,30
+"C008109001","1","PADDY","Monsoon",3,8,240,1,0,0,3.5,1,50,18,2018,"Saptari","Control",0,0
+"C008109001","2","WHEAT","Winter",9,12,161,2,1.5,2,1.5,1,50,24,2018,"Saptari","Control",0,483
+"C008109001","20","PEA","Winter",9,12,10,0,0,0,25,3,50,90,2018,"Saptari","Control",0,0
+"C008109001","21","GREEN PEA","Winter",9,12,20,0,0,0,22,3,50,95,2018,"Saptari","Control",0,0
+"C008109001","22","GRASS PEA","Winter",9,12,10,0,0,0,20,3,50,90,2018,"Saptari","Control",0,0
+"C008109001","43","MUSTARD","Winter",9,12,10,0,0,0,25,3,50,110,2018,"Saptari","Control",0,0
+"C008109001","42","LINSEED","Winter",9,12,10,0,0,0,18,3,50,85,2018,"Saptari","Control",0,0
+"C008109001","33","OTHER","Winter",9,12,19,0,0,0,30,3,50,92,2018,"Saptari","Control",0,0
+"T200103002","1","PADDY","Monsoon",3,7,30,2,2,1,4,1,0,0,2018,"Saptari","Treatment",1,60
+"T200103002","2","WHEAT","Winter",8,12,25,2,2,2,3,1,0,0,2018,"Saptari","Treatment",1,100
+"T200103002","47","POTATO","Winter",8,12,3,2,1,1,4,1,0,0,2018,"Saptari","Treatment",1,3
+"T200103002","53","ONIONS","Winter",8,12,2,2,1,3,5,1,0,0,2018,"Saptari","Treatment",1,6
+"T200103002","27","GREEN GRAM","Summer",12,3,20,2,2,1,20,3,0,0,2018,"Saptari","Treatment",1,40
+"T200103002","37","VEGETABLES","Summer",12,3,10,2,2,5,0,0,0,0,2018,"Saptari","Treatment",1,100
+"T107607004","1","PADDY","Monsoon",3,7,25,2,1,1,4,1,25,15,2018,"Saptari","Control",0,25
+"T107607004","2","WHEAT","Winter",8,12,20,2,2,2,2,1,25,25,2018,"Saptari","Control",0,80
+"T107607004","47","POTATO","Winter",8,12,2,2,1,2,5,1,0,0,2018,"Saptari","Control",0,4
+"T107607004","53","ONIONS","Winter",8,12,3,2,1,3,5,1,0,0,2018,"Saptari","Control",0,9
+"T107607004","27","GREEN GRAM","Summer",12,3,20,2,1,1,20,3,0,0,2018,"Saptari","Control",0,20
+"T107607004","37","VEGETABLES","Summer",12,3,5,2,2,6,0,0,0,0,2018,"Saptari","Control",0,60
+"T108803001","1","PADDY","Monsoon",3,7,45,2,2,1,4,1,0,0,2018,"Saptari","Control",0,90
+"T108803001","2","WHEAT","Winter",8,12,20,2,2,2,3,1,0,0,2018,"Saptari","Control",0,80
+"T108803001","27","GREEN GRAM","Summer",12,3,15,2,2,1,20,3,0,0,2018,"Saptari","Control",0,30
+"T108803001","37","VEGETABLES","Summer",12,3,5,2,2,4,0,0,0,0,2018,"Saptari","Control",0,40
+"T108804002","1","PADDY","Monsoon",3,7,30,2,2,1,4,1,0,0,2018,"Saptari","Control",0,60
+"T108804002","2","WHEAT","Winter",8,12,30,2,2,2,3,1,0,0,2018,"Saptari","Control",0,120
+"T108804002","37","VEGETABLES","Summer",12,3,10,2,2,4,0,0,0,0,2018,"Saptari","Control",0,80
+"T203309001","1","PADDY","Monsoon",3,7,80,2,2,1,4,1,65,15,2018,"Saptari","Control",0,160
+"T203309001","2","WHEAT","Winter",7,12,80,2,1,2,2,1,80,25,2018,"Saptari","Control",0,160
+"T203309001","47","POTATO","Winter",7,12,5,2,1,2,4,1,50,20,2018,"Saptari","Control",0,10
+"T203309001","53","ONIONS","Winter",7,12,5,2,1,3,5,1,60,30,2018,"Saptari","Control",0,15
+"T203309001","37","VEGETABLES","Summer",12,3,10,2,2,5,0,3,50,20,2018,"Saptari","Control",0,100
+"T203308002","1","PADDY","Monsoon",3,7,60,2,2,2,4,1,25,15,2018,"Saptari","Control",0,240
+"T203308002","2","WHEAT","Winter",8,12,10,2,2,3,2,1,0,0,2018,"Saptari","Control",0,60
+"T203308002","47","POTATO","Winter",8,12,5,2,2,4,4,1,25,20,2018,"Saptari","Control",0,40
+"T203308002","37","VEGETABLES","Summer",12,3,5,2,2,5,20,3,75,20,2018,"Saptari","Control",0,50
+"T203308002","8","BRINJAL","Summer",12,3,3,2,2,3,25,3,75,30,2018,"Saptari","Control",0,18
+"T203308002","12","CUCUMBER","Summer",12,3,2,2,2,3,15,3,75,35,2018,"Saptari","Control",0,12
+"T100503002","1","PADDY","Monsoon",3,7,14,2,2,1,2,1,25,15,2018,"Saptari","Treatment",1,28
+"T100503002","2","WHEAT","Winter",8,12,14,2,2,3,1,1,25,25,2018,"Saptari","Treatment",1,84
+"T100503002","37","VEGETABLES","Summer",12,3,5,2,2,3,20,3,0,0,2018,"Saptari","Treatment",1,30
+"T100501007","1","PADDY","Monsoon",3,7,20,2,2,1,3,1,0,0,2018,"Saptari","Control",0,40
+"T100501007","2","WHEAT","Winter",8,12,15,2,2,2,2,1,0,0,2018,"Saptari","Control",0,60
+"T100501007","47","POTATO","Winter",8,12,3,2,1,2,5,1,50,20,2018,"Saptari","Control",0,6
+"T100501007","53","ONIONS","Winter",8,12,2,2,2,3,4,1,50,30,2018,"Saptari","Control",0,12
+"T100501007","27","GREEN GRAM","Summer",12,3,10,2,1,1,20,3,50,100,2018,"Saptari","Control",0,10
+"T100501007","8","BRINJAL","Summer",12,3,1,2,1,2,0,0,95,25,2018,"Saptari","Control",0,2
+"T100501007","37","VEGETABLES","Summer",12,3,5,2,1,4,0,0,95,20,2018,"Saptari","Control",0,20
+"T100501007","12","CUCUMBER","Summer",12,3,1,2,1,4,0,0,95,25,2018,"Saptari","Control",0,4
+"T100501007","17","POINTED","Summer",12,3,1,2,1,5,0,0,95,30,2018,"Saptari","Control",0,5
+"T100501007","30","YARD LONG","Summer",12,3,2,2,1,3,0,0,95,30,2018,"Saptari","Control",0,6
+"T100505008","1","PADDY","Monsoon",3,7,45,2,1,2,3,1,25,15,2018,"Saptari","Control",0,90
+"T100505008","2","WHEAT","Winter",8,12,30,2,2,3,1,1,0,0,2018,"Saptari","Control",0,180
+"T100505008","47","POTATO","Winter",8,12,5,2,2,2,4,1,50,20,2018,"Saptari","Control",0,20
+"T100505008","53","ONIONS","Winter",8,12,5,2,2,4,5,1,50,25,2018,"Saptari","Control",0,40
+"T100505008","44","CAULI","Winter",8,12,5,2,2,3,NA,0,95,30,2018,"Saptari","Control",0,30
+"T100505008","14","BOTTLE","Summer",12,3,3,2,1,4,0,0,85,30,2018,"Saptari","Control",0,12
+"T100505008","8","BRINJAL","Summer",12,3,5,2,1,3,0,0,85,30,2018,"Saptari","Control",0,15
+"T100505008","12","CUCUMBER","Summer",12,3,2,2,2,2,0,0,85,40,2018,"Saptari","Control",0,8
+"T100505008","15","BELLPEPPER","Summer",12,3,5,2,2,2,0,0,85,50,2018,"Saptari","Control",0,20
+"T100505008","37","VEGETABLES","Summer",12,3,5,2,1,2,0,0,95,20,2018,"Saptari","Control",0,10
+"T109901004","1","PADDY","Monsoon",3,8,15,2,2,1,4,1,0,0,2018,"Saptari","Control",0,30
+"T109901004","2","WHEAT","Winter",8,12,15,2,3,2,3,1,0,0,2018,"Saptari","Control",0,90
+"T109901004","37","VEGETABLES","Summer",12,8,10,2,2,3,0,0,0,0,2018,"Saptari","Control",0,60
+"T109901004","12","CUCUMBER","Summer",12,3,3,2,2,3,0,0,0,0,2018,"Saptari","Control",0,18
+"T109901004","11","CHILLIES","Summer",12,3,2,2,2,3,0,0,0,0,2018,"Saptari","Control",0,12
+"T109901005","1","PADDY","Monsoon",3,7,54,2,1,1,4,1,50,15,2018,"Saptari","Control",0,54
+"T109901005","2","WHEAT","Winter",8,12,40,2,1,2,3,1,50,25,2018,"Saptari","Control",0,80
+"T109901005","47","POTATO","Winter",8,12,5,2,1,3,5,1,50,20,2018,"Saptari","Control",0,15
+"T109901005","53","ONIONS","Winter",8,12,5,2,1,3,5,1,50,30,2018,"Saptari","Control",0,15
+"T109901005","27","GREEN GRAM","Summer",12,3,25,2,1,1,30,3,0,0,2018,"Saptari","Control",0,25
+"T109901005","37","VEGETABLES","Summer",12,3,5,2,1,5,0,0,0,0,2018,"Saptari","Control",0,25
+"T205105003","1","PADDY","Monsoon",3,7,40,2,2,2,3,2,0,0,2018,"Saptari","Treatment",1,160
+"T205105003","2","WHEAT","Winter",8,12,40,2,2,3,2,2,0,0,2018,"Saptari","Treatment",1,240
+"T205105003","3","MAIZE","Summer",12,3,5,2,2,4,20,3,0,0,2018,"Saptari","Treatment",1,40
+"T205105003","27","GREEN GRAM","Summer",12,3,10,2,2,3,25,3,0,0,2018,"Saptari","Treatment",1,60
+"T205105003","37","VEGETABLES","Summer",12,3,5,2,2,3,20,3,0,0,2018,"Saptari","Treatment",1,30
+"T110507002","1","PADDY","Monsoon",3,7,25,2,2,1,4,1,25,15,2018,"Saptari","Control",0,50
+"T110507002","2","WHEAT","Winter",8,12,20,2,2,2,3,1,25,25,2018,"Saptari","Control",0,80
+"T110507002","47","POTATO","Winter",8,12,3,2,2,3,4,1,25,20,2018,"Saptari","Control",0,18
+"T110507002","53","ONIONS","Winter",8,12,2,2,2,3,3,1,25,25,2018,"Saptari","Control",0,12
+"T110507002","27","GREEN GRAM","Summer",12,3,5,2,1,5,0,NA,50,100,2018,"Saptari","Control",0,25
+"T110507002","37","VEGETABLES","Summer",12,3,5,2,1,5,0,NA,0,0,2018,"Saptari","Control",0,25
+"C004703001","1","PADDY","Monsoon",3,7,40,3,1,1,3,1,25,20,2018,"Saptari","Control",0,40
+"C004703001","2","WHEAT","Winter",8,12,20,2,2,2,1,1,25,24,2018,"Saptari","Control",0,80
+"C004703001","43","MUSTARD","Winter",8,12,5,2,2,3,10,3,0,0,2018,"Saptari","Control",0,30
+"C004703001","47","POTATO","Winter",8,12,5,2,2,3,7,1,25,30,2018,"Saptari","Control",0,30
+"C004703001","53","ONIONS","Winter",8,12,5,2,2,4,2,1,50,40,2018,"Saptari","Control",0,40
+"C004703001","44","CAULI","Winter",8,12,5,2,2,3,1,1,50,30,2018,"Saptari","Control",0,30
+"C004703001","30","YARD LONG","Summer",12,3,5,2,1,5,10,3,0,0,2018,"Saptari","Control",0,25
+"C004703001","37","VEGETABLES","Summer",12,3,5,2,1,4,10,3,0,0,2018,"Saptari","Control",0,20
+"C001705001","1","PADDY","Monsoon",3,7,30,2,1,2,4,1,50,15,2018,"Saptari","Control",0,60
+"C001705001","2","WHEAT","Winter",8,12,30,2,1,2,3,1,50,25,2018,"Saptari","Control",0,60
+"C001705001","27","GREEN GRAM","Summer",12,3,10,2,1,3,20,3,0,0,2018,"Saptari","Control",0,30
+"C001705001","37","VEGETABLES","Summer",12,3,3,2,1,4,30,3,0,0,2018,"Saptari","Control",0,12
+"C001705001","12","CUCUMBER","Summer",12,3,2,2,1,5,25,3,0,0,2018,"Saptari","Control",0,10
+"T200101005","1","PADDY","Monsoon",3,7,30,2,2,1,4,1,0,0,2018,"Saptari","Control",0,60
+"T200101005","2","WHEAT","Winter",8,12,25,2,2,2,3,1,25,26,2018,"Saptari","Control",0,100
+"T200101005","47","POTATO","Winter",8,12,3,2,2,2,5,1,25,20,2018,"Saptari","Control",0,12
+"T200101005","53","ONIONS","Winter",8,12,2,2,2,3,5,1,50,30,2018,"Saptari","Control",0,12
+"T200101005","37","VEGETABLES","Summer",12,3,5,2,1,3,0,NA,25,20,2018,"Saptari","Control",0,15
+"T200101005","11","CHILLIES","Summer",12,3,2,2,1,2,0,NA,0,0,2018,"Saptari","Control",0,4
+"T200101005","12","CUCUMBER","Summer",12,3,2,2,1,3,0,NA,25,25,2018,"Saptari","Control",0,6
+"T200101005","16","SPONGE","Summer",12,3,2,2,1,3,0,NA,25,25,2018,"Saptari","Control",0,6
+"T200101005","30","YARD LONG","Summer",12,3,2,2,1,3,0,NA,5,25,2018,"Saptari","Control",0,6
+"T200101005","27","GREEN GRAM","Summer",12,3,10,2,2,1,20,3,0,0,2018,"Saptari","Control",0,20
+"T200101005","8","BRINJAL","Summer",12,3,3,2,1,3,0,NA,25,30,2018,"Saptari","Control",0,9
+"T200101005","9","BITTER","Summer",12,3,2,2,1,3,0,NA,25,30,2018,"Saptari","Control",0,6
+"T200101005","10","OKRA","Summer",12,3,2,NA,NA,NA,NA,NA,NA,NA,2018,"Saptari","Control",0,NA
+"T200102004","1","PADDY","Monsoon",3,7,30,2,2,2,3,1,25,15,2018,"Saptari","Control",0,120
+"T200102004","2","WHEAT","Winter",8,12,30,2,2,3,2,1,0,0,2018,"Saptari","Control",0,180
+"T200102004","37","VEGETABLES","Summer",12,3,3,2,2,4,20,3,0,0,2018,"Saptari","Control",0,24
+"T200102004","8","BRINJAL","Summer",12,3,2,2,2,4,10,3,0,0,2018,"Saptari","Control",0,16
+"T200104003","1","PADDY","Monsoon",3,7,25,2,2,5,3,1,0,0,2018,"Saptari","Control",0,250
+"T200104003","2","WHEAT","Winter",8,12,25,2,2,5,1,1,0,0,2018,"Saptari","Control",0,250
+"T200104003","37","VEGETABLES","Summer",12,3,2,2,2,5,20,3,80,25,2018,"Saptari","Control",0,20
+"T200104003","14","BOTTLE","Summer",12,3,2,2,2,5,10,5,80,40,2018,"Saptari","Control",0,20
+"T200104003","12","CUCUMBER","Summer",12,3,1,2,2,5,25,3,80,30,2018,"Saptari","Control",0,10
+"T201105001","1","PADDY","Monsoon",3,7,29,1,0.5,1,1,1,50,15,2018,"Saptari","Control",0,14.5
+"T201105001","2","WHEAT","Winter",8,12,9,2,1,2,1,1,0,0,2018,"Saptari","Control",0,18
+"T201105001","37","VEGETABLES","Summer",4,1,4,2,1,2,15,3,0,0,2018,"Saptari","Control",0,8
+"C009406001","1","PADDY","Monsoon",3,7,20,2,2,2,2,1,25,15,2018,"Saptari","Control",0,80
+"C009406001","2","WHEAT","Winter",8,12,20,2,2,2,1,1,25,20,2018,"Saptari","Control",0,80
+"T109902001","1","PADDY","Monsoon",3,7,20,1,1,1,3,1,0,0,2018,"Saptari","Treatment",1,20
+"T109902001","2","WHEAT","Winter",8,12,20,2,2,2,3,1,0,0,2018,"Saptari","Treatment",1,80
+"T109902001","27","GREEN GRAM","Summer",12,2,10,2,1,1,10,3,0,0,2018,"Saptari","Treatment",1,10
+"T200101001","1","PADDY","Monsoon",3,8,40,2,1,1,4,1,50,15,2018,"Saptari","Control",0,40
+"T200101001","2","WHEAT","Winter",8,12,30,2,2,2,2,1,50,25,2018,"Saptari","Control",0,120
+"T200101001","47","POTATO","Winter",8,12,5,2,1,3,0,NA,50,25,2018,"Saptari","Control",0,15
+"T200101001","44","CAULI","Winter",8,12,5,2,1,2,7,1,95,50,2018,"Saptari","Control",0,10
+"T200101001","27","GREEN GRAM","Summer",12,3,15,2,2,5,0,3,0,0,2018,"Saptari","Control",0,150
+"T200101001","37","VEGETABLES","Summer",12,3,5,2,2,4,25,3,95,20,2018,"Saptari","Control",0,40
+"T203309003","1","PADDY","Monsoon",3,8,40,1,1,1,4,1,60,25,2018,"Saptari","Control",0,40
+"T203309003","2","WHEAT","Winter",8,12,10,2,1,2,2,1,20,25,2018,"Saptari","Control",0,20
+"T203309003","43","MUSTARD","Winter",8,12,10,2,1,2,30,3,0,0,2018,"Saptari","Control",0,20
+"T203309003","1","PADDY","Summer",12,3,30,2,1,4,4,1,5,15,2018,"Saptari","Control",0,120
+"T203309003","37","VEGETABLES","Summer",12,3,10,2,1,3,20,3,0,0,2018,"Saptari","Control",0,30
+"T107607003","1","PADDY","Monsoon",3,7,40,2,2,1,3,1,25,15,2018,"Saptari","Control",0,80
+"T107607003","2","WHEAT","Winter",8,12,20,2,3,6,2,1,25,26,2018,"Saptari","Control",0,360
+"T107607003","47","POTATO","Winter",8,12,10,2,2,3,2,1,50,20,2018,"Saptari","Control",0,60
+"T107607003","11","CHILLIES","Winter",8,12,5,2,2,3,30,3,50,30,2018,"Saptari","Control",0,30
+"T107607003","53","ONIONS","Winter",8,12,5,2,2,4,1,1,50,40,2018,"Saptari","Control",0,40
+"T107607003","12","CUCUMBER","Summer",12,3,3,2,2,3,20,3,50,30,2018,"Saptari","Control",0,18
+"T107607003","8","BRINJAL","Summer",12,3,3,2,2,4,20,3,75,30,2018,"Saptari","Control",0,24
+"T107607003","17","POINTED","Summer",12,3,5,2,2,5,30,3,75,40,2018,"Saptari","Control",0,50
+"T107607003","37","VEGETABLES","Summer",12,3,5,2,2,4,20,3,75,20,2018,"Saptari","Control",0,40
+"T107607003","24","HORSE GRAM","Summer",12,3,4,2,2,4,10,3,75,30,2018,"Saptari","Control",0,32
+"T107601002","1","PADDY","Monsoon",3,7,60,2,1,1,4,1,0,0,2018,"Saptari","Control",0,60
+"T107601002","2","WHEAT","Winter",8,12,40,2,2,2,2,1,0,0,2018,"Saptari","Control",0,160
+"T107601002","43","MUSTARD","Winter",8,12,20,2,1,2,20,3,0,0,2018,"Saptari","Control",0,40
+"T107601002","37","VEGETABLES","Summer",12,3,5,2,1,4,20,3,10,10,2018,"Saptari","Control",0,20
+"T210904001","1","PADDY","Monsoon",3,7,60,1,1,1,4,1,75,20,2018,"Saptari","Treatment",1,60
+"T210904001","2","WHEAT","Winter",8,12,30,2,1,3,2,1,50,20,2018,"Saptari","Treatment",1,90
+"T210904001","42","LINSEED","Winter",8,12,20,2,1,2,20,3,0,0,2018,"Saptari","Treatment",1,40
+"T210904001","43","MUSTARD","Winter",8,11,10,2,2,2,20,3,0,0,2018,"Saptari","Treatment",1,40
+"T210904001","10","OKRA","Summer",12,3,3,2,1,8,10,3,0,0,2018,"Saptari","Treatment",1,24
+"T200101003","1","PADDY","Monsoon",3,7,7,2,1,1,3,1,0,0,2018,"Saptari","Control",0,7
+"T200101003","2","WHEAT","Winter",8,12,7,2,2,2,2,1,0,0,2018,"Saptari","Control",0,28
+"T200101003","27","GREEN GRAM","Summer",12,3,5,2,1,1,20,3,0,0,2018,"Saptari","Control",0,5
+"T200101003","37","VEGETABLES","Summer",12,3,2,2,1,3,10,3,0,0,2018,"Saptari","Control",0,6
+"T210904002","1","PADDY","Monsoon",3,7,20,2,2,2,3,1,0,0,2018,"Saptari","Control",0,80
+"T210904002","2","WHEAT","Winter",8,12,15,2,2,3,2,1,0,0,2018,"Saptari","Control",0,90
+"T210904002","43","MUSTARD","Winter",8,12,5,2,2,3,20,3,0,0,2018,"Saptari","Control",0,30
+"T210904002","37","VEGETABLES","Summer",12,3,5,2,2,4,20,3,0,0,2018,"Saptari","Control",0,40
+"T210904002","8","BRINJAL","Summer",12,3,3,2,2,5,25,3,0,0,2018,"Saptari","Control",0,30
+"T210904002","16","SPONGE","Summer",12,3,2,2,2,3,15,3,0,0,2018,"Saptari","Control",0,12
+"T210905004","1","PADDY","Monsoon",3,7,22,2,0.5,1,3,1,25,15,2018,"Saptari","Control",0,11
+"T210905004","2","WHEAT","Winter",8,12,22,2,1,2,2,1,25,20,2018,"Saptari","Control",0,44
+"T210905004","27","GREEN GRAM","Summer",12,3,5,2,1,1,15,3,0,0,2018,"Saptari","Control",0,5
+"T210905004","8","BRINJAL","Summer",12,3,2,2,1,3,20,3,0,0,2018,"Saptari","Control",0,6
+"T210905004","37","VEGETABLES","Summer",12,3,3,2,1,4,15,3,0,0,2018,"Saptari","Control",0,12
+"T210101002","1","PADDY","Monsoon",3,7,50,2,2,1,3,1,80,15,2018,"Saptari","Treatment",1,100
+"T210101002","2","WHEAT","Winter",8,12,40,2,2,2,2,1,80,25,2018,"Saptari","Treatment",1,160
+"T210101002","47","POTATO","Winter",8,12,8,2,2,3,4,1,0,0,2018,"Saptari","Treatment",1,48
+"T210101002","51","RADISH","Winter",8,12,2,2,2,3,30,3,50,20,2018,"Saptari","Treatment",1,12
+"T210101002","8","BRINJAL","Summer",12,3,5,2,2,4,20,3,75,30,2018,"Saptari","Treatment",1,40
+"T210101002","12","CUCUMBER","Summer",12,3,5,2,2,3,20,3,75,20,2018,"Saptari","Treatment",1,30
+"T210101002","14","BOTTLE","Summer",12,3,3,2,2,3,8,5,50,50,2018,"Saptari","Treatment",1,18
+"T210101002","15","BELLPEPPER","Summer",12,3,5,2,2,4,30,3,25,50,2018,"Saptari","Treatment",1,40
+"T210101002","37","VEGETABLES","Summer",12,3,2,2,2,2,20,3,50,20,2018,"Saptari","Treatment",1,8
+"T210102001","1","PADDY","Monsoon",3,7,60,2,2,1,2,1,75,15,2018,"Saptari","Control",0,120
+"T210102001","2","WHEAT","Winter",8,12,60,2,2,2,2,1,75,20,2018,"Saptari","Control",0,240
+"T210102001","27","GREEN GRAM","Summer",12,3,4,2,2,3,20,3,0,0,2018,"Saptari","Control",0,24
+"T100509003","1","PADDY","Monsoon",3,7,30,2,2,1,4,1,0,0,2018,"Saptari","Control",0,60
+"T100509003","2","WHEAT","Winter",8,12,30,2,2,2,3,1,0,0,2018,"Saptari","Control",0,120
+"T100509003","37","VEGETABLES","Summer",12,3,8,2,2,5,0,0,0,0,2018,"Saptari","Control",0,80
+"T100503001","1","PADDY","Monsoon",3,7,30,2,0.5,1,3,1,25,15,2018,"Saptari","Control",0,15
+"T100503001","2","WHEAT","Winter",8,12,30,2,1,2,2,1,25,25,2018,"Saptari","Control",0,60
+"T100503001","27","GREEN GRAM","Summer",12,3,5,2,0.5,1,20,3,0,0,2018,"Saptari","Control",0,2.5
+"T100503001","37","VEGETABLES","Summer",12,3,5,2,0.5,4,1.5,3,50,20,2018,"Saptari","Control",0,10
+"T100503001","8","BRINJAL","Summer",12,3,5,2,0.5,7,20,3,50,40,2018,"Saptari","Control",0,17.5
+"T100503001","12","CUCUMBER","Summer",11,2,5,2,0.5,5,NA,NA,70,10,2018,"Saptari","Control",0,12.5
+"T100502006","1","PADDY","Monsoon",3,7,10,2,2,1,3,1,0,0,2018,"Saptari","Control",0,20
+"T100502006","2","WHEAT","Winter",8,12,5,2,2,2,2,1,0,0,2018,"Saptari","Control",0,20
+"T100502006","42","LINSEED","Winter",8,12,5,2,2,2,10,3,0,0,2018,"Saptari","Control",0,20
+"T100502006","27","GREEN GRAM","Summer",12,2,6,2,2,2,15,3,0,0,2018,"Saptari","Control",0,24
+"T100502006","37","VEGETABLES","Summer",12,2,4,2,2,4,0,0,0,0,2018,"Saptari","Control",0,32
+"T100103003","1","PADDY","Monsoon",3,7,80,2,5,1,4,1,25,16,2018,"Saptari","Control",0,400
+"T100103003","2","WHEAT","Winter",8,12,80,2,1,2,2,1,50,20,2018,"Saptari","Control",0,160
+"T100103003","37","VEGETABLES","Summer",12,3,5,2,5,3,0,0,0,0,2018,"Saptari","Control",0,75
+"T100505004","1","PADDY","Monsoon",3,7,32,2,2,1,4,1,25,20,2018,"Saptari","Control",0,64
+"T100505004","2","WHEAT","Winter",8,12,32,2,2,2,3,1,0,0,2018,"Saptari","Control",0,128
+"T100505004","27","GREEN GRAM","Summer",12,3,15,2,2,2,25,3,0,0,2018,"Saptari","Control",0,60
+"T100505004","37","VEGETABLES","Summer",12,3,5,2,2,4,0,0,0,0,2018,"Saptari","Control",0,40
+"T109903002","1","PADDY","Monsoon",3,7,100,2,0.5,1,4,1,25,15,2018,"Saptari","Control",0,50
+"T109903002","12","CUCUMBER","Summer",12,3,2,2,0.5,4,20,3,80,40,2018,"Saptari","Control",0,4
+"T109903002","10","OKRA","Summer",12,3,1,2,0.5,4,20,3,80,30,2018,"Saptari","Control",0,2
+"T109903002","8","BRINJAL","Summer",12,3,1,2,0.5,5,25,3,80,40,2018,"Saptari","Control",0,2.5
+"T109903002","37","VEGETABLES","Summer",12,3,2,2,0.5,4,15,3,80,25,2018,"Saptari","Control",0,4
+"T109908003","1","PADDY","Monsoon",3,7,10,2,1,1,4,1,25,20,2018,"Saptari","Control",0,10
+"T109908003","47","POTATO","Winter",8,12,5,2,1,3,4,1,25,25,2018,"Saptari","Control",0,15
+"T109908003","53","ONIONS","Winter",8,12,5,2,1,2,5,1,50,20,2018,"Saptari","Control",0,10
+"T100502005","1","PADDY","Monsoon",3,7,40,2,2,1,4,1,0,0,2018,"Saptari","Control",0,80
+"T100502005","2","WHEAT","Winter",8,12,30,2,2,2,3,1,0,0,2018,"Saptari","Control",0,120
+"T100502005","47","POTATO","Winter",8,12,5,2,2,3,3,1,50,20,2018,"Saptari","Control",0,30
+"T100502005","53","ONIONS","Winter",8,12,5,2,2,3,4,1,50,30,2018,"Saptari","Control",0,30
+"T100502005","27","GREEN GRAM","Summer",12,3,15,2,1,1,20,3,50,100,2018,"Saptari","Control",0,15
+"T100502005","8","BRINJAL","Summer",12,3,1,2,2,3,0,NA,50,25,2018,"Saptari","Control",0,6
+"T100502005","37","VEGETABLES","Summer",12,3,4,2,2,4,0,NA,25,20,2018,"Saptari","Control",0,32
+"A110402001","1","PADDY","Monsoon",3,7,40,2,2,1,4,1,75,15,2018,"Saptari","Treatment",1,80
+"A110402001","47","POTATO","Monsoon",3,7,10,2,2,4,5,4,75,20,2018,"Saptari","Treatment",1,80
+"A110402001","2","WHEAT","Winter",8,12,50,2,2,2,3,1,75,25,2018,"Saptari","Treatment",1,200
+"A110402001","15","BELLPEPPER","Summer",12,3,5,2,2,4,30,3,75,40,2018,"Saptari","Treatment",1,40
+"A110402001","8","BRINJAL","Summer",12,3,5,2,2,6,30,3,75,30,2018,"Saptari","Treatment",1,60
+"A110402001","12","CUCUMBER","Summer",12,3,5,2,2,5,35,3,75,30,2018,"Saptari","Treatment",1,50
+"A110402001","14","BOTTLE","Summer",12,3,1,2,2,6,5,5,50,40,2018,"Saptari","Treatment",1,12
+"A110402001","37","VEGETABLES","Summer",12,3,2,2,2,5,20,3,95,20,2018,"Saptari","Treatment",1,20
+"A104507035","1","PADDY","Monsoon",3,8,38,2,0.5,2,4.5,1,25,18,2018,"Saptari","Treatment",1,38
+"A104507035","2","WHEAT","Winter",9,12,10,2,0.5,2,1.5,1,25,24,2018,"Saptari","Treatment",1,10
+"A104507035","22","GRASS PEA","Winter",9,12,3,0,0,0,20,3,50,85,2018,"Saptari","Treatment",1,0
+"A104507035","21","GREEN PEA","Winter",9,12,2,0,0,0,25,3,50,90,2018,"Saptari","Treatment",1,0
+"A104507035","40","SESAME","Winter",9,12,2,0,0,0,20,3,85,130,2018,"Saptari","Treatment",1,0
+"A104507035","42","LINSEED","Winter",9,12,2,0,0,0,20,3,50,95,2018,"Saptari","Treatment",1,0
+"A104507035","43","MUSTARD","Winter",9,12,2,0,0,0,25,3,50,93,2018,"Saptari","Treatment",1,0
+"A104507035","33","OTHER","Winter",9,12,2,0,0,0,25,3,50,100,2018,"Saptari","Treatment",1,0
+"T100503002","1","PADDY","Monsoon",3,7,20,2,2,2,4,1,70,22,2019,"SAPTARI","Treatment",1,80
+"T100503002","2","WHEAT","Winter",7,11,18,2,2,3,2,1,70,22,2019,"SAPTARI","Treatment",1,108
+"T100503002","47","POTATO","Winter",7,11,1,2,2,1,4,1,70,18,2019,"SAPTARI","Treatment",1,2
+"T100503002","53","ONION","Winter",7,11,1,2,2,5,3,1,70,18,2019,"SAPTARI","Treatment",1,10
+"T100503002","37","GREEN LEAFY VEGETABLE","Summer",11,3,5,2,2,6,0,0,0,0,2019,"SAPTARI","Treatment",1,60
+"T203901004","1","PADDY","Monsoon",3,8,30,2,1,1,3,1,25,22,2019,"SAPTARI","Control",0,30
+"T203901004","2","WHEAT","Winter",8,12,12,2,2,2,1.5,1,50,30,2019,"SAPTARI","Control",0,48
+"T203901004","22","GRASS PEA","Winter",8,11,4,0,0,0,15,3,0,0,2019,"SAPTARI","Control",0,0
+"T203901004","25","BLACK GRAM","Winter",8,11,4,0,0,0,10,3,0,0,2019,"SAPTARI","Control",0,0
+"T203901004","42","LINSEED","Winter",8,11,10,0,0,0,7,3,0,0,2019,"SAPTARI","Control",0,0
+"T210905004","1","PADDY","Monsoon",3,7,10,2,2,1,4,1,50,18,2019,"SAPTARI","Control",0,20
+"T210905004","2","WHEAT","Winter",7,11,7,2,2,2,3,1,50,20,2019,"SAPTARI","Control",0,28
+"T210905004","47","POTATO","Winter",7,11,1,2,2,1,10,1,50,18,2019,"SAPTARI","Control",0,2
+"T210905004","53","oNION","Winter",7,11,1,2,2,6,6,1,50,20,2019,"SAPTARI","Control",0,12
+"T210905004","55","GARLIC","Winter",7,11,1,2,2,3,2,1,50,80,2019,"SAPTARI","Control",0,6
+"T210905004","3","MAIZE","Summer",11,3,2,2,2,3,0,0,0,0,2019,"SAPTARI","Control",0,12
+"T210905004","11","CHILLIES","Summer",11,3,1,2,2,4,0,0,0,0,2019,"SAPTARI","Control",0,8
+"T210905004","37","GREEM LEAFY VEGETABLE","Summer",11,3,1,2,2,6,0,0,0,0,2019,"SAPTARI","Control",0,12
+"T210703008","1","PADDY","Monsoon",3,8,15,2,2,2,3,1,0,0,2019,"SAPTARI","Control",0,60
+"T210703008","2","WHEAT","Winter",8,11,4,2,2,2,3,1,0,0,2019,"SAPTARI","Control",0,16
+"T210703008","42","LINSEED","Winter",8,11,1,2,2,2,5,3,0,0,2019,"SAPTARI","Control",0,4
+"T210703008","33","RED LENTIL","Winter",8,11,1,2,2,2,10,3,0,0,2019,"SAPTARI","Control",0,4
+"T210703008","47","POTATO","Winter",8,11,1,2,2,2,3,1,0,0,2019,"SAPTARI","Control",0,4
+"T210703008","53","ONIONS","Winter",8,11,1,2,2,2,1,4,50,20,2019,"SAPTARI","Control",0,4
+"T210703008","37","GREEN LEAFY VEGETABLE","Summer",11,3,1,2,2,2,0,0,0,0,2019,"SAPTARI","Control",0,4
+"T210703008","27","GREEN GRAM","Summer",11,3,1,2,2,4,0,0,0,0,2019,"SAPTARI","Control",0,8
+"T200101003","1","PADDY","Monsoon",3,7,20,2,2,2,4,1,0,0,2019,"SAPTARI","Control",0,80
+"T200101003","2","WHEAT","Winter",7,11,16,2,2,3,2,1,0,0,2019,"SAPTARI","Control",0,96
+"T200101003","47","POTATO","Winter",7,11,2,2,2,2,5,1,0,0,2019,"SAPTARI","Control",0,8
+"T200101003","53","ONIONS","Winter",7,11,2,2,2,4,5,1,0,0,2019,"SAPTARI","Control",0,16
+"T200101003","1","PADDY","Summer",11,3,4,2,2,4,0,0,0,0,2019,"SAPTARI","Control",0,32
+"T107607003","1","PADDY","Monsoon",3,8,50,2,2,2,4,1,50,18,2019,"SAPTARI","Control",0,200
+"T107607003","2","WHEAT","Winter",8,11,100,2,2,3,2,1,50,18,2019,"SAPTARI","Control",0,600
+"T107607003","11","CHILLIES","Summer",11,3,1,2,2,3,0,0,0,0,2019,"SAPTARI","Control",0,6
+"T107607003","14","BOTTLE GOURD","Summer",11,3,2,2,2,3,0,0,0,0,2019,"SAPTARI","Control",0,12
+"T107607003","37","GREEN LEAFY VEGETABLE","Summer",11,3,3,2,2,3,0,0,0,0,2019,"SAPTARI","Control",0,18
+"T210701004","1","PADDY","Monsoon",3,8,5,2,2,3,3,1,50,18,2019,"SAPTARI","Treatment",1,30
+"T210701004","2","WHEAT","Winter",8,11,10,2,2,2,4,1,0,0,2019,"SAPTARI","Treatment",1,40
+"T210701004","37","GREEN LEAFY VEGETABLE","Summer",11,3,2,2,1,4,0,0,0,0,2019,"SAPTARI","Treatment",1,8
+"T107609001","1","PADDY","Monsoon",3,8,10,2,2,1,4,1,50,20,2019,"SAPTARI","Control",0,20
+"T107609001","2","WHEAT","Winter",8,11,10,2,2,2,3,1,50,18,2019,"SAPTARI","Control",0,40
+"T107609001","10","OKRA","Summer",11,3,1,2,2,3,0,0,0,0,2019,"SAPTARI","Control",0,6
+"T107609001","37","GREEN LEAFY VEGETABLE","Summer",11,3,1,2,2,3,0,0,0,0,2019,"SAPTARI","Control",0,6
+"T104201003","1","PADDY","Monsoon",3,8,35,4,0,4,3.5,1,50,15,2019,"SAPTARI","Control",0,0
+"T104201003","47","POTATO","Winter",8,11,1,2,2,1,8,1,0,0,2019,"SAPTARI","Control",0,2
+"T104201003","3","MAIZE","Summer",12,3,1,2,3,8,0,0,0,0,2019,"SAPTARI","Control",0,24
+"T205104005","1","PADDY","Monsoon",3,7,17,4,0,5,4,1,75,19,2019,"SAPTARI","Control",0,0
+"T205104005","47","POTATO","Winter",8,10,2,2,2,2,8,1,0,0,2019,"SAPTARI","Control",0,8
+"T205104005","44","CAULI","Winter",7,11,2,2,2,15,8,1,90,15,2019,"SAPTARI","Control",0,60
+"C001401004","1","PADDY","Monsoon",3,7,16,2,1.5,2,4,1,25,23,2019,"SAPTARI","Control",0,48
+"C001401004","2","WHEAT","Winter",8,12,8,2,3,1,1.5,1,75,28,2019,"SAPTARI","Control",0,24
+"C001401004","47","POTATO","Winter",7,11,2,0,0,0,7,1,75,15,2019,"SAPTARI","Control",0,0
+"C001401004","8","BRINJAL","Winter",8,2,1,2,1,20,3,1,100,18,2019,"SAPTARI","Control",0,20
+"C001401004","53","ONIONS","Winter",10,1,1,2,2,13,10,1,0,0,2019,"SAPTARI","Control",0,26
+"C001401004","55","GARLIC","Winter",8,12,0.5,2,1,5,20,3,0,0,2019,"SAPTARI","Control",0,2.5
+"C001401004","7","TOMATO","Winter",7,12,0.5,2,1,5,1,4,100,27,2019,"SAPTARI","Control",0,2.5
+"C001401004","37","GREEN LEAFY VEGETABLE","Winter",7,1,3,2,3,20,20,3,50,25,2019,"SAPTARI","Control",0,180
+"T210709001","1","PADDY","Monsoon",3,7,10,2,2,2,4,1,50,18,2019,"SAPTARI","Treatment",1,40
+"T210709001","47","POTATO","Winter",7,11,4,2,2,2,5,1,50,18,2019,"SAPTARI","Treatment",1,16
+"T210709001","53","ONIONS","Winter",7,11,4,2,2,5,4,1,50,25,2019,"SAPTARI","Treatment",1,40
+"T210709001","55","GARLIC","Winter",7,11,2,2,2,4,15,3,50,50,2019,"SAPTARI","Treatment",1,16
+"T210709001","8","BRINJAL","Summer",11,11,1,2,2,4,20,3,50,20,2019,"SAPTARI","Treatment",1,8
+"T210709001","14","BOTTLE GOURD","Summer",11,3,1,2,2,4,0,0,0,0,2019,"SAPTARI","Treatment",1,8
+"T210709001","37","GREEN LEAFY VEGETABLE","Summer",11,3,8,2,2,6,0,0,0,0,2019,"SAPTARI","Treatment",1,96
+"T100103003","1","PADDY","Monsoon",3,7,80,2,1,2,3,1,50,17,2019,"SAPTARI","Control",0,160
+"T100103003","2","WHEAT","Winter",8,11,5,2,1,2,2,1,75,22,2019,"SAPTARI","Control",0,10
+"T100103003","33","PULSES","Winter",8,11,38,2,1,2,10,3,80,50,2019,"SAPTARI","Control",0,76
+"T100103003","42","LINSEED","Winter",8,11,37,2,1,1,10,3,100,50,2019,"SAPTARI","Control",0,37
+"T100103003","8","BRINJAL","Summer",12,3,1,2,1,1,0,0,0,0,2019,"SAPTARI","Control",0,1
+"T100103003","15","BELL PEPER","Summer",12,3,1,2,1,2,0,0,0,0,2019,"SAPTARI","Control",0,2
+"T100103003","12","CUCUMBER","Summer",12,3,1,2,1,2,0,0,0,0,2019,"SAPTARI","Control",0,2
+"T100103003","13","PUMPKIN","Summer",12,3,1,2,1,2,0,0,0,0,2019,"SAPTARI","Control",0,2
+"T100103003","14","BOTTLE GOURD","Summer",12,3,1,2,1,1,0,0,0,0,2019,"SAPTARI","Control",0,1
+"T203903003","1","PADDY","Monsoon",3,7,20,2,1,2,4,1,50,24,2019,"SAPTARI","Control",0,40
+"T203903003","2","WHEAT","Winter",8,12,13,2,1.5,2,2,1,0,0,2019,"SAPTARI","Control",0,39
+"T203903003","21","GREEN PEA","Winter",8,12,4,0,0,0,16,3,0,0,2019,"SAPTARI","Control",0,0
+"T203903003","47","POTATO","Winter",8,11,2,2,1,2,6,1,50,15,2019,"SAPTARI","Control",0,4
+"T203903003","55","GARLIC","Winter",8,11,1,2,1.5,7,2,1,0,0,2019,"SAPTARI","Control",0,10.5
+"T104201002","1","PADDY","Monsoon",3,7,60,4,0,3,4,1,80,18,2019,"SAPTARI","Control",0,0
+"T104201002","2","WHEAT","Winter",8,12,6,4,0,1,2,1,0,0,2019,"SAPTARI","Control",0,0
+"C009406001","1","PADDY","Monsoon",3,7,20,2,1,2,2.5,1,50,17,2019,"SAPTARI","Control",0,40
+"C009406001","2","WHEAT","Winter",8,12,20,2,1,1,2,1,50,28,2019,"SAPTARI","Control",0,20
+"T110502003","1","PADDY","Monsoon",3,7,0,2,2,3,3.5,1,0,0,2019,"SAPTARI","Control",0,0
+"T110502003","2","WHEAT","Winter",8,12,7,2,3,3,2,1,50,25,2019,"SAPTARI","Control",0,63
+"T110502003","27","GREEN GRAM","Summer",12,3,2,0,0,0,0,0,0,0,2019,"SAPTARI","Control",0,0
+"T109901005","1","PADDY","Monsoon",3,7,54,2,1.5,1,3.5,1,50,19,2019,"SAPTARI","Control",0,81
+"T109901005","2","WHEAT","Winter",8,12,35,2,2,3,1.5,1,75,28,2019,"SAPTARI","Control",0,210
+"T203908005","1","PADDY","Monsoon",3,7,14,2,1,3,4,1,50,22,2019,"SAPTARI","Control",0,42
+"T203908005","2","WHEAT","Winter",8,12,7,2,2,2,1.5,1,50,27,2019,"SAPTARI","Control",0,28
+"T203908005","42","LINSEED","Winter",8,12,7,2,2,1,4,3,0,0,2019,"SAPTARI","Control",0,14
+"T203908005","1","PADDY","Summer",12,3,7,2,2,25,0,0,0,0,2019,"SAPTARI","Control",0,350
+"T104209001","1","PADDY","Monsoon",3,7,27,2,0,5,3,1,50,18,2019,"SAPTARI","Treatment",1,0
+"T104209001","47","POTATO","Winter",8,10,2,2,3,2,10,1,0,0,2019,"SAPTARI","Treatment",1,12
+"T104209001","3","MAIZE","Summer",11,3,2,2,5,5,0,0,0,0,2019,"SAPTARI","Treatment",1,50
+"T102009002","1","PADDY","Monsoon",3,6,60,1,0,0,4,1,75,225,2019,"SAPTARI","Control",0,0
+"T102009002","2","WHEAT","Winter",7,11,20,2,2,3,2,1,75,26,2019,"SAPTARI","Control",0,120
+"T102009002","42","LINSEED","Winter",7,11,10,0,0,0,20,3,50,85,2019,"SAPTARI","Control",0,0
+"T102009002","47","POTATO","Winter",7,10,5,0,0,0,10,1,75,18,2019,"SAPTARI","Control",0,0
+"T102009002","43","MUSTARD","Winter",7,11,10,0,0,0,25,3,70,90,2019,"SAPTARI","Control",0,0
+"T102009002","22","GRASS PEA","Winter",7,11,10,0,0,0,20,3,90,70,2019,"SAPTARI","Control",0,0
+"T102009002","33","OTHER PULSES","Winter",7,11,5,0,0,0,25,3,50,80,2019,"SAPTARI","Control",0,0
+"T102009002","27","GREEN GRAM","Summer",12,3,20,0,0,0,0,0,0,0,2019,"SAPTARI","Control",0,0
+"T107607004","1","PADDY","Monsoon",3,7,34,2,2,2,4,1,50,23,2019,"SAPTARI","Control",0,136
+"T107607004","2","WHEAT","Winter",8,12,44,2,2,2,2,1,25,30,2019,"SAPTARI","Control",0,176
+"T107607004","47","POTATO","Winter",7,11,5,2,2,10,5,1,70,20,2019,"SAPTARI","Control",0,100
+"T107607004","53","ONIONS","Winter",8,11,5,2,2,10,10,1,50,40,2019,"SAPTARI","Control",0,100
+"C009006003","1","PADDY","Monsoon",3,7,30,2,2,3,4,1,50,20,2019,"SAPTARI","Control",0,180
+"C009006003","2","WHEAT","Winter",7,1,25,2,2,2,3,1,40,24,2019,"SAPTARI","Control",0,100
+"C009006003","11","CHILLIES","Winter",7,11,2,2,1,5,2,4,90,21,2019,"SAPTARI","Control",0,10
+"C009006003","13","PUMPKIN","Winter",7,11,1,2,1,7,10,3,80,27,2019,"SAPTARI","Control",0,7
+"C009006003","14","BOTTLE GOURD","Winter",7,11,2,2,1,2,1,1,90,18,2019,"SAPTARI","Control",0,4
+"C009006003","10","OKRA","Summer",11,3,5,2,1,0,50,3,50,60,2019,"SAPTARI","Control",0,0
+"T210703006","1","PADDY","Monsoon",3,8,50,2,2,3,4,1,30,22,2019,"SAPTARI","Control",0,300
+"T210703006","2","WHEAT","Winter",8,11,5,2,2,2,2,1,10,32,2019,"SAPTARI","Control",0,20
+"T107605005","1","PADDY","Monsoon",3,9,25,2,2,3,4,1,50,21,2019,"SAPTARI","Control",0,150
+"T107605005","2","WHEAT","Winter",8,11,20,2,2,2,3,1,40,27,2019,"SAPTARI","Control",0,80
+"T107605005","37","GREEN LEAFY VEGETABLE","Summer",11,3,2,2,2,6,200,3,90,18,2019,"SAPTARI","Control",0,24
+"T104305001","1","PADDY","Monsoon",3,7,20,2,1,4,4,1,0,0,2019,"SAPTARI","Control",0,80
+"T104305001","2","WHEAT","Winter",7,11,20,2,1,3,2,1,0,0,2019,"SAPTARI","Control",0,60
+"T104305001","15","BELL PEPER","Summer",11,3,1,2,1,9,1,4,0,0,2019,"SAPTARI","Control",0,9
+"T210706005","1","PADDY","Monsoon",3,7,35,2,2,2,3,1,25,21,2019,"SAPTARI","Control",0,140
+"T210706005","2","WHEAT","Winter",8,11,15,2,2,2,2,1,0,0,2019,"SAPTARI","Control",0,60
+"T210706005","33","OTHER PULSES","Winter",8,11,5,2,1,1,20,3,0,0,2019,"SAPTARI","Control",0,5
+"T210706005","47","POTATO","Winter",8,11,2,2,1,2,11,1,75,15,2019,"SAPTARI","Control",0,4
+"T210706005","27","GREEN GRAM","Winter",8,11,13,2,2,1,20,3,50,100,2019,"SAPTARI","Control",0,26
+"T210706005","1","PADDY","Summer",11,2,25,2,2,6,0,0,0,0,2019,"SAPTARI","Control",0,300
+"T106604003","1","PADDY","Monsoon",3,8,40,2,2,2,4,1,50,20,2019,"SAPTARI","Control",0,160
+"T106604003","2","WHEAT","Winter",8,11,35,2,2,2,3,1,50,22,2019,"SAPTARI","Control",0,140
+"T106604003","47","POTATO","Winter",8,11,2,2,2,2,5,1,50,18,2019,"SAPTARI","Control",0,8
+"T106604003","33","OTHER PULSES","Winter",8,11,3,2,2,2,15,3,50,80,2019,"SAPTARI","Control",0,12
+"T106604003","1","PADDY","Summer",11,3,5,2,2,3,2,1,0,0,2019,"SAPTARI","Control",0,30
+"T106604003","37","GREEN LEAFY VEGETABLE","Summer",11,3,3,2,2,5,20,3,0,0,2019,"SAPTARI","Control",0,30
+"T210102001","1","PADDY","Monsoon",3,7,50,2,2,3,3,1,50,18,2019,"SAPTARI","Control",0,300
+"T210102001","2","WHEAT","Winter",8,11,20,2,2,3,3,1,50,20,2019,"SAPTARI","Control",0,120
+"T210102001","42","LINSEED","Winter",8,11,10,2,2,2,30,3,50,80,2019,"SAPTARI","Control",0,40
+"T210102001","43","MUSTARD","Winter",8,11,10,2,2,2,25,3,50,80,2019,"SAPTARI","Control",0,40
+"T210102001","33","OTHER PULSES","Winter",8,11,10,2,2,2,30,3,50,60,2019,"SAPTARI","Control",0,40
+"T210102001","27","GREEN GRAM","Summer",11,3,5,2,2,1,30,3,0,0,2019,"SAPTARI","Control",0,10
+"T210102001","37","GREEN LEAF","Summer",11,3,1,2,3,3,5,3,0,0,2019,"SAPTARI","Control",0,9
+"T108804002","1","PADDY","Monsoon",3,7,20,2,1,3,2,1,25,20,2019,"SAPTARI","Control",0,60
+"T108804002","2","WHEAT","Winter",8,12,12,2,1.5,2,1.5,1,25,25,2019,"SAPTARI","Control",0,36
+"T108804002","47","POTATO","Winter",8,11,1,2,1.5,2,4,1,0,0,2019,"SAPTARI","Control",0,3
+"T108804002","53","ONIONS","Winter",9,11,1,2,2,7,3,1,25,10,2019,"SAPTARI","Control",0,14
+"T108804002","11","CHILLIES","Winter",9,12,1,2,2,7,1,1,75,200,2019,"SAPTARI","Control",0,14
+"T108803001","1","PADDY","Monsoon",3,7,10,1,0,0,2,2,0,0,2019,"SAPTARI","Control",0,0
+"T108803001","2","WHEAT","Winter",8,12,13,2,1,1,1,2,0,0,2019,"SAPTARI","Control",0,13
+"T108803001","47","POTATO","Winter",8,10,1,2,1,1,9,2,25,0,2019,"SAPTARI","Control",0,1
+"T109203005","1","PADDY","Monsoon",3,7,30,2,1,1,3,1,25,20,2019,"SAPTARI","Control",0,30
+"T109203005","2","WHEAT","Winter",8,12,10,2,2,2,2,1,0,0,2019,"SAPTARI","Control",0,40
+"T200104003","1","PADDY","Monsoon",2,7,25,2,1,2,3,1,40,20,2019,"SAPTARI","Control",0,50
+"T200101005","2","WHEAT","Winter",8,12,6,2,2,2,1.5,1,0,0,2019,"SAPTARI","Control",0,24
+"T200101005","47","POTATO","Winter",8,11,1,2,1,2,5,1,0,0,2019,"SAPTARI","Control",0,2
+"T200101005","1","PADDY","Summer",12,3,2,2,2,30,0,0,0,0,2019,"SAPTARI","Control",0,120
+"T203308002","1","PADDY","Monsoon",3,7,73,2,1,3,3,1,50,25,2019,"SAPTARI","Control",0,219
+"T203308002","2","WHEAT","Winter",8,12,20,2,1,1,1,1,25,25,2019,"SAPTARI","Control",0,20
+"T203308002","21","GREEN PEA","Winter",8,12,20,1,0,0,20,3,50,80,2019,"SAPTARI","Control",0,0
+"T201105001","1","PADDY","Monsoon",3,7,28,2,1,3,2,1,0,0,2019,"SAPTARI","Control",0,84
+"T201105001","2","WHEAT","Winter",8,12,20,3,0,2,10,3,0,0,2019,"SAPTARI","Control",0,0
+"T201105001","47","POTATO","Winter",8,11,1.5,1,0,0,7,1,0,0,2019,"SAPTARI","Control",0,0
+"T201105001","33","OTHER PULSES","Winter",8,11,5,0,0,0,40,3,0,0,2019,"SAPTARI","Control",0,0
+"T102007003","1","PADDY","Monsoon",3,7,3,2,1,3,3.5,1,0,0,2019,"SAPTARI","Control",0,9
+"T102007003","2","WHEAT","Winter",7,1,3,2,1.5,1,1,1,0,0,2019,"SAPTARI","Control",0,4.5
+"T102007003","33","RED LENTIL","Winter",7,11,1.5,1,0,0,1,1,0,0,2019,"SAPTARI","Control",0,0
+"T109202002","1","PADDY","Monsoon",3,7,60,2,1,3,3,1,50,20,2019,"SAPTARI","Control",0,180
+"T109202002","2","WHEAT","Winter",8,12,5,2,1.5,2,2,1,0,0,2019,"SAPTARI","Control",0,15
+"T109202002","47","POTATO","Winter",7,10,1.5,2,1,2,10,1,25,15,2019,"SAPTARI","Control",0,3
+"T109202002","53","ONIONS","Winter",9,12,1.5,2,1,5,10,1,25,18,2019,"SAPTARI","Control",0,7.5
+"T109202002","27","GREEN GRAM","Summer",12,3,2,1,0,0,0,0,0,0,2019,"SAPTARI","Control",0,0
+"T210407004","1","PADDY","Monsoon",3,6,19,1,0,0,3,1,0,0,2019,"SAPTARI","Control",0,0
+"T210407004","2","WHEAT","Winter",7,11,5,2,2,2,1.5,1,0,0,2019,"SAPTARI","Control",0,20
+"T210407004","47","POTATO","Winter",7,10,2,0,0,0,10,1,50,18,2019,"SAPTARI","Control",0,0
+"T210407004","42","LINSEED","Winter",7,11,3,0,0,0,20,3,0,0,2019,"SAPTARI","Control",0,0
+"T210407004","33","OTHER PULSES","Winter",7,11,2,0,0,0,25,3,0,0,2019,"SAPTARI","Control",0,0
+"T210407004","27","GREEN GRAM","Summer",12,3,3,1,0,0,0,0,0,0,2019,"SAPTARI","Control",0,0
+"T210405002","1","PADDY","Monsoon",3,6,20,1,0,0,3,1,0,0,2019,"SAPTARI","Control",0,0
+"T210405002","2","WHEAT","Winter",7,11,8,2,2,2,1.5,1,25,28,2019,"SAPTARI","Control",0,32
+"T210405002","33","RED LENTIL","Winter",7,11,12,0,0,0,15,3,0,0,2019,"SAPTARI","Control",0,0
+"C001701002","1","PADDY","Monsoon",4,7,20,1,0,0,3.5,1,25,18,2019,"SAPTARI","Control",0,0
+"C001701002","2","WHEAT","Winter",8,11,8,2,2,2,1.5,1,0,0,2019,"SAPTARI","Control",0,32
+"C001701002","43","MUSTARD","Winter",8,11,10,0,0,0,30,3,50,90,2019,"SAPTARI","Control",0,0
+"C001701002","47","POTATO","Winter",8,10,2,0,0,0,10,1,50,20,2019,"SAPTARI","Control",0,0
+"C001701002","20","PEA","Winter",8,11,5,0,0,0,25,3,75,55,2019,"SAPTARI","Control",0,0
+"C001701002","22","GRASS PEA","Winter",8,11,5,0,0,0,20,3,50,70,2019,"SAPTARI","Control",0,0
+"C001701002","42","LINSEED","Winter",8,11,5,0,0,0,25,3,50,90,2019,"SAPTARI","Control",0,0
+"C001701002","33","PULSES","Winter",8,11,5,0,0,0,30,3,50,75,2019,"SAPTARI","Control",0,0
+"T107104002","1","PADDY","Monsoon",3,6,45,2,1,2,3.5,1,25,20,2019,"SAPTARI","Control",0,90
+"T107104002","2","WHEAT","Winter",7,11,13,2,2,2,1.5,1,25,29,2019,"SAPTARI","Control",0,52
+"T107104001","1","PADDY","Monsoon",3,6,45,2,1,2,3.5,1,25,18,2019,"SAPTARI","Control",0,90
+"T107104001","2","WHEAT","Winter",7,11,18,2,2,15,1,2,5,26,2019,"SAPTARI","Control",0,540
+"T107104001","27","GREEN GRAM","Summer",12,3,8,1,0,0,0,0,0,0,2019,"SAPTARI","Control",0,0
+"T203309001","1","PADDY","Monsoon",3,6,40,2,1,2,3.5,1,50,18,2019,"SAPTARI","Control",0,80
+"T203309001","2","WHEAT","Winter",7,11,25,2,2,2,1.5,1,50,28,2019,"SAPTARI","Control",0,100
+"T203309001","42","LINSEED","Winter",7,11,15,0,0,0,15,3,50,90,2019,"SAPTARI","Control",0,0
+"C008508001","1","PADDY","Monsoon",3,6,30,4,0,0,3,1,25,18,2019,"SAPTARI","Control",0,0
+"C008508001","2","WHEAT","Winter",7,11,14,2,2,2,1.5,1,25,27,2019,"SAPTARI","Control",0,56
+"C008508001","42","LINSEED","Winter",7,11,11,0,0,0,20,3,50,90,2019,"SAPTARI","Control",0,0
+"C008508001","27","GREEN GRAM","Summer",12,3,5,1,0,0,0,0,0,0,2019,"SAPTARI","Control",0,0
+"T204807001","1","PADDY","Monsoon",3,6,40,3,0,3,3.5,1,25,16,2019,"SAPTARI","Control",0,0
+"T204807001","43","MUSTARD","Winter",7,11,25,0,0,0,30,3,75,100,2019,"SAPTARI","Control",0,0
+"T204807001","42","LINSEED","Winter",7,11,15,0,0,0,20,3,75,90,2019,"SAPTARI","Control",0,0
+"T210407003","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,2019,"SAPTARI","Control",0,NA
+"T109202008","1","PADDY","Monsoon",4,7,20,1,0,0,3,1,50,19,2019,"SAPTARI","Control",0,0
+"T109202008","2","WHEAT","Winter",8,11,16,2,1,2,1.5,1,50,27,2019,"SAPTARI","Control",0,32
+"T109202008","42","LINSEED","Winter",8,11,4,0,0,0,20,3,25,85,2019,"SAPTARI","Control",0,0
+"C008109001","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,2019,"SAPTARI","Control",0,NA
+"T109202010","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,2019,"SAPTARI","Control",0,NA
+"T109203003","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,2019,"SAPTARI","Control",0,NA
+"T109202009","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,2019,"SAPTARI","Control",0,NA
+"T203309003","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,2019,"SAPTARI","Control",0,NA
+"C001705001","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,2019,"SAPTARI","Control",0,NA
+"T103207003","1","PADDY","Monsoon",3,7,60,4,0,5,3,1,25,22,2019,"SAPTARI","Control",0,0
+"T103207003","2","WHEAT","Winter",8,12,15,4,0,2,1.5,1,0,0,2019,"SAPTARI","Control",0,0
+"T103207003","42","LINSEED","Winter",8,12,30,4,0,1,6,3,0,0,2019,"SAPTARI","Control",0,0
+"T103207003","25","BLACK GRAM","Winter",8,12,10,4,0,1,10,3,0,0,2019,"SAPTARI","Control",0,0
+"T103207003","47","POTATO","Winter",8,11,5,4,0,2,6,1,0,0,2019,"SAPTARI","Control",0,0
+"T103207003","27","GREEN GRAM","Summer",12,3,15,0,0,0,0,0,0,0,2019,"SAPTARI","Control",0,0
+"T103209004","1","PADDY","Monsoon",3,7,19,3,0,3,4,1,0,0,2019,"SAPTARI","Control",0,0
+"T103209004","2","WHEAT","Winter",8,12,8,3,0,2,1.5,1,0,0,2019,"SAPTARI","Control",0,0
+"T103209004","47","POTATO","Winter",8,11,1,2,3,1,9,1,0,0,2019,"SAPTARI","Control",0,3
+"T103207002","1","PADDY","Monsoon",3,7,200,3,0,5,3,1,50,23,2019,"SAPTARI","Control",0,0
+"T103207002","2","WHEAT","Winter",8,12,25,3,0,2,1.20000004768372,1,0,0,2019,"SAPTARI","Control",0,0
+"T103207002","42","LINSEED","Winter",8,12,60,3,0,1,5,3,0,0,2019,"SAPTARI","Control",0,0
+"C001401001","1","PADDY","Monsoon",3,7,21,4,0,5,3,1,25,18,2019,"SAPTARI","Control",0,0
+"C001401001","2","WHEAT","Winter",8,12,14,2,2,2,2,1,50,23,2019,"SAPTARI","Control",0,56
+"C001401001","22","GREEN PEA","Summer",12,3,6,0,0,0,0,0,0,0,2019,"SAPTARI","Control",0,0
+"T100502006","1","PADDY","Monsoon",3,7,15,2,2,3,3,1,0,0,2019,"SAPTARI","Control",0,90
+"T100502006","2","WHEAT","Winter",7,12,10,2,2,3,2,1,0,0,2019,"SAPTARI","Control",0,60
+"T100502006","42","LINSEED","Winter",7,11,5,2,2,2,10,3,50,70,2019,"SAPTARI","Control",0,20
+"T100502006","27","GREEN GRAM","Summer",11,3,6,1,1,2,15,3,0,0,2019,"SAPTARI","Control",0,12
+"T100502006","8","BRINJAL","Summer",11,3,2,1,1,2,20,3,0,0,2019,"SAPTARI","Control",0,4
+"T100502006","14","BOTTLE GOURD","Summer",11,3,1,1,1,2,8,5,0,0,2019,"SAPTARI","Control",0,2
+"T100502006","11","CHILLIES","Summer",11,3,1,1,1,2,10,3,0,0,2019,"SAPTARI","Control",0,2
+"T100503001","1","PADDY","Monsoon",3,8,30,2,2,3,3,1,30,22,2019,"SAPTARI","Control",0,180
+"T100503001","3","MAIZE","Winter",8,11,10,2,2,4,2,1,50,18,2019,"SAPTARI","Control",0,80
+"T100503001","42","LINSEED","Winter",8,11,8,2,2,3,20,3,50,60,2019,"SAPTARI","Control",0,48
+"T100503001","43","MUSTARD","Winter",8,11,5,2,2,2,40,3,50,80,2019,"SAPTARI","Control",0,20
+"T100503001","33","OTHER PULSES","Winter",8,11,7,2,2,2,50,3,50,100,2019,"SAPTARI","Control",0,28
+"T100503001","27","GREEN GRAM","Summer",11,3,9,2,3,2,30,3,50,100,2019,"SAPTARI","Control",0,54
+"T100503001","60","JUTE","Summer",11,3,5,2,1,1,40,3,100,100,2019,"SAPTARI","Control",0,5
+"C009006001","1","PADDY","Monsoon",3,8,30,2,1.5,3,4,1,0,0,2019,"SAPTARI","Control",0,135
+"C009006001","2","WHEAT","Winter",8,11,30,2,2,2,3,1,0,0,2019,"SAPTARI","Control",0,120
+"T100509003","1","PADDY","Monsoon",3,7,30,2,1,3,3,1,0,0,2019,"SAPTARI","Control",0,90
+"T100509003","2","WHEAT","Winter",7,12,30,2,1,3,3,1,0,0,2019,"SAPTARI","Control",0,90
+"C009006002","1","PADDY","Monsoon",3,8,45,2,2,3,4,1,80,20,2019,"SAPTARI","Control",0,270
+"C009006002","2","WHEAT","Winter",7,11,4,2,3,2,3,1,0,0,2019,"SAPTARI","Control",0,24
+"C009006002","47","POTATO","Winter",7,11,2,2,2,2,4,4,50,12,2019,"SAPTARI","Control",0,8
+"C009006002","44","CAULIFLOWER","Winter",7,11,2,2,2,4,2,4,90,20,2019,"SAPTARI","Control",0,16
+"C009006002","45","CABBAGE","Winter",7,11,2,2,2,4,2,4,80,11,2019,"SAPTARI","Control",0,16
+"C009006002","1","PADDY","Summer",12,2,10,2,2,6,5,1,100,21,2019,"SAPTARI","Control",0,120
+"C009006002","27","GREEN GRAM","Winter",12,3,7,2,0,0,8,3,50,60,2019,"SAPTARI","Control",0,0
+"T210701007","1","PADDY","Monsoon",3,8,23,2,2,2,3,1,0,0,2019,"SAPTARI","Control",0,92
+"T210701007","2","WHEAT","Winter",8,11,3,2,2,2,7,1,0,0,2019,"SAPTARI","Control",0,12
+"T210701007","10","OKRA","Summer",12,2,1,2,2,4,0,0,0,0,2019,"SAPTARI","Control",0,8
+"C004703001","1","PADDY","Monsoon",3,8,40,2,1,2,2,1,50,15,2019,"SAPTARI","Control",0,80
+"C004703001","2","WHEAT","Winter",7,11,20,2,2,1,1,1,0,0,2019,"SAPTARI","Control",0,40
+"C004703001","47","POTATO","Winter",7,11,2,2,1,2,7,1,50,18,2019,"SAPTARI","Control",0,4
+"C004703001","43","MUSTARD","Winter",7,11,6,2,2,1,20,3,0,0,2019,"SAPTARI","Control",0,12
+"C004703001","33","OTHER PULSES","Winter",7,11,2,2,0,0,10,3,0,0,2019,"SAPTARI","Control",0,0
+"C004703001","37","GREEN LEAFY VEGETABLE","Summer",11,3,1,2,1,7,0,0,0,0,2019,"SAPTARI","Control",0,7
+"T100505004","1","PADDY","Monsoon",3,8,60,2,2,2,4,1,75,18,2019,"SAPTARI","Control",0,240
+"T100505004","2","WHEAT","Winter",8,11,60,2,1,2,3,1,50,22,2019,"SAPTARI","Control",0,120
+"T100505004","27","GREEN GRAM","Summer",11,3,15,2,1,1,35,3,50,70,2019,"SAPTARI","Control",0,15
+"T107601002","1","PADDY","Monsoon",3,7,80,2,2,2,4,1,50,20,2019,"SAPTARI","Control",0,320
+"T107601002","2","WHEAT","Winter",7,11,73,2,2,3,3,1,50,18,2019,"SAPTARI","Control",0,438
+"T107601002","47","POTATO","Winter",7,11,1,2,2,1,6,1,0,0,2019,"SAPTARI","Control",0,2
+"T107601002","53","ONIONS","Winter",7,11,1,2,2,4,5,1,0,0,2019,"SAPTARI","Control",0,8
+"T107601002","27","GREEN GRAM","Winter",7,11,5,2,0,0,10,3,0,0,2019,"SAPTARI","Control",0,0
+"T107601002","1","PADDY","Summer",11,3,10,2,2,4,0,0,0,0,2019,"SAPTARI","Control",0,80
+"T107601002","37","GREEN LEAFY VEGETABLE","Summer",11,3,2,2,2,5,0,0,0,0,2019,"SAPTARI","Control",0,20
+"T200101001","","",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,2019,"SAPTARI","Control",0,NA
+"T210904002","1","PADDY","Monsoon",3,7,20,2,3,2,4,1,0,0,2019,"SAPTARI","Control",0,120
+"T210904002","2","WHEAT","Winter",7,11,18,2,3,2,3,1,0,0,2019,"SAPTARI","Control",0,108
+"T210904002","47","POTATO","Winter",7,11,1,2,1,2,5,1,0,0,2019,"SAPTARI","Control",0,2
+"T210904002","53","ONIONS","Winter",7,11,1,2,3,2,4,1,0,0,2019,"SAPTARI","Control",0,6
+"T210904002","27","GREEN GRAM","Winter",7,11,1,2,3,2,4,1,0,0,2019,"SAPTARI","Control",0,6
+"T100505008","1","PADDY","Monsoon",3,7,60,2,2,2,4,1,25,20,2019,"SAPTARI","Control",0,240
+"T100505008","2","WHEAT","Winter",7,11,41,2,2,3,3,1,25,18,2019,"SAPTARI","Control",0,246
+"T100505008","47","POTATO","Winter",7,11,2,2,2,2,5,1,0,0,2019,"SAPTARI","Control",0,8
+"T100505008","53","ONIONS","Winter",7,11,2,2,2,2,4,1,0,0,2019,"SAPTARI","Control",0,8
+"T100505008","42","LINSEED","Winter",7,11,5,2,2,2,10,3,0,0,2019,"SAPTARI","Control",0,20
+"T100505008","33","OTHER PULSES","Winter",7,11,5,2,2,2,10,3,0,0,2019,"SAPTARI","Control",0,20
+"T100505008","27","GREEN GRAM","Winter",7,11,5,2,2,2,10,3,0,0,2019,"SAPTARI","Control",0,20
+"T100505008","13","PUMPKIN","Summer",11,3,1,2,2,2,0,0,0,0,2019,"SAPTARI","Control",0,4
+"T100505008","14","BOTTLE GOURD","Summer",11,3,1,2,2,2,0,3,0,0,2019,"SAPTARI","Control",0,4
+"T100505008","11","CHILLIES","Summer",11,3,1,2,2,2,0,0,0,0,2019,"SAPTARI","Control",0,4
+"T100505008","37","GREEN LEAFY VEGETABLE","Summer",11,3,7,2,2,2,0,0,0,0,2019,"SAPTARI","Control",0,28
+"T106604005","1","PADDY","Monsoon",3,7,30,2,2,3,4,1,50,20,2019,"SAPTARI","Control",0,180
+"T106604005","2","WHEAT","Winter",7,11,30,2,2,4,3,1,50,22,2019,"SAPTARI","Control",0,240
+"T100502005","1","PADDY","Monsoon",3,7,30,2,2,3,3,1,0,0,2019,"SAPTARI","Control",0,180
+"T100502005","27","GREEN GRAM","Winter",11,3,5,2,3,2,0,0,0,0,2019,"SAPTARI","Control",0,30
+"T100502005","8","BRINJAL","Summer",11,3,1,2,2,3,0,0,0,0,2019,"SAPTARI","Control",0,6
+"T100502005","14","BOTTLE GOURD","Summer",11,3,1,2,2,4,0,0,0,0,2019,"SAPTARI","Control",0,8
+"T100502005","37","GREEN LEAFY VEGETABLE","Summer",11,3,5,2,2,5,0,0,0,0,2019,"SAPTARI","Control",0,50
+"T100501007","1","PADDY","Monsoon",3,7,10,2,2,2,3,1,0,0,2019,"SAPTARI","Control",0,40
+"T100501007","2","WHEAT","Winter",8,11,10,2,2,2,4,1,0,0,2019,"SAPTARI","Control",0,40
+"T100501007","33","RED LENTIL","Winter",8,11,10,2,2,1,30,3,50,70,2019,"SAPTARI","Control",0,20
+"T100501007","27","GREEN GRAM","Summer",11,3,18,2,2,1,0,0,0,0,2019,"SAPTARI","Control",0,36
+"T100501007","14","BOTTLE GOURD","Summer",11,3,1,2,1,3,0,0,0,0,2019,"SAPTARI","Control",0,3
+"T100501007","16","SPONGE GOURD","Summer",11,3,1,2,1,3,0,0,0,0,2019,"SAPTARI","Control",0,3
+"T203901008","1","PADDY","Monsoon",3,7,24,2,3,3,4.5,1,0,0,2019,"SAPTARI","Control",0,216
+"T203901008","2","WHEAT","Winter",8,12,15,2,3,2,1.70000004768372,1,0,0,2019,"SAPTARI","Control",0,90
+"T203901008","47","POTATO","Winter",8,11,1,2,1,2,10,1,0,0,2019,"SAPTARI","Control",0,2
+"T203901008","53","ONIONS","Winter",8,11,1,2,1,2,10,1,0,0,2019,"SAPTARI","Control",0,2
+"T104203004","1","PADDY","Monsoon",3,7,60,4,0,5,4,1,75,20,2019,"SAPTARI","Control",0,0
+"T104203004","47","POTATO","Winter",8,11,1,2,2,1,9,1,50,18,2019,"SAPTARI","Control",0,2
+"T104203004","3","MAIZE","Summer",11,3,1,2,3,5,0,0,0,0,2019,"SAPTARI","Control",0,15
+"T108803015","1","PADDY","Monsoon",3,7,80,2,2,2,2,1,15,25,2019,"SAPTARI","Control",0,320
+"T108803015","2","WHEAT","Winter",8,12,25,2,2.5,2,1.5,1,10,25,2019,"SAPTARI","Control",0,125
+"T108803015","47","POTATO","Summer",8,11,3,2,1,3,7,1,10,15,2019,"SAPTARI","Control",0,9
+"T108803015","53","ONIONS","Summer",10,12,1.5,2,1,10,12,1,25,15,2019,"SAPTARI","Control",0,15
+"T200102004","1","PADDY","Monsoon",3,7,30,2,1,2,3,1,75,20,2019,"SAPTARI","Control",0,60
+"T200102004","2","WHEAT","Monsoon",8,12,5,2,1.5,2,2,1,0,0,2019,"SAPTARI","Control",0,15
+"T200102004","47","POTATO","Monsoon",8,10,5,2,1,2,6,1,0,0,2019,"SAPTARI","Control",0,10
+"T200102004","27","GREEN GRAM","Winter",12,3,2,1,0,0,0,3,0,0,2019,"SAPTARI","Control",0,0
+"T200102004","39","MUSTARD LEAF","Winter",8,11,20,1,0,0,5,3,0,0,2019,"SAPTARI","Control",0,0
+"T200102004","44","CAULIFLOWER","Summer",8,11,1,2,1,8,5,3,25,35,2019,"SAPTARI","Control",0,8
+"T200102004","53","ONIONS","Summer",8,11,1,2,1,7,5,3,0,0,2019,"SAPTARI","Control",0,7
+"T109201006","1","PADDY","Monsoon",3,7,2,2,2,2,3,1,0,0,2019,"SAPTARI","Control",0,8
+"T109201006","47","POTATO","Winter",8,11,1,2,1.5,2,3,1,0,0,2019,"SAPTARI","Control",0,3
+"T109201006","53","ONIONS","Winter",10,12,1,2,1,5,2,1,50,15,2019,"SAPTARI","Control",0,5
+"T211002001","1","PADDY","Monsoon",3,7,55,2,1,2,4,1,25,20,2019,"SAPTARI","Control",0,110
+"T211002001","2","WHEAT","Winter",8,12,40,2,2,4,1,1,0,0,2019,"SAPTARI","Control",0,320
+"T211002001","47","POTATO","Winter",8,11,1.5,2,1,3,10,1,25,15,2019,"SAPTARI","Control",0,4.5
+"T211002001","14","BOTTLE GOURD","Summer",12,0,2,2,1,5,0,0,0,0,2019,"SAPTARI","Control",0,10
+"T102007004","1","PADDY","Monsoon",4,7,60,2,1,3,3,1,0,0,2019,"SAPTARI","Control",0,180
+"T102007004","2","WHEAT","Winter",8,12,20,2,1.5,2,1,1,0,0,2019,"SAPTARI","Control",0,60
+"T102007004","47","POTATO","Winter",8,11,1,2,1.5,3,6,1,0,0,2019,"SAPTARI","Control",0,4.5
+"T102007004","13","PUMPKIN","Winter",8,12,4,2,1,15,28,5,75,25,2019,"SAPTARI","Control",0,60
+"T102007004","14","BOTTLE GOURD","Winter",8,12,3,2,1,18,35,5,75,25,2019,"SAPTARI","Control",0,54
+"T102007004","27","GREEN GRAM","Summer",12,3,8,1,0,0,0,0,0,0,2019,"SAPTARI","Control",0,0
+"T102007004","3","MAIZE","Summer",12,3,1,2,1,3,1.5,1,0,0,2019,"SAPTARI","Control",0,3
+"T102007004","13","PUMPKIN","Summer",12,3,2,2,0.5,15,40,5,0,0,2019,"SAPTARI","Control",0,15
+"T102007004","14","BOTTLE GOURD","Summer",12,3,2,2,0.5,16,50,5,0,0,2019,"SAPTARI","Control",0,16
+"T205104006","1","PADDY","Monsoon",3,7,20,3,0.5,3,4,1,50,25,2019,"SAPTARI","Control",0,30
+"T205104006","2","WHEAT","Winter",9,11,10,3,0.5,3,1,1,0,0,2019,"SAPTARI","Control",0,15
+"T205104006","47","POTATO","Winter",9,11,10,3,0.5,1,16,1,75,20,2019,"SAPTARI","Control",0,5
+"T205104006","53","ONIONS","Summer",11,2,10,3,3,2,0,0,0,0,2019,"SAPTARI","Control",0,60
+"T110510001","1","PADDY","Monsoon",3,7,20,2,1,2,3,1,0,0,2019,"SAPTARI","Control",0,40
+"T110510001","2","WHEAT","Winter",7,11,10,2,1,2,2,1,50,25,2019,"SAPTARI","Control",0,20
+"T110510001","25","BLACK GRAM","Winter",7,11,10,2,0,0,10,3,50,80,2019,"SAPTARI","Control",0,0
+"T110510001","3","MAIZE","Summer",11,3,16,2,2,2,0,0,0,0,2019,"SAPTARI","Control",0,64
+"T110510001","9","BITTER GOURD","Summer",11,3,1,2,2,2,0,0,0,0,2019,"SAPTARI","Control",0,4
+"T110510001","13","PUMPKIN","Summer",11,3,1,2,2,2,0,0,0,0,2019,"SAPTARI","Control",0,4
+"T110510001","14","BOTTLE GOURD","Summer",11,3,1,2,2,3,0,0,0,0,2019,"SAPTARI","Control",0,6
+"T110510001","37","GREEN LEAFY VEGETABLE","Summer",11,3,1,2,2,3,0,0,0,0,2019,"SAPTARI","Control",0,6
+"T203907006","1","PADDY","Monsoon",3,7,20,2,2,1,4,1,0,0,2019,"SAPTARI","Control",0,40
+"T203907006","2","WHEAT","Winter",7,11,13,2,2,2,4,1,0,0,2019,"SAPTARI","Control",0,52
+"T203907006","47","POTATO","Winter",7,11,1,2,2,2,4,1,0,0,2019,"SAPTARI","Control",0,4
+"T203907006","43","MUSTARD","Winter",7,11,5,2,0,0,10,3,0,0,2019,"SAPTARI","Control",0,0
+"T203907006","25","BLACK GRAM","Winter",7,11,5,2,3,4,0,0,0,0,2019,"SAPTARI","Control",0,60
+"T203907006","1","PADDY","Summer",11,3,5,2,3,4,0,0,0,0,2019,"SAPTARI","Control",0,60
+"T203907006","37","GREEN LEAFY VEGETABLE","Summer",11,3,3,2,3,5,0,0,0,0,2019,"SAPTARI","Control",0,45
+"T110502004","1","PADDY","Monsoon",3,7,8,3,1,3,3,1,0,0,2019,"SAPTARI","Control",0,24
+"T110502004","2","WHEAT","Winter",8,12,3,3,1,3,2,1,0,0,2019,"SAPTARI","Control",0,9
+"T110502004","3","MAIZE","Summer",12,3,3,3,1,3,0,0,0,0,2019,"SAPTARI","Control",0,9
+"T203908009","1","PADDY","Monsoon",3,7,9,2,2,1,4,1,0,0,2019,"SAPTARI","Control",0,18
+"T203908009","2","WHEAT","Winter",8,12,5,2,2.5,2,1.5,1,0,0,2019,"SAPTARI","Control",0,25
+"T203908009","47","POTATO","Winter",8,12,1,2,0.5,16,1,1,0,0,2019,"SAPTARI","Control",0,8
+"C001410002","1","PADDY","Monsoon",3,7,30,2,1,2,4,1,0,0,2019,"SAPTARI","Control",0,60
+"C001410002","2","WHEAT","Winter",7,11,28,2,1,2,3,1,0,0,2019,"SAPTARI","Control",0,56
+"C001410002","47","POTATO","Winter",7,11,1,2,1,2,5,1,0,0,2019,"SAPTARI","Control",0,2
+"C001410002","53","ONIONS","Winter",7,11,1,2,1,2,5,1,0,0,2019,"SAPTARI","Control",0,2
+"C001410002","1","PADDY","Summer",11,3,10,2,1,0,0,0,0,0,2019,"SAPTARI","Control",0,0
+"T108808014","1","PADDY","Monsoon",3,7,18,1,0,0,2.5,1,0,0,2019,"SAPTARI","Control",0,0
+"T108808014","2","WHEAT","Winter",8,12,2,2,4,3,1,1,0,0,2019,"SAPTARI","Control",0,24
+"T108808014","47","POTATO","Winter",8,11,1.5,2,3,2,5,1,0,0,2019,"SAPTARI","Control",0,9
+"T108808014","53","ONIONS","Winter",10,12,1.5,2,3,6,13,1,50,20,2019,"SAPTARI","Control",0,27
+"T109201007","1","PADDY","Monsoon",3,7,2,2,1,2,3,1,0,0,2019,"SAPTARI","Control",0,4
+"T109908003","1","PADDY","Monsoon",3,7,10,2,1,2,3,1,75,20,2019,"SAPTARI","Control",0,20
+"T203900307","1","PADDY","Monsoon",3,7,24,2,3,2,3,1,0,0,2019,"SAPTARI","Control",0,144
+"T203900307","2","WHEAT","Winter",8,12,11,2,4,2,2,1,0,0,2019,"SAPTARI","Control",0,88
+"T203900307","47","POTATO","Winter",8,12,3,2,2,2,7,1,0,0,2019,"SAPTARI","Control",0,12
+"T203900307","53","ONIONS","Winter",8,12,2,2,6,10,10,1,25,30,2019,"SAPTARI","Control",0,120
+"T203900307","43","MUSTARD","Winter",8,12,8,2,3,2,5,3,0,0,2019,"SAPTARI","Control",0,48
+"T110503003","1","PADDY","Monsoon",3,7,15,2,2,3,3,1,0,0,2019,"SAPTARI","Control",0,90
+"T110503003","2","WHEAT","Winter",8,11,7,2,2,2,2,1,50,20,2019,"SAPTARI","Control",0,28
+"T110503003","47","POTATO","Winter",8,11,1,2,2,2,4,1,0,0,2019,"SAPTARI","Control",0,4
+"T110503003","44","CAULIFLOWER","Winter",8,11,1,2,2,2,4,1,75,18,2019,"SAPTARI","Control",0,4
+"T110503003","43","MUSTARD","Winter",8,11,1,2,2,2,20,3,0,0,2019,"SAPTARI","Control",0,4
+"T110503003","37","GREEN LEAFY VEGETABLE","Summer",11,3,5,2,2,4,0,0,0,0,2019,"SAPTARI","Control",0,40
+"T206702001","1","PADDY","Monsoon",3,7,5,2,2,2,3,1,50,20,2019,"SAPTARI","Control",0,20
+"T206702001","2","WHEAT","Winter",8,11,15,2,2,3,1.5,1,50,28,2019,"SAPTARI","Control",0,90
+"T206702001","33","PULSES","Winter",8,11,5,2,2,1,10,3,50,80,2019,"SAPTARI","Control",0,10
+"T206702001","37","GREEN LEAFY VEGETABLE","Summer",11,3,5,2,2,4,0,0,0,0,2019,"SAPTARI","Control",0,40
+"T110507002","1","PADDY","Monsoon",3,7,20,2,1.5,4,3,1,0,0,2019,"SAPTARI","Control",0,120
+"T110507002","2","WHEAT","Winter",8,12,5,2,4,3,5,1,0,0,2019,"SAPTARI","Control",0,60
+"T110507002","43","MUSTARD","Winter",12,3,5,2,2,3,0,0,0,0,2019,"SAPTARI","Control",0,30
+"T110507002","3","MAIZE","Summer",12,3,10,2,2,3,0,0,0,0,2019,"SAPTARI","Control",0,60
+"T110507002","27","GREEN GRAM","Summer",12,3,5,2,0,0,0,3,0,0,2019,"SAPTARI","Control",0,0
+"T109903002","1","PADDY","Monsoon",3,1,100,3,0.5,5,2,1,50,20,2019,"SAPTARI","Control",0,250
+"T109903002","2","WHEAT","Winter",8,11,100,3,0.5,3,2,1,50,20,2019,"SAPTARI","Control",0,150
+"T106006002","1","PADDY","Monsoon",3,7,40,2,2,3,3,1,0,0,2019,"SAPTARI","Control",0,240
+"T106006002","2","WHEAT","Winter",7,11,20,2,2,4,2,1,0,0,2019,"SAPTARI","Control",0,160
+"T106006002","27","GREEN GRAM","Summer",11,3,10,2,2,2,0,0,0,0,2019,"SAPTARI","Control",0,40
+"A104507035","1","PADDY","Monsoon",3,6,28,2,1,4,3,1,25,20,2019,"SAPTARI","Treatment",1,112
+"A104507035","8","BRINJAL","Monsoon",2,7,4,2,0.5,11,10,4,100,25,2019,"SAPTARI","Treatment",1,22
+"A104507035","24","HORSE GRAM","Monsoon",3,6,2,2,0.5,4,3,4,100,25,2019,"SAPTARI","Treatment",1,4
+"A104507035","9","BITTER GOURD","Monsoon",3,6,1,2,0.5,7,4,4,100,30,2019,"SAPTARI","Treatment",1,3.5
+"A104507035","10","OKRA","Monsoon",3,7,1,2,0.5,5,4,1,100,25,2019,"SAPTARI","Treatment",1,2.5
+"A104507035","2","WHEAT","Winter",7,11,5,2,0.5,2,2,1,0,0,2019,"SAPTARI","Treatment",1,5
+"A104507035","44","CAULIFLOWER","Winter",7,11,9,2,0.5,4,5,4,100,12,2019,"SAPTARI","Treatment",1,18
+"A104507035","8","BRINJAL","Winter",7,11,5,2,0.5,10,7,4,100,20,2019,"SAPTARI","Treatment",1,25
+"A104507035","11","CHILLIES","Winter",7,11,2,2,0.5,11,3,4,100,60,2019,"SAPTARI","Treatment",1,11
+"A104507035","45","CABBAGE","Winter",7,11,3,2,0.5,10,5,4,100,6,2019,"SAPTARI","Treatment",1,15
+"A104507035","12","CUCUMBER","Winter",7,11,2,2,0.5,8,5,4,100,15,2019,"SAPTARI","Treatment",1,8
+"A104507035","42","LINSEED","Winter",7,11,5,0,0,0,20,3,50,80,2019,"SAPTARI","Treatment",1,0
+"A104507035","33","OTHER PULSES","Winter",7,11,5,0,0,0,20,3,50,90,2019,"SAPTARI","Treatment",1,0
+"A104507035","1","PADDY","Summer",12,3,9,2,1,7,0,0,0,0,2019,"SAPTARI","Treatment",1,63
+"A104507035","27","GREEN GRAM","Summer",12,3,6,0,0,0,0,0,0,0,2019,"SAPTARI","Treatment",1,0
+"E104705010","1","PADDY","Monsoon",3,7,50,2,0.5,3,4,1,50,27,2019,"SAPTARI","Treatment",1,75
+"E104705010","25","BLACK GRAM","Winter",8,12,10,0,0,0,10,3,0,0,2019,"SAPTARI","Treatment",1,0
+"E104705010","42","LINSEED","Winter",8,12,20,0,0,0,5,3,0,0,2019,"SAPTARI","Treatment",1,0
+"E104705010","27","GREEN GRAM","Summer",12,3,17,0,0,0,0,0,0,0,2019,"SAPTARI","Treatment",1,0
+"E104705010","3","MAIZE","Summer",1,4,20,2,0,0,0,0,0,0,2019,"SAPTARI","Treatment",1,0
+"A110402001","1","PADDY","Monsoon",3,8,40,2,1,2,3,1,75,10,2019,"SAPTARI","Treatment",1,80
+"A110402001","2","WHEAT","Winter",8,11,30,2,2,2,3,1,76,25,2019,"SAPTARI","Treatment",1,120
+"A110402001","44","CAULIFLOWER","Winter",8,11,2,2,2,2,0,3,85,40,2019,"SAPTARI","Treatment",1,8
+"A110402001","45","CABBAGE","Winter",8,11,2,2,2,2,0,3,80,20,2019,"SAPTARI","Treatment",1,8
+"A110402001","53","ONIONS","Winter",8,11,2,2,1,2,0,3,85,25,2019,"SAPTARI","Treatment",1,4
+"A110402001","47","POTATO","Winter",8,11,2,2,2,2,0,3,85,20,2019,"SAPTARI","Treatment",1,8
+"A110402001","55","GARLIC","Winter",8,11,2,2,1,2,0,3,90,50,2019,"SAPTARI","Treatment",1,4
+"A110402001","3","MAIZE","Summer",11,3,20,2,2,2,0,1,50,22,2019,"SAPTARI","Treatment",1,80
+"A110402001","11","CHILLIES","Summer",11,3,2,2,1,2,0,3,80,40,2019,"SAPTARI","Treatment",1,4
+"A110402001","48","COLOCASIA FRUIT","Summer",11,3,1,2,2,2,0,3,80,45,2019,"SAPTARI","Treatment",1,4
+"A110402001","17","POINTED GOURD","Summer",11,3,2,2,1,2,0,3,90,60,2019,"SAPTARI","Treatment",1,4
+"T210709003","37","GREEN LEAFY VEGETABLE","Monsoon",3,7,1,2,2,2,10,3,0,0,2019,"SAPTARI","Treatment",1,4
+"T210709003","37","GREEN LEAFY VEGETABLE","Winter",7,11,1,2,2,3,5,3,0,0,2019,"SAPTARI","Treatment",1,6
+"T210408001","1","PADDY","Monsoon",4,7,20,1,0,0,3.5,1,0,0,2019,"SAPTARI","Treatment",1,0
+"T210408001","2","WHEAT","Winter",8,11,6,2,2,2,1.5,1,0,0,2019,"SAPTARI","Treatment",1,24
+"T109205004","1","PADDY","Monsoon",4,7,60,1,0,0,3.5,1,50,18,2019,"SAPTARI","Treatment",1,0
+"T109205004","2","WHEAT","Winter",8,11,35,2,3,2,1.5,1,50,28,2019,"SAPTARI","Treatment",1,210
+"T109205004","53","ONIONS","Winter",8,11,5,2,3,11,12,1,75,16,2019,"SAPTARI","Treatment",1,165
+"T109205004","43","MUSTARD","Winter",8,11,10,0,0,0,30,3,75,92,2019,"SAPTARI","Treatment",1,0
+"T109205004","33","RED LENTIL","Winter",8,11,10,0,0,0,25,3,75,78,2019,"SAPTARI","Treatment",1,0
+"T109205004","1","PADDY","Summer",12,3,5,2,4,12,0,0,0,0,2019,"SAPTARI","Treatment",1,240
+"T102007001","1","PADDY","Monsoon",3,6,40,2,2,2,3.5,1,75,18,2019,"SAPTARI","Treatment",1,160
+"T102007001","21","GREEN PEA","Winter",7,11,37,0,0,0,30,3,75,80,2019,"SAPTARI","Treatment",1,0
+"T102007001","53","ONIONS","Winter",7,11,3,2,2,7,5,1,50,18,2019,"SAPTARI","Treatment",1,42
+"T210708002","1","PADDY","Summer",12,3,8,2,3,10,0,0,0,0,2019,"SAPTARI","Treatment",1,240
+"T210101002","1","PADDY","Monsoon",3,8,113,2,2,3,4,1,80,21,2019,"SAPTARI","Treatment",1,678
+"T210101002","2","WHEAT","Winter",8,11,113,2,2,2,2,1,70,24,2019,"SAPTARI","Treatment",1,452
+"T210101002","14","BOTTLE GOURD","Summer",11,3,1,2,2,5,0,0,0,0,2019,"SAPTARI","Treatment",1,10
+"T210101002","10","OKRA","Summer",11,3,2,2,2,6,0,0,0,0,2019,"SAPTARI","Treatment",1,24
+"T203908001","1","PADDY","Monsoon",3,8,17,2,2,1,3,1,25,20,2019,"SAPTARI","Treatment",1,34
+"T203908001","2","WHEAT","Winter",8,12,10,2,2,3,2,1,0,0,2019,"SAPTARI","Treatment",1,60
+"T203908001","25","BLACK GRAM","Winter",8,12,7,2,0,0,10,3,0,0,2019,"SAPTARI","Treatment",1,0
+"T203908001","1","PADDY","Summer",12,3,17,2,3,4,0,3,0,0,2019,"SAPTARI","Treatment",1,204
+"T203901002","1","PADDY","Monsoon",3,8,280,2,1,3,2.5,1,0,0,2019,"SAPTARI","Treatment",1,840
+"T203901002","2","WHEAT","Winter",8,11,80,2,1,3,2,1,0,0,2019,"SAPTARI","Treatment",1,240
+"T203901002","43","MUSTARD","Winter",8,11,40,2,1,1,20,3,0,0,2019,"SAPTARI","Treatment",1,40
+"T203901002","25","BLACK GRAM","Winter",8,11,50,2,0,0,10,3,0,0,2019,"SAPTARI","Treatment",1,0
+"T203901002","42","LINSEED","Winter",8,11,20,2,0,0,20,3,0,0,2019,"SAPTARI","Treatment",1,0
+"T203901002","20","PEA","Winter",8,11,10,2,1,1,1,1,0,0,2019,"SAPTARI","Treatment",1,10
+"T203901002","47","POTATO","Winter",8,11,20,2,1,1,20,1,0,0,2019,"SAPTARI","Treatment",1,20
+"T203901002","53","ONIONS","Winter",8,11,5,2,1,13,20,1,0,0,2019,"SAPTARI","Treatment",1,65
+"T203901002","5","BARLEY","Winter",8,11,20,2,1,2,3,1,0,0,2019,"SAPTARI","Treatment",1,40
+"T203901002","14","BOTTLE GOURD","Winter",8,11,10,2,1,15,1,4,0,0,2019,"SAPTARI","Treatment",1,150
+"T203901002","13","PUMPKIN","Winter",8,11,10,2,1,10,2.5,4,0,0,2019,"SAPTARI","Treatment",1,100
+"T203901002","21","GREEN PEA","Winter",8,11,15,2,1,0,1,1,0,0,2019,"SAPTARI","Treatment",1,0
+"T103204001","1","PADDY","Monsoon",3,7,40,1,8,1,3,1,50,22,2019,"SAPTARI","Treatment",1,320
+"T103204001","2","WHEAT","Winter",8,12,14,3,0.5,6,50,3,0,0,2019,"SAPTARI","Treatment",1,42
+"T103204001","43","MUSTARD","Winter",3,12,8,2,8,1,25,3,0,0,2019,"SAPTARI","Treatment",1,64
+"T103204001","58","CORIANDER","Winter",8,12,2,2,7,2,5,3,0,0,2019,"SAPTARI","Treatment",1,28
+"T103204001","3","MAIZE","Summer",11,3,5,2,6,1,0,0,0,0,2019,"SAPTARI","Treatment",1,30
+"T109902001","1","PADDY","Monsoon",3,7,16,2,7,6,3.5,1,0,0,2019,"SAPTARI","Treatment",1,672
+"T109902001","47","POTATO","Winter",8,10,2,2,2,3,200,3,0,0,2019,"SAPTARI","Treatment",1,12
+"T109902001","13","PUMPKIN","Winter",8,10,4,2,2,4,2,1,0,0,2019,"SAPTARI","Treatment",1,32
+"T109902001","27","GREEN GRAM","Summer",11,3,8,1,0,0,0,0,0,0,2019,"SAPTARI","Treatment",1,0
+"T200103002","1","PADDY","Monsoon",3,7,104,2,1.5,2,3,1,80,20,2019,"SAPTARI","Treatment",1,312
+"T200103002","2","WHEAT","Winter",8,12,40,2,1.5,2,2,1,0,0,2019,"SAPTARI","Treatment",1,120
+"T210904001","1","PADDY","Monsoon",3,7,50,2,3,3,4,1,50,15,2019,"SAPTARI","Treatment",1,450
+"T210904001","2","WHEAT","Winter",7,11,45,2,3,1,2,1,50,20,2019,"SAPTARI","Treatment",1,135
+"T210904001","47","POTATO","Winter",7,11,2,2,3,1,10,1,0,0,2019,"SAPTARI","Treatment",1,6
+"T210904001","53","ONIONS","Winter",7,11,2,2,3,8,5,1,0,0,2019,"SAPTARI","Treatment",1,48
+"T210904001","11","CHILLIES","Winter",7,11,1,2,3,6,10,3,0,0,2019,"SAPTARI","Treatment",1,18
+"T210904001","10","OKRA","Summer",11,3,1,2,2,3,0,0,0,0,2019,"SAPTARI","Treatment",1,6
+"T210904001","9","BITTER GOURD","Summer",11,3,1,2,2,3,0,0,0,0,2019,"SAPTARI","Treatment",1,6
+"T210904001","13","PUMPKIN","Summer",11,3,1,2,3,6,0,0,0,0,2019,"SAPTARI","Treatment",1,18
+"T210904001","14","BOTTLE GOURD","Summer",11,3,1,2,3,4,0,0,0,0,2019,"SAPTARI","Treatment",1,12
+"T210904001","37","GREEN LEAFY VEGETABLE","Summer",11,3,1,2,3,7,0,0,0,0,2019,"SAPTARI","Treatment",1,21
+"T210904001","7","TOMATO","Summer",12,3,1,2,3,4,0,0,0,0,2019,"SAPTARI","Treatment",1,12
+"T110505001","1","PADDY","Monsoon",3,7,10,2,3,3,4,1,0,0,2019,"SAPTARI","Treatment",1,90
+"T110505001","2","WHEAT","Winter",8,12,10,2,3,4,3,1,0,0,2019,"SAPTARI","Treatment",1,120
+"T109203001","1","PADDY","Monsoon",3,7,27,2,1,2,4,1,50,20,2019,"SAPTARI","Treatment",1,54
+"T109203001","2","WHEAT","Winter",8,12,10,2,2,3,2,1,0,0,2019,"SAPTARI","Treatment",1,60
+"T109203001","6","CEREALS","Summer",2,2,3,2,2,20,0,0,0,0,2019,"SAPTARI","Treatment",1,120
+"T109203001","3","MAIZE","Summer",11,1,2,2,3,2,2,1,0,0,2019,"SAPTARI","Treatment",1,12
+"T109203001","11","CHILLIES","Summer",10,1,2,2,2,8,10,3,50,200,2019,"SAPTARI","Treatment",1,32
+"T109203001","24","HORSE GRAM","Summer",9,3,2,2,1,5,2,1,90,25,2019,"SAPTARI","Treatment",1,10
+"T205105003","1","PADDY","Monsoon",3,7,60,4,0,0,3,1,0,0,2019,"SAPTARI","Treatment",1,0
+"T205105003","2","WHEAT","Winter",8,12,5,2,5,2,1.5,1,0,0,2019,"SAPTARI","Treatment",1,50
+"T205105003","47","POTATO","Winter",8,11,1,2,4,1,8,1,0,0,2019,"SAPTARI","Treatment",1,4
+"T205105003","53","ONIONS","Winter",8,11,1,2,6,20,3,4,0,0,2019,"SAPTARI","Treatment",1,120
+"T205105003","3","MAIZE","Summer",12,3,1,2,5,5,0,0,0,0,2019,"SAPTARI","Treatment",1,25
+"T106605002","1","PADDY","Monsoon",3,7,25,2,2,2,3,1,50,20,2019,"SAPTARI","Treatment",1,100
+"T106605002","2","WHEAT","Winter",7,11,20,2,2,3,2,1,50,22,2019,"SAPTARI","Treatment",1,120
+"T106605002","47","POTATO","Winter",8,10,1,2,2,2,10,1,50,20,2019,"SAPTARI","Treatment",1,4
+"T106605002","44","CAULI","Winter",8,10,1,2,2,3,10,1,50,15,2019,"SAPTARI","Treatment",1,6
+"T106605002","51","RADISH","Winter",8,10,1,2,2,1,15,1,50,15,2019,"SAPTARI","Treatment",1,2
+"T106605002","7","TOMATO","Winter",8,10,1,2,2,4,50,3,75,30,2019,"SAPTARI","Treatment",1,8
+"T106605002","33","OTHER PULSES","Winter",8,11,1,2,0,0,10,3,0,0,2019,"SAPTARI","Treatment",1,0
+"T106605002","1","PADDY","Summer",11,3,4,2,2,4,0,0,0,0,2019,"SAPTARI","Treatment",1,32
+"T106605002","43","MUSTARD","Summer",11,3,2,2,2,2,0,0,0,0,2019,"SAPTARI","Treatment",1,8
+"T106605002","9","BITTER GOURD","Summer",11,3,1,2,2,2,0,0,0,0,2019,"SAPTARI","Treatment",1,4
+"T106605002","30","YARD LONG","Summer",11,3,1,2,2,5,0,0,0,0,2019,"SAPTARI","Treatment",1,10
+"T106605002","10","OKRA","Summer",11,3,1,2,2,5,0,0,0,0,2019,"SAPTARI","Treatment",1,10
+"T106605002","11","CHILLIES","Summer",11,3,1,2,2,6,0,0,0,0,2019,"SAPTARI","Treatment",1,12
+"T106604004","1","PADDY","Monsoon",3,8,30,2,2,3,3,1,50,20,2019,"SAPTARI","Control",0,180
+"T106604004","43","MUSTARD","Winter",8,11,2,2,2,5,25,3,0,0,2019,"SAPTARI","Control",0,20
+"T106604004","33","OTHER PULSES","Winter",8,11,5,2,2,2,40,3,60,100,2019,"SAPTARI","Control",0,20
+"T106604004","47","POTATO","Winter",8,11,2,2,2,2,8,1,70,25,2019,"SAPTARI","Control",0,8
+"T106604004","42","LINSEED","Winter",8,11,2,2,2,3,20,3,65,40,2019,"SAPTARI","Control",0,12
+"T106604004","53","ONIONS","Winter",8,11,2,2,2,4,200,3,60,24,2019,"SAPTARI","Control",0,16
+"T106604004","44","CAULIFLOWER","Winter",11,3,2,2,2,5,250,3,70,18,2019,"SAPTARI","Control",0,20
+"T106604004","3","MAIZE","Summer",11,3,5,2,2,5,4,4,100,25,2019,"SAPTARI","Control",0,50
+"T106604004","37","GREEN LEAFY VEGETABLE","Summer",11,3,3,2,2,7,40,3,50,20,2019,"SAPTARI","Control",0,42

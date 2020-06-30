@@ -28,7 +28,7 @@ old_talya <- old_talya %>% mutate(ty_harvest_kg_ac = harvest_KG_talya100 /acre,
                           ty_revenue_ac = revenue_TALYA100 /acre,
                           ctrl_revenue_ac = revenue_CONTROL /control_ac)
 
-old_talya <- old_talya %>% group_by(id) %>% 
+old_talya <- old_talya %>% group_by(id) %>%
   summarise_at(vars(ty_harvest_kg_ac :ctrl_revenue_ac), sum, na.rm = TRUE)
 
 old_talya <- old_talya[c(1:3,5:6,8:9),]
