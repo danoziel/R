@@ -2,30 +2,37 @@
 # In the following variables: total_land_cultivated_year>0  to omit HH 
 # butttt Including the value 0 in the variables themselves 
 
-# total_ownland_cultivated   [4.4]  ----   
+# total_ownland_cultivated  -Summer [4.4]  ----   
 df2 <- Land_18_19%>% 
-  filter(total_land_cultivated_year>0) %>%
+  filter(total_land_cultivated_year>0,season=="Summer") %>%
   group_by(year,TreatmentControl, household_questionnaire_id) %>%
-  summarise(own=sum(total_ownland_cultivated)*0.0338) %>% 
+  summarise(own=total_ownland_cultivated*0.0338) %>% 
   group_by(year, TreatmentControl) %>%
   summarise(N=n(), own=mean(own)) %>% 
   mutate(across(is.numeric, round, 2))
 
-# total_land_cultivated     [4.8]   ----   
+tribble(~" " ,~N,~mean,~N,~mean,2018,107,  0.23,26 , 0.72 , 2019, 95 , 0.31,22,1.14)
+
+# Gross Cropped Area- total_land_cultivated     [4.8]   ----   
 Land_18_19%>% 
   filter(total_land_cultivated_year>0) %>%
   group_by(year,TreatmentControl, household_questionnaire_id) %>%
   summarise(cult=sum(total_land_cultivated)*0.0338) %>% 
   group_by(year, TreatmentControl) %>%
-  summarise(N=n(), cult=mean(cult))
+  summarise(N=n(), Mean=mean(cult))
+
 
 # crop_intensity           [4.0]   ----    
-x <- Land_18_19%>% 
+df <- Land_18_19%>% 
   filter(total_land_cultivated_year>0) %>%
+  mutate(NEW_total_land_cult= case_when(
+    TreatmentControl=="Control" & land_for_cultivation < total_land_cultivated ~ NA_integer_,
+    TRUE ~ total_land_cultivated)) %>% 
   group_by(year,TreatmentControl, household_questionnaire_id) %>%
-  summarise(cult=sum(total_land_cultivated),net=mean(nca))%>%mutate(ci=cult/net*100) %>% 
+  summarise(cult=sum(NEW_total_land_cult,na.rm = T),net=mean(land_for_cultivation))%>%
+    mutate(ci=cult/net*100) %>% 
   group_by(year, TreatmentControl) %>%
-  summarise(N=n(),crop_intensity=mean(ci)) %>% 
+  summarise(N=n(),crop_intensity=mean(ci,na.rm = T)) %>% 
   mutate(across(is.numeric, round, 2))
 
 
@@ -39,25 +46,18 @@ Land_18_19%>%
   summarise(N=n(), irrigated=mean(irrigated))
 
 
-
 # Time to irrigate 1 ha [6.21] ----
 # How long does it take to irrigate 1 katha of land with this pump, in min? [6.21]
 Wem_18_19_time_to_irrigate_1_ha <- bind_rows(Water_extraction_mechanism_Baseline_2018_[,c(140,1,73)],
                                              Water_extraction_mechanism_Endline_EPC_2019_[,c(136,1,70)] ) %>%
   inner_join(Control_and_treatment_4_districts) %>% 
-  filter(!is.na(time_to_irrigate_1_katha__p_1)) %>%
+  
+  # filter(!is.na(time_to_irrigate_1_katha__p_1)) %>%
+Wem_18_19_time_to_irrigate_1_ha$time_to_irrigate_1_katha__p_1[is.na(Wem_18_19_time_to_irrigate_1_ha$time_to_irrigate_1_katha__p_1)] <- 0
+
+Wem_18_19_time_to_irrigate_1_ha %>%
   group_by(year,TreatmentControl) %>% 
   summarise(N=n(),mean(time_to_irrigate_1_katha__p_1)/60/0.0339)
-
-
-
-
-
-
-
-
-
-
 
 
 # irrigation- IN HOURS By year [5.0]----
@@ -73,27 +73,26 @@ c <- Agriculture_18_19 %>% filter(season_of_crop!="Annual") %>%
   group_by(year,season_of_crop,TreatmentControl,household_questionnaire_id) %>%
   summarise(hr_per_ha=mean(hrs_irr_1katha)/0.0339,irrigate_hr=sum(irri_for_season))%>% 
   group_by(TreatmentControl,season_of_crop,year) %>%
-  summarise(n=n(),average_hr_per_ha=mean(hr_per_ha,na.rm = T),
+  summarise(average_hr_per_ha=mean(hr_per_ha,na.rm = T),
             total_irrigate_hr=mean(irrigate_hr,na.rm = T)) %>% 
   mutate(across(is.numeric, round, 2))
 
 
-  # irrigate_intensity [4.0] year----
-  irri_inten_y <- Land_18_19 %>% filter(season!="Annual") %>% 
-  filter(total_land_cultivated_year>0) %>%
-  mutate(ii=irrigated_out_of_tot_land_cult/nca) %>%
-  group_by(TreatmentControl, season,year,household_questionnaire_id) %>%
-  summarise(irrigate_intensity=sum(ii)) %>% 
+
+  # irrigate_intensity [4.8][4.9]	 year----
+irri_inten_y <- Land_18_19 %>% filter(total_land_cultivated_year>0,season!="Annual") %>% 
   group_by(TreatmentControl,year,household_questionnaire_id) %>%
-  summarise(ir_in=sum(irrigate_intensity)) %>% 
-  summarise(N=n(),`Irrigation Intensity`=mean(ir_in)*100) %>% 
-  mutate(across(is.numeric, round, 2))
+  summarise(gross_irri=sum(irrigated_out_of_tot_land_cult),gross_crop=sum(total_land_cultivated),ii=gross_irri/gross_crop*100) %>% 
+  filter(ii>= 0,ii<=100) %>% 
+  group_by(TreatmentControl,year) %>% 
+    summarise(N=n(),Mean=mean(ii)) %>% 
+    mutate(across(is.numeric, round, 2))  
 
-iyc <- irri_inten_y[1:2,]
+iyc <- irri_inten_y[1:2,-1]
 iyt <- irri_inten_y[3:4,3:4]
-iyc_iyt <- cbind(iyc,iyt)[,-1]
+iyc_iyt <- cbind(iyc,iyt)
 
-kable(iyc_iyt, "latex",col.names = c("Year","N","Intensity","N","Intensity"), booktabs = T,align = "lcccc",linesep = "") %>%
+kable(iyc_iyt,col.names = c("Year","N","Intensity","N","Intensity"), booktabs = T,align = "lcccc",linesep = "") %>%
   column_spec(1, bold = T) %>%
   kable_styling(latex_options = "striped", position = "left") %>% 
   column_spec(1:5, width = "1.5cm",border_left = F) %>%
@@ -102,12 +101,12 @@ kable(iyc_iyt, "latex",col.names = c("Year","N","Intensity","N","Intensity"), bo
   add_header_above(c(" " = 1, "Control" = 2, "Treatment" = 2), bold = F, align = "c")
 
   # irrigate_intensity [4.0] seasons----
-  irri_inten_s <- Land_18_19 %>% filter(season!="Annual") %>% 
-  filter(total_land_cultivated_year>0) %>%
-  mutate(ii=irrigated_out_of_tot_land_cult/nca) %>%
-  group_by(TreatmentControl, season,year,household_questionnaire_id) %>%
-  summarise(irrigate_intensity=sum(ii)) %>% 
-  summarise(N=n(),`Irrigation Intensity`=mean(irrigate_intensity)*100) %>% 
+  irri_inten_s <- 
+Land_18_19 %>% filter(total_land_cultivated_year>0,season!="Annual") %>% 
+  mutate(irrigation_intens=irrigated_out_of_tot_land_cult/total_land_cultivated*100) %>% 
+  filter(irrigation_intens>= 0,irrigation_intens<=100) %>% 
+  group_by(TreatmentControl,season,year) %>% 
+  summarise(n(),mean(irrigation_intens)) %>% 
   mutate(across(is.numeric, round, 2))
 
 iic <-irri_inten[1:6,]
@@ -123,6 +122,21 @@ kable(iic_iit,col.names = c("Season","Year","N","mean","N","mean"), booktabs = T
   row_spec(0, font_size= 9) %>% 
   add_header_above(c(" " = 2, "Control" = 2, "Treatment" = 2), bold = F, align = "c")
 
+# Frequency of households who irrigate [4.9]	
+df <- Land_18_19 %>% filter(irrigated_out_of_tot_land_cult>0,season!="Annual") %>% 
+  group_by(TreatmentControl,season,year) %>% count()
+
+scdf <- Land_18_19 %>% filter(season!="Annual") %>% 
+  group_by(TreatmentControl,season,year) %>%summarise(N=n()) %>% 
+  right_join(df) %>% mutate(per=n/N*100)
+
+  
+# Frequency of households who irrigate [4.9]----	
+
+rcount <- Land_18_19 %>% filter(irrigated_out_of_tot_land_cult>0,season!="Annual") %>% 
+  group_by(TreatmentControl,season,year) %>% count()
+
+
 # fuel [7.16]----
 #  Total litres of diesel/kerosene consumed for agriculture pumps in a YEAR
 fuel_Proc <- Procurement_18_19 %>%  
@@ -136,8 +150,9 @@ fuel_Proc <- Procurement_18_19 %>%
 # fuel [6.2]----
 # fuel use by the 'Water_extraction_mechanism'files
 
+wem_liter_fuel_18_19 <- wem_liter_fuel_18_19%>% inner_join(Control_and_treatment_4_districts)
+
 wem_liter_fuel_18_19%>%
-  inner_join(Control_and_treatment_4_districts) %>%
   group_by(TreatmentControl,year) %>% 
   summarise(Monsoon=mean(p123_m,na.rm = T),
             Summer=mean(p123_s,na.rm = T),Winter=mean(p123_w,na.rm = T),
@@ -145,20 +160,36 @@ wem_liter_fuel_18_19%>%
 
 
 
+# Frequency of households who use fuel----
+
+# The number of farmers who purchase fuels
+# is the number of fuel pump owners - 
+#   the rest use electricity pumps
+
+#[7.12] Did you buy fuel for the pump?
+per <- Procurement_18_19 %>%
+  filter(!is.na(do_you_buy_fuel_for_the_pump)) %>% 
+  group_by(TreatmentControl,year,do_you_buy_fuel_for_the_pump) %>%
+  count() %>% group_by(TreatmentControl,year) %>%
+  summarise(sum(n))
+
+fuelcount <- Procurement_18_19 %>%filter(do_you_buy_fuel_for_the_pump==1) %>% 
+  group_by(TreatmentControl,year,do_you_buy_fuel_for_the_pump) %>% count() %>% 
+  right_join(per) %>% mutate(P=n/`sum(n)`*100,across(is.numeric, round)) 
 
 
+# aquaculture [4.1c]-----
+
+lands_I_18_19 <- rbind(Lands_I_Baseline_2018_,Lands_I_Endline_EPC_2019_) %>% 
+  inner_join(Control_and_treatment_4_districts)
 
 
+lands_I_18_19 %>% filter(land_for_aquaculture_ponds>0,land_for_aquaculture_ponds<300) %>% 
+  group_by(TreatmentControl,year) %>% 
+  summarise(N=n(),Mean= mean(land_for_aquaculture_ponds,na.rm = T)*0.0339)
 
-
-
-
-
-
-
-# Aquaculture----
-R_Aquaculture_Endline_EPC_2019_ <- inner_join(Aquaculture_Endline_EPC_2019_,Control_and_treatment_4_districts)
-
+------------------------to be continued-----------------------------------------------------
+  
 # [11.1] Do you practice aquaculture/fish farming? # 1 Yes # 2 No #
 
 
@@ -287,6 +318,11 @@ x <- Agriculture_18_19 %>% group_by(year,TreatmentControl, household_questionnai
 
 # buy fuel----
 מספר החקלאים שרוכשים דלקים הוא מספר בעלי המשאבות דלק- כל השאר משתמשים במשאבות חשמל
+
+# The number of farmers who purchase fuels
+# is the number of fuel pump owners - 
+#   the rest use electricity pumps
+
 #[7.12] Did you buy fuel for the pump?
 Procurement_18_19 %>%filter(do_you_buy_fuel_for_the_pump==1) %>% 
   group_by(TreatmentControl,year,do_you_buy_fuel_for_the_pump) %>% tally()
@@ -329,4 +365,25 @@ a <- R_Demography_2_Baseline_2018_ %>% select(1,37,35,38,39,41,40,63) %>%
 a <- R_Demography_2_Endline_EPC_2019_ %>% select(1,37,35,38,39,41,40,63) %>%
   filter(diesel_pump!=0 | cd_pump_vuplator!=0,TC==1)
 
+#------------------------------------------------------------------------------
 
+```{r HH irrigate2 , echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+rcount <- Land_18_19 %>% filter(irrigated_out_of_tot_land_cult>0,season!="Annual") %>% 
+  group_by(TreatmentControl,season,year) %>% count()
+
+rcount <-spread(rcount, TreatmentControl, n)
+
+scr <-cbind(rcount[1:2,-1],rcount[3:4,3:4],rcount[5:6,3:4])
+
+kable(scr, col.names = c(" ","Control","Treatment","Control","Treatment","Control","Treatment"), booktabs = T,align = "lcccccc",linesep = "") %>%
+  column_spec(1, bold = T) %>%
+  kable_styling(latex_options = "striped",stripe_index = 0, position = "left") %>% 
+  column_spec(1:7, width = "1.5cm",border_left = F) %>%
+  column_spec(3,border_right = T ,width = "1.5cm") %>% 
+  column_spec(5,border_right = T ,width = "1.5cm") %>% 
+  row_spec(0, font_size= 7) %>% 
+  add_header_above(c("RBS" = 1, " " = 2, " " = 2," " =2), bold = F, align = "c")
+
+
+```

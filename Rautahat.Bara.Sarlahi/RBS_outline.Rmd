@@ -1,5 +1,5 @@
 ---
-title: "outline"
+title: "Rautahat Bara Sarlahi"
 output:
   pdf_document: default
   word_document: default
@@ -12,31 +12,33 @@ library(kableExtra)
 library(formattable)
 library(knitr)
 opts_chunk$set(echo = FALSE)
+
+Land_18_19 <- read.csv("~/R/Rautahat.Bara.Sarlahi/data/Land_18_19.csv")
+lands_I_18_19 <- read.csv("~/R/Rautahat.Bara.Sarlahi/data/lands_I_18_19.csv")
 ```
 
 
 ---  
 
-4. LAND
+4.0 LAND 
 
-5. AGRICULTURE 
+5.0 AGRICULTURE 
 
 6.2 WEM
 
-7. PROCUREMENT
+7.0 PROCUREMENT
  
 
  
 
 
 
-## Land
+##  Land
 
 &nbsp;
 
-&nbsp;
 
-Table 1.1: Total Ownland Cultivated [4.4]
+Table 1: Total Ownland Cultivated [4.4]
 ```{r total_ownland_cultivated, echo=FALSE}
 
 dt <-tribble(~" " ,~N,~mean,~N,~mean,2018,105,3.74,24,5.36, 2019,95,3.59,22,7.05)
@@ -44,6 +46,7 @@ dt <-tribble(~" " ,~N,~mean,~N,~mean,2018,105,3.74,24,5.36, 2019,95,3.59,22,7.05
 kable(dt, "latex", booktabs = T, align = "lcccc",linesep = "") %>%
 kable_styling(latex_options = "striped", stripe_index = 2,position = "left") %>% 
 column_spec(1:5, width = "1.5cm",border_left = F) %>% column_spec(3,border_right = T ,width = "1.5cm") %>%
+row_spec(0, font_size= 8) %>% 
 add_header_above(c(" " = 1, "Control" = 2, "Treatment" = 2), bold = F, align = "c")
 
 ```
@@ -51,14 +54,14 @@ add_header_above(c(" " = 1, "Control" = 2, "Treatment" = 2), bold = F, align = "
 
 &nbsp;
 
-Table 1.2: Total Land Cultivated [4.8]
-```{r total_land_cultivated, echo=FALSE}
+Table 2: Total Land Cultivated [4.8]
+```{r  total_land_cultivated, echo=FALSE}
 
 dt2 <-tribble(~" " ,~N,~mean,~N,~mean,2018,105,3.99,24,5.46,2019,95,3.66,22,7.07)
 
 kable(dt2, "latex", booktabs = T,align = "lcccc",linesep = "") %>%
 kable_styling(latex_options = "striped", stripe_index = 2,position = "left") %>% 
-column_spec(1:5, width = "1.5cm",border_left = F) %>% column_spec(3,border_right = T ,width = "1.5cm") %>%
+column_spec(1:5, width = "1.5cm",border_left = F) %>% column_spec(3,border_right = T ,width = "1.5cm") %>%row_spec(0, font_size= 8) %>%
 add_header_above(c(" " = 1, "Control" = 2, "Treatment" = 2), bold = F, align = "c")
 
 ```
@@ -66,13 +69,13 @@ add_header_above(c(" " = 1, "Control" = 2, "Treatment" = 2), bold = F, align = "
 
 &nbsp;
 
-Table : Crop Intensity [4.0]
-```{r  Crop Intensity, echo=FALSE}
+Table 3: Crop Intensity [4.0]
+```{r   Crop Intensity, echo=FALSE}
 
 dtci <-tribble(~" ",~N,~mean,~N,~mean,2018,105,"206%",24,"204%" ,2019,95,"194%",22,"185%")
 kable(dtci, "latex", booktabs = T,align = "lcccc",linesep = "") %>%
 kable_styling(latex_options = "striped", stripe_index = 2,position = "left") %>% 
-column_spec(1:5, width = "1.5cm",border_left = F) %>% column_spec(3,border_right = T ,width = "1.5cm") %>%
+column_spec(1:5, width = "1.5cm",border_left = F) %>% column_spec(3,border_right = T ,width = "1.5cm") %>%row_spec(0, font_size= 8) %>%
 add_header_above(c(" " = 1, "Control" = 2, "Treatment" = 2), bold = F, align = "c")
 
 ```
@@ -80,45 +83,50 @@ add_header_above(c(" " = 1, "Control" = 2, "Treatment" = 2), bold = F, align = "
 
 &nbsp;
 
-
-2018,105,206%,24,204% ,2019,95,194%,22,185%
-
-
-
-
 ## Irrigation
+
+> Iirrigated area in acre
+
+> Irrigation in hours
+
+>Irrigation intensity
+
+&nbsp;
 
 __Iirrigated area in acre__  
 the average irrigated area in acre for a farmer in a year
- 
-__Irrigation in Hours__  
-number of hours by year an season
- 
-__Irrigation Intensity__  
-jdhffgbv ivugosi idnsgvysg indvs  
-&nbsp;
 
-Table 3: Irrigated Out Of Total Land Cultivated (In ha) [4.9]
-```{r irrigated_out_of [4.9] , echo=FALSE}
+Table 4: Irrigated Out Of Total Land Cultivated (In ha) [4.9]
+```{r irrigated_out_of [4.9] , echo=FALSE,message=FALSE, warning=FALSE, paged.print=FALSE}
+Table_4 <- Land_18_19%>% 
+  filter(total_land_cultivated_year>0) %>%
+  group_by(year,TreatmentControl, household_questionnaire_id) %>%
+  summarise(irrigated=sum(irrigated_out_of_tot_land_cult)*0.0338) %>% 
+  group_by(year, TreatmentControl) %>%
+  summarise(N=n(), irrigated=mean(irrigated))
 
 dt2 <-tribble(~" " ,~N,~mean,~N,~mean,2018,105,2.48,24,3.94,2019,95,3.21,22,5.13)
+
 kable(dt2, "latex", booktabs = T,align = "lcccc",linesep = "") %>%
 kable_styling(latex_options = "striped", stripe_index = 2,position = "left") %>% 
 column_spec(1:5, width = "1.5cm",border_left = F) %>% column_spec(3,border_right = T ,width = "1.5cm") %>%
 add_header_above(c(" " = 1, "Control" = 2, "Treatment" = 2), bold = F, align = "c")
 
+HH <-tribble(~" " ,~"Control" , ~"Treatment",2018,98,24,2019,95,21)
+
+
 ```
 &nbsp;
 
 &nbsp;
 
-Irrigation in Hours for a HH
-&nbsp;
+__Irrigation in Hours__  
+number of hours by year an season&nbsp;
 
-Table : Time to irrigate 1 ha [6.21]
+Table 5 : Time to irrigate 1 ha [6.21]  
 ```{r  irrigate 1 ha [6.21], echo=FALSE}
 
-dtwem <-tribble(~" " ,~N,~mean,~N,~mean,2018,77,32.7,27,23.1,2019,56,29,30,32)
+dtwem <-tribble(~" " ,~N,~mean,~N,~mean,2018,107,24,30,21,2019,100,16,30,32)
 
 kable(dtwem, "latex", booktabs = T,align = "lcccc",linesep = "") %>%
 kable_styling(latex_options = "striped", stripe_index = 2,position = "left") %>% 
@@ -128,7 +136,7 @@ add_header_above(c(" " = 1, "Control" = 2, "Treatment" = 2), bold = F, align = "
 ```
 &nbsp;
 
-Table 4.1: By year [5.0]
+Table 6: By year [5.0]
 ```{r irri By year [5.0], echo=FALSE}
 
 dt2 <-tribble(~" " ,~N ,~"mean 1 ha" ,~"Total",~N ,~"mean 1 ha" ,~"Total" ,2018,107,28.0,348,26,21.6,244,2019,95,26.0,396,21,22.2,456)
@@ -142,11 +150,9 @@ add_header_above(c(" " = 1, "Control" = 3, "Treatment" = 3), bold = F, align = "
 &nbsp;
 
 &nbsp;
-~N ,~average_hr_per_ha ,~total_irrigate_hr,~N ,~average_hr_per_ha ,~total_irrigate_hr,
 
- 
 
->Table 4.2: By seasons [5.0]
+Table 7: By seasons [5.0]
 
 ```{r irri By seasons [5.0], echo=FALSE,message=FALSE, warning=FALSE, paged.print=FALSE}
 Agriculture_18_19 <- read.csv("~/R/Rautahat.Bara.Sarlahi/data/Agriculture_18_19.csv")
@@ -174,20 +180,19 @@ add_header_above(c(" " = 2, "Control" = 3, "Treatment" = 3), bold = F, align = "
 ```
 
 
-# Irrigation Intensity 
+__Irrigation Intensity__  
+jdhffgbv ivugosi idnsgvysg indvs 
 
-by year[4.0]
+Table 7: by year[4.0]
 ```{r year irri_intensity [4.0], echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
-irri_inten_y <- Land_18_19 %>% filter(season!="Annual") %>% 
-  filter(total_land_cultivated_year>0) %>%
-  mutate(ii=irrigated_out_of_tot_land_cult/nca) %>%
-  group_by(TreatmentControl, season,year,household_questionnaire_id) %>%
-  summarise(irrigate_intensity=sum(ii)) %>% 
+irri_inten_y <- Land_18_19 %>% filter(total_land_cultivated_year>0,season!="Annual") %>% 
   group_by(TreatmentControl,year,household_questionnaire_id) %>%
-  summarise(ir_in=sum(irrigate_intensity)) %>% 
-  summarise(N=n(),`Irrigation Intensity`=mean(ir_in)*100) %>% 
-  mutate(across(is.numeric, round, 2))
+  summarise(gross_irri=sum(irrigated_out_of_tot_land_cult),gross_crop=sum(total_land_cultivated),ii=gross_irri/gross_crop*100) %>% 
+  filter(ii>= 0,ii<=100) %>% 
+  group_by(TreatmentControl,year) %>% 
+    summarise(N=n(),Mean=mean(ii)) %>% 
+    mutate(across(is.numeric, round, 2)) 
 
 iyc <- irri_inten_y[1:2,]
 iyt <- irri_inten_y[3:4,3:4]
@@ -205,15 +210,14 @@ kable(iyc_iyt, "latex",col.names = c("Year","N","Intensity","N","Intensity"), bo
 
 ```
 
-by season [4.0]
+Table 9: by season [4.0]
 ```{r seasons irri_intensity [4.0], echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
-irri_inten_s <- Land_18_19 %>% filter(season!="Annual") %>% 
-  filter(total_land_cultivated_year>0) %>%
-  mutate(ii=irrigated_out_of_tot_land_cult/nca) %>%
-  group_by(TreatmentControl, season,year,household_questionnaire_id) %>%
-  summarise(irrigate_intensity=sum(ii)) %>% 
-  summarise(N=n(),`Irrigation Intensity`=mean(irrigate_intensity)*100) %>% 
+irri_inten_s <- Land_18_19 %>% filter(total_land_cultivated_year>0,season!="Annual") %>% 
+  mutate(irrigation_intens=irrigated_out_of_tot_land_cult/total_land_cultivated*100) %>% 
+  filter(irrigation_intens>= 0,irrigation_intens<=100) %>% 
+  group_by(TreatmentControl,season,year) %>% 
+  summarise(N=n(), Mean= mean(irrigation_intens)) %>% 
   mutate(across(is.numeric, round, 2))
 
 iic <-irri_inten_s[1:6,]
@@ -231,9 +235,12 @@ kable(iic_iit,col.names = c("Season","Year","N","mean","N","mean"), booktabs = T
   
 ```
 
+# Frequency of households who irrigate [4.9]	
+df <- Land_18_19 %>% filter(irrigated_out_of_tot_land_cult>0,season!="Annual") %>% 
+  group_by(TreatmentControl,season,year) %>% count()
 
 ## fuel use
-Table :Total litres of diesel/kerosene consumed for agriculture pumps in a YEAR [7.16] 
+Table 10:Total litres of diesel/kerosene consumed for agriculture pumps in a YEAR [7.16] 
 ```{r fuel use Year [7.16], echo=FALSE}
 
 dt <-tribble(~" " ,~N,~mean,~N,~mean,2018,71,362,25,622, 2019,46,146,16,385)
@@ -253,7 +260,7 @@ add_header_above(c(" " = 1, "Control" = 2, "Treatment" = 2), bold = F, align = "
 &nbsp;
 
 
-Table :# fuel use by the 'Water_extraction_mechanism'files- [6.2] 
+Table 11:# fuel use by the 'Water_extraction_mechanism'files- [6.2] 
 ```{r fuel use Season & Year  [6.2] , echo=FALSE}
 
 fuel_wem <-tribble(~" " ,~N,~Summer,~Monsoon,~Winter,~Yearly,~N,~Summer,~Monsoon,~Winter,~Yearly,2018,71,121,94,61,276 ,27,160,140,170,470, 2019 ,56,42,7,40,89 ,28,136,55,71,262)
@@ -273,4 +280,14 @@ add_header_above(c(" " = 1, "Control" = 5, "Treatment" = 5), bold = F, align = "
 
 
 ## aquaculture
+
+Table 12 : land_for_aquaculture_ponds [4.1c]
+
+```{r}
+
+
+lands_I_18_19 %>% filter(land_for_aquaculture_ponds> 0,land_for_aquaculture_ponds<300) %>% 
+  group_by(TreatmentControl,year) %>% 
+  summarise(N=n(),Mean= mean(land_for_aquaculture_ponds,na.rm = T)*0.0339)
+```
 

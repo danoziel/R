@@ -1,0 +1,455 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Rautahat Bara Sarlahi},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+
+\title{Rautahat Bara Sarlahi}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+4.0 LAND
+
+5.0 AGRICULTURE
+
+6.2 WEM
+
+7.0 PROCUREMENT
+
+\hypertarget{land}{%
+\subsection{Land}\label{land}}
+
+~
+
+Table 1: Total Ownland Cultivated SUMMER {[}4.4{]}
+
+\begin{verbatim}
+## `summarise()` regrouping output by 'year', 'TreatmentControl' (override with `.groups` argument)
+\end{verbatim}
+
+\begin{verbatim}
+## `summarise()` regrouping output by 'year' (override with `.groups` argument)
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Predicate functions must be wrapped in `where()`.
+## 
+##   # Bad
+##   data %>% select(is.numeric)
+## 
+##   # Good
+##   data %>% select(where(is.numeric))
+## 
+## i Please update your code.
+## This message is displayed once per session.
+\end{verbatim}
+
+\begin{verbatim}
+## # A tibble: 4 x 4
+## # Groups:   year [2]
+##    year TreatmentControl     N   own
+##   <int> <chr>            <dbl> <dbl>
+## 1  2018 Control            107  0.23
+## 2  2018 Treatment           26  0.72
+## 3  2019 Control             95  0.31
+## 4  2019 Treatment           22  1.14
+\end{verbatim}
+
+\begin{tabular}{>{\raggedright\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}|>{\centering\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{2}{c}{Control} & \multicolumn{2}{c}{Treatment} \\
+\cmidrule(l{3pt}r{3pt}){2-3} \cmidrule(l{3pt}r{3pt}){4-5}
+\begingroup\fontsize{8}{10}\selectfont  \endgroup & \begingroup\fontsize{8}{10}\selectfont N\endgroup & \begingroup\fontsize{8}{10}\selectfont mean\endgroup & \begingroup\fontsize{8}{10}\selectfont N\endgroup & \begingroup\fontsize{8}{10}\selectfont mean\endgroup\\
+\midrule
+2018 & 107 & 0.23 & 26 & 0.72\\
+\rowcolor{gray!6}  2019 & 95 & 0.31 & 22 & 1.14\\
+\bottomrule
+\end{tabular}
+
+~
+
+~
+
+Table 2: Total Land Cultivated {[}4.8{]}
+
+\begin{tabular}{>{\raggedright\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}|>{\centering\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{2}{c}{Control} & \multicolumn{2}{c}{Treatment} \\
+\cmidrule(l{3pt}r{3pt}){2-3} \cmidrule(l{3pt}r{3pt}){4-5}
+\begingroup\fontsize{8}{10}\selectfont  \endgroup & \begingroup\fontsize{8}{10}\selectfont N\endgroup & \begingroup\fontsize{8}{10}\selectfont mean\endgroup & \begingroup\fontsize{8}{10}\selectfont N\endgroup & \begingroup\fontsize{8}{10}\selectfont mean\endgroup\\
+\midrule
+2018 & 107 & 4.04 & 26 & 5.33\\
+\rowcolor{gray!6}  2019 & 95 & 3.66 & 22 & 7.07\\
+\bottomrule
+\end{tabular}
+
+~
+
+~
+
+Table 3: Crop Intensity {[}4.0{]}
+
+\begin{tabular}{>{\raggedright\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}|>{\centering\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{2}{c}{Control} & \multicolumn{2}{c}{Treatment} \\
+\cmidrule(l{3pt}r{3pt}){2-3} \cmidrule(l{3pt}r{3pt}){4-5}
+\begingroup\fontsize{8}{10}\selectfont  \endgroup & \begingroup\fontsize{8}{10}\selectfont N\endgroup & \begingroup\fontsize{8}{10}\selectfont mean\endgroup & \begingroup\fontsize{8}{10}\selectfont N\endgroup & \begingroup\fontsize{8}{10}\selectfont mean\endgroup\\
+\midrule
+2018 & 107 & 171\% & 26 & 203\%\\
+\rowcolor{gray!6}  2019 & 95 & 177\% & 22 & 186\%\\
+\bottomrule
+\end{tabular}
+
+~
+
+~
+
+\hypertarget{irrigation}{%
+\subsection{Irrigation}\label{irrigation}}
+
+\begin{quote}
+Iirrigated area in acre
+\end{quote}
+
+\begin{quote}
+Irrigation in hours
+\end{quote}
+
+\begin{quote}
+Irrigation intensity
+\end{quote}
+
+~
+
+\textbf{Iirrigated area in acre}\\
+the average irrigated area in acre for a farmer in a year
+
+Table 4: Irrigated Out Of Total Land Cultivated (In ha) {[}4.9{]}
+
+\begin{tabular}{>{\raggedright\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}|>{\centering\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{2}{c}{Control} & \multicolumn{2}{c}{Treatment} \\
+\cmidrule(l{3pt}r{3pt}){2-3} \cmidrule(l{3pt}r{3pt}){4-5}
+  & N & mean & N & mean\\
+\midrule
+2018 & 107 & 2.55 & 26 & 3.88\\
+\rowcolor{gray!6}  2019 & 95 & 3.21 & 22 & 5.13\\
+\bottomrule
+\end{tabular}
+
+~
+
+~
+
+\textbf{Irrigation in Hours}\\
+number of hours by year an season~
+
+Table 5 : Time to irrigate 1 ha {[}6.21{]}
+
+\begin{tabular}{>{\raggedright\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}|>{\centering\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{2}{c}{Control} & \multicolumn{2}{c}{Treatment} \\
+\cmidrule(l{3pt}r{3pt}){2-3} \cmidrule(l{3pt}r{3pt}){4-5}
+  & N & mean & N & mean\\
+\midrule
+2018 & 107 & 24 & 30 & 21\\
+\rowcolor{gray!6}  2019 & 100 & 16 & 30 & 32\\
+\bottomrule
+\end{tabular}
+
+~
+
+Table 6: By year {[}5.0{]}
+
+\begin{tabular}{>{\raggedright\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}|>{\centering\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{3}{c}{Control} & \multicolumn{3}{c}{Treatment} \\
+\cmidrule(l{3pt}r{3pt}){2-4} \cmidrule(l{3pt}r{3pt}){5-7}
+\begingroup\fontsize{9}{11}\selectfont  \endgroup & \begingroup\fontsize{9}{11}\selectfont N\endgroup & \begingroup\fontsize{9}{11}\selectfont mean 1 ha\endgroup & \begingroup\fontsize{9}{11}\selectfont Total\endgroup & \begingroup\fontsize{9}{11}\selectfont N\endgroup & \begingroup\fontsize{9}{11}\selectfont mean 1 ha\endgroup & \begingroup\fontsize{9}{11}\selectfont Total\endgroup\\
+\midrule
+2018 & 107 & 28 & 348 & 26 & 21.6 & 244\\
+\rowcolor{gray!6}  2019 & 95 & 26 & 396 & 21 & 22.2 & 456\\
+\bottomrule
+\end{tabular}
+
+~
+
+~
+
+Table 7: By seasons {[}5.0{]}
+
+\begin{tabular}{>{\raggedright\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}|>{\centering\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}l}
+\toprule
+\multicolumn{2}{c}{ } & \multicolumn{3}{c}{Control} & \multicolumn{3}{c}{Treatment} \\
+\cmidrule(l{3pt}r{3pt}){3-5} \cmidrule(l{3pt}r{3pt}){6-8}
+\begingroup\fontsize{9}{11}\selectfont Season\endgroup & \begingroup\fontsize{9}{11}\selectfont Year\endgroup & \begingroup\fontsize{9}{11}\selectfont N\endgroup & \begingroup\fontsize{9}{11}\selectfont mean 1 ha\endgroup & \begingroup\fontsize{9}{11}\selectfont Total\endgroup & \begingroup\fontsize{9}{11}\selectfont N\endgroup & \begingroup\fontsize{9}{11}\selectfont mean 1 ha\endgroup & \begingroup\fontsize{9}{11}\selectfont Total\endgroup\\
+\midrule
+\rowcolor{gray!6}   & 2018 & 105 & 30.95 & 208.12 & 25 & 20.84 & 117.09\\
+\cmidrule{2-8}
+\multirow[t]{-2}{*}{\raggedright\arraybackslash Monsoon} & 2019 & 94 & 32.32 & 252.80 & 21 & 30.90 & 316.19\\
+\cmidrule{1-8}
+\rowcolor{gray!6}   & 2018 & 33 & 35.09 & 143.55 & 7 & 22.12 & 111.21\\
+\cmidrule{2-8}
+\multirow[t]{-2}{*}{\raggedright\arraybackslash Summer} & 2019 & 38 & 16.50 & 50.61 & 11 & 13.41 & 84.91\\
+\cmidrule{1-8}
+\rowcolor{gray!6}   & 2018 & 105 & 24.39 & 80.95 & 25 & 19.01 & 53.67\\
+\cmidrule{2-8}
+\multirow[t]{-2}{*}{\raggedright\arraybackslash Winter} & 2019 & 94 & 25.29 & 91.94 & 21 & 20.49 & 89.43\\
+\bottomrule
+\end{tabular}
+
+\textbf{Irrigation Intensity}\\
+jdhffgbv ivugosi idnsgvysg indvs
+
+Table 7: by year{[}4.0{]}
+
+\begin{tabular}{>{\raggedright\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}|>{\centering\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{2}{c}{Control} & \multicolumn{2}{c}{Treatment} \\
+\cmidrule(l{3pt}r{3pt}){2-3} \cmidrule(l{3pt}r{3pt}){4-5}
+\begingroup\fontsize{9}{11}\selectfont Year\endgroup & \begingroup\fontsize{9}{11}\selectfont N\endgroup & \begingroup\fontsize{9}{11}\selectfont Intensity\endgroup & \begingroup\fontsize{9}{11}\selectfont N\endgroup & \begingroup\fontsize{9}{11}\selectfont Intensity\endgroup\\
+\midrule
+\rowcolor{gray!6}  2018 & 104 & 65.23 & 26 & 79.27\\
+2019 & 94 & 88.75 & 22 & 85.07\\
+\bottomrule
+\end{tabular}
+
+Table 9: by season {[}4.0{]}
+
+\begin{tabular}{>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}|>{\centering\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}}
+\toprule
+\multicolumn{2}{c}{ } & \multicolumn{2}{c}{Control} & \multicolumn{2}{c}{Treatment} \\
+\cmidrule(l{3pt}r{3pt}){3-4} \cmidrule(l{3pt}r{3pt}){5-6}
+\begingroup\fontsize{9}{11}\selectfont Season\endgroup & \begingroup\fontsize{9}{11}\selectfont Year\endgroup & \begingroup\fontsize{9}{11}\selectfont N\endgroup & \begingroup\fontsize{9}{11}\selectfont mean\endgroup & \begingroup\fontsize{9}{11}\selectfont N\endgroup & \begingroup\fontsize{9}{11}\selectfont mean\endgroup\\
+\midrule
+\rowcolor{gray!6}   & 2018 & 104 & 71.10 & 26 & 92.75\\
+\cmidrule{2-6}
+\multirow[t]{-2}{1.5cm}{\raggedright\arraybackslash Monsoon} & 2019 & 95 & 98.39 & 22 & 95.45\\
+\cmidrule{1-6}
+\rowcolor{gray!6}   & 2018 & 34 & 66.54 & 10 & 90.00\\
+\cmidrule{2-6}
+\multirow[t]{-2}{1.5cm}{\raggedright\arraybackslash Summer} & 2019 & 37 & 63.09 & 12 & 75.00\\
+\cmidrule{1-6}
+\rowcolor{gray!6}   & 2018 & 104 & 59.29 & 26 & 63.42\\
+\cmidrule{2-6}
+\multirow[t]{-2}{1.5cm}{\raggedright\arraybackslash Winter} & 2019 & 94 & 83.31 & 22 & 78.57\\
+\bottomrule
+\end{tabular}
+
+\hypertarget{frequency-of-households-who-irrigate-4.9}{%
+\section{Frequency of households who irrigate
+{[}4.9{]}}\label{frequency-of-households-who-irrigate-4.9}}
+
+df \textless- Land\_18\_19 \%\textgreater\%
+filter(irrigated\_out\_of\_tot\_land\_cult\textgreater0,season!=``Annual'')
+\%\textgreater\% group\_by(TreatmentControl,season,year)
+\%\textgreater\% count()
+
+\hypertarget{fuel-use}{%
+\subsection{fuel use}\label{fuel-use}}
+
+Table 10:Total litres of diesel/kerosene consumed for agriculture pumps
+in a YEAR {[}7.16{]}
+
+\begin{tabular}{>{\raggedright\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}|>{\centering\arraybackslash}p{1.5cm}>{\centering\arraybackslash}p{1.5cm}}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{2}{c}{Control} & \multicolumn{2}{c}{Treatment} \\
+\cmidrule(l{3pt}r{3pt}){2-3} \cmidrule(l{3pt}r{3pt}){4-5}
+  & N & mean & N & mean\\
+\midrule
+2018 & 71 & 362 & 25 & 622\\
+\rowcolor{gray!6}  2019 & 46 & 146 & 16 & 385\\
+\bottomrule
+\end{tabular}
+
+1 Control 2018 71 362.3 Treatment 2018 25 622.
+
+2 Control 2019 46 146.4 Treatment 2019 16 385.
+
+~
+
+Table 11:\# fuel use by the 'Water\_extraction\_mechanism'files-
+{[}6.2{]}
+
+\begin{tabular}{l>{\centering\arraybackslash}p{1cm}>{\centering\arraybackslash}p{1cm}>{\centering\arraybackslash}p{1cm}>{\centering\arraybackslash}p{1cm}>{\centering\arraybackslash}p{1cm}|>{\centering\arraybackslash}p{1cm}>{\centering\arraybackslash}p{1cm}>{\centering\arraybackslash}p{1cm}>{\centering\arraybackslash}p{1cm}>{\centering\arraybackslash}p{1cm}}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{5}{c}{Control} & \multicolumn{5}{c}{Treatment} \\
+\cmidrule(l{3pt}r{3pt}){2-6} \cmidrule(l{3pt}r{3pt}){7-11}
+  & N & Summer & Monsoon & Winter & Yearly & N & Summer & Monsoon & Winter & Yearly\\
+\midrule
+2018 & 71 & 121 & 94 & 61 & 276 & 27 & 160 & 140 & 170 & 470\\
+\rowcolor{gray!6}  2019 & 56 & 42 & 7 & 40 & 89 & 28 & 136 & 55 & 71 & 262\\
+\bottomrule
+\end{tabular}
+
+TreatmentControl year Monsoon Summer Winter Year 1 Control 2018 107.
+149. 239. 339. 2 Control 2019 66.7 98.5 50.3 108. 3 Treatment 2018 171.
+180. 229. 507. 4 Treatment 2019 119. 292. 124. 458.
+
+\hypertarget{aquaculture}{%
+\subsection{aquaculture}\label{aquaculture}}
+
+Table 12 : land\_for\_aquaculture\_ponds {[}4.1c{]}
+
+\begin{verbatim}
+## `summarise()` regrouping output by 'TreatmentControl' (override with `.groups` argument)
+\end{verbatim}
+
+\begin{verbatim}
+## # A tibble: 4 x 4
+## # Groups:   TreatmentControl [2]
+##   TreatmentControl  year     N  Mean
+##   <chr>            <int> <int> <dbl>
+## 1 Control           2018    21 0.626
+## 2 Control           2019    16 0.655
+## 3 Treatment         2018    15 1.57 
+## 4 Treatment         2019    17 1.62
+\end{verbatim}
+
+\begin{wraptable}{l}{0pt}
+
+\caption{\label{tab:unnamed-chunk-2}Bundesliga, Season 1985/86}
+\centering
+\begin{tabular}[t]{clc}
+\toprule
+Position & Team & Points\\
+\midrule
+1 & FC Bayern Muenchen & 70\\
+2 & Werder Bremen & 69\\
+3 & FC Bayer 05 Uerdingen & 64\\
+4 & Borussia Moenchengladbach & 57\\
+5 & VfB Stuttgart & 58\\
+\addlinespace
+6 & TSV Bayer 04 Leverkusen & 55\\
+7 & Hamburger SV & 56\\
+8 & SV Waldhof Mannheim & 44\\
+9 & VfL Bochum & 46\\
+10 & FC Schalke 04 & 41\\
+\addlinespace
+11 & 1. FC Kaiserslautern & 40\\
+12 & 1. FC Nuernberg & 41\\
+13 & 1. FC Koeln & 38\\
+14 & Fortuna Duesseldorf & 40\\
+15 & Eintracht Frankfurt & 35\\
+\addlinespace
+16 & Borussia Dortmund & 38\\
+17 & 1. FC Saarbruecken & 27\\
+18 & Hannover 96 & 23\\
+\bottomrule
+\end{tabular}
+\end{wraptable}
+
+\begin{verbatim}
+## Warning in styling_latex_position_right(x, table_info, hold_position,
+## table.envir): Position = right is only supported for longtable in LaTeX. Setting
+## back to center...
+\end{verbatim}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-2}Bundesliga, Season 2015/16}
+\centering
+\begin{tabular}[t]{clc}
+\toprule
+Position & Team & Points\\
+\midrule
+1 & FC Bayern Muenchen & 88\\
+2 & Borussia Dortmund & 78\\
+3 & Bayer 04 Leverkusen & 60\\
+4 & Borussia Moenchengladbach & 55\\
+5 & FC Schalke 04 & 52\\
+\addlinespace
+6 & 1. FSV Mainz 05 & 50\\
+7 & Hertha BSC & 50\\
+8 & VfL Wolfsburg & 45\\
+9 & 1. FC Koeln & 43\\
+10 & Hamburger SV & 41\\
+\addlinespace
+11 & FC Ingolstadt 04 & 40\\
+12 & FC Augsburg & 38\\
+13 & Werder Bremen & 38\\
+14 & SV Darmstadt 98 & 38\\
+15 & TSG 1899 Hoffenheim & 37\\
+\addlinespace
+16 & Eintracht Frankfurt & 36\\
+17 & VfB Stuttgart & 33\\
+18 & Hannover 96 & 25\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\end{document}

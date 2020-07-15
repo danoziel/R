@@ -1,0 +1,980 @@
+---
+title: "Solar Powered Irrigation Pumps in Nepal’s Terai"
+output:
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(kableExtra)
+library(formattable)
+library(knitr)
+library(MatchIt)
+library(tableone)
+
+
+knitr::opts_chunk$set(echo = TRUE)
+
+land_17_18_19 <- read.csv("~/R/Saptari/data/land_17_18_19.csv")
+Land_18_19 <- read.csv("~/R/Rautahat.Bara.Sarlahi/data/Land_18_19.csv")
+
+lands_I_17_18_19 <- read.csv("~/R/Saptari/data/lands_I_17_18_19.csv")
+Agriculture_17_18_19 <- read.csv("~/R/Saptari/data/Agriculture_17_18_19.csv")
+Procurement_17_18_19 <- read.csv("~/R/Saptari/data/Procurement_17_18_19.csv")
+wem_liter_fuel_17_18_19 <- read.csv("~/R/Saptari/data/wem_liter_fuel_17_18_19.csv")
+
+
+```
+
+This draft based on the outline that sent few weeks ago. I followed the variables manshened in it and  add some  
+
+All numbers calculated here consider the entire sample - including zeros.
+
+There us two variables appear in two different datasets:  
+'Time to irrigate 1 katha' and 'fuel use for a year', the results from both datasets appear here as well
+
+About the tables:  
+
+ * Each table is divided into two: The first for 'Saptari' and second for the 3 districts of Rautahat ,Bara and Sarlahi - I called it  'RBS'  and colored if for convenience
+ * I added a brief explanation of the variable if needed
+ * also added the question from the questionnaire and its serial number
+ * Some variables needed calculation, so I added the calculation method and the variables included
+
+
+
+&nbsp;
+
+&nbsp;
+
+## Land
+
+#### Table 1: Total Own Land Cultivated - Summer
+&nbsp;
+
+The total own land cultivated  for a houshold in  **Summer** season (In hectare)  
+**Q** [4.4] _total_ownland_cultivated_   
+```{r total_ownland_cultivated, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+lso <- land_17_18_19 %>% 
+  filter(total_land_cultivated_year>0,season=="Summer") %>%
+  group_by(year,TreatmentControl, household_questionnaire_id) %>%
+  summarise(own=sum(total_ownland_cultivated)*0.0338) %>% 
+  group_by(TreatmentControl,year) %>%
+  summarise(N=n(), Mean=mean(own)) %>% 
+  mutate(across(is.numeric, round, 2))
+
+lsoC <- lso[1:3,-1]
+lsoT <- lso[4:6,3:4]
+lsoC_lsoT <- cbind(lsoC,lsoT)
+
+kable(lsoC_lsoT, "latex", booktabs = T,align = "lcccc",linesep = "") %>%
+column_spec(1, bold = T) %>%
+kable_styling(latex_options = "striped",stripe_index = 3,  position = "left") %>% 
+column_spec(1:5, width = "1.5cm",border_left = F) %>%column_spec(3,border_right = T ,width = "1.5cm") %>%  row_spec(0, font_size= 7) %>% 
+add_header_above(c("SAPTARI" = 1, "Control" = 2, "Treatment" = 2), bold = F, align = "c")
+
+#--- --- --- --- --- --- -- -- -- - - - - - - -- - - - -- - - - -- - - 
+
+dt <- tribble(~RBS, ~" ", ~" ", ~" ", ~" ",2018,107,  0.23,26 , 0.72 , 2019, 95 , 0.31,22,1.14)
+
+kable(dt, "latex", booktabs = T, align = "lcccc",linesep = "") %>%
+kable_styling(latex_options = "striped", stripe_index = 2,position = "left") %>% 
+column_spec(1:5, width = "1.5cm",border_left = F) %>% column_spec(3,border_right = T ,width = "1.5cm") %>% row_spec(0:2, background = "#e2f3ff")
+
+```
+
+&nbsp;
+
+\newpage
+
+#### Table 2:  Gross Cropped Area
+&nbsp;
+
+total cultivated area for a year in hectare:  
+
+the total area sown for monsoon,winter, summer and annual crops- all together  
+ Q[4.8] _total_land_cultivated_
+```{r  total_land_cultivated, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+lsc <- land_17_18_19%>% 
+  filter(total_land_cultivated_year>0) %>%
+  group_by(year,TreatmentControl, household_questionnaire_id) %>%
+  summarise(cult=sum(total_land_cultivated)*0.0338) %>% 
+  group_by(TreatmentControl,year) %>%
+  summarise(N=n(), Mean=mean(cult)) %>%   mutate(across(is.numeric, round, 2))
+
+
+lscC <- lsc[1:3,-1]
+lscT <- lsc[4:6,3:4]
+lscC_lscT <- cbind(lscC,lscT)
+
+kable(lscC_lscT, "latex", booktabs = T,align = "lcccc",linesep = "") %>%
+column_spec(1, bold = T) %>%
+kable_styling(latex_options = "striped",stripe_index = 3,  position = "left") %>% 
+column_spec(1:5, width = "1.5cm",border_left = F) %>%column_spec(3,border_right = T ,width = "1.5cm") %>%  row_spec(0, font_size= 7) %>% 
+add_header_above(c("SAPTARI" = 1, "Control" = 2, "Treatment" = 2), bold = F, align = "c")
+
+#--- --- --- --- --- --- -- -- -- - - - - - - -- - - - -- - - - -- - - 
+
+dt2 <-tribble( ~RBS, ~" ", ~" ", ~" ", ~" ",2018,107,4.04,26,5.33,2019,95,3.66,22,7.07)
+
+kable(dt2, "latex", booktabs = T,align = "lcccc",linesep = "") %>%
+kable_styling(latex_options = "striped", stripe_index = 2,position = "left") %>% 
+column_spec(1:5, width = "1.5cm",border_left = F) %>% column_spec(3,border_right = T ,width = "1.5cm")%>% row_spec(0:2, background = "#e2f3ff")
+```
+
+&nbsp;
+
+&nbsp;
+
+#### Table 3: Cropping Intensity
+&nbsp;
+
+measured by percentage in household level  
+Gross cropped Area/Net Cropped Area  ×100  
+sum ([4.8] total_land_cultivated )  / [4.1e] land_for_cultivation 
+```{r  Crop Intensity, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+lsci <- land_17_18_19%>% filter(total_land_cultivated_year>0) %>%
+  mutate(NEW_total_land_cult= case_when(TreatmentControl=="Control" & land_for_cultivation < total_land_cultivated ~ NA_real_,
+    TRUE ~ total_land_cultivated)) %>% 
+  group_by(year,TreatmentControl, household_questionnaire_id) %>%
+  summarise(cult=sum(NEW_total_land_cult,na.rm = T),net=mean(land_for_cultivation))%>%
+  mutate(crop_intensity=cult/net*100) %>% 
+  group_by(TreatmentControl,year) %>%
+  summarise(N=n(),Mean=mean(crop_intensity)) %>% 
+  mutate(across(is.numeric, round))
+
+lsciC <- lsci[1:3,-1]
+lsciT <- lsci[4:6,3:4]
+lsicC_lsicT <- cbind(lsciC,lsciT)
+
+kable(lsicC_lsicT, "latex", booktabs = T,align = "lcccc",linesep = "") %>%
+kable_styling(latex_options = "striped", stripe_index = 2,position = "left") %>% 
+column_spec(1:5, width = "1.5cm",border_left = F) %>% column_spec(3,border_right = T ,width = "1.5cm") %>%
+add_header_above(c("SAPTARI" = 1, "Control" = 2, "Treatment" = 2), bold = F, align = "c")
+
+#--- - - - - - - - - - - - -- - - - - - - - --  - - - - - - -- - - - - 
+
+dtci <-tribble(~RBS, ~" ", ~" ", ~" ", ~" ",2018,107, 171,26, 203 ,2019,95,177,22,186)
+kable(dtci, "latex", booktabs = T,align = "lcccc",linesep = "") %>%
+kable_styling(latex_options = "striped", stripe_index = 2,position = "left") %>% 
+column_spec(1:5, width = "1.5cm",border_left = F) %>% column_spec(3,border_right = T ,width = "1.5cm")%>% row_spec(0:2, background = "#e2f3ff")
+
+```
+
+&nbsp;
+
+&nbsp;
+
+## Irrigation  
+Irrigation measured by 3 parameters  
+
+ * Size of  the irrigated area
+
+ * Time taken to irrigate cultivated area
+
+ * Irrigation intensity  
+
+
+#### Table 4: Size of  the irrigated area
+&nbsp;
+
+Irrigated area for a household in hectare  
+ Q [4.9] Irrigated area out of total land cultivated
+```{r irrigated_out_of_tot_land_cult [4.9], echo=FALSE,message=FALSE, warning=FALSE, paged.print=FALSE}
+
+lsi <- land_17_18_19%>% 
+  filter(total_land_cultivated_year>0) %>%
+  group_by(year,TreatmentControl, household_questionnaire_id) %>%
+  summarise(irrigated=sum(irrigated_out_of_tot_land_cult,na.rm = T)*0.0338) %>% 
+  group_by(TreatmentControl,year) %>%
+  summarise(N=n(), Mean=mean(irrigated)) %>% 
+  mutate(across(is.numeric, round, 2))
+
+
+lsiC <- lsi[1:3,-1]
+lsiT <- lsi[4:6,3:4]
+lsiC_lsiT <- cbind(lsiC,lsiT)
+
+kable(lsiC_lsiT, "latex", booktabs = T,align = "lcccc",linesep = "") %>%
+column_spec(1, bold = T) %>%
+kable_styling(latex_options = "striped", position = "left") %>% 
+column_spec(1:5, width = "1.5cm",border_left = F) %>%column_spec(3,border_right = T ,width = "1.5cm") %>%  row_spec(0, font_size= 7) %>% 
+add_header_above(c("SAPTARI" = 1, "Control" = 2, "Treatment" = 2), bold = F, align = "c")
+```
+
+```{r irrigated_out_of2, echo=FALSE,message=FALSE, warning=FALSE, paged.print=FALSE}
+
+dt2 <-tribble(~RBS, ~" ", ~" ", ~" ", ~" ",2018,107,2.55,26,3.88,2019,95,3.21,22,5.13)
+
+kable(dt2, "latex", booktabs = T,align = "lcccc",linesep = "") %>%
+kable_styling(latex_options = "striped", stripe_index = 2,position = "left") %>% 
+column_spec(1:5, width = "1.5cm",border_left = F) %>% column_spec(3,border_right = T ,width = "1.5cm") %>% row_spec(0:2, background = "#e2f3ff")
+```
+
+&nbsp;
+
+### Irrigation in hours 
+Time taken to irrigate cultivated area - measured by hours in household level  
+
+The data about '1 hectare irrigation time' - is from two dataset:  
+
+_Water extraction mechanism [6.2]_ and _Agriculture [5.0]_  
+
+
+#### Table 5: Time taken to irrigate 1 ha
+&nbsp;
+
+**Q** [6.21] How long does it take to irrigate 1 katha of land with this pump 
+```{r irrigate 1 ha [6.21], echo=FALSE,message=FALSE, warning=FALSE, paged.print=FALSE}
+ws <- wem_liter_fuel_17_18_19 %>% group_by(TreatmentControl,year) %>% rename(" " = year) %>%
+  summarise(N=n(),Mean=mean(time_to_irrigate_1_katha__p_1,na.rm = T)/60/0.0339) %>% mutate(across(is.numeric, round))
+wsC <- ws[1:3,-1]
+wsT <- ws[4:6,3:4]
+wsC_wsT <- cbind(wsC,wsT)
+
+kable(wsC_wsT, "latex", booktabs = T,align = "lcccc",linesep = "") %>%
+column_spec(1, bold = T) %>%
+kable_styling(latex_options = "striped",stripe_index = 3,  position = "left") %>% 
+column_spec(1:5, width = "1.5cm",border_left = F) %>%column_spec(3,border_right = T ,width = "1.5cm") %>%  row_spec(0, font_size= 7) %>% 
+add_header_above(c("SAPTARI" = 1, "Control" = 2, "Treatment" = 2), bold = F, align = "c")
+
+#- - - - - - -- - - - - - - - - - - - - - - - - - - - - - 
+Wem_18_19_time_to_irrigate_1_ha <- read.csv("~/R/Rautahat.Bara.Sarlahi/data/Wem_18_19_time_to_irrigate_1_ha.csv")
+
+wr <- Wem_18_19_time_to_irrigate_1_ha %>%
+  group_by(TreatmentControl,year) %>% rename(RBS = year) %>% 
+  summarise(N=n(),Mean=mean(time_to_irrigate_1_katha__p_1)/60/0.0339)%>%
+  mutate(across(is.numeric, round))
+
+wrC <- wr[1:2,-1]
+wrT <- wr[3:4,3:4]
+wrC_wrT <- cbind(wrC,wrT)
+
+
+kable(wrC_wrT, "latex",col.names = c("RBS"," "," "," "," "), booktabs = T, align = "lcccc",linesep = "") %>%
+kable_styling(latex_options = "striped", stripe_index = 2,position = "left") %>% 
+column_spec(1:5, width = "1.5cm",border_left = F) %>% column_spec(3,border_right = T ,width = "1.5cm")%>% row_spec(0:2, background = "#e2f3ff")
+```
+&nbsp;
+
+&nbsp;
+
+Table 6 and table 7 are about 2 parameters:   
+
+ 1. Time to irrigate 1 hectare  
+ Calculated by: Multiply _hrs_irr_1katha_[5.7] **by** _no_of_irrigation_for_1_katha_[5.8] **by** _cult_area_under_crop_[5.5]  
+
+ 2. Average irrigation hours per household in a year  
+ based on :_hrs_irr_1katha [5.7]_
+ 
+#### Table 6: Time taken to irrigate - YEARLY  
+&nbsp;
+
+```{r irri By year [5.0], echo=FALSE,message=FALSE, warning=FALSE, paged.print=FALSE}
+lsay <- Agriculture_17_18_19%>% 
+  group_by(TreatmentControl,year, household_questionnaire_id) %>% 
+  summarise(hr_per_ha=mean(hrs_irr_1katha)/0.0339,irrigate_hr=sum(irri_for_season)) %>%  
+  summarise(N=n(),average_hr_per_ha=mean(hr_per_ha,na.rm = T),
+            total_irrigate_hr=mean(irrigate_hr,na.rm = T))  %>%  
+  mutate(across(is.numeric, round))
+
+lsayC <- lsay[1:3,-1]
+lsayT <- lsay[4:6,3:5]
+lsayC_lsayT <- cbind(lsayC,lsayT)
+
+
+kable(lsayC_lsayT,"latex",col.names = c("Year","N","mean 1 ha","Mean Total","N","mean 1 ha","Mean Total"), booktabs = T,align = "lcccccc",linesep = "") %>%
+  column_spec(1, bold = T) %>%
+  collapse_rows(columns = 1, valign = "top") %>% 
+  kable_styling(latex_options = "striped", position = "left") %>% 
+  column_spec(1:7, width = "1.5cm",border_left = F) %>%column_spec(4,border_right = T ,width = "1.5cm") %>%  row_spec(0, font_size= 7) %>% 
+  add_header_above(c("SAPTARI" = 1, "Control" = 3, "Treatment" = 3), bold = F, align = "c")
+
+
+```
+
+```{r irri By year2 [5.0], echo=FALSE,message=FALSE, warning=FALSE, paged.print=FALSE}
+
+Agriculture_18_19 <- read.csv("~/R/Rautahat.Bara.Sarlahi/data/Agriculture_18_19.csv")
+
+df3 <- Agriculture_18_19%>% 
+  group_by(TreatmentControl,year, household_questionnaire_id) %>% 
+  summarise(hr_per_ha=mean(hrs_irr_1katha)/0.0339,irrigate_hr=sum(irri_for_season)) %>% 
+  summarise(N=n(),average_hr_per_ha=mean(hr_per_ha,na.rm = T),
+            total_irrigate_hr=mean(irrigate_hr,na.rm = T)) %>% 
+  mutate(across(is.numeric, round))
+
+df3C <- df3[1:2,-1]
+df3T <- df3[3:4,3:5]
+df3C_df3T<- cbind(df3C,df3T)
+
+kable(df3C_df3T,"latex",col.names = c("RBS"," "," "," "," "," "," "), booktabs = T,align = "lcccccc",linesep = "") %>%
+  column_spec(1, bold = T) %>%
+  collapse_rows(columns = 1, valign = "top") %>% 
+  kable_styling(latex_options = "striped", position = "left") %>% 
+  column_spec(1:7, width = "1.5cm",border_left = F) %>%column_spec(4,border_right = T ,width = "1.5cm")%>% row_spec(0:2, background = "#e2f3ff")
+
+
+
+
+```
+
+&nbsp;
+
+#### Table 7: Time taken to irrigate - SEASONAL
+&nbsp;
+
+**Saptari** 
+```{r irri By seasons  [5.0], echo=FALSE,message=FALSE, warning=FALSE, paged.print=FALSE}
+lsas <- Agriculture_17_18_19 %>% filter(season_of_crop!="Annual") %>% 
+  group_by(year,season_of_crop,TreatmentControl,household_questionnaire_id) %>%
+  summarise(hr_per_ha=mean(hrs_irr_1katha)/0.0339,irrigate_hr=sum(irri_for_season))%>% 
+  group_by(season_of_crop,TreatmentControl,year) %>%
+  summarise(n=n(),average_hr_per_ha=mean(hr_per_ha,na.rm = T),
+            total_irrigate_hr=mean(irrigate_hr,na.rm = T)) %>% 
+  mutate(across(is.numeric, round))
+
+lsaMC <- lsas[1:3,3:6]
+lsaMT <- lsas[4:6,4:6]
+lsaMC_lsaMT <- cbind(lsaMC,lsaMT)
+
+kable(lsaMC_lsaMT, col.names = c("MONSOON","N","mean 1 ha","Total","N","mean 1 ha","Total"), booktabs = T,align = "lcccccc",linesep = "") %>%
+  column_spec(1, bold = T) %>%
+  collapse_rows(columns = 1, valign = "top") %>% 
+  kable_styling(latex_options = "striped",stripe_index = 0, position = "left") %>% 
+  column_spec(1:7, width = "1.5cm",border_left = F) %>%column_spec(4,border_right = T ,width = "1.5cm") %>%  row_spec(0, font_size= 7) %>% 
+  add_header_above(c(" " = 1, "Control" = 3, "Treatment" = 3), bold = F, align = "c")
+
+lsaSC <- lsas[7:9,3:6]
+lsaST <- lsas[10:12,4:6]
+lsaSC_lsaST <- cbind(lsaSC,lsaST)
+
+kable(lsaSC_lsaST, col.names = c("SUMMER"," "," "," "," "," "," "), booktabs = T,align = "lcccccc",linesep = "") %>%
+  column_spec(1, bold = T) %>%
+  collapse_rows(columns = 1, valign = "top") %>% 
+  kable_styling(latex_options = "striped",stripe_index = 0, position = "left") %>% 
+  column_spec(1:7, width = "1.5cm",border_left = F) %>%column_spec(4,border_right = T ,width = "1.5cm") %>%  row_spec(0, font_size= 7) 
+
+lsaSC <- lsas[13:15,3:6]
+lsaST <- lsas[16:18,4:6]
+lsaSC_lsaST <- cbind(lsaSC,lsaST)
+
+kable(lsaSC_lsaST, col.names = c("WINTER"," "," "," "," "," "," "), booktabs = T,align = "lcccccc",linesep = "") %>%
+  column_spec(1, bold = T) %>%
+  collapse_rows(columns = 1, valign = "top") %>% 
+  kable_styling(latex_options = "striped",stripe_index = 0, position = "left") %>% 
+  column_spec(1:7, width = "1.5cm",border_left = F) %>%column_spec(4,border_right = T ,width = "1.5cm") %>%  row_spec(0, font_size= 7)
+```
+&nbsp;
+
+**Rautahat Bara Sarlah**
+```{r irri By seasons2  [5.0], echo=FALSE,message=FALSE, warning=FALSE, paged.print=FALSE}
+Agriculture_18_19 <- read.csv("~/R/Rautahat.Bara.Sarlahi/data/Agriculture_18_19.csv")
+
+c <- Agriculture_18_19 %>% filter(season_of_crop!="Annual") %>% 
+  group_by(year,season_of_crop,TreatmentControl,household_questionnaire_id) %>%
+  summarise(hr_per_ha=mean(hrs_irr_1katha)/0.0339,irrigate_hr=sum(irri_for_season))%>% 
+  group_by(TreatmentControl,season_of_crop,year) %>%
+  summarise(n=n(),average_hr_per_ha=mean(hr_per_ha,na.rm = T),
+            total_irrigate_hr=mean(irrigate_hr,na.rm = T)) %>% 
+  mutate(across(is.numeric, round))
+
+cc <- c[1:6,]
+ct <- c[7:12,4:6]
+cx <- cbind(cc,ct)[,-1]
+
+
+kable(cx, "latex",col.names = c("Season","Year","N","mean 1 ha","Total","N","mean 1 ha","Total"), booktabs = T,align = "lcccccc",linesep = "") %>%
+column_spec(1, bold = T) %>%
+collapse_rows(columns = 1, valign = "top") %>% 
+kable_styling(latex_options = "striped", position = "left") %>% 
+column_spec(1:7, width = "1.5cm",border_left = F) %>%column_spec(5,border_right = T ,width = "1.5cm") %>%  row_spec(0, font_size= 7) %>% 
+add_header_above(c(" " = 2, "Control" = 3, "Treatment" = 3), bold = F, align = "c")
+
+```
+
+&nbsp; 
+
+## Irrigation Intensity 
+Measured by percentage in household level  
+Gross Irrigated Area/Gross Cropped Area ×100  
+
+sum _[4.9] irrigated_out_of_tot_land_cult_ / sum _[4.8] total_land_cultivated_
+&nbsp;
+
+#### Table 8: Irrigation Intensity - YEARLY
+&nbsp; 
+
+```{r year irri_intensity [4.0], echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+rii <- land_17_18_19 %>% filter(total_land_cultivated_year>0,season!="Annual") %>% 
+  group_by(TreatmentControl,year,household_questionnaire_id) %>%
+  summarise(gross_irri=sum(irrigated_out_of_tot_land_cult),gross_crop=sum(total_land_cultivated),ii=gross_irri/gross_crop*100) %>% 
+  filter(ii>= 0,ii<=100) %>% 
+  group_by(TreatmentControl,year) %>% 
+  summarise(N=n(),Mean=mean(ii)) %>% 
+  mutate(across(is.numeric, round, 2)) 
+
+riiC <- rii[1:3,-1] %>% rename(" "=year)
+riiT <- rii[4:6,3:4]
+riiC_riiT <- cbind(riiC,riiT)
+
+kable(riiC_riiT,"latex", booktabs = T,align = "lcccc",linesep = "") %>%
+  column_spec(1, bold = T) %>%
+  kable_styling(latex_options = "striped",stripe_index = 3,  position = "left") %>% 
+  column_spec(1:5, width = "1.5cm",border_left = F) %>%column_spec(3,border_right = T ,width = "1.5cm") %>%  row_spec(0, font_size= 7) %>% 
+  add_header_above(c("SAPTARI" = 1, "Control" = 2, "Treatment" = 2), bold = F, align = "c")
+
+
+
+```
+
+>difference in difference 
+
+ * **after 1 year**
+```{r afret 1 S, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = '40%'}
+irri_intens_S <- land_17_18_19 %>% filter(total_land_cultivated_year>0,season!="Annual") %>% 
+  group_by(TreatmentControl,year,household_questionnaire_id) %>%
+  summarise(gross_irri=sum(irrigated_out_of_tot_land_cult),gross_crop=sum(total_land_cultivated),ii=gross_irri/gross_crop*100) %>% 
+  filter(ii>= 0,ii<=100) 
+
+irri_intens_S <- irri_intens_S %>% 
+  mutate(after_1Y = year == 2018, 
+         after_2Y = year == 2019, 
+         own_sp = TreatmentControl == "Treatment")
+
+ggplot(irri_intens_S, aes(year, ii, color = TreatmentControl)) +
+  stat_summary(geom = 'line') +
+  theme_minimal()+
+  scale_x_continuous(breaks = c(2017,2018,2019))
+
+model1 <-  lm(ii ~ after_1Y*own_sp, data = irri_intens_S)
+summary(model1)
+
+
+```
+
+ * **after 2 year**
+
+```{r after 2 S, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+model2 = lm(ii ~ after_2Y*own_sp, data = irri_intens_S)
+summary(model2)
+```
+
+>Matching
+
+ * after 1 year
+
+```{r match 1 S, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+irri_intens_S <- land_17_18_19 %>% filter(total_land_cultivated_year>0,season!="Annual") %>% 
+  group_by(TreatmentControl,year,household_questionnaire_id) %>%
+  summarise(gross_irri=sum(irrigated_out_of_tot_land_cult),gross_crop=sum(total_land_cultivated),ii=gross_irri/gross_crop*100) %>% 
+  filter(ii>= 0,ii<=100) 
+
+irri_intens_S_M <- irri_intens_S %>% 
+  mutate(after_1Y = year == 2018, 
+         after_2Y = year == 2019, 
+         own_sp = TreatmentControl == "Treatment")
+
+irri_intens_S_M <- filter(irri_intens_S_M, year == 2017)
+
+match.it <- matchit(own_sp ~ ii , data = irri_intens_S_M, method="nearest", ratio=1)
+
+df.match <- match.data(match.it)[3]
+
+df.match <-inner_join (df.match,irri_intens_S,by="household_questionnaire_id")
+
+
+# after 1 year
+df.match18 <- filter(df.match,year==2018)
+
+CreateTableOne(vars = c('ii'), 
+                          data = df.match18, 
+                          strata = 'TreatmentControl')
+```
+
+ * after 2 year
+
+```{r match 2 S, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+# after 2 year
+df.match19 <- filter(df.match,year==2019)
+
+CreateTableOne(vars = c('ii'), 
+                          data = df.match19, 
+                          strata = 'TreatmentControl')
+```
+
+&nbsp;
+
+&nbsp;
+
+
+```{r year irri_intensity2 [4.0], echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+sii <- Land_18_19 %>% filter(total_land_cultivated_year>0,season!="Annual") %>% 
+  group_by(TreatmentControl,year,household_questionnaire_id) %>%
+  summarise(gross_irri=sum(irrigated_out_of_tot_land_cult),gross_crop=sum(total_land_cultivated),ii=gross_irri/gross_crop*100) %>% 
+  filter(ii>= 0,ii<=100) %>% 
+  group_by(TreatmentControl,year) %>% 
+  summarise(N=n(),Mean=mean(ii)) %>% 
+  mutate(across(is.numeric, round, 2))  
+
+siiC <- sii[1:2,-1] %>% rename(" "= year)
+siiT <- sii[3:4,3:4]
+siiC_siiT <- cbind(siiC,siiT)
+
+kable(siiC_siiT,"latex",col.names = c("RBS"," "," "," "," "), booktabs = T,align = "lcccc",linesep = "") %>%
+  column_spec(1, bold = T) %>%
+  kable_styling(latex_options = "striped",stripe_index = 2,  position = "left") %>% 
+  column_spec(1:5, width = "1.5cm",border_left = F) %>%column_spec(3,border_right = T ,width = "1.5cm") %>% row_spec(0:2, background = "#e2f3ff")
+```
+
+\newpage
+
+#### Table 9: Irrigation Intensity - SEASONAL
+&nbsp; 
+
+```{r seasons irri_intensity [4.0], echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+lsii <- land_17_18_19 %>% filter(total_land_cultivated_year>0,season!="Annual") %>% 
+  mutate(irrigation_intens=irrigated_out_of_tot_land_cult/total_land_cultivated*100) %>% 
+  filter(irrigation_intens>= 0,irrigation_intens<=100) %>% 
+  group_by(TreatmentControl,season,year) %>% 
+  summarise(Mean=mean(irrigation_intens)) %>% 
+  mutate(across(is.numeric, round, 2))
+
+# MONSOON
+lsiiC <- lsii[1:3,3:4]%>% rename(Control=Mean," "= year)
+lsiiT <- lsii[10:12,4]%>% rename(Treatment=Mean)
+lsiiC_lsiiT <- cbind(lsiiC,lsiiT) 
+
+# SUMMER
+lsiiC2 <- lsii[4:6,4]%>% rename(Control=Mean)
+lsiiT2 <- lsii[13:15,4]%>% rename(Treatment=Mean)
+lsiiC2_lsiiT2 <- cbind(lsiiC2,lsiiT2)
+
+# winter
+lsiiC23 <- lsii[7:9,4]%>% rename(Control=Mean)
+lsiiT23 <- lsii[16:18,4]%>% rename(Treatment=Mean)
+lsiiC23_lsiiT23 <- cbind(lsiiC23,lsiiT23)
+
+dff <- cbind(lsiiC_lsiiT,lsiiC2_lsiiT2, lsiiC23_lsiiT23)
+
+kable(dff, booktabs = T,align = "lcccccc",linesep = "") %>%
+  column_spec(1, bold = T) %>%
+  collapse_rows(columns = 1, valign = "top") %>% 
+  kable_styling(latex_options = "striped",stripe_index = 0, position = "left") %>% 
+  column_spec(1:7, width = "1.5cm",border_left = F) %>%
+  column_spec(3,border_right = T ,width = "1.5cm") %>%
+  column_spec(5,border_right = T ,width = "1.5cm") %>%
+  row_spec(0, font_size= 7) %>%
+  add_header_above(c("SAPTARI" =1 , "Monsoon" = 2, "summer" = 2, "Winter" = 2), bold = F, align = "c")
+
+```
+
+```{r seasons irri_intensity2 [4.0], echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+rlsii <- Land_18_19 %>% filter(total_land_cultivated_year>0,season!="Annual") %>% 
+  mutate(irrigation_intens=irrigated_out_of_tot_land_cult/total_land_cultivated*100) %>% 
+  filter(irrigation_intens>= 0,irrigation_intens<=100) %>% 
+  group_by(TreatmentControl,season,year) %>% 
+  summarise( Mean= mean(irrigation_intens)) %>% 
+  mutate(across(is.numeric, round, 2))
+
+# MONSOON
+rlsiiC <- rlsii[1:2,3:4]%>% rename(Control=Mean, " "= year)
+rlsiiT <- rlsii[7:8,4]%>% rename(Treatment=Mean)
+rlsiiC_lsiiT <- cbind(rlsiiC,rlsiiT) 
+
+# SUMMER
+rlsiiC2 <- rlsii[3:4,4]%>% rename(Control=Mean)
+rlsiiT2 <- rlsii[9:10,4]%>% rename(Treatment=Mean)
+rlsiiC2_lsiiT2 <- cbind(rlsiiC2,rlsiiT2)
+
+# winter
+rlsiiC23 <- rlsii[5:6,4]%>% rename(Control=Mean)
+rlsiiT23 <- rlsii[11:12,4]%>% rename(Treatment=Mean,)
+rlsiiC23_lsiiT23 <- cbind(rlsiiC23,rlsiiT23)
+
+rdff <- cbind(rlsiiC_lsiiT, rlsiiC2_lsiiT2,rlsiiC23_lsiiT23)
+
+kable(rdff, booktabs = T,col.names = c("RBS"," "," "," "," "," "," "),align = "lcccccc",linesep = "") %>%
+  column_spec(1, bold = T) %>%
+  collapse_rows(columns = 1, valign = "top") %>% 
+  kable_styling(latex_options = "striped",stripe_index = 0, position = "left") %>% 
+  column_spec(1:7, width = "1.5cm",border_left = F) %>%
+  column_spec(3,border_right = T ,width = "1.5cm") %>%
+  column_spec(5,border_right = T ,width = "1.5cm")%>% row_spec(0:2, background = "#e2f3ff")
+```
+  
+  &nbsp; 
+  
+  &nbsp;  
+  
+## Frequency of households who irrigate 	
+The table contains -  
+
+ * The number of households who irrigate  
+ * Percentage of households from their group - **not** from the entire sample
+
+
+#### Table 10: households who irrigate
+&nbsp; 
+
+Q [4.9] Irrigated area out of total land cultivated
+```{r gate , echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+si <-tribble(~" ", ~"n", ~"Percent",~"n", ~"Percent",~"n", ~"Percent",
+               ~"n", ~"Percent",~"n", ~"Percent",~"n", ~"Percent",
+               2017, 83, "88%", 18, "82%",  57, "61%"  ,16, "73%" ,81, "86%"  ,20,  "91%", 
+               2018 ,77, "89%"  ,17,  "77%" ,50, " 53% ",17 , "77%" ,79, "84%" ,20, "91%",
+               2019,  81, "88%" ,22, "96%"  ,49, "53%"  ,16, "70%"  ,78, "85%"   ,21, "91%")
+
+kable(si ,booktabs = T,align = "lcccccccccccc",
+      linesep = "") %>%
+  kable_styling( position = "left") %>% 
+  column_spec(3,border_right = T) %>% 
+  column_spec(5,border_right = T) %>% 
+  column_spec(7,border_right = T) %>% 
+  column_spec(9,border_right = T) %>% 
+  column_spec(11,border_right = T) %>%
+  add_header_above(c(" " = 1, "Control" = 2, "Treatment" = 2, "Control" = 2, "Treatment" = 2,
+                     "Control" = 2, "Treatment" = 2),align = "c") %>% 
+  add_header_above(c("SAPTARI" = 1, "Monsoon" = 4, "Summer" = 4,"Winter" = 4))
+```
+
+```{r gate2 , echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+ri <-tribble(~" ", ~"n", ~"Percent",~"n", ~"Percent",~"n", ~"Percent",
+               ~"n", ~"Percent",~"n", ~"Percent",~"n", ~"Percent",
+               2018 ,98, "92%"  ,25,  "83%" ,26, " 24% ",9 , "30%" ,96, "90%" ,23, "76%",
+               2019,  95, "95%" ,21, "70%"  ,27, "27%"  ,9, "30%"  ,94, "94%"   ,21, "70%")
+
+kable(ri ,booktabs = T,align = "lcccccccccccc",
+      linesep = "") %>%
+  kable_styling( position = "left") %>% 
+  column_spec(3,border_right = T) %>% 
+  column_spec(5,border_right = T) %>% 
+  column_spec(7,border_right = T) %>% 
+  column_spec(9,border_right = T) %>% 
+  column_spec(11,border_right = T) %>%
+  add_header_above(c(" " = 1, "Control" = 2, "Treatment" = 2, "Control" = 2, "Treatment" = 2,
+                     "Control" = 2, "Treatment" = 2),align = "c") %>% 
+  add_header_above(c("RBS" = 1, "Monsoon" = 4, "Summer" = 4,"Winter" = 4)) %>% row_spec(0:2, background = "#e2f3ff")
+
+  
+```
+
+  &nbsp;  
+
+\newpage
+
+
+## Fuel use
+
+The details about 'Total fuels litres for a year' has two datast 
+
+From 'Procurement basline' of RBS file I removed two observations with 15,000 and 10,000 liters of fuel per year becouse it was really high compared to the rest
+
+#### Table 11: Fuel consumed in a Year (In liters)
+  &nbsp;
+  
+Q [7.16] Total litres of diesel/kerosene consumed for agriculture pumps in a YEAR  
+```{r fuel use Year [7.16], echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+psf <- Procurement_17_18_19 %>%  
+  group_by(TreatmentControl,year) %>%
+  summarise(N=n(), Mean=mean(total_litres_consumed_dieselkero,na.rm = T)) %>% 
+  rename(" "=year) %>% 
+  mutate(across(is.numeric, round, 2))
+
+
+psf <-cbind(psf[1:3,-1],psf[4:6,3:4])
+
+kable(psf, booktabs = T,align = "lcccc",linesep = "") %>%
+  column_spec(1, bold = T) %>%
+  kable_styling(latex_options = "striped",stripe_index = 0, position = "left") %>% 
+  column_spec(1:5, width = "1.5cm",border_left = F) %>%
+  column_spec(3,border_right = T ,width = "1.5cm") %>% 
+  row_spec(0, font_size= 7) %>% 
+  add_header_above(c("SAPTARI" = 1, "Control" = 2, "Treatment" = 2), bold = F, align = "c")
+```
+
+```{r fuel use Year DiD , echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+litres_S <-  Procurement_17_18_19 %>%
+  filter(!is.na(total_litres_consumed_dieselkero))%>%
+  mutate(after_1Y = year == 2018, 
+         after_2Y = year == 2019, 
+         own_sp = TC == 1)
+
+
+```
+
+```{r , figures-side, fig.show="hold", out.width="50%",echo=FALSE, message=FALSE}
+par(mar = c(4, 4, .1, .1))
+
+ggplot(litres_S, aes(year, total_litres_consumed_dieselkero, color = TreatmentControl)) +
+  stat_summary(geom = 'line') +
+  theme_minimal()+
+  scale_x_continuous(breaks = c(2017,2018,2019))
+
+
+
+ggplot(litres_S, aes(year, total_litres_consumed_dieselkero, color = own_sp)) +
+  geom_jitter() +
+  theme_minimal()+ 
+  scale_x_continuous(breaks = c(2017,2018,2019))
+
+```
+
+
+**After 1 year**
+```{r After 1 year S, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+model1 <-  lm(total_litres_consumed_dieselkero ~ after_1Y*own_sp, data = litres_S)
+summary(model1)
+```
+
+**After 2 year**
+```{r After 2 year S, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+model2 = lm(total_litres_consumed_dieselkero ~ after_2Y*own_sp, data = litres_S)
+summary(model2)
+```
+
+  &nbsp;  
+
+
+**Matchig**
+
+1 year
+```{r Matchig 1 year, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+litres_S <-  Procurement_17_18_19 %>%
+  filter(!is.na(total_litres_consumed_dieselkero))%>%
+  rename(fuel_L_year=total_litres_consumed_dieselkero) %>% 
+  mutate(after_1Y = year == 2018, 
+         after_2Y = year == 2019, 
+         own_sp = TC == 1)
+
+litres_S_M <- 
+  select(filter(litres_S, year == 2017)
+         ,c(household_questionnaire_id,at_which_price_did_you_buy_it,
+            fuel_L_year:own_sp))
+
+match.it <- matchit(own_sp ~ fuel_L_year , data = litres_S_M, method="nearest", ratio=1)
+
+df.match <- match.data(match.it)[1]
+
+df.match <-inner_join (df.match,litres_S,by="household_questionnaire_id")
+
+# after 1 year
+df.match18 <- filter(df.match,year==2018)
+
+CreateTableOne(vars = c('fuel_L_year'), 
+                         data = df.match18, 
+                         strata = 'TreatmentControl')
+
+```
+
+2 year
+```{r Matchig 2 year, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+# after 2 year
+df.match19 <- filter(df.match,year==2019)
+
+CreateTableOne(vars = c('fuel_L_year'), 
+                         data = df.match19, 
+                         strata = 'TreatmentControl')
+```
+
+\newpage
+
+
+```{r fuel use Year2 [7.16], echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+Procurement_18_19 <- read.csv("~/R/Rautahat.Bara.Sarlahi/data/Procurement_18_19.csv")
+
+rpsf <- Procurement_18_19 %>%  
+  filter(!is.na(total_litres_consumed_dieselkero),total_litres_consumed_dieselkero<10000) %>%
+  group_by(TreatmentControl,year) %>%
+  summarise(N=n(), Mean=mean(total_litres_consumed_dieselkero)) %>% 
+  rename(" "=year) %>% 
+  mutate(across(is.numeric, round, 2))
+
+rpsf <-cbind(rpsf[1:2,-1],rpsf[3:4,3:4])
+
+kable(rpsf, booktabs = T,col.names = c("RBS"," "," "," "," " ),align = "lcccc",linesep = "") %>%
+  column_spec(1, bold = T) %>%
+  kable_styling(latex_options = "striped",stripe_index = 0, position = "left") %>% 
+  column_spec(1:5, width = "1.5cm",border_left = F) %>%
+  column_spec(3,border_right = T ,width = "1.5cm")%>% row_spec(0:2, background = "#e2f3ff") 
+```
+
+```{r , echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = '40%'}
+litres_RBS <-  Procurement_18_19 %>%
+  filter(!is.na(total_litres_consumed_dieselkero),
+         total_litres_consumed_dieselkero<10000)%>%
+  mutate(after_1Y = year >= 2019, 
+         own_sp = TC >= 1)
+
+ggplot(litres_RBS, aes(year, total_litres_consumed_dieselkero, color = TreatmentControl)) +
+  stat_summary(geom = 'line') +
+  theme_minimal()+scale_x_continuous(breaks = c(2017,2018,2019))
+
+
+
+```
+**After 1 year**
+```{r After 1 year RBS , echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+model = lm(total_litres_consumed_dieselkero ~ after_1Y*own_sp, data = litres_RBS)
+summary(model)
+
+```
+
+
+\newpage
+
+
+#### Table 12: Fuel consumed - Saesons and Year (In liters)
+&nbsp;
+
+_[6.18a] How many liters of fuel per hour_ **x** _[6.30] How many days in a season  was the pump used_ **x** _[6.31] How many hours per day_
+```{r fuel use Season & Year  [6.2] ,echo=FALSE ,message=FALSE, warning=FALSE, paged.print=FALSE}
+
+wemf <- wem_liter_fuel_17_18_19%>%
+  group_by(TreatmentControl,year) %>% 
+  summarise(Monsoon=mean(p123_m,na.rm = T),
+            Summer=mean(p123_s,na.rm = T),Winter=mean(p123_w,na.rm = T),
+            Year=mean(p123_year,na.rm = T)) %>% 
+  mutate(across(is.numeric, round)) %>% rename(" "= year)
+
+
+wemf <-cbind(wemf[1:3,-1],wemf[4:6,3:6]) 
+
+kable(wemf, booktabs = T,align = "lcccccccc",linesep = "") %>%
+  column_spec(1, bold = T) %>%
+  kable_styling(latex_options = "striped",stripe_index = 0, position = "left") %>% 
+  column_spec(1:9, width = "1.5cm",border_left = F) %>%
+  column_spec(5,border_right = T ,width = "1.5cm") %>% 
+  row_spec(0, font_size= 7) %>% 
+  add_header_above(c("SAPTARI" = 1, "Control" = 4, "Treatment" = 4), bold = F, align = "c")
+
+
+```
+
+
+```{r fuel use2 Season & Year  [6.2] , echo=FALSE ,message=FALSE, warning=FALSE, paged.print=FALSE}
+
+wem_liter_fuel_18_19 <-read.csv("~/R/Rautahat.Bara.Sarlahi/data/wem_liter_fuel_18_19.csv")
+
+rwemf <- wem_liter_fuel_18_19%>%
+  group_by(TreatmentControl,year) %>% 
+  summarise(Monsoon=mean(p123_m,na.rm = T),
+            Summer=mean(p123_s,na.rm = T),Winter=mean(p123_w,na.rm = T),
+            Year=mean(p123_year,na.rm = T)) %>% mutate(across(is.numeric, round))
+
+rwemf <-cbind(rwemf[1:2,-1],rwemf[3:4,3:6]) 
+
+kable(rwemf, booktabs = T,col.names = c("RBS"," "," "," "," "," "," "," "," "),align = "lcccccccc",linesep = "") %>%
+  column_spec(1, bold = T) %>%
+  kable_styling(latex_options = "striped",stripe_index = 0, position = "left") %>% 
+  column_spec(1:9, width = "1.5cm",border_left = F) %>%
+  column_spec(5,border_right = T ,width = "1.5cm") %>% row_spec(0:2, background = "#e2f3ff")
+
+```  
+
+&nbsp; 
+
+## Frequency of households who use fuel
+&nbsp;
+
+The table contains -  
+
+ * The number of households who irrigate  
+ * Percentage of households from their group - **not** from the entire sample
+
+#### Table 13: households who consumed fuel
+&nbsp;
+
+Q [7.12] Did you buy fuel for the pump
+
+```{r  HH use fuel [7.12] , echo=FALSE ,message=FALSE, warning=FALSE, paged.print=FALSE}
+
+fs <-tribble(~" ", ~"N", ~"percent", ~"N", ~"percent",2017,50, "53%",10, "45%" ,
+             2018,50, "53%",10, "48%",2019,36,"41%",7,"30%")
+
+kable(fs, booktabs = T,align = "lcccc",
+      linesep = "") %>%
+  column_spec(1, bold = T) %>%
+  kable_styling(latex_options = "striped",stripe_index = 2, position = "left") %>% 
+  column_spec(1:5, width = "1.5cm",border_left = F) %>%
+  column_spec(3,border_right = T ,width = "1.5cm") %>% 
+  row_spec(0, font_size= 9) %>% 
+  add_header_above(c(" RBS" = 1, "Control" = 2, "Treatment" = 2), bold = F,
+                   align = "c")
+
+```
+
+```{r HH use fuel2 [7.12], echo=FALSE ,message=FALSE, warning=FALSE, paged.print=FALSE}
+fr <-tribble(~" ", ~"N", ~"percent", ~"N", ~"percent",2018,71, "67%",27, "90%" ,2019,46, "46%",16, "54%")
+
+kable(fr, booktabs = T,align = "lcccc",col.names = c("RBS"," "," "," "," "),linesep = "") %>%
+  column_spec(1, bold = T) %>%
+  kable_styling(latex_options = "striped",stripe_index = 0, position = "left") %>% 
+  column_spec(1:5, width = "1.5cm",border_left = F) %>%
+  column_spec(3,border_right = T ,width = "1.5cm") %>% row_spec(0:2, background = "#e2f3ff")
+
+
+
+
+```
+
+&nbsp;
+
+\newpage
+
+
+## Aquaculture
+
+also here I removed from 'Lands_I_basline' of RBS files - 3 observations with 300 to 400 ponds land size becouse it was really high compared to the rest  
+
+#### Table 14: Total ponds area used for aquaculture (In ha)
+&nbsp;
+
+**Q** [4.1c] Land for aquaculture,ponds
+
+```{r aquaculture [4.1c], echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+aquas <- lands_I_17_18_19 %>% filter(land_for_aquaculture_ponds>0) %>% 
+  group_by(TreatmentControl,year) %>% 
+  summarise(N=n(),Mean= mean(land_for_aquaculture_ponds,na.rm = T)*0.0339) %>% 
+  mutate(across(is.numeric,round,2)) %>% rename(" "= year)
+
+aquas <-cbind(aquas[1:3,-1],aquas[4:6,3:4]) 
+
+kable(aquas, booktabs = T,align = "lcccc",linesep = "") %>%
+  column_spec(1, bold = T) %>%
+  kable_styling(latex_options = "striped",stripe_index = 2, position = "left") %>% 
+  column_spec(1:5, width = "1.5cm",border_left = F) %>%
+  column_spec(3,border_right = T ,width = "1.5cm") %>% 
+  row_spec(0, font_size= 7) %>% 
+  add_header_above(c("SAPTARI" = 1, "Control" = 2, "Treatment" = 2), bold = F, align = "c")
+
+```
+
+```{r aquaculture2 [4.1c], echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+lands_I_18_19 <-read.csv("~/R/Rautahat.Bara.Sarlahi/data/lands_I_18_19.csv")
+
+
+raquas <- lands_I_18_19 %>% filter(land_for_aquaculture_ponds>0,land_for_aquaculture_ponds<300) %>% 
+  group_by(TreatmentControl,year) %>% 
+  summarise(N=n(),Mean= mean(land_for_aquaculture_ponds,na.rm = T)*0.0339) %>% 
+  mutate(across(is.numeric,round,2)) %>% rename(" "= year)
+
+raquas <-cbind(raquas[1:2,-1],raquas[3:4,3:4]) 
+
+kable(raquas, booktabs = T,col.names = c("RBS"," "," "," "," " ),align = "lcccc",linesep = "") %>%
+  column_spec(1, bold = T) %>%
+  kable_styling(latex_options = "striped",stripe_index = 0, position = "left") %>% 
+  column_spec(1:5, width = "1.5cm",border_left = F) %>%
+  column_spec(3,border_right = T ,width = "1.5cm")%>% row_spec(0:2, background = "#e2f3ff")
+
+```

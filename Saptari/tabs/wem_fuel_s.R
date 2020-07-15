@@ -70,6 +70,7 @@ wem_liter_fuel_17_18_19%>%
             Summer=mean(p123_s,na.rm = T),Winter=mean(p123_w,na.rm = T),
             Year=mean(p123_year,na.rm = T))
 
+write.csv(wem_liter_fuel_17_18_19, file = "C:/Users/Dan/Documents/R/Saptari/data/wem_liter_fuel_17_18_19.csv", row.names=FALSE)
 
 
 
