@@ -142,6 +142,16 @@ bt_pe_me <- full_join (bt_pe,me) %>% arrange(yearweek)
 
 write.csv(bt_pe_me, file="C:/Users/Dan/Documents/R/bt_pe_me.csv")
 
+# -----------
+
+x2010 <- peace_index %>%filter(survey_year==2010) %>%  group_by(date,date1) %>% count()
+
+
+x <- peace_index %>%filter(survey_year==2012) %>%  group_by(date,date1) %>% count()
+
+x[,1:2] %>%
+  kable() %>%
+  kable_styling(bootstrap_options = "striped", full_width = F)
 
 
 

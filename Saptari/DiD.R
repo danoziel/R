@@ -86,7 +86,23 @@ ggplot(irri_intens_S, aes(year, ii, color = own_sp)) +
   theme_minimal()+
   scale_x_continuous(breaks = c(2017,2018,2019))
 
-# -----------------------
-# -----------------------
+#  wem_liter_fuel_18_19  - p123_year---------------------------
+litres_rbs <-  wem_liter_fuel_18_19 %>%
+  filter(!is.na(p123_year))%>%
+  mutate(after_1Y = year == 2019, 
+         own_sp = TC == 1)
+
+ggplot(litres_rbs, aes(year, p123_year, color = TreatmentControl)) +
+  stat_summary(geom = 'line') +
+  theme_minimal()+
+  scale_x_continuous(breaks = c(2018,2019))
+
+ggplot(litres_rbs, aes(year, p123_year, color = own_sp)) +
+  geom_jitter() +
+  theme_minimal()+ 
+  scale_x_continuous(breaks = c(2018,2019))
+
+model1 <-  lm(p123_year ~ after_1Y*own_sp, data = litres_rbs)
+summary(model1)
 # -----------------------
   

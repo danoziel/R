@@ -1,9 +1,58 @@
 library(MatchIt)
 library(tableone)
-# grid for matching----
+# Table 1: Total Own Land Cultivated - Summer----
+
+lso <- land_17_18_19 %>% 
+  filter(total_land_cultivated_year>0,season=="Summer") %>%
+  group_by(year,TreatmentControl, household_questionnaire_id) %>%
+  summarise(own=sum(total_ownland_cultivated)*0.0338)
+
+lso <- lso %>% 
+  mutate(after_1Y = year == 2018, 
+         after_2Y = year == 2019, 
+         own_sp = TreatmentControl == "Treatment")
+
+lso_M <- filter(lso, year == 2017)
+
+match.it <- matchit(own_sp ~ own , data = lso_M, method="nearest", ratio=3)
+a <- summary(match.it)
+
+plot(match.it, type = 'jitter', interactive = FALSE)
+
+df.match <- match.data(match.it)[3]
 
 
+# after 1 year
+df.match18 <- filter(df.match,year==2018)
 
+pacman::p_load(tableone)
+table18 <- CreateTableOne(vars = c('own'), 
+                          data = df.match18, 
+                          strata = 'TreatmentControl')
+
+table188 <- print(table18, 
+                  printToggle = FALSE, 
+                  noSpaces = TRUE)
+
+table188 [,1:3]%>%
+  kable() %>%
+  kable_styling(full_width = F, position = "left")
+
+
+# after 2 year
+df.match19 <- filter(df.match,year==2019)
+
+pacman::p_load(tableone)
+table19 <- CreateTableOne(vars = c('own'), 
+                          data = df.match19, 
+                          strata = 'TreatmentControl')
+table188 <- print(table18, 
+                  printToggle = FALSE, 
+                  noSpaces = TRUE)
+
+table188 [,1:3]%>%
+  kable() %>%
+  kable_styling(full_width = F, position = "left")
 
 
 # total_litres_consumed_dieselkero -- S ----
@@ -23,7 +72,7 @@ tableBEFORE <- CreateTableOne(vars = 'total_litres_consumed_dieselkero',
                           data = litres_S_M, 
                           strata = 'TreatmentControl')
 
-match.it <- matchit(own_sp ~ total_litres_consumed_dieselkero , data = litres_S_M, method="nearest", ratio=1)
+match.it <- matchit(own_sp ~ total_litres_consumed_dieselkero , data = litres_S_M, method="nearest", ratio=2)
 a <- summary(match.it)
 
 plot(match.it, type = 'jitter', interactive = FALSE)
@@ -69,8 +118,9 @@ table199 <- print(table19,
 table199 [,1:3]%>%
   kable() %>%
   kable_styling()
-rm (tableBEFORE,match.it,df.match,df.match18,df.match19)
-rm(litres_RBS,litres_S,litres_S_M)
+
+rm (tableBEFORE,match.it,df.match,df.match18,df.match19,model1,table18,table199)
+rm(litres_RBS,litres_S,litres_S_M,litres_rbs,litres_rbs_M)
 # Irrigation Intensity -------------- S -------
 irri_intens_S <- land_17_18_19 %>% filter(total_land_cultivated_year>0,season!="Annual") %>% 
   group_by(TreatmentControl,year,household_questionnaire_id) %>%
@@ -129,5 +179,56 @@ summary(fit)
 
 rm (tableBEFORE,match.it,df.match,df.match18,df.match19,fit)
 rm(irri_intens_S,irri_intens_S_M)
+
+
+
+
+# wem_liter_fuel_18_19  - p123_year----
+
+litres_rbs <-  wem_liter_fuel_18_19 %>%
+  filter(!is.na(p123_year))%>%
+  mutate(after_1Y = year == 2019, 
+         own_sp = TreatmentControl == "Treatment")
+
+
+litres_rbs_M <- filter(litres_rbs, year == 2018) %>% select(-c(5:16))
+
+tableBEFORE <- CreateTableOne(vars = 'p123_year', 
+                              data = litres_rbs_M, 
+                              strata = 'TreatmentControl')
+
+
+match.it <- matchit(own_sp ~ p123_year , data = litres_rbs_M, method="nearest", ratio=2)
+a <- summary(match.it)
+
+plot(match.it, type = 'jitter', interactive = FALSE)
+
+df.match <- match.data(match.it)[1]
+
+df.match <-inner_join (df.match,litres_rbs,by="household_questionnaire_id")
+
+
+# after 1 year
+df.match19 <- filter(df.match,year==2019)
+
+pacman::p_load(tableone)
+table19 <- CreateTableOne(vars = c('p123_year'), 
+                          data = df.match19, 
+                          strata = 'TreatmentControl')
+
+table199 <- print(table19, 
+                  printToggle = FALSE, 
+                  noSpaces = TRUE)
+
+table199 [,1:3]%>%
+  kable() %>%
+  kable_styling()
+
+ggplot(data = df.match18, mapping = aes(x=TreatmentControl, 
+                                        y=p123_year,
+                                        fill=TreatmentControl)) +
+  geom_boxplot() + theme_bw() +
+  scale_fill_brewer(palette = "Accent")
+
 
 

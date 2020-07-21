@@ -429,80 +429,7 @@ kable(riiC_riiT,"latex", booktabs = T,align = "lcccc",linesep = "") %>%
 
 ```
 
->difference in difference 
 
- * **after 1 year**
-```{r afret 1 S, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = '40%'}
-irri_intens_S <- land_17_18_19 %>% filter(total_land_cultivated_year>0,season!="Annual") %>% 
-  group_by(TreatmentControl,year,household_questionnaire_id) %>%
-  summarise(gross_irri=sum(irrigated_out_of_tot_land_cult),gross_crop=sum(total_land_cultivated),ii=gross_irri/gross_crop*100) %>% 
-  filter(ii>= 0,ii<=100) 
-
-irri_intens_S <- irri_intens_S %>% 
-  mutate(after_1Y = year == 2018, 
-         after_2Y = year == 2019, 
-         own_sp = TreatmentControl == "Treatment")
-
-ggplot(irri_intens_S, aes(year, ii, color = TreatmentControl)) +
-  stat_summary(geom = 'line') +
-  theme_minimal()+
-  scale_x_continuous(breaks = c(2017,2018,2019))
-
-model1 <-  lm(ii ~ after_1Y*own_sp, data = irri_intens_S)
-summary(model1)
-
-
-```
-
- * **after 2 year**
-
-```{r after 2 S, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
-model2 = lm(ii ~ after_2Y*own_sp, data = irri_intens_S)
-summary(model2)
-```
-
->Matching
-
- * after 1 year
-
-```{r match 1 S, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
-irri_intens_S <- land_17_18_19 %>% filter(total_land_cultivated_year>0,season!="Annual") %>% 
-  group_by(TreatmentControl,year,household_questionnaire_id) %>%
-  summarise(gross_irri=sum(irrigated_out_of_tot_land_cult),gross_crop=sum(total_land_cultivated),ii=gross_irri/gross_crop*100) %>% 
-  filter(ii>= 0,ii<=100) 
-
-irri_intens_S_M <- irri_intens_S %>% 
-  mutate(after_1Y = year == 2018, 
-         after_2Y = year == 2019, 
-         own_sp = TreatmentControl == "Treatment")
-
-irri_intens_S_M <- filter(irri_intens_S_M, year == 2017)
-
-match.it <- matchit(own_sp ~ ii , data = irri_intens_S_M, method="nearest", ratio=1)
-
-df.match <- match.data(match.it)[3]
-
-df.match <-inner_join (df.match,irri_intens_S,by="household_questionnaire_id")
-
-
-# after 1 year
-df.match18 <- filter(df.match,year==2018)
-
-CreateTableOne(vars = c('ii'), 
-                          data = df.match18, 
-                          strata = 'TreatmentControl')
-```
-
- * after 2 year
-
-```{r match 2 S, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
-# after 2 year
-df.match19 <- filter(df.match,year==2019)
-
-CreateTableOne(vars = c('ii'), 
-                          data = df.match19, 
-                          strata = 'TreatmentControl')
-```
 
 &nbsp;
 
@@ -726,24 +653,13 @@ ggplot(litres_S, aes(year, total_litres_consumed_dieselkero, color = own_sp)) +
 ```
 
 
-**After 1 year**
-```{r After 1 year S, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
-model1 <-  lm(total_litres_consumed_dieselkero ~ after_1Y*own_sp, data = litres_S)
-summary(model1)
-```
-
-**After 2 year**
-```{r After 2 year S, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
-model2 = lm(total_litres_consumed_dieselkero ~ after_2Y*own_sp, data = litres_S)
-summary(model2)
-```
 
   &nbsp;  
 
 
 **Matchig**
 
-1 year
+2018 - After 1 year
 ```{r Matchig 1 year, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 
 litres_S <-  Procurement_17_18_19 %>%
@@ -758,7 +674,7 @@ litres_S_M <-
          ,c(household_questionnaire_id,at_which_price_did_you_buy_it,
             fuel_L_year:own_sp))
 
-match.it <- matchit(own_sp ~ fuel_L_year , data = litres_S_M, method="nearest", ratio=1)
+match.it <- matchit(own_sp ~ fuel_L_year , data = litres_S_M, method="nearest", ratio=4)
 
 df.match <- match.data(match.it)[1]
 
@@ -767,20 +683,39 @@ df.match <-inner_join (df.match,litres_S,by="household_questionnaire_id")
 # after 1 year
 df.match18 <- filter(df.match,year==2018)
 
-CreateTableOne(vars = c('fuel_L_year'), 
+table18 <- CreateTableOne(vars = c('fuel_L_year'), 
                          data = df.match18, 
                          strata = 'TreatmentControl')
 
+table188 <- print(table18, 
+                  printToggle = FALSE, 
+                  noSpaces = TRUE)
+
+table188 [,1:3]%>%
+  kable() %>%
+  kable_styling(full_width = F, position = "left")
+
 ```
 
-2 year
+&nbsp;
+ 
+2019 After 2 year
 ```{r Matchig 2 year, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
 # after 2 year
 df.match19 <- filter(df.match,year==2019)
 
-CreateTableOne(vars = c('fuel_L_year'), 
+table19 <- CreateTableOne(vars = c('fuel_L_year'), 
                          data = df.match19, 
                          strata = 'TreatmentControl')
+
+table199 <- print(table19, 
+                  printToggle = FALSE, 
+                  noSpaces = TRUE)
+
+table199 [,1:3]%>%
+  kable() %>%
+  kable_styling(position = "left")
+
 ```
 
 \newpage
@@ -806,7 +741,7 @@ kable(rpsf, booktabs = T,col.names = c("RBS"," "," "," "," " ),align = "lcccc",l
   column_spec(3,border_right = T ,width = "1.5cm")%>% row_spec(0:2, background = "#e2f3ff") 
 ```
 
-```{r , echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = '40%'}
+```{r , echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, out.width = '60%'}
 litres_RBS <-  Procurement_18_19 %>%
   filter(!is.na(total_litres_consumed_dieselkero),
          total_litres_consumed_dieselkero<10000)%>%
@@ -818,13 +753,6 @@ ggplot(litres_RBS, aes(year, total_litres_consumed_dieselkero, color = Treatment
   theme_minimal()+scale_x_continuous(breaks = c(2017,2018,2019))
 
 
-
-```
-**After 1 year**
-```{r After 1 year RBS , echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
-
-model = lm(total_litres_consumed_dieselkero ~ after_1Y*own_sp, data = litres_RBS)
-summary(model)
 
 ```
 
@@ -880,7 +808,77 @@ kable(rwemf, booktabs = T,col.names = c("RBS"," "," "," "," "," "," "," "," "),a
 
 ```  
 
-&nbsp; 
+
+```{r fuel use season DiD , echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+litres_rbs <-  wem_liter_fuel_18_19 %>%
+  filter(!is.na(p123_year))%>%
+  mutate(after_1Y = year == 2019, 
+         own_sp = TC == 1)
+```
+
+```{r fuel use season DiD gg, figures-side, fig.show="hold", out.width="50%",echo=FALSE, message=FALSE}
+par(mar = c(4, 4, .1, .1))
+
+ggplot(litres_rbs, aes(year, p123_year, color = TreatmentControl)) +
+  stat_summary(geom = 'line') +
+  theme_minimal()+
+  scale_x_continuous(breaks = c(2018,2019))
+
+ggplot(litres_rbs, aes(year, p123_year, color = own_sp)) +
+  geom_jitter() +
+  theme_minimal()+ 
+  scale_x_continuous(breaks = c(2018,2019))
+
+
+```
+
+```{r fuel use season DiD model 1 , echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+
+model1 <-  lm(p123_year ~ after_1Y*own_sp, data = litres_rbs)
+summary(model1)
+
+```
+
+\newpage
+
+**Matching after 1 year**
+```{r fuel use season DMatching , echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+litres_rbs <-  wem_liter_fuel_18_19 %>%
+  filter(!is.na(p123_year))%>%
+  mutate(after_1Y = year == 2019, 
+         own_sp = TreatmentControl == "Treatment")
+
+
+litres_rbs_M <- filter(litres_rbs, year == 2018) %>% select(-c(5:16))
+
+match.it <- matchit(own_sp ~ p123_year , data = litres_rbs_M, method="nearest", ratio=2)
+
+df.match <- match.data(match.it)[1]
+
+df.match <-inner_join (df.match,litres_rbs,by="household_questionnaire_id")
+
+# after 1 year
+df.match19 <- filter(df.match,year==2019)
+
+pacman::p_load(tableone)
+table19 <- CreateTableOne(vars = c('p123_year'), 
+                          data = df.match19, 
+                          strata = 'TreatmentControl')
+
+table199 <- print(table19, 
+                  printToggle = FALSE, 
+                  noSpaces = TRUE)
+
+table199 [,1:3]%>%
+  kable() %>%
+  kable_styling()
+
+```
+
+
 
 ## Frequency of households who use fuel
 &nbsp;
@@ -978,3 +976,8 @@ kable(raquas, booktabs = T,col.names = c("RBS"," "," "," "," " ),align = "lcccc"
   column_spec(3,border_right = T ,width = "1.5cm")%>% row_spec(0:2, background = "#e2f3ff")
 
 ```
+
+
+
+
+
