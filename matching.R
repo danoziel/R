@@ -1,6 +1,8 @@
+library(tidyverse)
 library(MatchIt)
 library(tableone)
-# Table 1: Total Own Land Cultivated - Summer----
+library(kableExtra)
+# S   Table 1: Total Own Land Cultivated - Summer  ----
 
 lso <- land_17_18_19 %>% 
   filter(total_land_cultivated_year>0,season=="Summer") %>%
@@ -15,11 +17,12 @@ lso <- lso %>%
 lso_M <- filter(lso, year == 2017)
 
 match.it <- matchit(own_sp ~ own , data = lso_M, method="nearest", ratio=3)
-a <- summary(match.it)
 
 plot(match.it, type = 'jitter', interactive = FALSE)
 
 df.match <- match.data(match.it)[3]
+
+df.match <-inner_join (df.match,lso,by="household_questionnaire_id")
 
 
 # after 1 year
@@ -40,19 +43,216 @@ table188 [,1:3]%>%
 
 
 # after 2 year
-df.match19 <- filter(df.match,year==2019)
+# In both groups the numbers decrease
+
+
+# RBS Table 1: Total Own Land Cultivated - Summer  ----   
+lor <- Land_18_19%>% 
+  filter(total_land_cultivated_year>0,season=="Summer") %>%
+  group_by(year,TreatmentControl, household_questionnaire_id) %>%
+  summarise(ownland=total_ownland_cultivated*0.0338) 
+
+lor <- lor %>% 
+  mutate(after_1Y = year == 2019, 
+         own_sp = TreatmentControl == "Treatment")
+
+lor_M <- filter(lor, year == 2018)
+
+match.it <- matchit(own_sp ~ ownland , data = lor_M, method="nearest", ratio=3)
+
+plot(match.it, type = 'jitter', interactive = FALSE)
+
+df.match <- match.data(match.it)
+df.match <-select(df.match,3)
+
+df.match <-inner_join (df.match,lor,by="household_questionnaire_id")
+
+
+# after 1 year
+df.match1 <- filter(df.match,year==2019)
 
 pacman::p_load(tableone)
-table19 <- CreateTableOne(vars = c('own'), 
-                          data = df.match19, 
+table1 <- CreateTableOne(vars = c('ownland'), 
+                          data = df.match1, 
                           strata = 'TreatmentControl')
-table188 <- print(table18, 
+
+table11 <- print(table1, 
                   printToggle = FALSE, 
                   noSpaces = TRUE)
 
-table188 [,1:3]%>%
+table11 [,1:3]%>%
   kable() %>%
   kable_styling(full_width = F, position = "left")
+
+rm (match.it,df.match,df.match1,df.match2,table1,table11)
+rm(lor,lor_M,lorCT)
+
+
+# S   Table 2:  Gross Cropped Area  ----
+
+C008109001:480 T103207002:400
+
+lsc <- land_17_18_19%>% 
+  filter(!household_questionnaire_id %in% c("C008109001", "T103207002")) %>%
+  filter(total_land_cultivated_year>0) %>%
+  group_by(year,TreatmentControl, household_questionnaire_id) %>%
+  summarise(gca=sum(total_land_cultivated)*0.0338)
+
+lsc <- lsc %>% 
+  mutate(after_1Y = year == 2018, 
+         after_2Y = year == 2019, 
+         own_sp = TreatmentControl == "Treatment")
+
+lsc_M <- filter(lsc, year == 2017)
+
+match.it <- matchit(own_sp ~ gca , data = lsc_M, method="nearest", ratio=3)
+
+plot(match.it, type = 'jitter', interactive = FALSE)
+
+df.match <- match.data(match.it)[3]
+
+df.match <-inner_join (df.match,lsc,by="household_questionnaire_id")
+
+# after 1 year
+df.match1 <- filter(df.match,year==2018)
+
+pacman::p_load(tableone)
+table1 <- CreateTableOne(vars = c('gca'), 
+                          data = df.match1, 
+                          strata = 'TreatmentControl')
+
+table11 <- print(table1, 
+                  printToggle = FALSE, 
+                  noSpaces = TRUE)
+
+table11 [,1:3]%>%
+  kable() %>%
+  kable_styling(full_width = F, position = "left")
+
+# after 2 year
+df.match2 <- filter(df.match,year==2019)
+
+pacman::p_load(tableone)
+table2 <- CreateTableOne(vars = c('gca'), 
+                         data = df.match2, 
+                         strata = 'TreatmentControl')
+
+table22 <- print(table2, 
+                 printToggle = FALSE, 
+                 noSpaces = TRUE)
+
+table22 [,1:3]%>%
+  kable() %>%
+  kable_styling(full_width = F, position = "left")
+
+rm (match.it,df.match,df.match1,df.match2,table1,table11,table2,table22)
+rm(lsc,lsc_M)
+
+# RBS Table 2:  Gross Cropped Area  ----
+lgr <- Land_18_19%>% 
+  filter(total_land_cultivated_year>0) %>%
+  group_by(year,TreatmentControl, household_questionnaire_id) %>%
+  summarise(gca=sum(total_land_cultivated)*0.0338) 
+
+lgr <- lgr %>% 
+  mutate(after_1Y = year == 2019, 
+         own_sp = TreatmentControl == "Treatment")
+
+lgr_M <- filter(lgr, year == 2018)
+
+match.it <- matchit(own_sp ~ gca , data = lgr_M, method="nearest", ratio=3)
+df.match <- match.data(match.it)[3]
+df.match <-inner_join (df.match,lgr,by="household_questionnaire_id")
+
+df.match1 <- filter(df.match,year==2019)
+
+pacman::p_load(tableone)
+table1 <- CreateTableOne(vars = c('gca'),data = df.match1,strata = 'TreatmentControl')
+
+table11 <- print(table1,printToggle = FALSE,noSpaces = TRUE)
+
+table11 [,1:3]%>% kable() %>% kable_styling(full_width = F, position = "left")
+
+
+
+
+
+
+
+
+
+
+
+
+#  S   Table 3: Cropping Intensity  ----
+lsci <- land_17_18_19%>% filter(total_land_cultivated_year>0) %>%
+  mutate(NEW_total_land_cult= case_when(TreatmentControl=="Control" & land_for_cultivation < total_land_cultivated ~ NA_real_,
+                                        TRUE ~ total_land_cultivated)) %>% 
+  group_by(year,TreatmentControl, household_questionnaire_id) %>%
+  summarise(cult=sum(NEW_total_land_cult,na.rm = T),net=mean(land_for_cultivation))%>%
+  mutate(crop_intensity=cult/net*100) 
+
+lsci <- lsci %>% 
+  mutate(after_1Y = year == 2018, 
+         after_2Y = year == 2019, 
+         own_sp = TreatmentControl == "Treatment")
+
+lsci_M <- filter(lsci, year == 2017)
+
+match.it <- matchit(own_sp ~ crop_intensity , data = lsci_M, method="nearest", ratio=3)
+plot(match.it, type = 'jitter', interactive = FALSE)
+df.match <- match.data(match.it)[3]
+df.match <-inner_join (df.match,lsci,by="household_questionnaire_id")
+# after 1 year
+df.match1 <- filter(df.match,year==2018)
+table1 <- CreateTableOne(vars = c('crop_intensity'),data = df.match1,strata = 'TreatmentControl')
+
+table11 <- print(table1,printToggle = FALSE,noSpaces = TRUE)
+
+table11 [,1:3]%>%kable() %>% kable_styling(full_width = F, position = "left")
+
+# after 2 year
+df.match2 <- filter(df.match,year==2019)
+
+pacman::p_load(tableone)
+table2 <- CreateTableOne(vars = c('crop_intensity'), 
+                         data = df.match2, 
+                         strata = 'TreatmentControl')
+
+table22 <- print(table2, 
+                 printToggle = FALSE, 
+                 noSpaces = TRUE)
+
+table22 [,1:3]%>%
+  kable() %>%
+  kable_styling(full_width = F, position = "left")
+
+
+#  RBS Table 3: Cropping Intensity  ----
+lrci <- Land_18_19%>% 
+  filter(total_land_cultivated_year>0) %>%
+  mutate(NEW_total_land_cult= case_when(
+    TreatmentControl=="Control" & land_for_cultivation < total_land_cultivated ~ NA_integer_,
+    TRUE ~ total_land_cultivated)) %>% 
+  group_by(year,TreatmentControl, household_questionnaire_id) %>%
+  summarise(cult=sum(NEW_total_land_cult,na.rm = T),net=mean(land_for_cultivation))%>%
+  mutate(crop_intensity=cult/net*100) %>% filter(crop_intensity>=0)
+
+lrci <- lrci %>% mutate(after_1Y = year == 2019,own_sp = TreatmentControl == "Treatment")
+
+lrci_M <- filter(lrci, year == 2018)
+
+match.it <- matchit(own_sp ~ crop_intensity , data = lrci_M, method="nearest", ratio=3)
+df.match <- match.data(match.it)[3]
+df.match <-inner_join (df.match,lrci,by="household_questionnaire_id")
+
+df.match1 <- filter(df.match,year==2019)
+
+table1 <- CreateTableOne(vars = c('crop_intensity'),data = df.match1,strata = 'TreatmentControl')
+
+table11 <- print(table1,printToggle = FALSE,noSpaces = TRUE)
+
+table11 [,1:3]%>% kable() %>% kable_styling(full_width = F, position = "left")
 
 
 # total_litres_consumed_dieselkero -- S ----
@@ -232,3 +432,44 @@ ggplot(data = df.match18, mapping = aes(x=TreatmentControl,
 
 
 
+
+
+
+
+# S Table 4: Size of  the irrigated area----
+
+lsi <- land_17_18_19%>% 
+  filter(total_land_cultivated_year>0) %>% 
+  group_by(year,TreatmentControl, household_questionnaire_id) %>%
+  summarise(irrigated_land=sum(irrigated_out_of_tot_land_cult,na.rm = T)*0.0338)
+
+
+# RBS Table 4: Size of  the irrigated area----
+
+lsi <- Land_18_19%>% 
+  filter(total_land_cultivated_year>0) %>%
+  group_by(year,TreatmentControl, household_questionnaire_id) %>%
+  summarise(irrigated_land=sum(irrigated_out_of_tot_land_cult)*0.0338) 
+
+lsi <- lsi %>% 
+  mutate(after_1Y = year == 2019, 
+         own_sp = TreatmentControl == "Treatment")
+
+lsi_M <- filter(lsi, year == 2018)
+
+match.it <- matchit(own_sp ~ irrigated_land , data = lsi_M, method="nearest", ratio=3)
+plot(match.it, type = 'jitter', interactive = FALSE)
+df.match <- match.data(match.it)[3]
+df.match <-inner_join (df.match,lsi,by="household_questionnaire_id")
+# after 1 year
+df.match1 <- filter(df.match,year==2019)
+table1 <- CreateTableOne(vars = c('irrigated_land'),data = df.match1,strata = 'TreatmentControl')
+
+table11 <- print(table1,printToggle = FALSE,noSpaces = TRUE)
+
+table11 [,1:3]%>%kable() %>% kable_styling(full_width = F, position = "left")
+
+
+
+
+rm (match.it,df.match,df.match1,df.match2,table1,table11,table2,table22)

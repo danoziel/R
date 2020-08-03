@@ -3,27 +3,43 @@
 # butttt Including the value 0 in the variables themselves 
 
 # total_ownland_cultivated  -Summer [4.4]  ----   
-df2 <- Land_18_19%>% 
+lor <- Land_18_19%>% 
   filter(total_land_cultivated_year>0,season=="Summer") %>%
   group_by(year,TreatmentControl, household_questionnaire_id) %>%
   summarise(own=total_ownland_cultivated*0.0338) %>% 
-  group_by(year, TreatmentControl) %>%
-  summarise(N=n(), own=mean(own)) %>% 
+  group_by(TreatmentControl,year) %>%
+  summarise(N=n(), Mean=mean(own)) %>% 
   mutate(across(is.numeric, round, 2))
+
+lorCT <- cbind(lor[1:2,-1],lor[3:4,3:4])
+
+kable(lorCT, booktabs = T,align = "lcccc",linesep = "") %>%
+  column_spec(1, bold = T) %>%
+  kable_styling(latex_options = "striped",stripe_index = 3,  position = "left") %>% 
+  column_spec(1:5, width = "1.5cm",border_left = F) %>%column_spec(3,border_right = T ,width = "1.5cm") %>%  row_spec(0, font_size= 7) %>% 
+  add_header_above(c("RBS" = 1, "Control" = 2, "Treatment" = 2), bold = F, align = "c") %>% 
+  row_spec(0:2, background = "#e2f3ff")
+
+
 
 tribble(~" " ,~N,~mean,~N,~mean,2018,107,  0.23,26 , 0.72 , 2019, 95 , 0.31,22,1.14)
 
 # Gross Cropped Area- total_land_cultivated     [4.8]   ----   
-Land_18_19%>% 
+lsr <- Land_18_19%>% 
   filter(total_land_cultivated_year>0) %>%
   group_by(year,TreatmentControl, household_questionnaire_id) %>%
   summarise(cult=sum(total_land_cultivated)*0.0338) %>% 
-  group_by(year, TreatmentControl) %>%
+  group_by(TreatmentControl,year) %>%
   summarise(N=n(), Mean=mean(cult))
 
+lsrCT <- cbind(lsr[1:2,-1],lsr[3:4,3:4])
+
+dt2 <-tribble( ~RBS, ~" ", ~" ", ~" ", ~" ",2018,107,4.04,26,5.33,2019,95,3.66,22,7.07)
+
+rm(lsr,lsrCT)
 
 # crop_intensity           [4.0]   ----    
-df <- Land_18_19%>% 
+lrci <- Land_18_19%>% 
   filter(total_land_cultivated_year>0) %>%
   mutate(NEW_total_land_cult= case_when(
     TreatmentControl=="Control" & land_for_cultivation < total_land_cultivated ~ NA_integer_,
@@ -31,21 +47,36 @@ df <- Land_18_19%>%
   group_by(year,TreatmentControl, household_questionnaire_id) %>%
   summarise(cult=sum(NEW_total_land_cult,na.rm = T),net=mean(land_for_cultivation))%>%
     mutate(ci=cult/net*100) %>% 
-  group_by(year, TreatmentControl) %>%
+  group_by(TreatmentControl,year) %>%
   summarise(N=n(),crop_intensity=mean(ci,na.rm = T)) %>% 
   mutate(across(is.numeric, round, 2))
 
+lrci <- cbind(lrci[1:2,-1],lrci[3:4,3:4])
 
 
 # irrigated_out_of_tot_land_cult (In ha) [4.9]----
-Land_18_19%>% 
+lsi <- Land_18_19%>% 
   filter(total_land_cultivated_year>0) %>%
   group_by(year,TreatmentControl, household_questionnaire_id) %>%
   summarise(irrigated=sum(irrigated_out_of_tot_land_cult)*0.0338) %>% 
-  group_by(year, TreatmentControl) %>%
-  summarise(N=n(), irrigated=mean(irrigated))
+  group_by(TreatmentControl,year) %>%
+  summarise(N=n(), Mean=mean(irrigated)) %>% 
+  mutate(across(is.numeric,round,2))
 
+lsict <- cbind(lsi[1:2,-1],lsi[3:4,3:4])
 
+kable(lsict, "latex", booktabs = T,align = "lcccc",linesep = "") %>%
+  column_spec(1, bold = T) %>%
+  kable_styling(position = "left") %>% 
+  column_spec(1:5, width = "1.5cm",border_left = F) %>%column_spec(3,border_right = T ,width = "1.5cm") %>%
+  row_spec(0:2, background = "#e2f3ff") %>% 
+  add_header_above(c("RBS" = 1, "Control" = 2, "Treatment" = 2), bold = F, align = "c",background = "#e2f3ff")
+
+dt2 <-tribble(~RBS, ~" ", ~" ", ~" ", ~" ",2018,107,2.55,26,3.88,2019,95,3.21,22,5.13)
+
+kable(dt2, "latex", booktabs = T,align = "lcccc",linesep = "") %>%
+  kable_styling(latex_options = "striped", stripe_index = 2,position = "left") %>% 
+  column_spec(1:5, width = "1.5cm",border_left = F) %>% column_spec(3,border_right = T ,width = "1.5cm") %>% row_spec(0:2, background = "#e2f3ff")
 # Time to irrigate 1 ha [6.21] ----
 # How long does it take to irrigate 1 katha of land with this pump, in min? [6.21]
 Wem_18_19_time_to_irrigate_1_ha <- bind_rows(Water_extraction_mechanism_Baseline_2018_[,c(140,1,73)],

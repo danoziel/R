@@ -1,18 +1,18 @@
-talya_plant <- TALYAfarmer %>%
+talya_by_plant <- TALYAfarmer %>%
   filter(farmer_name!="Vijaya narasimha") %>%
   filter(farmer_name!="R Chenna kista") %>%
   filter(harvest_yesno_talya100=="Yes") %>%
   rename(harvest_KG_CONTROL=harvest_KG,harvest_damage_CONTROL=harvest_damage,week_number=week.) %>%  
-  select(2,18,19,20,harvest_KG_talya100,harvest_KG_CONTROL,harvest_damage_talya100,
+  select(starttime,mandal,village,farmer_name,harvest_KG_talya100,harvest_KG_CONTROL,harvest_damage_talya100,
          harvest_damage_CONTROL,KG_sold_TALYA100,KG_sold_CONTROL,average_price_TALYA100,
-         revenue_TALYA100,revenue_CONTROL,average_price_TALYA100,8,harvest_yesno_talya100,
+         revenue_TALYA100,revenue_CONTROL,average_price_TALYA100,username,harvest_yesno_talya100,
          week_number,year)
+talya_plant
+talya_by_plant <- talya_by_plant[-26,]
 
-talya_plant <- talya_plant[-26,]
+talya_by_plant <- full_join(talya_by_plant,area_talya_farmers,by="farmer_name")
 
-talya_plant <- full_join(talya_plant,area_talya_farmers,by="farmer_name")
-
-talya_plant <- talya_plant %>% mutate(ty_harvest_kg_ac = harvest_KG_talya100 /trays,
+talya_by_plant <- talya_by_plant %>% mutate(ty_harvest_kg_ac = harvest_KG_talya100 /trays,
                           ctrl_harvest_kg_ac = harvest_KG_CONTROL /trays,
                           ty_damage_kg_ac = harvest_damage_talya100 /trays,
                           ctrl_damage_kg_ac = harvest_damage_CONTROL /trays,
@@ -21,7 +21,7 @@ talya_plant <- talya_plant %>% mutate(ty_harvest_kg_ac = harvest_KG_talya100 /tr
                           ty_revenue_ac = revenue_TALYA100 /trays,
                           ctrl_revenue_ac = revenue_CONTROL /trays)
 
-talya_plant <- talya_plant %>% group_by(id) %>% 
+talya_by_plant <- talya_by_plant %>% group_by(id) %>% 
   summarise_at(vars(ty_harvest_kg_ac :ctrl_revenue_ac), sum, na.rm = TRUE) 
 
 # g_revenue-----
@@ -53,11 +53,11 @@ g_revenue
 
 # g-harvest----
 
-g_harvest <- talya_plant%>%
+g_harvest <- talya_by_plant%>%
   summarise(`Tal-Ya plot`=mean(ty_harvest_kg_ac),
             `Control Plot`=mean(ctrl_harvest_kg_ac)) %>% 
   mutate(across(is.numeric, round,3)) %>%
-  summarise((`Tal-Ya plot`-`Control Plot`)/`Control Plot`)
+  summarise(`Tal-Ya plot`/`Control Plot`)
 
 g_harvest <- g_harvest %>% tidyr::gather("plot", "harvest", 1:2)
 

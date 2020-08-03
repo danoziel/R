@@ -1,7 +1,9 @@
 #----read_csv----
 library(readr)
 dfo <- read_csv("dfo.csv", col_types = cols(date = col_date(format = "%d/%m/%Y")))
-write.csv(dfo, file="C:/Users/Dan/Documents/R/dfo.csv")
+
+write.csv(peace_Q16, file="C:/Users/Dan/Documents/R/heat and peace/data/peace_Q16.csv")
+
 #----Useful functions for DATE----
 meteorologic
 range(meteorologic$date)

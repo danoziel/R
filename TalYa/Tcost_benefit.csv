@@ -1,0 +1,147 @@
+"","starttime","farmer_name","weeknum.year","transportation_cost_CONTROL","transportation_cost_TALYA100","labor_work_days","paid_labor_cost","expense_cost","expenses_names","expenses_names2","expenses_names3","revenue_CONTROL","revenue_TALYA100"
+"1","25.11.19","Thimmireddy","2019 week 48",NA,NA,0,NA,NA,"","","",NA,NA
+"2","4.12.19","Thimmireddy","2019 week 49",NA,NA,0,NA,2000,"Spraying","No","No",NA,NA
+"3","5.12.19","Venkateswara","2019 week 49",NA,NA,0,NA,NA,"","","",NA,NA
+"4","11.12.19","R. Jakir Hussen","2019 week 50",NA,NA,0,NA,NA,"","","",NA,NA
+"5","11.12.19","Thimmireddy","2019 week 50",NA,NA,0,NA,NA,"","","",NA,NA
+"6","12.12.19","T. Narasimha reddy","2019 week 50",NA,NA,2,250,NA,"","","",NA,NA
+"7","13.12.19","Venkateswara","2019 week 50",NA,NA,8,250,NA,"","","",NA,NA
+"8","5.12.19","T. Narasimha reddy","2019 week 51",NA,NA,0,NA,NA,"","","",NA,NA
+"9","19.12.19","Venkateswara","2019 week 51",NA,NA,10,500,20000,"Staking sticks","0","0",NA,NA
+"10","19.12.19","T. Narasimha reddy","2019 week 51",NA,NA,0,NA,NA,"","","",NA,NA
+"11","26.12.19","Thimmireddy","2019 week 52",NA,NA,1,1500,NA,"","","",NA,NA
+"12","26.12.19","R. Jakir Hussen","2019 week 52",NA,NA,0,NA,NA,"","","",NA,NA
+"13","26.12.19","Venkateswara","2019 week 52",NA,NA,0,NA,NA,"","","",NA,NA
+"14","26.12.19","T. Narasimha reddy","2019 week 52",NA,NA,0,NA,NA,"","","",NA,NA
+"15","2.1.20","T. Narasimha reddy","2020 week 1",NA,NA,0,NA,NA,"","","",NA,NA
+"16","2.1.20","Thimmireddy","2020 week 1",NA,NA,6,500,30000,"Sticks","Thread","No",NA,NA
+"17","2.1.20","R. Jakir Hussen","2020 week 1",NA,NA,8,3000,40000,"Sticks","Threads","",NA,NA
+"18","2.1.20","Venkateswara","2020 week 1",NA,NA,0,NA,NA,"","","",NA,NA
+"19","8.1.20","M Chenna krista","2020 week 2",NA,NA,2,250,NA,"","","",NA,NA
+"20","8.1.20","Thimmireddy","2020 week 2",NA,NA,0,NA,NA,"","","",NA,NA
+"21","8.1.20","R. Jakir Hussen","2020 week 2",NA,NA,10,3000,NA,"","","",NA,NA
+"22","9.1.20","T. Narasimha reddy","2020 week 2",NA,NA,0,NA,NA,"","","",NA,NA
+"23","9.1.20","Venkateswara","2020 week 2",NA,NA,3,250,NA,"","","",NA,NA
+"24","16.1.20","M Chenna krista","2020 week 3",NA,NA,0,NA,NA,"","","",NA,NA
+"25","16/01/2020","M Chenna krista","2020 week 3",NA,NA,0,NA,NA,"","","",NA,NA
+"26","16/01/2020","D. Anjappa","2020 week 3",NA,NA,16,250,NA,"","","",NA,NA
+"27","17/01/2020","Thimmireddy","2020 week 3",NA,NA,8,2400,NA,"","","",NA,NA
+"28","17/01/2020","R. Jakir Hussen","2020 week 3",NA,NA,0,NA,NA,"","","",NA,NA
+"29","16/01/2020","T. Narasimha reddy","2020 week 3",NA,NA,6,500,8000,"Staking sticks","8000","0",NA,NA
+"30","17/01/2020","Venkateswara","2020 week 3",NA,NA,0,NA,NA,"","","",NA,NA
+"31","23/01/2020","R. Jakir Hussen","2020 week 4",NA,NA,0,NA,NA,"","","",NA,NA
+"32","23/01/2020","Thimmireddy","2020 week 4",NA,NA,0,NA,NA,"","","",NA,NA
+"33","23/01/2020","D. Anjappa","2020 week 4",NA,NA,0,NA,NA,"","","",NA,NA
+"34","23/01/2020","M Chenna krista","2020 week 4",NA,NA,0,NA,NA,"","","",NA,NA
+"35","23/01/2020","T. Narasimha reddy","2020 week 4",NA,NA,12,250,NA,"","","",NA,NA
+"36","24/01/2020","Venkateswara","2020 week 4",NA,NA,0,NA,NA,"","","",NA,NA
+"37","30/01/2020","Thimmireddy","2020 week 5",NA,NA,6,300,6500,"Stacking","4000","2500",NA,NA
+"38","30/01/2020","R. Jakir Hussen","2020 week 5",NA,NA,8,300,7500,"Stacking wire cost and labourer","4000","3500",NA,NA
+"39","30/01/2020","D. Anjappa","2020 week 5",NA,NA,0,NA,NA,"","","",NA,NA
+"40","30/01/2020","M Chenna krista","2020 week 5",NA,NA,0,NA,NA,"","","",NA,NA
+"41","30/01/2020","T. Narasimha reddy","2020 week 5",NA,NA,0,NA,NA,"","","",NA,NA
+"42","06/02/2020","D. Anjappa","2020 week 6",NA,NA,0,NA,NA,"","","",NA,NA
+"43","06/02/2020","M Chenna krista","2020 week 6",NA,NA,0,NA,NA,"","","",NA,NA
+"44","06/02/2020","T. Narasimha reddy","2020 week 6",NA,NA,0,NA,NA,"","","",NA,NA
+"45","07/02/2020","Venkateswara","2020 week 6",NA,NA,0,NA,NA,"","","",NA,NA
+"46","13/02/2020 7:18","R. Jakir Hussen","2020 week 7",NA,NA,8,300,NA,"","","",NA,NA
+"47","13/02/2020 7:16","M Chenna krista","2020 week 7",NA,NA,0,NA,NA,"","","",NA,NA
+"48","13/02/2020 8:07","Thimmireddy","2020 week 7",NA,NA,0,NA,NA,"","","",NA,NA
+"49","13/02/2020 14:16","D. Anjappa","2020 week 7",NA,NA,1,200,NA,"","","",NA,NA
+"50","14/02/2020 8:42","Venkateswara","2020 week 7",NA,NA,0,NA,NA,"","","",NA,NA
+"51","14/02/2020 10:47","T. Narasimha reddy","2020 week 7",NA,NA,26,230,NA,"","","",NA,NA
+"52","19/02/2020 14:01","Thimmireddy","2020 week 8",NA,NA,4,300,NA,"","","",NA,NA
+"53","19/02/2020 14:55","Viswanatha Reddy","2020 week 8",NA,NA,0,NA,NA,"","","",NA,NA
+"54","19/02/2020 15:28","Ranganath","2020 week 8",NA,NA,0,NA,NA,"","","",NA,NA
+"55","20/02/2020 6:51","Venkateswara","2020 week 8",NA,NA,15,250,NA,"","","",NA,NA
+"56","20/02/2020 7:16","M Chenna krista","2020 week 8",NA,NA,0,NA,NA,"","","",NA,NA
+"57","20/02/2020 7:56","D. Anjappa","2020 week 8",NA,NA,1,200,NA,"","","",NA,NA
+"58","20/02/2020 9:05","T. Narasimha reddy","2020 week 8",NA,NA,0,NA,NA,"","","",NA,NA
+"59","20/02/2020 9:54","R. Jakir Hussen","2020 week 8",NA,NA,0,NA,NA,"","","",NA,NA
+"60","26/02/2020 10:41","Viswanatha Reddy","2020 week 9",NA,NA,0,NA,NA,"","","",NA,NA
+"61","26/02/2020 11:08","Ranganath","2020 week 9",NA,NA,0,NA,NA,"","","",NA,NA
+"62","27/02/2020 6:27","D. Anjappa","2020 week 9",NA,NA,0,NA,NA,"","","",NA,NA
+"63","27/02/2020 8:39","M Chenna krista","2020 week 9",NA,NA,0,NA,NA,"","","",NA,NA
+"64","27/02/2020 12:23","R. Jakir Hussen","2020 week 9",240,280,8,300,NA,"","","",3400,4000
+"65","27/02/2020 13:11","Thimmireddy","2020 week 9",170,180,0,NA,NA,"","","",1800,2000
+"66","28/02/2020 4:41","Venkateswara","2020 week 9",NA,NA,0,NA,NA,"","","",NA,NA
+"67","28/02/2020 5:43","T. Narasimha reddy","2020 week 9",NA,NA,0,NA,NA,"","","",NA,NA
+"68","04/03/2020 5:48","Ranganath","2020 week 10",NA,NA,1,300,0,"0","0","0",NA,NA
+"69","04/03/2020 6:27","Viswanatha Reddy","2020 week 10",NA,NA,0,NA,NA,"","","",NA,NA
+"70","05/03/2020 5:42","D. Anjappa","2020 week 10",NA,NA,0,NA,NA,"","","",NA,NA
+"71","05/03/2020 6:42","M Chenna krista","2020 week 10",NA,NA,0,NA,NA,"","","",NA,NA
+"72","05/03/2020 8:36","T. Narasimha reddy","2020 week 10",1130,1720,0,NA,NA,"","","",274,726
+"73","05/03/2020 13:14","R. Jakir Hussen","2020 week 10",400,450,0,NA,NA,"","","",4700,5500
+"74","05/03/2020 13:46","Thimmireddy","2020 week 10",400,250,0,NA,NA,"","","",2600,3000
+"75","07/03/2020 10:47","Venkateswara","2020 week 10",1500,NA,0,NA,NA,"","","",10000,NA
+"76","11/03/2020 5:54","Viswanatha Reddy","2020 week 11",NA,NA,0,NA,NA,"","","",NA,NA
+"77","11/03/2020 6:36","Ranganath","2020 week 11",NA,NA,0,NA,150,"Stopper for lateral","150","0",NA,NA
+"78","12/03/2020 6:19","D. Anjappa","2020 week 11",NA,NA,0,NA,NA,"","","",NA,NA
+"79","12/03/2020 7:35","M Chenna krista","2020 week 11",NA,NA,0,NA,NA,"","","",NA,NA
+"80","13/03/2020 13:27","T. Narasimha reddy","2020 week 11",18,18,0,NA,NA,"","","",1133,1640
+"81","14/03/2020 13:12","R. Jakir Hussen","2020 week 11",200,250,1,0,NA,"","","",2700,3000
+"82","14/03/2020 13:44","Thimmireddy","2020 week 11",300,320,0,NA,NA,"","","",4000,4300
+"83","18/03/2020 6:43","Siva reddy","2020 week 12",NA,NA,2,250,NA,"","","",NA,NA
+"84","18/03/2020 9:06","Ranganath","2020 week 12",NA,NA,2,1000,NA,"","","",NA,NA
+"85","18/03/2020 9:28","Viswanatha Reddy","2020 week 12",NA,NA,1,2000,NA,"","","",NA,NA
+"86","13/03/2020 14:51","Venkateswara","2020 week 11",NA,2600,0,NA,NA,"","","",5720,6000
+"87","19/03/2020 7:01","T. Narasimha reddy","2020 week 12",1020,336,0,NA,NA,"","","",2600,2850
+"88","19/03/2020 10:14","Venkateswara","2020 week 12",NA,NA,0,NA,NA,"","","",NA,NA
+"89","19/03/2020 4:10","D. Anjappa","2020 week 12",NA,NA,2,200,NA,"","","",NA,NA
+"90","19/03/2020 5:27","M Chenna krista","2020 week 12",NA,NA,0,NA,NA,"","","",NA,NA
+"91","01/04/2020 13:39","Thimmireddy","2020 week 13",500,560,0,NA,NA,"","","",4850,5400
+"92","01/04/2020 13:45","Venkateswara","2020 week 13",980,1568,6,250,NA,"","","",1870,9632
+"93","01/04/2020 14:13","T. Narasimha reddy","2020 week 13",NA,NA,0,NA,NA,"","","",NA,NA
+"94","01/04/2020 14:35","R. Jakir Hussen","2020 week 13",280,320,0,NA,NA,"","","",2700,3100
+"95","02/04/2020 7:58","Siva reddy","2020 week 13",NA,NA,0,NA,NA,"","","",NA,NA
+"96","02/04/2020 8:22","Ranganath","2020 week 13",NA,NA,1,500,1000,"Staking material 1000","","",NA,NA
+"97","02/04/2020 8:30","Viswanatha Reddy","2020 week 13",NA,NA,3,500,5000,"Staking material, shifting of staking sticks","","",NA,NA
+"98","02/04/2020 11:56","M Chenna krista","2020 week 13",700,700,0,NA,NA,"","","",3150,3150
+"99","02/04/2020 12:15","D. Anjappa","2020 week 13",140,160,0,NA,NA,"","","",218,250
+"100","03/04/2020 8:58","Venkateswara","2020 week 13",350,504,0,NA,NA,"","","",2025,2520
+"101","03/04/2020 9:12","T. Narasimha reddy","2020 week 13",NA,NA,0,NA,NA,"","","",NA,NA
+"102","04/05/2020 9:12","T. Narasimha reddy","2020 week 13",420,448,0,NA,0,"Transportation - 868","Labor cost -1000","0",1050,945
+"103","09/04/2020 8:10","M Chenna krista","2020 week 14",70,70,0,NA,70,"Transfer fruit","","",500,500
+"104","09/04/2020 8:38","D. Anjappa","2020 week 14",63,70,0,NA,70,"Transfer fruits","0","0",630,700
+"105","10/04/2020 14:18","R. Jakir Hussen","2020 week 14",NA,NA,0,NA,NA,"","","",NA,NA
+"106","10/04/2020 14:55","Venkateswara","2020 week 14",NA,NA,0,NA,NA,"","","",NA,NA
+"107","15/04/2020 17:02","Siva reddy","2020 week 15",NA,NA,2,250,NA,"","","",NA,NA
+"108","15/04/2020 17:06","Ranganath","2020 week 15",NA,NA,0,NA,NA,"","","",NA,NA
+"109","15/04/2020 17:17","Viswanatha Reddy","2020 week 15",NA,NA,0,NA,NA,"","","",NA,NA
+"110","16/04/2020 10:18","T. Narasimha reddy","2020 week 15",NA,NA,0,NA,NA,"","","",NA,NA
+"111","16/04/2020 10:24","Venkateswara","2020 week 15",NA,NA,0,NA,NA,"","","",NA,NA
+"112","16/04/2020 16:21","M Chenna krista","2020 week 15",70,70,0,NA,0,"0","0","0",430,430
+"113","16/04/2020 16:30","D. Anjappa","2020 week 15",140,160,0,NA,NA,"","","",420,480
+"114","23/04/2020 9:33","Thimmireddy","2020 week 16",NA,NA,0,NA,NA,"","","",NA,NA
+"115","23/04/2020 9:36","R. Jakir Hussen","2020 week 16",NA,NA,0,NA,NA,"","","",NA,NA
+"116","23/04/2020 11:42","D. Anjappa","2020 week 16",8,70,0,NA,NA,"","","",344,304
+"117","23/04/2020 11:53","M Chenna krista","2020 week 16",NA,NA,0,NA,NA,"","","",NA,NA
+"118","23/04/2020 16:41","T. Narasimha reddy","2020 week 16",NA,NA,0,NA,NA,"","","",NA,NA
+"119","23/04/2020 16:42","T. Narasimha reddy","2020 week 16",NA,NA,0,NA,NA,"","","",NA,NA
+"120","25/04/2020 16:43","Venkateswara","2020 week 16",336,448,4,250,NA,"","","",960,1280
+"121","29/04/2020 12:55","Siva reddy","2020 week 17",NA,NA,10,300,3000,"Staking material","","",NA,NA
+"122","29/04/2020 13:03","Ranganath","2020 week 17",120,75,2,200,NA,"","","",NA,NA
+"123","29/04/2020 13:24","Viswanatha Reddy","2020 week 17",2160,565,4,200,NA,"","","",6480,1955
+"124","29/04/2020 13:25","Venkateswara","2020 week 17",NA,NA,0,NA,NA,"","","",NA,NA
+"125","01/05/2020 4:29","D. Anjappa","2020 week 17",NA,NA,0,NA,NA,"","","",NA,NA
+"126","01/05/2020 4:31","M Chenna krista","2020 week 17",NA,NA,0,NA,NA,"","","",NA,NA
+"127","01/05/2020 8:42","T. Narasimha reddy","2020 week 17",NA,NA,0,NA,NA,"","","",NA,NA
+"128","06/05/2020 16:51","Ranganath","2020 week 18",135,230,200,400,NA,"","","",NA,NA
+"129","06/05/2020 17:08","Viswanatha Reddy","2020 week 18",815,1055,4,200,NA,"","","",1775,2305
+"130","07/05/2020 7:32","D. Anjappa","2020 week 18",50,50,0,NA,NA,"","","",150,150
+"131","07/05/2020 10:40","M Chenna krista","2020 week 18",NA,NA,0,NA,NA,"","","",NA,NA
+"132","07/05/2020 13:44","R. Jakir Hussen","2020 week 18",NA,NA,0,NA,NA,"","","",NA,NA
+"133","07/05/2020 14:55","Venkateswara","2020 week 18",NA,NA,0,NA,NA,"","","",NA,NA
+"134","07/05/2020 14:56","T. Narasimha reddy","2020 week 18",NA,NA,0,NA,NA,"","","",NA,NA
+"135","13/05/2020 17:04","Ranganath","2020 week 19",335,430,4,200,NA,"","","",405,610
+"136","13/05/2020 17:14","Viswanatha Reddy","2020 week 19",1370,1895,7,200,NA,"","","",4220,5145
+"137","15/05/2020 13:15","M Chenna krista","2020 week 19",NA,NA,0,NA,NA,"","","",NA,NA
+"138","15/05/2020 13:17","D. Anjappa","2020 week 19",NA,NA,0,NA,NA,"","","",NA,NA
+"139","20/05/2020 17:13","Viswanatha Reddy","2020 week 20",600,815,3,200,NA,"","","",1450,1845
+"140","20/05/2020 17:27","Ranganath","2020 week 20",240,285,2,200,NA,"","","",330,425
+"141","20/05/2020 17:38","Siva reddy","2020 week 20",1580,1740,4,200,NA,"","","",2900,3310
+"142","21/05/2020 6:08","R. Jakir Hussen","2020 week 20",NA,NA,4,1500,NA,"","","",NA,NA
+"143","27/05/2020 7:22","Viswanatha Reddy","2020 week 21",NA,NA,4,200,NA,"","","",NA,NA
+"144","27/05/2020 7:25","Ranganath","2020 week 21",NA,NA,0,NA,NA,"","","",NA,NA
+"145","27/05/2020 7:42","Siva reddy","2020 week 21",575,650,2,400,NA,"","","",1225,1390
+"146","03/06/2020 14:19","Siva reddy","2020 week 22",755,835,6,200,NA,"","","",2205,2485

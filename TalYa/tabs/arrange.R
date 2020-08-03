@@ -39,7 +39,7 @@ g_revenue <- talya%>%
   summarise(`Tal-Ya plot`=mean(ty_revenue_ac),
             `Control Plot`=mean(ctrl_revenue_ac)) %>% 
   mutate(across(is.numeric, round)) %>%
-  summarise((`Tal-Ya plot`-`Control Plot`)/`Control Plot`)
+  summarise(`Tal-Ya plot`/`Control Plot`)
 
 g_revenue <- g_revenue %>% tidyr::gather("plot", "Revenue", 1:2)
 
@@ -60,11 +60,11 @@ g_revenue
 
 # g-harvest----
 
-g_harvest <- talya%>%
+g_harvest x <- talya%>%
   summarise(`Tal-Ya plot`=mean(ty_harvest_kg_ac),
             `Control Plot`=mean(ctrl_harvest_kg_ac)) %>% 
   mutate(across(is.numeric, round)) %>%
-  summarise((`Tal-Ya plot`-`Control Plot`)/`Control Plot`)
+  summarise(`Tal-Ya plot`/`Control Plot`)
 
 g_harvest <- g_harvest %>% tidyr::gather("plot", "harvest", 1:2)
 
@@ -93,7 +93,7 @@ g_sold <- g_sold %>% tidyr::gather("plot", "sold", 1:2)
 g_sold <- ggplot(g_sold, 
        aes(x=plot, y=sold, fill=plot)) + 
   geom_bar(stat="identity",width=0.4)+
-  theme_gray()+
+  theme_minimal()+
   ggtitle("Kg Sold Per Acre") +
   xlab(" ") +
   ylab("Kg ")+
@@ -242,3 +242,34 @@ gridar
 
 p1 + facet_wrap( ~ farmer_name, nrow = 1) + theme(legend.position = "none") +
   ggtitle("facetted plot")
+
+
+# maps-----
+library(maps)
+UK <- map_data("world") %>% filter(region=="India")
+
+ggplot() +
+  geom_polygon(data = UK, aes(x=long, y = lat, group = group), fill="grey", alpha=0.3) +
+  geom_point( data=data, aes(x=long, y=lat)) +
+  theme_void() + ylim(50,59) + coord_map() 
+
+
+
+AIzaSyBodc2rWbBNhzNJ_idXVtiE-hhHd4nlRoE
+key<-"AIzaSyBodc2rWbBNhzNJ_idXVtiE-hhHd4nlRoE"
+register_google(key = "AIzaSyBodc2rWbBNhzNJ_idXVtiE-hhHd4nlRoE")
+Sys.setenv(SHERPAROMEO_KEY = "AIzaSyBodc2rWbBNhzNJ_idXVtiE-hhHd4nlRoE")
+set.api.key("AIzaSyBodc2rWbBNhzNJ_idXVtiE-hhHd4nlRoE")
+ggmap(get_googlemap()) 
+geocode("Houston", output = "all")
+map <- get_googlemap("Montpellier, France", zoom = 8, maptype = "terrain")
+ggmap(get_map("Houston"))
+ggmap(
+  ggmap = get_map(
+    "Dayton",
+    zoom = 13, scale = "auto",
+    maptype = "satellite",
+    source = "google"),
+  extent = "device",
+  legend = "topright"
+)

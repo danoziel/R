@@ -55,19 +55,22 @@ calander_1994_2019 <- dt[,2] %>% count(yearweek) %>% select(1) # only "yearweek"
 
 rm(dt,df,date)
 
-# lets "group_by" The number of Incident----
-# Incident Location in Israel
-incident_location_israel <- globalterrorismdb_il %>%
-  filter(targtype1_txt_new =="civilians", country_txt== "Israel") %>% 
-  group_by(yearweek) %>%
-  summarise(number_incident=sum(nincident)) %>% 
-  right_join(calander_1994_2019)
-
-
 # Incident Location in West Bank and Gaza Strip
 # targtype1_txt "Military" "Police"
 # targtype1_txt "Citizens"
 
+terrorismdb <- globalterrorismdb_il
 
+terrorismdb <- terrorismdb %>% 
+  group_by(date,targtype1_txt_new,country_txt) %>% 
+  summarise(incidents=sum(nincident,na.rm = T),killd=sum(nkill,na.rm = T))
+
+#split column to two
+terrorismdb <-
+  terrorismdb %>%
+  mutate(total_incidents_IL  = ifelse(country_txt == "Israel",1,0)) %>% 
+  mutate(total_incidents_yesha  = ifelse(country_txt == "West Bank and Gaza Strip",1,0)) %>%
+  mutate(targt_civilians = ifelse(targtype1_txt_new == "civilians",1,0)) %>% 
+  mutate(targt_security_force = ifelse(targtype1_txt_new == "security force",1,0)) 
 
 

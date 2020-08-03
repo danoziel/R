@@ -3,21 +3,42 @@
 Agriculture_18_19 <- rbind(Agriculture_Baseline_2018_,Agriculture_Endline_EPC_2019_) %>% 
   inner_join(Control_and_treatment_4_districts )%>% filter(type_of_crop!="")
 
-
-culture_18_19 <- culture_18_19 
+Agriculture_18_19 <- Agriculture_18_19 %>%
+  mutate( name_of_crop_detail = name_of_crop ) #(copy=original)
 
 # Agriculture----
 # Replace values in the data frame
-R.Agriculture_Baseline_2018_$name_of_crop[
-  R.Agriculture_Baseline_2018_$name_of_crop == "paddy"] <- "PADDY"
+Agriculture_18_19$name_of_crop[
+  Agriculture_18_19$name_of_crop %in% c("PADDY","paddy")] <- "Paddy"
 
-R.Agriculture_Baseline_2018_$name_of_crop[
-  R.Agriculture_Baseline_2018_$name_of_crop == "SUAGRCANE"] <- "SUGARCANE"
+Agriculture_18_19$name_of_crop[
+  Agriculture_18_19$name_of_crop == "WHEAT"] <- "Wheat"
 
-R.Agriculture_Baseline_2018_$name_of_crop[
-  R.Agriculture_Baseline_2018_$name_of_crop == "RED LENTLE"] <- "RED LENTIL"
+Agriculture_18_19$name_of_crop[
+  Agriculture_18_19$name_of_crop == "MAIZE"] <- "Maize"
 
+Agriculture_18_19$name_of_crop[
+  Agriculture_18_19$name_of_crop %in% c("SUAGRCANE","SUGARCANE")] <- "Sugarcane"
 
+Agriculture_18_19$name_of_crop[Agriculture_18_19$name_of_crop %in%
+                                            c("TOMATO","BITTER","BRINJAL","OKRA","GARLIC","ONIONS","RADISH"
+                                              ,"POTATO","CABBAGE","CAULI","BOTTLE","BELL","SPONGE",
+                                              "CHILLIES","CHILIES", "CUCUMBER","ONOINS","vegetables",
+                                              "GREEN LEAFY VEGETABLE"
+                                            )] <- "Vegetables"
+
+Agriculture_18_19$name_of_crop[Agriculture_18_19$name_of_crop %in%
+                                            c("KIDNEY", "GREEN GRAM","BLACK GRAM","GRASS PEA","PEA",
+                                              "OTHER PULSES","YARD LONG","RED LENTIL","RED LENTILS",
+                                              "RED LENTI","RED LENTLE"
+                                            )] <- "Pulses"
+
+Agriculture_18_19$name_of_crop[Agriculture_18_19$name_of_crop %in%
+                                            c("GRASS","OATS","BARLEY","OTHER"
+                                            )] <- "Others"
+
+Agriculture_18_19$name_of_crop[
+  Agriculture_18_19$name_of_crop =="MUSTARD"] <- "Oilseeds"
 
 # omit
 # R.Agriculture_Baseline_2018_ <- R.Agriculture_Baseline_2018_ %>%
@@ -27,16 +48,6 @@ R.Agriculture_Baseline_2018_$name_of_crop[
 # R.Agriculture_Baseline_2018_ <- R.Agriculture_Baseline_2018_ %>% 
 #  filter(household_questionnaire_id != "T304905099" | season_of_crop != "4" )
 
-
-R.Agriculture_Baseline_2018_$name_of_crop[
-  R.Agriculture_Baseline_2018_$name_of_crop == "RED LENTI"] <- "RED LENTIL"
-
-R.Agriculture_Baseline_2018_$type_of_crop[
-  R.Agriculture_Baseline_2018_$type_of_crop == "01"] <- "1"
-
-R.Agriculture_Baseline_2018_ <- R.Agriculture_Baseline_2018_ %>%
-  mutate( name_of_crop_detail = name_of_crop ) #(copy=original)
- 
 Agriculture_18_19$season_of_crop <- as.character(Agriculture_18_19$season_of_crop)
 
 Agriculture_18_19$season_of_crop[Agriculture_18_19$season_of_crop == "1"] <- "Monsoon"
@@ -47,44 +58,49 @@ Agriculture_18_19$season_of_crop[Agriculture_18_19$season_of_crop == "4"] <- "An
 Agriculture_18_19 <- Agriculture_18_19 %>%
   mutate(irri_for_season=cult_area_under_crop*hrs_irr_1katha*no_of_irrigation_for_1_katha)
 
+# --------------------------------------------------------------#
+Agriculture_17_18_19 <- Agriculture_17_18_19 %>%
+  mutate( name_of_crop_detail = name_of_crop ) #(copy=original)
+
+Agriculture_17_18_19$name_of_crop[Agriculture_17_18_19$name_of_crop %in%
+                                            c("BELL PEPPER" ,"BITTER GOURD","BOTTLE GOURD","BOTTLE",
+                                              "BRINJAL","CABBAGE" ,"CAULIFLOWER" ,"CHILLIES","SPONGE",
+                                              "CORIANDER" ,"CUCUMBER" ,"CUUCMBER" ,"GARLIC","RADISH", "PUMPKIN",
+                                              "GREEN PEA","GREENLEAFY","OKRA","ONIONS","PEA","POINTED",
+                                              "POINTED GOURD","POTAT0" ,"POTATO" ,"BELL PEPER","BELLPEPPER",
+                                              "GREENLEAFY VEGETABLE","BELL","CAULI","BITTER","JUTE","oNION",
+                                              "GREEN LEAF","GREEN LEAFY VEGETABLE","COLOCASIA FRUIT","ONION",
+                                              "SPONGE GOURD","TOMATO","YARD LONG" ,"YARD LONG BEANS"
+                                            )] <- "Vegetables"
+
+Agriculture_17_18_19$name_of_crop[Agriculture_17_18_19$name_of_crop %in%
+                                    c("GRASS PEA", "HORSE GRAM","OTHER PULSES","BLACK GRAM",
+                                      "RED GRAM","RED LENTIL", "GREEN GRAM","PULSES"
+                                    )] <- "Pulses"
+
+Agriculture_17_18_19$name_of_crop[Agriculture_17_18_19$name_of_crop %in%
+                                    c("SESAME","LINSEED","MUSTARD","MUSTARD LEAF"
+                                    )] <- "Oilseeds"
+
+Agriculture_17_18_19$name_of_crop[Agriculture_17_18_19$name_of_crop %in%
+                                    c("OTHER CROPS","BARLEY","GRASS"
+                                    )] <- "Others"
+
+Agriculture_17_18_19$name_of_crop[Agriculture_17_18_19$name_of_crop %in%
+                                            c("CEREALS","OTHER CEREALS"
+                                            )] <- "Cereals"
+
+Agriculture_17_18_19$name_of_crop[
+  Agriculture_17_18_19$name_of_crop=="PADDY"] <- "Paddy"
+
+Agriculture_17_18_19$name_of_crop[
+  Agriculture_17_18_19$name_of_crop=="WHEAT"] <- "Wheat"
+
+Agriculture_17_18_19$name_of_crop[
+  Agriculture_17_18_19$name_of_crop=="MAIZE"] <- "Maize"
 
 
-Agriculture_18_19$name_of_crop[
-  Agriculture_18_19$name_of_crop=="vegetables"] <- "Vegetables"
 
 
-R.Agriculture_Baseline_2018_$name_of_crop[R.Agriculture_Baseline_2018_$name_of_crop %in%
-                                            c("TOMATO","BITTER","BRINJAL","OKRA","GARLIC","ONIONS","RADISH"
-                                              ,"POTATO","CABBAGE","CAULI","BOTTLE","BELL","SPONGE",
-                                              "CHILLIES","CHILIES", "CUCUMBER","ONOINS"
-                                            )] <- "vegetables"
-
-R_Agriculture_Baseline_2018_$name_of_crop[R_Agriculture_Baseline_2018_$name_of_crop %in%
-                                            c("KIDNEY", "GREEN GRAM","BLACK GRAM","GRASS PEA","PEA",
-                                              "OTHER PULSES","YARD LONG","RED LENTIL"
-                                            )] <- "pulses"
-
-R.Agriculture_Baseline_2018_$name_of_crop[R.Agriculture_Baseline_2018_$name_of_crop %in%
-                                            c("GRASS","OATS","BARLEY","MUSTARD","OTHER"
-                                            )] <- "others"
-
-Agriculture_18_19$name_of_crop[
-  Agriculture_18_19$name_of_crop=="MUSTARD"] <- "oilseeds"
-
-Agriculture_18_19$name_of_crop[
-  Agriculture_18_19$name_of_crop=="RED LENTILS"] <- "pulses"
-
-#  Agriculture Endline  # -------------------------------------------------------#
-R.Agriculture_Endline_EPC_2019_ <- R.Agriculture_Endline_EPC_2019_ %>%
-  filter(!is.na(season_of_crop)) #Clear observations with missing values
-
-R.Agriculture_Endline_EPC_2019_ <- R.Agriculture_Endline_EPC_2019_ %>%
-  mutate( name_of_crop_detail = name_of_crop ) 
-
-R.Agriculture_Endline_EPC_2019_$name_of_crop[R.Agriculture_Endline_EPC_2019_$name_of_crop %in%
-                                            c("GREEN GRAM","GRASS PEA","OTHER PULSES")] <- "pulses"
-
-R.Agriculture_Endline_EPC_2019_$name_of_crop[
-  R.Agriculture_Endline_EPC_2019_$name_of_crop=="GREEN LEAFY VEGETABLE"] <- "vegetables"
 
 

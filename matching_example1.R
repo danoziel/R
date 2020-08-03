@@ -1,4 +1,5 @@
 set.seed(1234)
+library(wakefield)
 df.patients <- r_data_frame(n = 250, 
                             age(x = 30:78, 
                                 name = 'Age'), 
@@ -33,7 +34,7 @@ table1 <- CreateTableOne(vars = c('Age', 'Sex', 'Distress'),
                          strata = 'Sample')
 
 set.seed(1234)
-match.it <- matchit(Group ~ Age + Sex, data = mydata, method="nearest", ratio=1)
+match.it <- matchit(Group ~ Distress, data = mydata, method="nearest", ratio=1)
 a <- summary(match.it)
 
 plot(match.it, type = 'jitter', interactive = FALSE)
@@ -43,9 +44,9 @@ rm(df.patients, df.population)
 
 
 pacman::p_load(tableone)
-table4 <- CreateTableOne(vars = c('Age', 'Sex', 'Distress'), 
+table4 <- CreateTableOne(vars = c( 'Distress'), 
                          data = df.match, 
-                         factorVars = 'Sex', 
+                         factorVars = 'Distress', 
                          strata = 'Sample')
 
 

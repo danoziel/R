@@ -185,27 +185,94 @@ lands_I_17_18_19 %>% filter(land_for_aquaculture_ponds>0) %>%
   group_by(TreatmentControl,year) %>% 
   summarise(N=n(),Mean= mean(land_for_aquaculture_ponds,na.rm = T)*0.0339)
 
+#----
 
-# --------------------------------------------------------
 
-```{r HH irrigate , echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+Agriculture_17_18_19 %>%filter(name_of_crop!="") %>% 
+  group_by(year,TreatmentControl, household_questionnaire_id, name_of_crop) %>% 
+  summarise(cult_area=sum(cult_area_under_crop)*0.0339) %>% 
+  group_by(TreatmentControl,year ,name_of_crop) %>% 
+  summarise(mean(cult_area)) %>% 
+  mutate(across( is.numeric,round,2))
 
-scount <- land_17_18_19 %>% filter(irrigated_out_of_tot_land_cult>0,season!="Annual") %>% 
-  group_by(TreatmentControl,season,year) %>% count()
 
-scount <-spread(scount, TreatmentControl, n)
 
-sco <-cbind(scount[1:3,-1],scount[4:6,3:4],scount[7:9,3:4])
+# Vegetables----
+Vegetables_17_18_19 <- Agriculture_17_18_19 %>%filter(name_of_crop=="Vegetables") 
+Vegetables_18_19 <- Agriculture_18_19 %>%filter(name_of_crop=="Vegetables") 
+vegetables <- rbind(Vegetables_17_18_19,Vegetables_18_19)
+write.csv(Agriculture_17_18_19, file = "C:/Users/Dan/Documents/R/Saptari/data/Agriculture_17_18_19.csv", row.names=FALSE)
 
-kable(sco, col.names = c(" ","Control","Treatment","Control","Treatment","Control","Treatment"), booktabs = T,align = "lcccccc",linesep = "") %>%
+Agriculture_17_18_19 %>% filter(name_of_crop=="Vegetables") %>% 
+  group_by(name_of_crop,year,TreatmentControl, household_questionnaire_id) %>% 
+  summarise(cult_area=sum(cult_area_under_crop)*0.0339) %>% 
+  group_by(name_of_crop,TreatmentControl,year) %>% 
+  summarise(N=n(),Mean=mean(cult_area)) %>% 
+  mutate(across( is.numeric,round,2))
+
+veg_tb <- cbind(veg[1:3,3:5],veg[4:6,4:5])
+
+
+veg_tb%>% kable() %>% kable_styling(full_width = F, position = "left")
+
+kable(veg_tb, booktabs = T,align = "lcccc",linesep = "") %>%
   column_spec(1, bold = T) %>%
-  kable_styling(latex_options = "striped",stripe_index = 0, position = "left") %>% 
-  column_spec(1:7, width = "1.5cm",border_left = F) %>%
+  kable_styling(latex_options = "striped",stripe_index = 2, position = "left") %>% 
+  column_spec(1:5, width = "1.5cm",border_left = F) %>%
   column_spec(3,border_right = T ,width = "1.5cm") %>% 
-  column_spec(5,border_right = T ,width = "1.5cm") %>% 
   row_spec(0, font_size= 7) %>% 
-  add_header_above(c("SAPTARI" = 1, "monsoon" = 2, "summer" = 2,"winter" =2), bold = F, align = "c")
-```
+  add_header_above(c("SAPTARI" = 1, "Control" = 2, "Treatment" = 2), bold = F, align = "c")
 
+ggplot(veg , aes(year, Mean, color = TreatmentControl)) +
+  stat_summary(geom = 'line') +
+  theme_minimal()+
+  ggtitle("Vegetables") +
+  xlab(" ") +
+  ylab(" ")+
+  scale_x_continuous(breaks = c(2017,2018,2019))+
+  theme(legend.position = "none",
+      plot.title = element_text(size = rel(1.2), face = "bold", hjust = 0.5))
+
+Oilseeds <- Agriculture_17_18_19 %>%filter(name_of_crop=="Oilseeds") %>% 
+  group_by(year,TreatmentControl, household_questionnaire_id, name_of_crop) %>% 
+  summarise(cult_area=sum(cult_area_under_crop)*0.0339) %>% 
+  group_by(name_of_crop,TreatmentControl,year) %>% 
+  summarise(N=n(),Mean=mean(cult_area)) %>% 
+  mutate(across( is.numeric,round,2))
+
+
+Pulses <- Agriculture_17_18_19 %>%filter(name_of_crop=="Pulses") %>% 
+  group_by(year,TreatmentControl, household_questionnaire_id, name_of_crop) %>% 
+  summarise(cult_area=sum(cult_area_under_crop)*0.0339) %>% 
+  group_by(name_of_crop,TreatmentControl,year) %>% 
+  summarise(N=n(),Mean=mean(cult_area)) %>% 
+  mutate(across( is.numeric,round,2))
+
+#   "Paddy","Wheat","Maize"
+
+pwm <- Agriculture_17_18_19 %>%
+  filter(name_of_crop %in% c("Paddy","Wheat","Maize")) %>% 
+  group_by(year,TreatmentControl, household_questionnaire_id, name_of_crop) %>% 
+  summarise(cult_area=sum(cult_area_under_crop)*0.0339) %>% 
+  group_by(name_of_crop,TreatmentControl,year) %>% rename( Cereals = name_of_crop ) %>% 
+  summarise(Mean=mean(cult_area)) %>% 
+  mutate(across( is.numeric,round,2))
+
+pwm_tb <- spread(pwm, TreatmentControl, Mean)
+
+kable(pwm_tb, align = "c") %>%
+  kable_styling(full_width = T) %>%
+  column_spec(1, bold = T) %>%
+  collapse_rows(columns = 1, valign = "top")
+
+ggplot(pwm[1:6,] , aes(year, Mean, color = TreatmentControl)) +
+  stat_summary(geom = 'line') +
+  theme_minimal()+
+  ggtitle("Maize") +
+  xlab(" ") +
+  ylab(" ")+
+  scale_x_continuous(breaks = c(2017,2018,2019))+
+  theme(legend.position = "none",
+        plot.title = element_text(size = rel(1.2), face = "bold", hjust = 0.5))
 
 
