@@ -645,6 +645,22 @@ peace_index_17_18 <- rbind(xd_17_18,xx01_2018,xx04_2018,xx05_2018,xx06_2018,xx07
                   xx08_2018, xx09_2017, xx10_2018, xx11_2017, xx12_2018) %>% arrange(date)
 
 
-write.csv(xx11_2017,"C:/Users/Dan/Documents/R/heat and peace/data2/xx11_2017.csv", row.names = FALSE)
+peace_index_17_18 <- peace_index_17_18 %>% rename(party=political_spectrum)
+
+peace_index_17_18 <- peace_index_17_18 %>%
+  mutate(political_spectrum=case_when(
+    party %in% c(2,3,4,5,7,9,10)~1,
+    party %in% c(1,6,11,13,25)~2,
+    party %in% c(8,12,26)~3,
+    party %in% c(14:24,27:30)~4))
+
+
+
+
+write.csv(peace_Q16b,"C:/Users/Dan/Documents/R/heat and peace/data2/peace_Q16b.csv", row.names = FALSE)
+
+
+
+peace_index_17_18$political_spectrum <- as.numeric(peace_index_17_18$political_spectrum)
 
 
