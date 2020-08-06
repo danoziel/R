@@ -33,7 +33,9 @@ political_spectrum,relig,incom
 peace_Q16 <- peace_index %>%
   select(date,date1,survey_year,
          oslosp,oslobl,negot_sp,negot_bl,peacesp,peacebl,
-         gender,age,educ)
+         gender,age,educ,party,pvote99,pvote03,pvote06,pvote09)
+
+
 peace_Q16$oslosp [is.na(peace_Q16$oslosp)] <- 0 #replace NA to 0
 peace_Q16$oslobl [is.na(peace_Q16$oslobl)] <- 0
 
@@ -43,12 +45,60 @@ peace_Q16$negot_bl [is.na(peace_Q16$negot_bl)] <- 0
 peace_Q16$peacesp [is.na(peace_Q16$peacesp)] <- 0
 peace_Q16$peacebl [is.na(peace_Q16$peacebl)] <- 0
 
-# political spectrum
+# political spectrum----
 
-peace_Q16$political_spectrum <- rep(0)
 
-class(X17_05_2011_2913$date)
+peace_Q16b <- peace_Q16 %>%  
+  mutate(political_spectrum=case_when(
+    date1 >= 1 & date1 <= 27 & party %in% c(1,4,5,6,7,8,9,12,13)~1,#election 92
+    date1 >= 1 & date1 <= 27 & party %in% c(2,3,10,11)~2,
+    date1 >= 1 & date1 <= 27 & party %in% c(14,15,16,17)~4,
+    
+    date1 >= 28 & date1 <= 62 & party %in% c(1,4,5,6,8,9,12,13)~1, #election 96
+    date1 >= 28 & date1 <= 62 & party %in% c(2,3,10,11)~2, #election 96
+    date1 >= 28 & date1 <= 62 & party %in% c(7)~3, #election 96
+    date1 >= 28 & date1 <= 62 & party %in% c(14,15,16,17)~4, #election 96
+    
+    date1 >= 63 & date1 <= 107 & pvote99 %in% c(2,3,5,6,9,11,12,16)~1, #election 99
+    date1 >= 63 & date1 <= 107 & pvote99 %in% c(1,4,7,31,32,33,34)~2, #election 99
+    date1 >= 63 & date1 <= 107 & pvote99 %in% c(8,10,14,15,17)~3, #election 99
+    date1 >= 63 & date1 <= 107 & pvote99 %in% c(18,19,20,21,22)~4, #election 99
+    
+    date1 >= 108 & date1 <= 145 & pvote03 %in% c(2,3,5,6,9,10)~1,#election 03
+    date1 >= 108 & date1 <= 145 & pvote03 %in% c(1,4,7,11,12,13)~2,#election 03
+    date1 >= 108 & date1 <= 145 & pvote03 %in% c(8)~3,#election 03
+    date1 >= 108 & date1 <= 145 & pvote03 %in% c(14,15,16,17)~4,#election 03
+    
+    date1 >= 146 & date1 <= 179 & pvote06 %in% c(2,4,6,7,9)~1, #election 06
+    date1 >= 146 & date1 <= 179 & pvote06 %in% c(1,5,7,10,11,12)~2, #election 06
+    date1 >= 146 & date1 <= 179 & pvote06 %in% c(3,8,13,14,15,16)~3, #election 06
+    date1 >= 146 & date1 <= 179 & pvote06 %in% c(17,18,19,20)~4 ,  #election 06
+    
+    date1 >= 180 & date1 <= 193 & pvote09 %in% c(2,4,6,5,8,9)~1, #election 09
+    date1 >= 180 & date1 <= 193 & pvote09 %in% c(1,5,7,11,12,13)~2, #election 09
+    date1 >= 180 & date1 <= 193 & pvote09 %in% c(3,10,14,15,16)~3, #election 09
+    date1 >= 180 & date1 <= 193 & pvote09 %in% c(17,18,19,20)~4,#election 09
+    
+    date1 >= 194 & date1 <= 223 & party %in% c(2,4,6,5,8,9)~1, #also election 09
+    date1 >= 194 & date1 <= 223 & party %in% c(1,5,7,11,12,13)~2, #also election 09
+    date1 >= 194 & date1 <= 223 & party %in% c(3,10,14,15,16)~3, #also election 09
+    date1 >= 194 & date1 <= 223 & party %in% c(17,18,19,20,21,22)~4, #also election 09
+    
+    date1 >= 224 & date1 <= 247 & party %in% c(3,4,5,11,7,10,16)~1, #election 13
+    date1 >= 224 & date1 <= 247 & party %in% c(2,6,13,15,14)~2, #election 13
+    date1 >= 224 & date1 <= 247 & party %in% c(1,12,9,8,20,18)~3, #election 13
+    date1 >= 224 & date1 <= 247 & party %in% c(17,21:39)~4, #election 13
+    
+    date1 >= 248 & date1 <= 273 & party %in% c(2,3,4,5,7,9,10)~1, #election 15
+    date1 >= 248 & date1 <= 273 & party %in% c(1,6,11,13,25)~2, #election 15
+    date1 >= 248 & date1 <= 273 & party %in% c(8,12,26)~3, #election 15
+    date1 >= 248 & date1 <= 273 & party %in% c(14:24,27:30)~4, #election 15
+    
+  ))
 
+
+    
+    
 #X17_05_2011_2913----xx17_5_11----
 
 X17_05_2011_2913$date <- "2011-05-17"
@@ -92,11 +142,23 @@ X17_05_2011_2913 <- X17_05_2011_2913 %>%
 X17_05_2011_2913$incom <- as.numeric(X17_05_2011_2913$incom)
 X17_05_2011_2913$gender <- as.numeric(X17_05_2011_2913$gender)
 
+
 xx17_5_11 <- X17_05_2011_2913 %>% 
   select(date,date1,survey_year,oslosp,oslobl,negot_sp,negot_bl,
          peacesp,peacebl,gender,age,educ,political_spectrum,relig,incom)
 
-xx17_5_11 <- xx17_5_11 %>% filter(relig<9)
+xx17_5_11 <- xx17_5_11 %>% rename(party=political_spectrum)
+
+xx17_5_11 <- xx17_5_11 %>%
+  mutate(political_spectrum=case_when(
+    party %in% c(2,4,6,5,8,9)~1,
+    party %in% c(1,5,7,11,12,13)~2,
+    party %in% c(3,10,14,15,16)~3,
+    party %in% c(17,18,19,20,21,22)~4 ))#also election 09
+    
+    
+  
+
 
 # X29_11_12----
 xx29_11_12 <- X29_11_12 %>% 
@@ -128,3 +190,17 @@ class(xx29_11_12$oslosp)
 xx29_11_12 <- xx29_11_12 %>% 
   select(date,date1,survey_year,oslosp,oslobl,negot_sp,negot_bl,
          peacesp,peacebl,gender,age,educ,political_spectrum,relig,incom)
+
+xx29_11_12 <- xx29_11_12 %>% rename(party=political_spectrum)
+
+xx29_11_12 <- xx29_11_12 %>%
+  mutate(political_spectrum=case_when(
+    party %in% c(1,2)~1,
+    party %in% c(4,5)~2,
+    party %in% c(3)~3,
+    party %in% c(6,7)~4 ))
+
+
+
+
+
