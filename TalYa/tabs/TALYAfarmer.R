@@ -266,58 +266,6 @@ cost_benefit <- read.csv("~/R/TalYa/data/cost_benefit.csv")
 
        
 
-x <- 
-  TALYAfarmer$sell_yesno_control %>%
-  filter(farmer_name!="Vijaya narasimha") %>%
-  select(farmer_name,weeknum.year,herbicide_use_talya100,herbicide_use_control,weed_manace_talya100,weed_manace_control)
-
-
-
-# net_incom_and_revenue----
-net_incom_and_revenue <- net_incom_and_revenue %>%
-  rename(netincomC=revenue_CONTROL) %>% 
-  rename(netincomT=revenue_TALYA100) %>% 
-  mutate(reveC=KG_sold_CONTROL*average_price_TALYA100) %>% 
-  mutate(reveT=KG_sold_TALYA100*average_price_TALYA100) %>% 
-  inner_join(area_talya_farmers,by="farmer_name")
-
-talya <- TALYAfarmer %>%
-  filter(farmer_name!="Vijaya narasimha") %>%
-  filter(farmer_name!="R Chenna kista") %>%
-  filter(harvest_yesno_talya100=="Yes") %>%
-  rename(harvest_KG_CONTROL=harvest_KG,harvest_damage_CONTROL=harvest_damage,week_number=week.) %>%  
-  select(2,18,19,20,harvest_KG_talya100,harvest_KG_CONTROL,harvest_damage_talya100,
-         harvest_damage_CONTROL,KG_sold_TALYA100,KG_sold_CONTROL,average_price_TALYA100,
-         revenue_TALYA100,revenue_CONTROL,average_price_TALYA100,8,harvest_yesno_talya100,
-         week_number,year,harvest_week)
-
-talya <- talya[-26,]
-
-talya <- full_join(talya,area_talya_farmers,by="farmer_name")
-
-net_incom_and_revenue <- talya %>% mutate(ty_harvest_kg_ac = harvest_KG_talya100 /acre,
-                          ctrl_harvest_kg_ac = harvest_KG_CONTROL /acre,
-                          ty_damage_kg_ac = harvest_damage_talya100 /acre,
-                          ctrl_damage_kg_ac = harvest_damage_CONTROL /acre,
-                          ty_kg_sold_ac = KG_sold_TALYA100 /acre,
-                          ctrl_kg_sold_ac = KG_sold_CONTROL /acre,
-                          ty_netimcome_ac = revenue_TALYA100 /acre,
-                          ctrl_netimcome_ac = revenue_CONTROL /acre,
-                      ty_revenue_ac = KG_sold_TALYA100*average_price_TALYA100 /acre,
-                      ctrl_revenue_ac = KG_sold_CONTROL*average_price_TALYA100 /acre)                          
-
-gg_revenue <- net_incom_and_revenue%>%
-  summarise(`Tal-Ya plot`=mean(ty_revenue_ac,na.rm = T),
-            `Control Plot`=mean(ctrl_revenue_ac,na.rm = T)) %>% 
-  mutate(across(is.numeric, round)) %>%
-  summarise(`Tal-Ya plot`/`Control Plot`)
-
-gg_net <- net_incom_and_revenue%>%
-  summarise(`Tal-Ya plot`=mean(ty_netimcome_ac),
-            `Control Plot`=mean(ctrl_netimcome_ac)) %>% 
-  mutate(across(is.numeric, round)) %>%
-  summarise(`Tal-Ya plot`/`Control Plot`)
-
 
 
 # ----sctters-harvest vs. sold-harvest vs. revenue----

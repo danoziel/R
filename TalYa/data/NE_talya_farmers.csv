@@ -1,0 +1,15 @@
+id,farmer_name,trays,acre,m2,N,E,harvest,mulching_control,crop
+DA,D. Anjappa,512,0.16,645,13.8651667,78.2669015,1,,tomato
+MC,M Chenna krista,577,0.18,727,13.8478606,78.2718502,1,,tomato
+RA,Ranganath,195,0.06,246,13.6635844,78.3722932,1,,tomato
+SR,Siva reddy,388,0.12,489,13.8313943,78.2907751,1,,tomato
+VR,Viswanatha Reddy,626,0.19,789,13.6698756,78.3699781,1,,tomato
+JH,R. Jakir Hussen,550,0.17,693,13.6581887,78.3366941,1,,tomato
+TR,Thimmireddy,795,0.25,1002,13.6633127,78.3502548,1,,tomato
+VE,Venkateswara,671,0.21,845,13.9140066,78.7814919,1,,tomato
+NR,T. Narasimha reddy,625,0.19,788,13.8962791,78.7304672,1,,tomato
+RC,R Chenna kista,288,0.09,363,13.8390349,78.2720484,1,1,Musk melon
+RN,R. Ramanarayana naidu,659,0.20,830,13.9128724,78.7813936,0,,Bitter guard
+BR,Bayya reddy,705,0.22,888,13.91345,78.74462,0,,tomato
+TV,T. Venkatramana reddy,485,0.15,611,,,0,,Musk melon
+RM,P.Ramesh,528,0.16,665,13.86432,78.27074,0,,tomato

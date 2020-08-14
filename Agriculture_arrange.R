@@ -100,7 +100,11 @@ Agriculture_17_18_19$name_of_crop[
   Agriculture_17_18_19$name_of_crop=="MAIZE"] <- "Maize"
 
 
-
-
+xx <- Agriculture_17_18_19 %>%
+  mutate(kg=case_when(
+    unit_harvest %in% c(1,2,5) ~37.32,
+    unit_harvest == 4 ~100,
+    unit_harvest == 3 ~1))
+    
 
 

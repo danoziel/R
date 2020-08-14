@@ -1,0 +1,1230 @@
+---
+title: "outlin_graphs"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(kableExtra)
+library(formattable)
+library(knitr)
+library(MatchIt)
+library(tableone)
+library(gridExtra)
+
+land_17_18_19 <- read.csv("~/R/Saptari/data/land_17_18_19.csv")
+Land_18_19 <- read.csv("~/R/Rautahat.Bara.Sarlahi/data/Land_18_19.csv")
+Agriculture_17_18_19 <- read.csv("~/R/Saptari/data/Agriculture_17_18_19.csv")
+Agriculture_18_19 <- read.csv("~/R/Rautahat.Bara.Sarlahi/data/Agriculture_18_19.csv")
+Procurement_17_18_19 <- read.csv("~/R/Saptari/data/Procurement_17_18_19.csv")
+Procurement_18_19 <- read.csv("~/R/Rautahat.Bara.Sarlahi/data/Procurement_18_19.csv")
+wem_liter_fuel_17_18_19 <- read.csv("~/R/Saptari/data/wem_liter_fuel_17_18_19.csv")
+wem_liter_fuel_18_19 <-read.csv("~/R/Rautahat.Bara.Sarlahi/data/wem_liter_fuel_18_19.csv")
+lands_I_17_18_19 <- read.csv("~/R/Saptari/data/lands_I_17_18_19.csv")
+lands_I_18_19 <-read.csv("~/R/Rautahat.Bara.Sarlahi/data/lands_I_18_19.csv")
+
+
+```
+
+
+\noindent
+\makebox[\linewidth]{The total own land cultivated  for a houshold in Summer (ha)}  
+```{r ownland, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.show="hold", out.width="50%" }
+
+own_saptari <-
+  land_17_18_19 %>% 
+  filter(total_land_cultivated_year>0,season=="Summer") %>%
+  group_by(year,TreatmentControl, household_questionnaire_id) %>%
+  summarise(own=sum(total_ownland_cultivated)*0.0338)
+
+names(own_saptari)[names(own_saptari) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  own_saptari %>% filter(own>0) %>% 
+  mutate(after_1Y = year == 2018, 
+       after_2Y = year == 2019, 
+       own_sp = Group == "Treatment")
+
+lso_M <- filter(lso, year == 2017)
+match.it <- matchit(own_sp ~ own , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,own)
+df.match$Group <- "xMatch"
+
+df <- rbind(own_saptari,df.match)
+
+ggplot(df, aes(year, own, color = Group))+
+  stat_summary(geom = 'line',size=1) +
+  theme_minimal()+
+  labs(x=" ", y="Ownland cultivated - Summer") +
+  scale_x_continuous(breaks = c(2017,2018,2019))+ 
+  theme(legend.position = "none",axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+#---------------------------------------------------------------------------------
+own_rbs <- 
+  Land_18_19%>% 
+  filter(total_land_cultivated_year>0,season=="Summer") %>%
+  group_by(year,TreatmentControl, household_questionnaire_id) %>%
+  summarise(own=total_ownland_cultivated*0.0338) 
+names(own_rbs)[names(own_rbs) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  own_rbs %>% mutate(own_sp = Group == "Treatment")
+
+lso_M <- filter(lso, year == 2018)
+match.it <- matchit(own_sp ~ own , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,own)
+df.match$Group <- "xMatch"
+
+df <- rbind(own_rbs,df.match)
+
+ggplot(df, aes(year, own, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ",y=" ") +
+  scale_x_continuous(breaks = c(2018,2019))+
+  theme(axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+
+```
+
+&nbsp;
+
+&nbsp;
+
+\noindent
+\makebox[\linewidth]{Gross Cropped Area (ha)}
+```{r Gross Cropped Area, echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.show="hold", out.width="50%" }
+lsc <- 
+  land_17_18_19%>% 
+  filter(total_land_cultivated_year>0) %>%
+  group_by(year,TreatmentControl, household_questionnaire_id) %>%
+  summarise(cult=sum(total_land_cultivated)*0.0338)
+
+names(lsc)[names(lsc) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  lsc %>%  mutate(own_sp = Group == "Treatment")
+
+lso_M <- filter(lso, year == 2017)
+match.it <- matchit(own_sp ~ cult , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,cult)
+df.match$Group <- "xMatch"
+
+df <- rbind(lsc,df.match)
+
+ggplot(df, aes(year, cult, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y="Gross Cropped Area") +
+  scale_x_continuous(breaks = c(2017,2018,2019))+
+  theme(legend.position = "none",axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+
+
+#------------------------------------------------------------------------------------------
+lsr <- Land_18_19%>% 
+  filter(total_land_cultivated_year>0) %>%
+  group_by(year,TreatmentControl, household_questionnaire_id) %>%
+  summarise(cult=sum(total_land_cultivated)*0.0338)
+
+names(lsr)[names(lsr) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  lsr %>% mutate(own_sp = Group == "Treatment")
+
+lso_M <- filter(lso, year == 2018)
+match.it <- matchit(own_sp ~ cult , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,cult)
+df.match$Group <- "xMatch"
+
+df <- rbind(lsr,df.match)
+
+ggplot(df, aes(year, cult, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ",y=" ") +
+  scale_x_continuous(breaks = c(2018,2019))+
+  theme(axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+```
+
+
+\newpage
+
+
+\noindent
+\makebox[\linewidth]{Cropping Intensity (\%)}
+```{r Cropping Intensity ,echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.show="hold", out.width="50%"}
+
+lsci <- land_17_18_19%>% filter(total_land_cultivated_year>0) %>%
+  mutate(NEW_total_land_cult= case_when(TreatmentControl=="Control" & land_for_cultivation < total_land_cultivated ~ NA_real_,
+                                        TRUE ~ total_land_cultivated)) %>% 
+  group_by(year,TreatmentControl, household_questionnaire_id) %>%
+  summarise(cult=sum(NEW_total_land_cult,na.rm = T),net=mean(land_for_cultivation))%>%
+  mutate(crop_intensity=cult/net*100) %>% 
+  mutate(across(is.numeric, round))
+
+names(lsci)[names(lsci) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  lsci %>%  mutate(own_sp = Group == "Treatment")
+
+lso_M <- filter(lso, year == 2017)
+match.it <- matchit(own_sp ~ crop_intensity , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,crop_intensity)
+df.match$Group <- "xMatch"
+
+df <- rbind(lsci,df.match)
+
+ggplot(df, aes(year, crop_intensity, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y="crop_intensity") +
+  scale_x_continuous(breaks = c(2017,2018,2019))+
+  theme(legend.position = "none",axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+
+
+#----------------------------------------------------------------------------------------
+
+lrci <- Land_18_19%>% 
+  filter(total_land_cultivated_year>0) %>%
+  mutate(NEW_total_land_cult= case_when(
+    TreatmentControl=="Control" & land_for_cultivation < total_land_cultivated ~ NA_integer_,
+    TRUE ~ total_land_cultivated)) %>% 
+  group_by(year,TreatmentControl, household_questionnaire_id) %>%
+  summarise(cult=sum(NEW_total_land_cult,na.rm = T),net=mean(land_for_cultivation))%>%
+  mutate(ci=cult/net*100) %>% 
+  mutate(across(is.numeric, round)) %>% filter(cult>0 & net>0)
+
+names(lrci)[names(lrci) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  lrci %>% mutate(own_sp = Group == "Treatment") 
+
+lso_M <- filter(lso, year == 2018)
+match.it <- matchit(own_sp ~ ci , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,ci)
+df.match$Group <- "xMatch"
+
+df <- rbind(lrci,df.match)
+
+ggplot(df, aes(year, ci, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y=" ") +
+  scale_x_continuous(breaks = c(2018,2019))+
+  theme(axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+
+
+```
+
+&nbsp;
+
+&nbsp;
+
+\noindent
+\makebox[\linewidth]{Irrigated land (ha)}
+```{r irrigated land ,echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.show="hold", out.width="50%"}
+lsi <- land_17_18_19%>% 
+  filter(total_land_cultivated_year>0) %>%
+  group_by(year,TreatmentControl, household_questionnaire_id) %>%
+  summarise(irrigated=sum(irrigated_out_of_tot_land_cult,na.rm = T)*0.0338) %>% 
+  mutate(across(is.numeric, round, 2))
+
+names(lsi)[names(lsi) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  lsi %>%  mutate(own_sp = Group == "Treatment")
+
+lso_M <- filter(lso, year == 2017)
+match.it <- matchit(own_sp ~ irrigated , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,irrigated)
+df.match$Group <- "xMatch"
+
+df <- rbind(lsi,df.match)
+
+ggplot(df, aes(year, irrigated, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y="irrigated land") +
+  scale_x_continuous(breaks = c(2017,2018,2019))+
+  theme(legend.position = "none",axis.text.x = element_text(face="bold", 
+                                   size=14))
+
+
+#-----------------------------------------------------------------------------
+
+lsi <- Land_18_19%>% 
+  filter(total_land_cultivated_year>0) %>%
+  group_by(year,TreatmentControl, household_questionnaire_id) %>%
+  summarise(irrigated=sum(irrigated_out_of_tot_land_cult)*0.0338) %>% 
+  mutate(across(is.numeric,round,2))
+
+names(lsi)[names(lsi) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  lsi %>% mutate(own_sp = Group == "Treatment") 
+
+lso_M <- filter(lso, year == 2018)
+match.it <- matchit(own_sp ~ irrigated , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,irrigated)
+df.match$Group <- "xMatch"
+
+df <- rbind(lsi,df.match)
+
+ggplot(df, aes(year, irrigated, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y=" ") +
+  scale_x_continuous(breaks = c(2018,2019))+
+  theme(axis.text.x = element_text(face="bold",size=14))
+```
+
+&nbsp;
+
+&nbsp;
+
+\noindent
+\makebox[\linewidth]{Number of irrigation hours per hectar - **Annually**}
+
+```{r irrigation hours Annually,echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.show="hold", out.width="50%"}
+ihs <- Agriculture_17_18_19%>% 
+  group_by(TreatmentControl,year, household_questionnaire_id) %>% 
+  mutate(ih=hrs_irr_1katha*no_of_irrigation_for_1_katha/0.0339) %>% 
+  filter (!is.na(ih)) %>% 
+  summarise(irrigate_hr=sum(ih)) %>%  
+  mutate(across(is.numeric, round))
+
+names(ihs)[names(ihs) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  ihs %>%  mutate(own_sp = Group == "Treatment")
+
+lso_M <- filter(lso, year == 2017)
+match.it <- matchit(own_sp ~ irrigate_hr , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,irrigate_hr)
+df.match$Group <- "xMatch"
+
+df <- rbind(ihs,df.match)
+
+ggplot(df, aes(year, irrigate_hr, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y="irrigate hr") +
+  scale_x_continuous(breaks = c(2017,2018,2019))+
+  theme(legend.position = "none",axis.text.x = element_text(face="bold", 
+                                   size=14))
+
+#-----------------------------------------------------------------------------
+
+
+ihr <- Agriculture_18_19%>% 
+  group_by(TreatmentControl,year, household_questionnaire_id) %>% 
+  mutate(ih=hrs_irr_1katha*no_of_irrigation_for_1_katha/0.0339) %>% 
+  filter (!is.na(ih)) %>% 
+  summarise(irrigate_hr=sum(ih)) %>%  
+  mutate(across(is.numeric, round))
+
+names(ihr)[names(ihr) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  ihr %>% mutate(own_sp = Group == "Treatment") 
+
+lso_M <- filter(lso, year == 2018)
+match.it <- matchit(own_sp ~ irrigate_hr , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,irrigate_hr)
+df.match$Group <- "xMatch"
+
+df <- rbind(ihr,df.match)
+
+ggplot(df, aes(year, irrigate_hr, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y=" ") +
+  scale_x_continuous(breaks = c(2018,2019))+
+  theme(axis.text.x = element_text(face="bold",size=14))
+
+```
+
+&nbsp;
+
+\noindent
+\makebox[\linewidth]{Number of irrigation hours per hectar - **Summer**}
+```{r irrigation hours Summer ,echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.show="hold", out.width="50%"}
+ihs <- Agriculture_17_18_19%>% 
+  filter(season_of_crop=="Summer") %>% 
+  group_by(TreatmentControl,year, household_questionnaire_id) %>% 
+  mutate(ih=hrs_irr_1katha*no_of_irrigation_for_1_katha/0.0339) %>% 
+  filter (!is.na(ih)) %>% 
+  summarise(irrigate_hr=sum(ih)) %>%  
+  mutate(across(is.numeric, round))
+
+names(ihs)[names(ihs) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  ihs %>%  mutate(own_sp = Group == "Treatment")
+
+lso_M <- filter(lso, year == 2017)
+match.it <- matchit(own_sp ~ irrigate_hr , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,irrigate_hr)
+df.match$Group <- "xMatch"
+
+df <- rbind(ihs,df.match)
+
+ggplot(df, aes(year, irrigate_hr, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y="irrigate hr") +
+  scale_x_continuous(breaks = c(2017,2018,2019))+
+  theme(legend.position = "none",axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+
+#-----------------------------------------------------------------------
+
+ihr <- Agriculture_18_19%>% 
+  filter(season_of_crop=="Summer") %>% 
+  group_by(TreatmentControl,year, household_questionnaire_id) %>% 
+  mutate(ih=hrs_irr_1katha*no_of_irrigation_for_1_katha/0.0339) %>% 
+  filter (!is.na(ih)) %>% 
+  summarise(irrigate_hr=sum(ih)) %>%  
+  mutate(across(is.numeric, round))
+
+names(ihr)[names(ihr) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  ihr %>% mutate(own_sp = Group == "Treatment") 
+
+lso_M <- filter(lso, year == 2018)
+match.it <- matchit(own_sp ~ irrigate_hr , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,irrigate_hr)
+df.match$Group <- "xMatch"
+
+df <- rbind(ihr,df.match)
+
+ggplot(df, aes(year, irrigate_hr, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y=" ") +
+  scale_x_continuous(breaks = c(2018,2019))+
+  theme(axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+
+```
+
+&nbsp;
+
+\noindent
+\makebox[\linewidth]{Number of irrigation hours per hectar - **Monsoon**}
+```{r irrigation hours Monsoon ,echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.show="hold", out.width="50%"}
+ihs <- Agriculture_17_18_19%>% 
+  filter(season_of_crop=="Monsoon") %>% 
+  group_by(TreatmentControl,year, household_questionnaire_id) %>% 
+  mutate(ih=hrs_irr_1katha*no_of_irrigation_for_1_katha/0.0339) %>% 
+  filter (!is.na(ih)) %>% 
+  summarise(irrigate_hr=sum(ih)) %>%  
+  mutate(across(is.numeric, round))
+
+names(ihs)[names(ihs) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  ihs %>%  mutate(own_sp = Group == "Treatment")
+
+lso_M <- filter(lso, year == 2017)
+match.it <- matchit(own_sp ~ irrigate_hr , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,irrigate_hr)
+df.match$Group <- "xMatch"
+
+df <- rbind(ihs,df.match)
+
+ggplot(df, aes(year, irrigate_hr, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y="irrigate hr") +
+  scale_x_continuous(breaks = c(2017,2018,2019))+
+  theme(legend.position = "none",axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+
+
+
+#-------------------------------------------------------------------------------
+
+ihr <- Agriculture_18_19%>% 
+  filter(season_of_crop=="Monsoon") %>% 
+  group_by(TreatmentControl,year, household_questionnaire_id) %>% 
+  mutate(ih=hrs_irr_1katha*no_of_irrigation_for_1_katha/0.0339) %>% 
+  filter (!is.na(ih)) %>% 
+  summarise(irrigate_hr=sum(ih)) %>%  
+  mutate(across(is.numeric, round))
+
+names(ihr)[names(ihr) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  ihr %>% mutate(own_sp = Group == "Treatment") 
+
+lso_M <- filter(lso, year == 2018)
+match.it <- matchit(own_sp ~ irrigate_hr , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,irrigate_hr)
+df.match$Group <- "xMatch"
+
+df <- rbind(ihr,df.match)
+
+ggplot(df, aes(year, irrigate_hr, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y=" ") +
+  scale_x_continuous(breaks = c(2018,2019))+
+  theme(axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+
+```
+
+&nbsp;
+
+\noindent
+\makebox[\linewidth]{Number of irrigation hours per hectar - **Winter**}
+```{r irrigation hours Winter ,echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.show="hold", out.width="50%"}
+ihs <- Agriculture_17_18_19%>% 
+  filter(season_of_crop=="Winter") %>% 
+  group_by(TreatmentControl,year, household_questionnaire_id) %>% 
+  mutate(ih=hrs_irr_1katha*no_of_irrigation_for_1_katha/0.0339) %>% 
+  filter (!is.na(ih)) %>% 
+  summarise(irrigate_hr=sum(ih)) %>%  
+  mutate(across(is.numeric, round))
+
+names(ihs)[names(ihs) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  ihs %>%  mutate(own_sp = Group == "Treatment")
+
+lso_M <- filter(lso, year == 2017)
+match.it <- matchit(own_sp ~ irrigate_hr , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,irrigate_hr)
+df.match$Group <- "xMatch"
+
+df <- rbind(ihs,df.match)
+
+ggplot(df, aes(year, irrigate_hr, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y="irrigate hr") +
+  scale_x_continuous(breaks = c(2017,2018,2019))+
+  theme(legend.position = "none",axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+
+#-----------------------------------------------------------------------
+
+ihr <- Agriculture_18_19%>% 
+  filter(season_of_crop=="Winter") %>% 
+  group_by(TreatmentControl,year, household_questionnaire_id) %>% 
+  mutate(ih=hrs_irr_1katha*no_of_irrigation_for_1_katha/0.0339) %>% 
+  filter (!is.na(ih)) %>% 
+  summarise(irrigate_hr=sum(ih)) %>%  
+  mutate(across(is.numeric, round))
+
+names(ihr)[names(ihr) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  ihr %>% mutate(own_sp = Group == "Treatment") 
+
+lso_M <- filter(lso, year == 2018)
+match.it <- matchit(own_sp ~ irrigate_hr , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,irrigate_hr)
+df.match$Group <- "xMatch"
+
+df <- rbind(ihr,df.match)
+
+ggplot(df, aes(year, irrigate_hr, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y=" ") +
+  scale_x_continuous(breaks = c(2018,2019))+
+  theme(axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+
+```
+
+&nbsp;
+
+&nbsp;
+
+\noindent
+\makebox[\linewidth]{Fuel use in a year in litre [7.16] }
+```{r Fuel use - 7.16 ,echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.show="hold", out.width="50%"}
+psf <- Procurement_17_18_19 %>%
+  select(year,TreatmentControl,household_questionnaire_id,total_litres_consumed_dieselkero) %>% 
+  filter(!is.na(total_litres_consumed_dieselkero))
+
+names(psf)[names(psf) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  psf %>%  mutate(own_sp = Group == "Treatment")
+
+lso_M <- filter(lso, year == 2017)
+match.it <- matchit(own_sp ~ total_litres_consumed_dieselkero , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,total_litres_consumed_dieselkero)
+df.match$Group <- "xMatch"
+
+df <- rbind(psf,df.match)
+
+ggplot(df, aes(year, total_litres_consumed_dieselkero, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y="irrigate hr") +
+  scale_x_continuous(breaks = c(2017,2018,2019))+
+  theme(legend.position = "none",axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+
+
+#-------------------------------------------------------------------------------------------
+
+rpsf <- Procurement_18_19 %>%
+  select(year,TreatmentControl,household_questionnaire_id,total_litres_consumed_dieselkero) %>% 
+  filter(!is.na(total_litres_consumed_dieselkero),
+         total_litres_consumed_dieselkero<10000) %>%
+  mutate(across(is.numeric, round, 2))
+
+names(rpsf)[names(rpsf) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  rpsf %>% mutate(own_sp = Group == "Treatment") 
+
+lso_M <- filter(lso, year == 2018)
+match.it <- matchit(own_sp ~ total_litres_consumed_dieselkero , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,total_litres_consumed_dieselkero)
+df.match$Group <- "xMatch"
+
+df <- rbind(rpsf,df.match)
+
+ggplot(df, aes(year, total_litres_consumed_dieselkero, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y=" ") +
+  scale_x_continuous(breaks = c(2018,2019))+
+  theme(axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+
+
+```
+&nbsp;
+
+&nbsp;
+
+\noindent
+\makebox[\linewidth]{Fuel use in litre - Annually [6.2]}
+```{r Fuel use Annually 6.2 ,echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.show="hold", out.width="50%"}
+
+wemf <- wem_liter_fuel_17_18_19%>%
+  filter(!is.na(p123_year)) %>% 
+  select(TreatmentControl,year,household_questionnaire_id,p123_year) %>% 
+  mutate(across(is.numeric, round)) 
+
+names(wemf)[names(wemf) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  wemf %>%  mutate(own_sp = Group == "Treatment")
+
+lso_M <- filter(lso, year == 2017)
+match.it <- matchit(own_sp ~ p123_year , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,p123_year)
+df.match$Group <- "xMatch"
+
+df <- rbind(wemf,df.match)
+
+ggplot(df, aes(year, p123_year, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y="Fuel litre") +
+  scale_x_continuous(breaks = c(2017,2018,2019))+
+  theme(legend.position = "none",axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+
+
+#-----------------------------------------------------------------------------------------
+rwemf <- wem_liter_fuel_18_19%>%
+  filter(!is.na(p123_year)) %>% 
+  select(TreatmentControl,year,household_questionnaire_id,p123_year) %>%
+  mutate(across(is.numeric, round))
+
+names(rwemf)[names(rwemf) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  rwemf %>% mutate(own_sp = Group == "Treatment") 
+
+lso_M <- filter(lso, year == 2018)
+match.it <- matchit(own_sp ~ p123_year , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,p123_year)
+df.match$Group <- "xMatch"
+
+df <- rbind(rwemf,df.match)
+
+ggplot(df, aes(year, p123_year, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y=" ") +
+  scale_x_continuous(breaks = c(2018,2019))+
+  theme(axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+
+```
+
+&nbsp;
+
+\noindent
+\makebox[\linewidth]{Fuel use in litre - Summer [6.2]}
+```{r Fuel use - Summer 6.2 ,echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.show="hold", out.width="50%"}
+wemf <- wem_liter_fuel_17_18_19%>%
+  filter(!is.na(p123_s)) %>% 
+  select(TreatmentControl,year,household_questionnaire_id,p123_s) %>% 
+  mutate(across(is.numeric, round)) 
+
+names(wemf)[names(wemf) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  wemf %>%  mutate(own_sp = Group == "Treatment")
+
+lso_M <- filter(lso, year == 2017)
+match.it <- matchit(own_sp ~ p123_s , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,p123_s)
+df.match$Group <- "xMatch"
+
+df <- rbind(wemf,df.match)
+
+ggplot(df, aes(year, p123_s, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y="Fuel litre") +
+  scale_x_continuous(breaks = c(2017,2018,2019))+
+  theme(legend.position = "none",axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+
+
+#----------------------------------------------------------------------------------------
+  
+rwemf <- wem_liter_fuel_18_19%>%
+  filter(!is.na(p123_s)) %>% 
+  select(TreatmentControl,year,household_questionnaire_id,p123_s) %>%
+  mutate(across(is.numeric, round))
+
+names(rwemf)[names(rwemf) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  rwemf %>% mutate(own_sp = Group == "Treatment") 
+
+lso_M <- filter(lso, year == 2018)
+match.it <- matchit(own_sp ~ p123_s , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,p123_s)
+df.match$Group <- "xMatch"
+
+df <- rbind(rwemf,df.match)
+
+ggplot(df, aes(year, p123_s, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y=" ") +
+  scale_x_continuous(breaks = c(2018,2019))+
+  theme(axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+
+```
+
+&nbsp;
+
+\noindent
+\makebox[\linewidth]{Fuel usein litre - Winter [6.2]}
+```{r Fuel use - Winter 6.2 ,echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.show="hold", out.width="50%"}
+wemf <- wem_liter_fuel_17_18_19%>%
+  filter(!is.na(p123_w)) %>% 
+  select(TreatmentControl,year,household_questionnaire_id,p123_w) %>% 
+  mutate(across(is.numeric, round)) 
+
+names(wemf)[names(wemf) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  wemf %>%  mutate(own_sp = Group == "Treatment")
+
+lso_M <- filter(lso, year == 2017)
+match.it <- matchit(own_sp ~ p123_w , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,p123_w)
+df.match$Group <- "xMatch"
+
+df <- rbind(wemf,df.match)
+
+ggplot(df, aes(year, p123_w, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y="Fuel litre") +
+  scale_x_continuous(breaks = c(2017,2018,2019))+
+  theme(legend.position = "none",axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+
+
+#------------------------------------------------------------------------------------------
+
+rwemf <- wem_liter_fuel_18_19%>%
+  filter(!is.na(p123_w)) %>% 
+  select(TreatmentControl,year,household_questionnaire_id,p123_w) %>%
+  mutate(across(is.numeric, round))
+
+names(rwemf)[names(rwemf) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  rwemf %>% mutate(own_sp = Group == "Treatment") 
+
+lso_M <- filter(lso, year == 2018)
+match.it <- matchit(own_sp ~ p123_w , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,p123_w)
+df.match$Group <- "xMatch"
+
+df <- rbind(rwemf,df.match)
+
+ggplot(df, aes(year, p123_w, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y=" ") +
+  scale_x_continuous(breaks = c(2018,2019))+
+  theme(axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+
+
+```
+
+&nbsp;
+
+\noindent
+\makebox[\linewidth]{Fuel use in litre- Monsoon [6.2]}
+```{r Fuel use Monsoon 6.2 ,echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.show="hold", out.width="50%"}
+
+wemf <- wem_liter_fuel_17_18_19%>%
+  filter(!is.na(p123_m)) %>% 
+  select(TreatmentControl,year,household_questionnaire_id,p123_m) %>% 
+  mutate(across(is.numeric, round)) 
+
+names(wemf)[names(wemf) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  wemf %>%  mutate(own_sp = Group == "Treatment")
+
+lso_M <- filter(lso, year == 2017)
+match.it <- matchit(own_sp ~ p123_m , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,p123_m)
+df.match$Group <- "xMatch"
+
+df <- rbind(wemf,df.match)
+
+ggplot(df, aes(year, p123_m, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y="Fuel litre") +
+  scale_x_continuous(breaks = c(2017,2018,2019))+
+  theme(legend.position = "none",axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+
+#-----------------------------------------------------------------------------------
+
+rwemf <- wem_liter_fuel_18_19%>%
+  filter(!is.na(p123_m)) %>% 
+  select(TreatmentControl,year,household_questionnaire_id,p123_m) %>%
+  mutate(across(is.numeric, round))
+
+names(rwemf)[names(rwemf) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  rwemf %>% mutate(own_sp = Group == "Treatment") 
+
+lso_M <- filter(lso, year == 2018)
+match.it <- matchit(own_sp ~ p123_m , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,p123_m)
+df.match$Group <- "xMatch"
+
+df <- rbind(rwemf,df.match)
+
+ggplot(df, aes(year, p123_m, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y=" ") +
+  scale_x_continuous(breaks = c(2018,2019))+
+  theme(axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+
+
+```
+
+
+&nbsp;
+
+&nbsp;
+
+\noindent
+\makebox[\linewidth]{Aquaculture}
+```{r aquaculture ,echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.show="hold", out.width="50%"}
+aquas <- lands_I_17_18_19 %>%
+  filter(land_for_aquaculture_ponds>0) %>% 
+  mutate(aquaculture_ponds_ha=land_for_aquaculture_ponds*0.0339) %>%
+  mutate(across(is.numeric,round,2)) %>% 
+  select(year,TreatmentControl,household_questionnaire_id,aquaculture_ponds_ha)
+names(aquas)[names(aquas) == 'TreatmentControl'] <- 'Group'
+
+ggplot(aquas, aes(year, aquaculture_ponds_ha, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y="aquaculture_ponds_ha") +
+  scale_x_continuous(breaks = c(2017,2018,2019))+
+  theme(legend.position = "none",axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+ #------------------------------------------------------------------------------------
+
+raqua <- lands_I_18_19 %>%
+  filter(land_for_aquaculture_ponds>0,land_for_aquaculture_ponds<300) %>% 
+  mutate(aquaculture_ponds_ha=land_for_aquaculture_ponds*0.0339) %>%
+  mutate(across(is.numeric,round,2)) %>% 
+  select(year,TreatmentControl,household_questionnaire_id,aquaculture_ponds_ha)
+
+names(raqua)[names(raqua) == 'TreatmentControl'] <- 'Group'
+
+ggplot(raqua, aes(year, aquaculture_ponds_ha, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y=" ") +
+  scale_x_continuous(breaks = c(2018,2019))+
+  theme(axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+
+
+```
+
+
+
+&nbsp;
+
+\noindent
+\makebox[\linewidth]{Cropping Pattern - Vegetables}
+```{r Cropping Pattern Vegetables,echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.show="hold", out.width="50%"}
+veg <- Agriculture_17_18_19 %>% filter(name_of_crop=="Vegetables") %>% 
+  group_by(year,TreatmentControl, household_questionnaire_id) %>% 
+  summarise(cult_area=sum(cult_area_under_crop)*0.0339) %>% 
+  mutate(across( is.numeric,round,2))
+
+names(veg)[names(veg) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  veg %>%  mutate(own_sp = Group == "Treatment")
+
+lso_M <- filter(lso, year == 2017)
+match.it <- matchit(own_sp ~ cult_area , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,cult_area)
+df.match$Group <- "xMatch"
+
+df <- rbind(veg,df.match)
+
+ggplot(df, aes(year, cult_area, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y="cultiveted area under crop") +
+  scale_x_continuous(breaks = c(2017,2018,2019))+
+  theme(legend.position = "none",axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+
+
+```
+RBS Treatment-5 farmers in baseline, 1 in endline
+
+
+
+&nbsp;
+
+\noindent
+\makebox[\linewidth]{Cropping Pattern - Oilseeds}
+```{r Cropping Pattern Oilseeds ,echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.show="hold", out.width="50%"}
+Oil <- Agriculture_17_18_19 %>%filter(name_of_crop=="Oilseeds") %>% 
+  group_by(year,TreatmentControl, household_questionnaire_id, name_of_crop) %>% 
+  summarise(cult_area=sum(cult_area_under_crop)*0.0339) %>% 
+  mutate(across( is.numeric,round,2))
+
+names(Oil)[names(Oil) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  Oil %>%  mutate(own_sp = Group == "Treatment")
+
+lso_M <- filter(lso, year == 2017)
+match.it <- matchit(own_sp ~ cult_area , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,cult_area)
+df.match$Group <- "xMatch"
+
+df <- rbind(Oil,df.match)
+
+ggplot(df, aes(year, cult_area, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y="cultiveted area under crop") +
+  scale_x_continuous(breaks = c(2017,2018,2019))+
+  theme(legend.position = "none",axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+
+
+```
+RBS treatment- 1 farmers in baseline, 0 in endline
+
+
+
+&nbsp;
+
+\noindent
+\makebox[\linewidth]{Cropping Pattern - Paddy}
+```{r Paddy ,echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.show="hold", out.width="50%"}
+Paddy <- Agriculture_17_18_19 %>%filter(name_of_crop=="Paddy") %>% 
+  group_by(year,TreatmentControl, household_questionnaire_id, name_of_crop) %>% 
+  summarise(cult_area=sum(cult_area_under_crop)*0.0339) %>% 
+  mutate(across( is.numeric,round,2))
+
+names(Paddy)[names(Paddy) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  Paddy %>%  mutate(own_sp = Group == "Treatment")
+
+lso_M <- filter(lso, year == 2017)
+match.it <- matchit(own_sp ~ cult_area , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,cult_area)
+df.match$Group <- "xMatch"
+
+df <- rbind(Paddy,df.match)
+
+ggplot(df, aes(year, cult_area, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y="cultiveted area under crop") +
+  scale_x_continuous(breaks = c(2017,2018,2019))+
+  theme(legend.position = "none",axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+
+#--------------------------------------------------
+
+pwmr <- Agriculture_18_19 %>%
+  filter(name_of_crop=="PADDY") %>% 
+  group_by(year,TreatmentControl, household_questionnaire_id) %>% 
+  summarise(cult_area=sum(cult_area_under_crop)*0.0339) %>% 
+  mutate(across( is.numeric,round,2))
+
+names(pwmr)[names(pwmr) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  pwmr %>% mutate(own_sp = Group == "Treatment") 
+
+lso_M <- filter(lso, year == 2018)
+match.it <- matchit(own_sp ~ cult_area , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,cult_area)
+df.match$Group <- "xMatch"
+
+df <- rbind(pwmr,df.match)
+
+ggplot(df, aes(year, cult_area, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y=" ") +
+  scale_x_continuous(breaks = c(2018,2019))+
+  theme(axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+
+
+```
+&nbsp;
+
+\noindent
+\makebox[\linewidth]{Cropping Pattern - Wheat}
+```{r Wheat ,echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.show="hold", out.width="50%"}
+Wheat <- Agriculture_17_18_19 %>%filter(name_of_crop=="Wheat") %>% 
+  group_by(year,TreatmentControl, household_questionnaire_id, name_of_crop) %>% 
+  summarise(cult_area=sum(cult_area_under_crop)*0.0339) %>% 
+  mutate(across( is.numeric,round,2))
+
+names(Wheat)[names(Wheat) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  Wheat %>%  mutate(own_sp = Group == "Treatment")
+
+lso_M <- filter(lso, year == 2017)
+match.it <- matchit(own_sp ~ cult_area , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,cult_area)
+df.match$Group <- "xMatch"
+
+df <- rbind(Wheat,df.match)
+
+ggplot(df, aes(year, cult_area, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y="cultiveted area under crop") +
+  scale_x_continuous(breaks = c(2017,2018,2019))+
+  theme(legend.position = "none",axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+
+#--------------------------------------------------
+
+pwmr <- Agriculture_18_19 %>%
+  filter(name_of_crop=="WHEAT") %>% 
+  group_by(year,TreatmentControl, household_questionnaire_id) %>% 
+  summarise(cult_area=sum(cult_area_under_crop)*0.0339) %>% 
+  mutate(across( is.numeric,round,2))
+
+names(pwmr)[names(pwmr) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  pwmr %>% mutate(own_sp = Group == "Treatment") 
+
+lso_M <- filter(lso, year == 2018)
+match.it <- matchit(own_sp ~ cult_area , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,cult_area)
+df.match$Group <- "xMatch"
+
+df <- rbind(pwmr,df.match)
+
+ggplot(df, aes(year, cult_area, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y=" ") +
+  scale_x_continuous(breaks = c(2018,2019))+
+  theme(axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+
+
+```
+&nbsp;
+&nbsp;
+
+\noindent
+\makebox[\linewidth]{Cropping Pattern - Maize}
+```{r Maize ,echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE, fig.show="hold", out.width="50%"}
+
+pwm <- Agriculture_17_18_19 %>%
+  filter(name_of_crop=="Maize") %>% 
+  group_by(year,TreatmentControl, household_questionnaire_id) %>% 
+  summarise(cult_area=sum(cult_area_under_crop)*0.0339) %>% 
+  mutate(across( is.numeric,round,2))
+
+names(pwm)[names(pwm) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  pwm %>%  mutate(own_sp = Group == "Treatment")
+
+lso_M <- filter(lso, year == 2017)
+match.it <- matchit(own_sp ~ cult_area , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,cult_area)
+df.match$Group <- "xMatch"
+
+df <- rbind(pwm,df.match)
+
+ggplot(df, aes(year, cult_area, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y="cultiveted area under crop") +
+  scale_x_continuous(breaks = c(2017,2018,2019))+
+  theme(legend.position = "none",axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+
+
+
+#------------------------------------------------------------
+pwmr <- Agriculture_18_19 %>%
+  filter(name_of_crop=="MAIZE") %>% 
+  group_by(year,TreatmentControl, household_questionnaire_id) %>% 
+  summarise(cult_area=sum(cult_area_under_crop)*0.0339) %>% 
+  mutate(across( is.numeric,round,2))
+
+names(pwmr)[names(pwmr) == 'TreatmentControl'] <- 'Group'
+
+lso <-
+  pwmr %>% mutate(own_sp = Group == "Treatment") 
+
+lso_M <- filter(lso, year == 2018)
+match.it <- matchit(own_sp ~ cult_area , data = lso_M, method="nearest", ratio=1)
+df.match <- match.data(match.it)[3]
+df.match <-
+  inner_join (df.match,lso,by="household_questionnaire_id") %>% 
+  select(year,Group,household_questionnaire_id,cult_area)
+df.match$Group <- "xMatch"
+
+df <- rbind(pwmr,df.match)
+
+ggplot(df, aes(year, cult_area, color = Group)) +
+  stat_summary(geom = 'line',size=1.1) +
+  theme_minimal()+
+  labs(x=" ", y=" ") +
+  scale_x_continuous(breaks = c(2018,2019))+
+  theme(axis.text.x = element_text(face="bold",size=14),axis.text.y = element_text(face="bold",size=16))
+
+
+
+```
+
+
+
