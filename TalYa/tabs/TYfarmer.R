@@ -1,10 +1,11 @@
-TYfarmer
-
+        ---------------------------------
+#       |         last version          |
+        ---------------------------------
+          
 library(tidyverse)
 library(kableExtra)
 
 TALYAfarmer <- read.csv("~/R/TalYa/data/TALYAfarmer.csv")
-area_talya_farmers <- read.csv("~/R/TalYa/data/area_talya_farmers.csv")
 
 write.csv(TALYAfarmer,"C:/Users/Dan/Documents/R/TalYa/TALYAfarmer.csv")
 
@@ -53,7 +54,7 @@ means <- talya_Yield_sum%>%
                  "ty_revenue_kg_ac", "ctrl_kg_CONTROL_ac",
                  "ty_damage_kg_perc", "ctrl_damage_kg_perc"),mean)
 
-kable(means) %>% kable_styling()
+kable(talya_Yield_sum) %>% kable_styling()
 
 # harvest ----
 harvest <- talya_Yield%>%
@@ -108,7 +109,19 @@ ggplot(g_damage, aes(x=plot, y=damage, fill=plot)) +
 # talya_harvest_weekly ----
 talya_harvest_weekly <- 
   talya_Yield_w %>%
-  inner_join(area_talya_farmers) %>% 
+  inner_join(NE_talya_farmers) %>% 
+  filter(mulching_control==0) %>% 
+  mutate(cntrl=harvest_KG_CONTROL/acre,ty=harvest_KG_talya100/acre) %>% 
+  group_by(harvest_week) %>%
+  summarise(Control=mean(cntrl),`Tal-Ya`=mean(ty)) %>% 
+  mutate(across(is.numeric, round)) 
+
+kable(talya_harvest_weekly) %>%kable_styling()
+
+talya_harvest_weekly <- 
+  talya_Yield_w %>%
+  inner_join(NE_talya_farmers) %>% 
+  filter(mulching_control==1) %>% 
   mutate(cntrl=harvest_KG_CONTROL/acre,ty=harvest_KG_talya100/acre) %>% 
   group_by(harvest_week) %>%
   summarise(Control=mean(cntrl),`Tal-Ya`=mean(ty)) %>% 
@@ -123,7 +136,7 @@ kable(talya_harvest_weekly) %>%kable_styling()
 
 
 # harvest per farmer ----
-harvest_per_farmer <- talya_Yield %>% 
+harvest_per_farmer <- talya_Yield_w %>% 
   group_by(id) %>%
   summarise(mean(ctrl_harvest_kg_ac),mean(ty_harvest_kg_ac))
 
@@ -131,13 +144,22 @@ kable(harvest_per_farmer) %>% kable_styling()
 
 
 # revenue per farmer ----
-revenue_per_farmer <- talya_Yield %>% 
+revenue_per_farmer <- talya_Yield_w %>% 
   group_by(id) %>%
   summarise(mean(ctrl_revenue_ac),mean(ty_revenue_ac))
 
 kable(revenue_per_farmer) %>% kable_styling()
 
+# Weed_treat_hours ----
 
+xx <- TALYAfarmer %>% 
+  inner_join(NE_talya_farmers) %>% 
+  mutate(Weed_hours_control=Weed_treat_hours_control/acre,
+         Weed_hours_talya100=Weed_treat_hours_talya100/acre) %>% 
+  group_by(mulching_control,farmer_name) %>%
+  summarise_at(c("Weed_hours_control","Weed_hours_talya100"),sum,na.rm = T) %>% 
+  summarise_at(c("Weed_hours_control","Weed_hours_talya100"),mean,na.rm = T) %>% 
+  mutate(Weed_hours_talya100/Weed_hours_control-1)
 
 
 

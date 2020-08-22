@@ -1,0 +1,52 @@
+---
+title: "Peace and War index"
+
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Gender  
+1-  
+2-  
+  
+age_range  
+1- 18-24  
+2  25 34  
+3  35 44  
+4  45 54  
+5  55 64  
+6  65 +  
+  
+
+educ
+
+
+relig
+
+
+incom
+image: ![](C:/Users/Dan/Pictures/incom.jpg)
+
+
+political_spectrum
+1 right
+2 left
+3 center
+4 no comment
+
+
+
+
+
+
+
+
+
+
+
+
+
+

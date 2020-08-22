@@ -33,7 +33,7 @@ political_spectrum,relig,incom
 peace_Q16 <- peace_index %>%
   select(date,date1,survey_year,
          oslosp,oslobl,negot_sp,negot_bl,peacesp,peacebl,
-         gender,age,educ,party,pvote99,pvote03,pvote06,pvote09)
+         gender,age,educ,party,relig,inc,pvote99,pvote03,pvote06,pvote09)
 
 
 peace_Q16$oslosp [is.na(peace_Q16$oslosp)] <- 0 #replace NA to 0
@@ -96,16 +96,34 @@ peace_Q16b <- peace_Q16 %>%
     
   ))
 
+peace_Q16b <- peace_Q16b %>%
+  select(date, date1, survey_year,
+         oslosp, oslobl, negot_sp, negot_bl, peacesp, peacebl,
+         gender, age, educ,party, political_spectrum)
 
-    
-    
+p_relig_inc <- peace_index %>% select(relig,inc)
+ 
+peace_Q16b <-cbind(peace_Q16b,p_relig_inc)
+
+peace_Q16bc <- peace_Q16b %>% 
+  select(date, date1, survey_year, oslosp, oslobl, negot_sp, negot_bl, peacesp,peacebl,
+         gender, age, educ, party, relig, incom, political_spectrum )
+
+
+
+
+
+peace_index_17_18 %>%
+  select(date, date1, survey_year, oslosp, oslobl, negot_sp, negot_bl, peacesp,peacebl,
+         gender, age, age_range, educ, party, relig, incom, political_spectrum )
+
 #X17_05_2011_2913----xx17_5_11----
 
 X17_05_2011_2913$date <- "2011-05-17"
 class(X17_05_2011_2913$date)
 X17_05_2011_2913$date <-  as.Date(X17_05_2011_2913$date, "%Y-%m-%d")
 
-X17_05_2011_2913$date1 <- rep(205)
+X17_05_2011_2913$date1 <- rep(203.5)
 class(X17_05_2011_2913$date1)
 
 X17_05_2011_2913$survey_year <- rep(2011)

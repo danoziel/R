@@ -5,28 +5,34 @@ talya_tomato <- TALYAplot %>%
   filter(farmer_name!="Vijaya narasimha") %>%
   filter(farmer_name!="R Chenna kista")
 
-,week_growth==13
-
-Plant_height <- talya_tomato %>% 
+Plant_height <- talya_tomato %>%
+  inner_join(NE_talya_farmers,by="farmer_name") %>% 
   filter(Plant_height_control_1>0) %>%
-  select(Plant_height_control_1,Plant_height_control_2,Plant_height_control_3,
+  select(farmer_name,Plant_height_control_1,Plant_height_control_2,Plant_height_control_3,
          Plant_height_talya100_plot_1,Plant_height_talya100_plot_2,
-         Plant_height_talya100_plot_3,year,week.,weeknum.year,week_growth)
+         Plant_height_talya100_plot_3,year,week.,weeknum.year,week_growth,mulching_control) %>% 
+  summarise(mean())
 
 
 
 # Plant_height    +7%   ---- 
 Plant_height <- talya_tomato %>% 
+  inner_join(NE_talya_farmers,by="farmer_name") %>% 
   filter(Plant_height_control_1>0) %>%
   select(Plant_height_control_1,Plant_height_control_2,Plant_height_control_3,
          Plant_height_talya100_plot_1,Plant_height_talya100_plot_2,
-         Plant_height_talya100_plot_3,year,week.,weeknum.year,week_growth) %>% 
-  transmute(week_growth,MeanC = rowMeans(select(., Plant_height_control_1:Plant_height_control_3)),
-            MeanT = rowMeans(select(., Plant_height_talya100_plot_1:Plant_height_talya100_plot_3))) %>% 
-  group_by(week_growth) %>% 
+         Plant_height_talya100_plot_3,mulching_control,week_growth) %>%
+  
+  mutate(MeanC=(Plant_height_control_1+Plant_height_control_2+Plant_height_control_3)/3,
+         MeanT=(Plant_height_talya100_plot_1+Plant_height_talya100_plot_2+Plant_height_talya100_plot_3)/3) %>% 
+  
+  group_by(mulching_control,week_growth) %>% 
   summarise(`Tal-Ya`=mean(MeanT),`Control`=mean(MeanC)) %>% 
   mutate(across(is.numeric, round)) 
-View(Plant_height)
+  
+#  transmute(week_growth,MeanC = rowMeans(select(., Plant_height_control_1:Plant_height_control_3)),
+#            MeanT = rowMeans(select(., Plant_height_talya100_plot_1:Plant_height_talya100_plot_3))) %>% 
+
 
 kable(Plant_height) %>%kable_styling()
 
@@ -50,8 +56,10 @@ g_Plant_height
 
 # Plant_Fruits    +27%  ----
 
-Plant_Fruits <- talya_tomato %>% 
-  select(Plant_Fruits_control_1,Plant_Fruits_control_2,Plant_Fruits_control_3,
+Plant_Fruits <- talya_tomato %>%
+  inner_join(NE_talya_farmers,by="farmer_name") %>% 
+  filter(mulching_control==1) %>%
+  select(farmer_name, Plant_Fruits_control_1,Plant_Fruits_control_2,Plant_Fruits_control_3,
          Plant_Fruits_talya100_plot_1,Plant_Fruits_talya100_plot_2,Plant_Fruits_talya100_plot_3,
          week_growth) %>% 
   na_if(0) %>% 
@@ -60,9 +68,7 @@ Plant_Fruits <- talya_tomato %>%
   group_by(week_growth) %>% 
   summarise(`Tal-Ya`=mean(MeanT,na.rm = T),`Control`=mean(MeanC,na.rm = T)) %>% 
   mutate(across(is.numeric, round)) %>% 
-  filter(`Tal-Ya`>0) %>% 
-  mutate(Week=1:11)
-View(Plant_Fruits)
+  filter(`Tal-Ya`>0) #%>% mutate(Week=1:11)
 
 kable(Plant_Fruits) %>%kable_styling()
 
@@ -91,6 +97,8 @@ g_tomato_fruits
 # tomato_flowers  +9%   ----
 
 Plant_Flowers <- talya_tomato %>% 
+  inner_join(NE_talya_farmers,by="farmer_name") %>% 
+  filter(mulching_control==0) %>%
   select(Plant_Flowers_control_1,Plant_Flowers_control_2,Plant_Flowers_control_3,
          Plant_Flowers_talya100_plot_1,Plant_Flowers_talya100_plot_2,Plant_Flowers_talya100_plot_3,
          week_growth) %>% 
@@ -99,9 +107,7 @@ Plant_Flowers <- talya_tomato %>%
             MeanT = rowMeans(select(., Plant_Flowers_talya100_plot_1:Plant_Flowers_talya100_plot_3),na.rm = T)) %>% 
   group_by(week_growth) %>% 
   summarise(`Tal-Ya`=mean(MeanT,na.rm = T),`Control`=mean(MeanC,na.rm = T)) %>% 
-  mutate(across(is.numeric, round)) %>% 
-  filter(`Control`>0) %>% 
-  mutate_all(funs(replace_na(.,0)))
+  mutate(across(is.numeric, round)) 
 
 kable(Plant_Flowers) %>%kable_styling()
 
@@ -131,7 +137,10 @@ g_tomato_flowers
   
 # Plant_Branches  +23%  ----
 Plant_Branches<-
-  talya_tomato %>% select(Plant_Branches_control_1,Plant_Branches_control_2,Plant_Branches_control_3,
+  talya_tomato %>%
+  inner_join(NE_talya_farmers,by="farmer_name") %>% 
+  filter(mulching_control==1) %>%
+  select(Plant_Branches_control_1,Plant_Branches_control_2,Plant_Branches_control_3,
                           Plant_Branches_talya100_plot_1,Plant_Branches_talya100_plot_2,
                           Plant_Branches_talya100_plot_3,week_growth) %>% 
 na_if(0) %>% 

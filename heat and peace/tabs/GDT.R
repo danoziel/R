@@ -74,3 +74,62 @@ terrorismdb <-
   mutate(targt_security_force = ifelse(targtype1_txt_new == "security force",1,0)) 
 
 
+# ---------------------------------------------------
+# This code also appears in peace_Q6 tab
+------------------------------------------
+peace_and_war$date <- as.IDate(peace_and_war$date)
+class(peace_and_war$date)
+
+dt_terror <- terrorismdb
+dt_peace <- peace_and_war
+
+
+# ------------------  days data.table
+library(data.table)
+date <- seq(as.IDate("1994-01-01"), as.IDate("2018-12-28"), 1)
+day_df <- data.table(date=date)
+
+# -----------------   security_situation
+
+x1 <- day_df %>% filter(date>="2000-09-27",date<"2005-03-05") %>%
+  group_by(date) %>% count() %>% mutate( security_situation = n ) #(copy=original)
+x1$n[x1$n== 1] <- "intifada2"
+
+x2 <- day_df %>% filter(date>="2006-06-28",date<"2006-07-11") %>%
+  group_by(date) %>% count()%>% mutate( security_situation = n )
+x2$n[x2$n== 1] <- "gishmey_kayitz"
+
+x3 <-  day_df %>% filter(date>="2006-07-12",date<"2006-08-14") %>%
+  group_by(date) %>% count()%>% mutate( security_situation = n )
+x3$n[x3$n== 1] <- "lebanon2"
+
+x4 <-  day_df %>% filter(date>="2008-12-27",date<"2009-01-18") %>%
+  group_by(date) %>% count()%>% mutate( security_situation = n )
+x4$n[x4$n== 1] <- "oferet"
+
+x5 <-  day_df %>% filter(date>="2012-11-14",date<"2012-11-21") %>%
+  group_by(date) %>% count()%>% mutate( security_situation = n )
+x5$n[x5$n== 1] <- "amud_anan"
+
+x6 <-  day_df %>% filter(date>="2014-07-08",date<"2014-08-26") %>%
+  group_by(date) %>% count()%>% mutate( security_situation = n )
+x6$n[x6$n== 1] <- "tzuk_eitan"
+
+security_situation <- rbind(x1,x2,x3,x4,x5,x6)
+security_situation <- day_df %>% left_join(security_situation) %>% 
+  rename(security_situation_num=security_situation ) %>% 
+  rename(security_situation_txt=n)
+
+
+dtdt <- left_join(security_situation,dt_peace,by="date") 
+peace_and_terror <- left_join(dtdt,dt_terror,by="date") %>% 
+  select(1,4:25,2,3)
+
+
+
+
+
+
+
+
+

@@ -1,4 +1,4 @@
-write.csv(wem_liter_fuel_18_19, file = "C:/Users/Dan/Documents/R/Rautahat.Bara.Sarlahi/data/wem_liter_fuel_18_19.csv", row.names=FALSE)
+write.csv(Agriculture_18_19, file = "C:/Users/Dan/Documents/R/Rautahat.Bara.Sarlahi/data/Agriculture_18_19.csv", row.names=FALSE)
 
 # Save the data in different vector
 women_weight <- genderweight %>%

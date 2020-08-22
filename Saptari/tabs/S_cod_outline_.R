@@ -137,6 +137,7 @@ sc <- land_17_18_19 %>% filter(season!="Annual") %>%
   group_by(TreatmentControl,season,year) %>%summarise(N=n()) %>% 
   right_join(scount) %>% mutate(per=n/N*100)
 
+library(data.table)
 dtci <-tribble(~" ", ~"n", ~"Percent",~"n", ~"Percent",~"n", ~"Percent",
                ~"n", ~"Percent",~"n", ~"Percent",~"n", ~"Percent",
                2017, 83, "88%", 18, "82%",  57, "61%"  ,16, "73%" ,81, "86%"  ,20,  "91%", 
