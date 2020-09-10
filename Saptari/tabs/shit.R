@@ -8,9 +8,8 @@ library(gridExtra)
 
 lsay <- Agriculture_17_18_19 %>% filter(season_of_crop=="Summer") %>%
   group_by(year,season_of_crop,TreatmentControl,household_questionnaire_id) %>%
-  summarise(irrigate_hr=sum(irri_for_season),cult_area=sum(cult_area_under_crop)*0.0339) %>%
-  mutate(irrigation_hr_per_ha= irrigate_hr/cult_area) %>%
-  filter(!is.na(irrigation_hr_per_ha))
+  summarise(irrigate_hr=sum(irri_for_season)) %>%
+  filter(!is.na(irrigate_hr))
 
 names(lsay)[names(lsay) == 'TreatmentControl'] <- 'Group'
 
@@ -101,56 +100,46 @@ harvest_ha<- Agriculture_17_18_19 %>%
 
 
 
-income_ha <- Agriculture_17_18_19 %>% 
-  mutate(kg=case_when(
-    unit_harvest %in% c(1,2,5) ~37.32,
-    unit_harvest == 4 ~100,
-    unit_harvest == 3 ~1)) %>% 
-  mutate(percent=percent_for_selling/100) %>% 
-  mutate(income=what_was_your_total_harvest*cult_area_under_crop*kg*price_per_kg*percent) %>% 
-  group_by(TreatmentControl,year, household_questionnaire_id) %>% 
-  summarise(income=sum(income,na.rm = T),cult_area=sum(cult_area_under_crop,na.rm = T)*0.0339,income_per_ha=income/cult_area/1000) %>% 
-  filter(!is.na(income_per_ha)) %>% 
-  summarise(Mean=mean(income_per_ha)) %>% 
-  mutate(across( is.numeric,round,2)) 
 
-x <- spread(income_ha, TreatmentControl, Mean)
 
-kable(x, align = "c",  booktabs = T) %>%
-  kable_styling(full_width = F) %>%
-  column_spec(1, bold = T) %>%
-  collapse_rows(columns = 1, valign = "top")
+
+#--------------------------------------------------------------------------------
+
+
+ands_I_17_18_19 %>% filter(land_for_aquaculture_ponds>0) %>% 
+  group_by(TreatmentControl,year) %>% 
+  summarise(N=n(),Mean= mean(land_for_aquaculture_ponds,na.rm = T)*0.0339) %>% 
+  mutate(across(is.numeric,round,2))
   
-income2_ha<- Agriculture_18_19 %>% 
-    mutate(kg=case_when(
-      unit_harvest %in% c(1,2,5) ~37.32,
-      unit_harvest == 4 ~100,
-      unit_harvest == 3 ~1)) %>% 
-    mutate(percent=percent_for_selling/100) %>% 
-    mutate(income=what_was_your_total_harvest*cult_area_under_crop*kg*price_per_kg*percent) %>% 
-    group_by(TreatmentControl,year, household_questionnaire_id) %>% 
-    summarise(income=sum(income,na.rm = T),cult_area=sum(cult_area_under_crop,na.rm = T)*0.0339,income_per_ha=income/cult_area/1000) %>% 
-    filter(!is.na(income_per_ha))  %>% 
-  summarise(Mean=mean(income_per_ha)) %>% mutate(across( is.numeric,round,2))
-
-x <- spread(income2_ha, TreatmentControl, Mean)
-
-kable(x, align = "c",  booktabs = T) %>%
-  kable_styling(full_width = F) %>%
-  column_spec(1, bold = T) %>%
-  collapse_rows(columns = 1, valign = "top")
+aquas_17 <- lands_I_17_18_19 %>%
+  filter(land_for_aquaculture_ponds>0,year == 2017) %>% 
+  select(household_questionnaire_id) %>% 
+  left_join(lands_I_17_18_19) %>% 
+  mutate(aquaculture_ponds_ha=land_for_aquaculture_ponds*0.0339) %>%
+  group_by(TreatmentControl,year) %>% 
+  summarise(N=n(),Mean= mean(aquaculture_ponds_ha,na.rm = T)) %>% 
+  mutate(across(is.numeric,round,2))
 
 
+x <- Agriculture_17_18_19%>% 
+  select(TreatmentControl,year,season_of_crop, household_questionnaire_id,irri_for_season) %>% 
+  rename(season = season_of_crop) %>% 
+  group_by(TreatmentControl,year,season, household_questionnaire_id) %>% 
+  summarise(irrigate_hr=sum(irri_for_season)) %>%
+  inner_join(land_17_18_19) %>% 
+  mutate(irrigation_hr_per_ha= irrigate_hr/irrigated_out_of_tot_land_cult) %>% 
+  summarise(n(),total_irrigation=mean (irrigate_hr,na.rm = T) ,irrigation_hr_per_ha=mean(irrigation_hr_per_ha,na.rm = T))  %>%  
+  mutate(across(is.numeric, round))
 
-income2_ha<- Agriculture_18_19 %>% 
-  mutate(kg=case_when(
-    unit_harvest %in% c(1,2,5) ~37.32,
-    unit_harvest == 4 ~100,
-    unit_harvest == 3 ~1)) %>% 
-  mutate(percent=percent_for_selling/100) %>% 
-  mutate(income=what_was_your_total_harvest*cult_area_under_crop*kg*price_per_kg*percent) %>% 
+x <- Agriculture_17_18_19%>% 
   group_by(TreatmentControl,year, household_questionnaire_id) %>% 
-  summarise(income=sum(income,na.rm = T),cult_area=sum(cult_area_under_crop,na.rm = T)*0.0339,income_per_ha=income/cult_area) %>% 
-  filter(!is.na(income_per_ha)) %>% mutate(across( is.numeric,round,2)) 
+  summarise(irrigate_hr=sum(irri_for_season)) %>%
+  summarise(n(),total_irrigation=mean (irrigate_hr,na.rm = T))  %>%  
+  mutate(across(is.numeric, round))
 
+x <- Agriculture_17_18_19%>% 
+  group_by(TreatmentControl,year,season_of_crop, household_questionnaire_id) %>% 
+  summarise(irrigate_hr=sum(irri_for_season)) %>%
+  summarise(n(),total_irrigation=mean (irrigate_hr,na.rm = T))  %>%  
+  mutate(across(is.numeric, round))
 

@@ -49,6 +49,11 @@ R_Lands_I_Baseline_2018_[6,3]<- 40
 
 Q1 <- spread(Q1, oslosp, freq) #from rows to column
 
+#split column to two
+at_btselem <- at_btselem %>% mutate(total_events_located_IL  = ifelse(location == 1, "1",NA)) %>%
+  mutate(total_events_located_yesha  = ifelse(location == 2, "1",NA)) 
+#location- old, total_events_located_IL-new
+
 
 land_Treats <- subset(R.Lands_Baseline_2018_,  TC == 1)
 colMeans(land_Treats)
@@ -79,5 +84,27 @@ mutate(avm_self = rowMeans(.[names(.)[7:8]], na.rm = T),#mean per row - by defin
        Data$TC[Data$TC == 2] <- 1 #replace 2 to 1
        R_Agriculture_Baseline_2018_$season_of_crop
        
-       table(R_Agriculture_Baseline_2018_ %>%group_by(household_questionnaire_id,name_of_crop) %>% count())
+table(R_Agriculture_Baseline_2018_ %>%group_by(household_questionnaire_id,name_of_crop) %>% count())
+# ---------------------------------
+library(data.table)
+peace_index$date <-  as.Date(peace_index$date, "%Y-%m-%d")
+  
+date <- seq(as.IDate("1994-01-01"), as.IDate("2019-12-31"), 1))
+dt <- data.table(date=date)
+
+
+summarise_at(c("harvest_KG_talya100","harvest_KG_CONTROL",
+               "revenue_TALYA100","revenue_CONTROL"
+), sum, na.rm = TRUE)
        
+
+#split column to two
+at_btselem <- at_btselem %>% mutate(total_events_located_IL  = ifelse(location == 1, "1",NA)) %>%
+  mutate(total_events_located_yesha  = ifelse(location == 2, "1",NA))
+
+peace_index_17_18 <- peace_index_17_18 %>%
+  mutate(political_spectrum=case_when(
+    party %in% c(2,3,4,5,7,9,10)~1,
+    party %in% c(14:24,27:30)~4))
+
+

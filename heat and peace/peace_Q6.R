@@ -158,6 +158,11 @@ class(peace_and_war$date)
 dt_terror <- terrorismdb
 dt_peace <- peace_and_war
 
+# add ID
+dt_peace$id <- seq(1,146272)
+dt_peace <- select(dt_peace,1:3,id,everything())
+
+
 
 # ------------------  days data.table
 library(data.table)
@@ -198,7 +203,7 @@ security_situation <- day_df %>% left_join(security_situation) %>%
 
 dtdt <- left_join(security_situation,dt_peace,by="date") 
 peace_and_terror <- left_join(dtdt,dt_terror,by="date") %>% 
-  select(1,4:25,2,3)
+  select(1,4:26,2,3)
 
 
 
