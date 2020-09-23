@@ -93,9 +93,7 @@ date <- seq(as.IDate("1994-01-01"), as.IDate("2019-12-31"), 1))
 dt <- data.table(date=date)
 
 
-summarise_at(c("harvest_KG_talya100","harvest_KG_CONTROL",
-               "revenue_TALYA100","revenue_CONTROL"
-), sum, na.rm = TRUE)
+summarise_at(c("harvest_KG_talya100","harvest_KG_CONTROL"), sum, na.rm = TRUE)
        
 
 #split column to two

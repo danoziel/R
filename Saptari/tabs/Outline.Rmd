@@ -1526,12 +1526,12 @@ pump_water_use_6.2_hr <- water_use_6.2 %>%
   filter(TreatmentControl== "Treatment",district=="Saptari",
          !household_questionnaire_id %in% c("T308707002" ,"T301911010")) %>% 
   group_by(district, year) %>% 
-  summarise_at(c("Yearly"), mean, na.rm = TRUE) %>% 
+  summarise_at(c("Yearly_hr"), mean, na.rm = TRUE) %>% 
   mutate(across(is.numeric,round))
 
-ggplot(data=pump_water_use_6.2_hr, aes(x=year, y=Yearly, fill=year)) +
+ggplot(data=pump_water_use_6.2_hr, aes(x=year, y=Yearly_hr, fill=year)) +
   geom_bar(stat="identity")+
-  geom_text(aes(label = Yearly, group = year),
+  geom_text(aes(label = Yearly_hr, group = year),
             position = position_dodge(0.8),
             vjust = 1.2, size = 4.5, color = "white")+
   ggtitle("Saptari")+
@@ -1547,12 +1547,12 @@ R_pump_water_use_6.2_hr <- water_use_6.2 %>%
   filter(TreatmentControl== "Treatment",district=="RSB",
          !household_questionnaire_id %in% c("T308707002" ,"T301911010")) %>% 
   group_by(district, year) %>% 
-  summarise_at(c("Yearly"), mean, na.rm = TRUE) %>% 
+  summarise_at(c("Yearly_hr"), mean, na.rm = TRUE) %>% 
   mutate(across(is.numeric,round))
 
-ggplot(data=R_pump_water_use_6.2_hr, aes(x=year, y=Yearly, fill=year)) +
+ggplot(data=R_pump_water_use_6.2_hr, aes(x=year, y=Yearly_hr, fill=year)) +
   geom_bar(stat="identity")+
-  geom_text(aes(label = Yearly, group = year),
+  geom_text(aes(label = Yearly_hr, group = year),
             position = position_dodge(0.8),
             vjust = 1.2, size = 4.5, color = "white")+
   ggtitle("Rautahat Bara Sarlahi")+
@@ -1594,12 +1594,12 @@ SAPTARI_season_water_use_6.2_hr <- water_use_6.2 %>%
   filter(TreatmentControl== "Treatment",district=="Saptari",
          !household_questionnaire_id %in% c("T308707002" ,"T301911010")) %>% 
   group_by(district, year) %>% 
-  summarise_at(c("Monsoon","Winter","Summer"), mean, na.rm = TRUE) %>% 
+  summarise_at(c("Monsoon_hr","Winter_hr","Summer_hr"), mean, na.rm = TRUE) %>% 
   mutate(across(is.numeric,round)) %>% 
   arrange( desc(district))
 
 SAPTARI_season_water_use_6.2_hr <- 
-  gather(SAPTARI_season_water_use_6.2_hr, key="measure", value="Hours", c("Monsoon","Winter","Summer"))
+  gather(SAPTARI_season_water_use_6.2_hr, key="measure", value="Hours", c("Monsoon_hr","Winter_hr","Summer_hr"))
 
 
 ggplot(data=SAPTARI_season_water_use_6.2_hr, aes(x=year, y=Hours, fill=year)) +
@@ -1620,12 +1620,12 @@ RSB_season_water_use_6.2_hr <- water_use_6.2 %>%
   filter(TreatmentControl== "Treatment",district=="RSB",
          !household_questionnaire_id %in% c("T308707002" ,"T301911010")) %>% 
   group_by(district, year) %>% 
-  summarise_at(c("Monsoon","Winter","Summer"), mean, na.rm = TRUE) %>% 
+  summarise_at(c("Monsoon_hr","Winter_hr","Summer_hr"), mean, na.rm = TRUE) %>% 
   mutate(across(is.numeric,round)) %>% 
   arrange( desc(district))
 
 RSB_season_water_use_6.2_hr <- 
-  gather(RSB_season_water_use_6.2_hr, key="measure", value="Hours", c("Monsoon","Winter","Summer"))
+  gather(RSB_season_water_use_6.2_hr, key="measure", value="Hours", c("Monsoon_hr","Winter_hr","Summer_hr"))
 
 
 ggplot(data=RSB_season_water_use_6.2_hr, aes(x=year, y=Hours, fill=year)) +

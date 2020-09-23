@@ -181,15 +181,3 @@ dimnames(new.table)[[3]] = c("Score","Sample Size")
 
 
 # rmarkdown::----
-# newpage
-Title
-====================
-  
-  This is a test Rmd document. 
-
-\newpage
-
-Second page
-====================
-  
-  This text is on the second page 
