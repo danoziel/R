@@ -19,6 +19,12 @@ ylim = c(0,80)
 
 coord_flip()+
 
+# histogram----
+ggplot(days_use_hh, aes(x = percentage))+
+  geom_histogram(color= "gray20", fill = "royalblue1",
+                  breaks=seq(0, 1, by =0.10)) 
+
+
 # Scatter plot----
 
 #plot I

@@ -105,4 +105,10 @@ peace_index_17_18 <- peace_index_17_18 %>%
     party %in% c(2,3,4,5,7,9,10)~1,
     party %in% c(14:24,27:30)~4))
 
+library(extrafont)
+theme_minimal() +
+  theme(text = element_text(family = "Georgia"))
+
+# from: 1899-12-31 09:00:00 TO 9:00
+water01$`Irrigation Start Time` <- format(water01$`Irrigation Start Time`, format="%H:%M")
 

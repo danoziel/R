@@ -1,6 +1,8 @@
 #-----
 write.csv(A1,"C:/Users/Dan/Documents/R/Saptari/data/A1.csv", row.names = FALSE)
 
+A_days_HH_per
+
 A_days <- water01 %>% 
   group_by(HH,date) %>%
   summarise(hr= sum(Hours)) %>%
@@ -15,7 +17,9 @@ A_days_start_end <- A_days %>%
 # A_days_HH_col <- spread(A_days,HH,irri)
 
 A_days_list <- A_days[,2] %>%   distinct() %>% arrange(date)
-T200103002
+
+HH_list <- water01 %>% select(1,26) %>%   distinct()
+
 # 1 - A_days_start_end ----
 A0110402001 <- 
   A_days %>% 
@@ -588,15 +592,26 @@ T309708020 <- T309708020	[,c(2,4)]
 A1 <- full_join(A1,T309708020	)
 
 # 53 - A_days_start_end 
-T3HH <- 
+T309800000 <- 
   A_days %>% 
-  filter(HH=="T3HH") %>%
+  filter(HH=="T309800000") %>%
   full_join (A_days_list) %>% 
   filter(date >="2018-12-21",date <= "2019-11-30") %>% 
-  mutate(T3HH	=ifelse(is.na(irri),"no", "yes")) 
-T3HH <- T3HH	[,c(2,4)]
+  mutate(T309800000	=ifelse(is.na(irri),"no", "yes")) 
+T309800000 <- T309800000	[,c(2,4)]
 
-A1 <- full_join(A1,T3HH	)
+A1 <- full_join(A1,T309800000	)
+
+# 54 - A_days_start_end 
+T309900000 <- 
+  A_days %>% 
+  filter(HH=="T309900000") %>%
+  full_join (A_days_list) %>% 
+  filter(date >="2018-12-21",date <= "2019-11-30") %>% 
+  mutate(T309900000	=ifelse(is.na(irri),"no", "yes")) 
+T309900000 <- T309900000	[,c(2,4)]
+
+A1 <- full_join(A1,T309900000	)
 
 
 rm(A104507035,A0110402001,E0104705010,T100503002,T102007001,T103204001,T104209001,T106605002,
@@ -605,20 +620,11 @@ rm(A104507035,A0110402001,E0104705010,T100503002,T102007001,T103204001,T10420900
    T300307001,T300406089,T300508099,T300608006,T300608033,T300901091,T300901113,T301911010,
    T302602009,T302603034,T302806050,T303007001,T304802030,T304802122,T305001120,T305519001,
    T305602003,T305607002,T305607004,T305607005	,T306004001,T306102001,T306102002,T308703001,
-   T308705001,T308707002,T309306012,T309708020,T3HH
+   T308705001,T308707002,T309306012,T309708020,T309800000,T309900000
 )
 #-----------------
-A_days_HH_per <- A1 %>% 
-  rowwise() %>% 
-  mutate(sumVar = across(c(A0110402001:T3HH),~ifelse(. %in% c("yes", "no"),1,0)) %>% sum) %>% 
-  mutate(irri = across(c(A0110402001:T3HH),~ifelse(. %in% c("yes"),1,0)) %>% sum) %>% 
-  mutate(per=irri/ sumVar) 
 
-#----- graph ----
-
-A_days_HH_per <- A_days_HH_per[,c(1,55,56,57)]
-
-A_days_HH_per <- A_days_HH_per %>%
+A1_seasons <- A1 %>%
   mutate(season=case_when(
     date >= "2017-06-02" & date <= "2017-09-30" ~ "Monsoon_2017_2018",
     date >= "2017-10-01" & date <= "2018-01-31" ~ "Winter_2017_2018",
@@ -631,22 +637,97 @@ A_days_HH_per <- A_days_HH_per %>%
     date >= "2019-06-01" & date <= "2019-09-30" ~ "Monsoon_2019_2020",
     date >= "2019-10-01" & date <= "2019-12-16" ~ "winter_2019_2020"))
 
+A_days_HH_per_saptari <- A1_seasons[,c(1:25,56)]
+A_days_HH_per_saptari <- A_days_HH_per_saptari %>% 
+  rowwise() %>% 
+  mutate(sumVar = across(c(A0110402001:T210904001),~ifelse(. %in% c("yes", "no"),1,0)) %>% sum) %>% 
+  mutate(irri = across(c(A0110402001:T210904001),~ifelse(. %in% c("yes"),1,0)) %>% sum) %>% 
+  mutate(per=irri/ sumVar) 
 
-g1 <- ggplot(data = A_days_HH_per, aes(x = date, y = per))+
-  labs(title="Percentage of HH using the SIP",
+A_days_HH_per_RBS <- A1_seasons[,c(1,26:56)]
+A_days_HH_per_RBS <- A_days_HH_per_RBS %>% 
+  rowwise() %>% 
+  mutate(sumVar = across(c(T300307001:T309900000),~ifelse(. %in% c("yes", "no"),1,0)) %>% sum) %>% 
+  mutate(irri = across(c(T300307001:T309900000),~ifelse(. %in% c("yes"),1,0)) %>% sum) %>% 
+  mutate(per=irri/ sumVar) 
+
+
+ggplot(data = A_days_HH_per_saptari, aes(x = date, y = per))+
+  labs(title="District of Saptari",
        subtitle=" monitored in 6/2017-12/2019",
-       x=" ",y="%") +
-  geom_line(color = "#00AFBB", size = 0.5)+
-  stat_smooth(color = "#FC4E07", fill = "#FC4E07",metho = "loess")
+       x=" ",y=" ", caption = "*30 HH in sample")+
+  geom_line(color = "darkolivegreen4", size = 0.5)+
+  stat_smooth(color = "#FC4E07", fill = "#FC4E07",metho = "loess")+
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(), panel.grid.minor = element_blank(),
+        text = element_text(family = "Georgia"),
+        plot.title = element_text(size = 20, margin = margin(b = 10)),
+        plot.subtitle = element_text(size = 12, color = "darkslategrey", margin = margin(b = 25)),
+        plot.caption = element_text(size = 8, margin = margin(t = 10), color = "grey70", hjust = 0))
 
-g2 <- ggplot()+
-  labs(title="Percentage of HH using the SIP", 
-       subtitle=" ",
-       x=" ",y="%") +
-  geom_line(data=A_days_HH_per, aes(x = date, y = per, color = season)) + 
-  stat_smooth(data=A_days_HH_per, aes(x = date, y = per, color = season),method = "loess")+
+ggplot(data = A_days_HH_per_RBS, aes(x = date, y = per))+
+  labs(title="Districts of Rautahat Bara Sarlahi",
+       subtitle=" monitored in 6/2018-12/2019",
+       x=" ",y=" ", caption = "*24 HH in sample")+
+  geom_line(color = "lightsalmon4", size = 0.5)+
+  stat_smooth(color = "#FC4E07", fill = "#FC4E07",metho = "loess")+
+  theme_minimal() +
+  theme(panel.grid.major.x = element_blank(), panel.grid.minor = element_blank(),
+        text = element_text(family = "Georgia"),
+        plot.title = element_text(size = 12, margin = margin(b = 10)),
+        plot.subtitle = element_text(size = 10, color = "darkslategrey", margin = margin(b = 25)),
+        plot.caption = element_text(size = 8, margin = margin(t = 10), color = "grey70", hjust = 0))
+
+
+colour <- c("dimgrey", "dimgrey","dimgrey", "darkolivegreen4","darkolivegreen4",
+            "dodgerblue4","dodgerblue4","dodgerblue4")
+ggplot()+
+  labs(title="Rautahat Bara Sarlahi", 
+       x=" ",y=" ", caption = "*30 HH in sample")+
+  geom_line(data=A_days_HH_per_saptari, aes(x = date, y = per, color = season)) + 
+  stat_smooth(data=A_days_HH_per_saptari, aes(x = date, y = per, color = season),method = "loess")+
+  theme_minimal() +
+  scale_colour_manual(values=colour)+
   theme(axis.text.x = element_text(angle = 65, vjust=0.5, size = 25), 
-        panel.grid.minor = element_blank(),legend.title = element_blank(),legend.position = "none")
+        panel.grid.minor = element_blank(),legend.title = element_blank(),legend.position = "none")+ 
+  theme(panel.grid.major.x = element_blank(),
+        text = element_text(family = "Georgia"),
+        plot.title = element_text(size = 20, margin = margin(b = 10)),
+        plot.subtitle = element_text(size = 12, color = "darkslategrey", margin = margin(b = 25)),
+        plot.caption = element_text(size = 8, margin = margin(t = 10), color = "grey70", hjust = 0))
+
+ggplot()+
+  labs(title="Saptari", 
+       x=" ",y=" ", caption = "*24 HH in sample")+
+  geom_line(data=A_days_HH_per_RBS, aes(x = date, y = per, color = season)) + 
+  stat_smooth(data=A_days_HH_per_RBS, aes(x = date, y = per, color = season),method = "loess")+
+  theme_minimal() +
+  scale_colour_manual(values=colour)+
+  theme(axis.text.x = element_text(angle = 65, vjust=0.5, size = 25), 
+        panel.grid.minor = element_blank(),legend.title = element_blank(),legend.position = "none")+ 
+  theme(panel.grid.major.x = element_blank(),
+        text = element_text(family = "Georgia"),
+        plot.title = element_text(size = 20, margin = margin(b = 10)),
+        plot.subtitle = element_text(size = 12, color = "darkslategrey", margin = margin(b = 25)),
+        plot.caption = element_text(size = 8, margin = margin(t = 10), color = "grey70", hjust = 0))
+
+
+# ----
+ggplot()+
+  labs(title="Rautahat Bara Sarlahi", 
+       x=" ",y=" ", caption = "*30 HH in sample")+
+  geom_line(data=A_days_HH_per_RBS, aes(x = date, y = per, color = season)) + 
+  stat_smooth(data=A_days_HH_per_RBS, aes(x = date, y = per, color = season),method = "loess")+
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 65, vjust=0.5, size = 25), 
+        panel.grid.minor = element_blank(),legend.title = element_blank(),legend.position = "none")+ 
+  theme(panel.grid.major.x = element_blank(),
+        text = element_text(family = "Georgia"),
+        plot.title = element_text(size = 20, margin = margin(b = 10)),
+        plot.subtitle = element_text(size = 12, color = "darkslategrey", margin = margin(b = 25)),
+        plot.caption = element_text(size = 8, margin = margin(t = 10), color = "grey70", hjust = 0))
+
+  
 
 
 #  T210708002 T210408001  T203901002  T200103002  T109203001  T210709001  T109902001 T103204001----
