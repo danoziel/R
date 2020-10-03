@@ -1,8 +1,6 @@
 library(tidyverse)
 library(kableExtra)
 library(formattable)
-library(knitr)
-library(MatchIt)
 library(tableone)
 library(gridExtra)
 library(scales)
@@ -11,7 +9,7 @@ library(extrafont)
 
 water <-  Master_file_Saptari_REWSSPC_12_27_2019[1:14513,]
 
-# water01----------------
+# water01      ----------------
 water01 <- water
 water01 <- water01 %>%
   rename(date=`Record Date (mm/dd/yyyy)`,Hours=`hr_n_diff`,HH=`HH ID`) %>% 
@@ -58,7 +56,20 @@ x54 <- water01 %>%
 --------------------------------------------------------------
 ##  Pump usage days - as a percentage of all days  
   
-# x0 fish farming+Cultivated Land  ###----
+# colors       ----
+
+"Aquaculture" : dodgerblue 
+"Cultivated Land" : #a1d99b
+
+"Saptari": darkolivegreen4
+"Rautahat\nBara Sarlahi":lightsalmon4 
+
+"Total Area Cultivated" :steelblue2
+"Area Irrigated" :steelblue
+
+  # --------------------------------------------------- -----------
+  # Irrigation Days ##                                         ----
+### x0 fish farming+Cultivated Land  ###----
 x0 <- water01 %>% 
   group_by(HH) %>% 
   summarise(start=min(date),end=max(date),irri_hr=mean(Hours)) %>% 
@@ -99,7 +110,7 @@ ggplot(days_use_hh) +
 
   
 
-#    fish farming                  ###----
+###    fish farming                  ###----
 x1 <- water01 %>% 
   filter(crop %in% c("Fish Farming","Kurli")) %>% 
   group_by(HH,date) %>% summarise(s=sum(Hours)) %>% 
@@ -148,7 +159,7 @@ ggplot(days_use_hh, aes(x = percentage))+
 
 
 
-#    Cultivated Land               ###----
+###    Cultivated Land               ###----
 x1 <- water01 %>% 
   filter(crop != "Fish Farming") %>% 
   group_by(HH,date) %>% summarise(s=sum(Hours)) %>% 
@@ -307,9 +318,8 @@ days_use_hh_Seasons <- days_use_hh_Seasons[,c(4,1,2,3)]
 kable(days_use_hh_Seasons,caption = "Cultivated Land by Seasons") %>% kable_styling()
 
 
-#--------------------------------------------------------------
-##  Irrigated area per day (ha)
-  
+  #----------------------------------------------------------------
+  #  Total Area Cultivated" vs. "Area Irrigated per day (ha)   ----
 ###  Cereals      ###----              
 Irrigated_Cereals <- water01 %>% 
   mutate(total_area_cultivated_ha=`Total Area Cultivated`*0.0339,
@@ -379,13 +389,13 @@ Irrigated_Pulses <- water01 %>%
             `Area Irrigated`=mean(area_irrigated_ha),
             SD2=sd(area_irrigated_ha))%>% 
   mutate(across(is.numeric,round,2))
-###  cereal_veg_oil_puls - table      ###----
+###  cereal_veg_oil_puls - table                        ###----
 cereal_veg_oil_puls <- rbind(Irrigated_Cereals,Irrigated_Vegetables,
                              Irrigated_Oilseeds,Irrigated_Pulses)
 cereal_veg_oil_puls$Crop <- c("Cereals", "Vegetables", "Oilseeds", "Pulses")
 cereal_veg_oil_puls <- cereal_veg_oil_puls[,c(6,1:5)]
 
-###  Cultivated Land     - barplot scatterplot      ###----
+###  Cultivated Land in general - barplot scatterplot   ###----
 
 x2 <- water01 %>%
   group_by(HH,date) %>% 
@@ -438,77 +448,184 @@ ggplot(x22, aes(x =`Total Area Cultivated`, y = `Area Irrigated`, color= Distric
   guides(color = guide_legend(override.aes = list(size = 4)))+
   scale_color_manual(values=c("lightsalmon4", "darkolivegreen4"))
 
+## by district - table   ----
+x2 <- water01 %>%
+  group_by(district,HH,date) %>% 
+  filter(!crop %in% c("Fish Farming","Kurli")) %>% 
+  summarise(`Total Area Cultivated`=sum(`Total Area Cultivated`)*0.0339,`Area Irrigated`=sum(`Area Irrigated`)*0.0339)%>%
+  summarise_at(c("Total Area Cultivated" ,"Area Irrigated"), mean, na.rm = TRUE) %>% 
+  summarise(N=n(),`Total Area Cultivated`=mean(`Total Area Cultivated`),
+            SD1=sd(`Total Area Cultivated`),
+            `Area Irrigated`=mean(`Area Irrigated`),
+            SD2=sd(`Area Irrigated`)) %>% 
+  mutate(across(is.numeric,round,2))
+
+## by season   - table   ----
+x2 <- water01 %>%
+  mutate(SEASONs=case_when(
+    season == "Monsoon_2017_2018" | season == "Monsoon_2018_2019" |
+      season == "Monsoon_2019_2020" ~ "Monsoon",
+    season == "Summer_2017_2018" |season == "Summer_2018_2019" ~ "Summer",
+    season == "Winter_2017_2018" | season == "winter_2018_2019" |
+      season == "winter_2019_2020"~"Winter")) %>% 
+  group_by(SEASONs,HH,date) %>% 
+  filter(!crop %in% c("Fish Farming","Kurli")) %>% 
+  summarise(`Total Area Cultivated`=sum(`Total Area Cultivated`)*0.0339,`Area Irrigated`=sum(`Area Irrigated`)*0.0339)%>%
+  summarise_at(c("Total Area Cultivated" ,"Area Irrigated"), mean, na.rm = TRUE) %>% 
+  summarise(N=n(),`Total Area Cultivated`=mean(`Total Area Cultivated`),
+            SD1=sd(`Total Area Cultivated`),
+            `Area Irrigated`=mean(`Area Irrigated`),
+            SD2=sd(`Area Irrigated`)) %>% 
+  mutate(across(is.numeric,round,2))
 
 
 
-# library(scales)-----------------
-# HH list - percentage of SPIP usege----
-library(scales)
-ggplot(days_use_hh, aes(x=HH, y=percentage)) + 
-  geom_bar(stat="identity",width=0.4)+
-  ggtitle("days_use_hh percent out of the total") +
-  xlab(" ") +
-  ylab(" ")+
-  geom_text(aes(x=HH, y=percentage, label = percent(percentage), vjust=1.5),
-            position = position_dodge(width=0.9))+
-  scale_fill_manual(name="HH", values=c("#a1d99b"))+
-  theme(legend.position = "none",
-        plot.title = element_text(size = rel(1.2), face = "bold", hjust = 0.5))+
-  scale_y_continuous(labels = function(x) paste0(x*1, "%"))+
-  coord_flip()
+# library(scales)
 
+  #----------------------------------------------------------------
+  # Irrigation Hours                                           ----
 
-# Avg. irrigation hours for SPIP households------------------------------------------------------
-
-# Cultivated Land
-Hours_by_HH <- water01 %>% 
-  filter(crop !="Fish Farming") %>% 
+# Avg. irrigation hours per day                                ----
+# Cultivated Land    ----
+#all
+xc <- water01 %>% 
+  filter(!crop %in% c("Fish Farming","Kurli")) %>% 
   group_by(HH,date) %>%  
   summarise(Hours=sum(Hours)) %>% 
   group_by(HH) %>% 
   summarise(Hours=mean(Hours)) %>% 
-  mutate(across(is.numeric,round,2))
-# histogram
-ggplot(Hours_by_HH, aes(x = Hours))+
-  geom_histogram(color= "gray20", fill = "royalblue2",
-                 breaks=seq(0, 9, by =0.5)) +
-  geom_vline(aes(xintercept = mean(Hours)), 
-             linetype = "dashed", size = 0.7)+
-  labs(title="Cultivated Land - Hours of SIP use for HH") +
-  labs(x="Hours", y="No. of HH") + 
-  scale_x_continuous(breaks = seq(0, 9, 1))+
-  scale_y_continuous(breaks = seq(0, 15,2))
+  summarise(N=n(),`Hours per day`=mean(Hours),SD=sd(Hours))
+kable(xc) %>% kable_styling()
 
-# Aquaculture
-Hours_by_HH <- water01 %>% 
-  filter(crop =="Fish Farming") %>% 
+# district
+xcd <- water01 %>% 
+  filter(!crop %in% c("Fish Farming","Kurli")) %>% 
+  group_by(district,HH,date) %>%  
+  summarise(Hours=sum(Hours)) %>% 
+  group_by(district,HH) %>% 
+  summarise(Hours=mean(Hours)) %>% 
+  summarise(N=n(),`Hours per day`=mean(Hours),SD=sd(Hours))
+kable(xcd) %>% kable_styling()
+
+
+# Aquaculture        ----
+# omit A104507035 bcoz NAs
+# all
+xa <- water01 %>% 
+  filter(crop %in% c("Fish Farming","Kurli"),HH != "A104507035") %>% 
   group_by(HH,date) %>%  
   summarise(Hours=sum(Hours)) %>% 
   group_by(HH) %>% 
   summarise(Hours=mean(Hours)) %>% 
-  mutate(across(is.numeric,round,2))
-# histogram
-ggplot(Hours_by_HH, aes(x = Hours))+
-  geom_histogram(color= "gray20", fill = "royalblue2",
-                 breaks=seq(0, 9, by =0.5)) +
-  geom_vline(aes(xintercept = mean(Hours)), 
-             linetype = "dashed", size = 0.7)+
-  labs(title="Aquaculture - Hours of SIP use for HH") +
-  labs(x="Hours", y="No. of HH") + 
-  scale_x_continuous(breaks = seq(0, 9, 1))+
-  scale_y_continuous(breaks = seq(0, 15,2))
+  summarise(N=n(),`Hours per day` =mean(Hours),SD=sd(Hours))
+kable(xa) %>% kable_styling()
 
+#district
+xad <- water01 %>% 
+  filter(crop %in% c("Fish Farming","Kurli"),HH != "A104507035") %>% 
+  group_by(district,HH,date) %>%  
+  summarise(Hours=sum(Hours)) %>% 
+  group_by(district,HH) %>% 
+  summarise(Hours=mean(Hours)) %>% 
+  summarise(N=n(),`Hours per day`=mean(Hours),SD=sd(Hours))
+kable(xad) %>% kable_styling()
+
+#   barplot  400/300        ----
+rbind(xa,xc) %>% 
+  mutate(Crop= c("Aquaculture","Cultivated Land")) %>%
+  select(4,everything()) %>% 
+  mutate(across(is.numeric,round,2)) %>% 
+
+  ggplot(aes(x=Crop, y= `Hours per day`, fill=Crop)) +
+  geom_bar(stat="identity", position=position_dodge(), width=.5) +
+  geom_errorbar(aes(ymin= `Hours per day`-SD, ymax=`Hours per day`+SD), width=.2,
+                position=position_dodge(.9))+
   
-ggplot(Hours_by_HH,
-             aes(x=HH, y=Hours)) + 
-  geom_bar(stat="identity")
+  geom_text(aes(label=`Hours per day`), vjust=1.6, color="white",
+            position = position_dodge(0.9), size=4)+
+  labs(title="HH Avg. irrigation hours  - per day", x=" ")+
+  theme(plot.title = element_text( size = 9))+
+  guides(fill=FALSE)+
+  theme_minimal() +
+  scale_fill_manual(values=c("dodgerblue", "#a1d99b"))+
+  theme(panel.grid.major.x = element_blank(), panel.grid.minor = element_blank(),
+        text = element_text(family = "Georgia"),
+        plot.title = element_text(size = 10, margin = margin(b = 10)),
+        plot.subtitle = element_text(size = 12, color = "darkslategrey", margin = margin(b = 25)),
+        plot.caption = element_text(size = 8, margin = margin(t = 10), color = "grey70", hjust = 0))
+
+#   Districts table     ----
+rbind(xad,xcd) %>% 
+  mutate(Crop= c("Aquaculture"," " ,"Cultivated Land", " ")) %>%
+  select(5,everything()) %>% 
+  mutate(across(is.numeric,round,2)) %>% 
+  kable() %>% kable_styling()
+
+# total irrigation hours per HH                                ----
+#   barplot      ----
+xc <- water01 %>% 
+  filter(!crop %in% c("Fish Farming","Kurli")) %>% 
+  group_by(HH) %>%  
+  summarise(Hours=sum(Hours)) %>% 
+  summarise(N=n(),`Total Hours`=mean(Hours),SD=sd(Hours)) %>% 
+  mutate(across (is.numeric,round)) %>% 
+  mutate(district= c("Total district"))%>% 
+  select(4,everything())
+
+xa <- water01 %>% 
+  filter(crop %in% c("Fish Farming","Kurli"),HH != "A104507035") %>% 
+  group_by(HH) %>%  
+  summarise(Hours=sum(Hours)) %>% 
+  summarise(N=n(),`Total Hours`=mean(Hours),SD=sd(Hours)) %>% 
+  mutate(across (is.numeric,round))%>% 
+  mutate(district= c("Total district")) %>% 
+  select(4,everything())
+
+xcd <- water01 %>% 
+  filter(!crop %in% c("Fish Farming","Kurli")) %>% 
+  group_by(district,HH) %>%  
+  summarise(Hours=sum(Hours)) %>% 
+  summarise(N=n(),`Total Hours`=mean(Hours),SD=sd(Hours)) %>% 
+  mutate(across (is.numeric,round))
+
+xad <- water01 %>% 
+  filter(crop %in% c("Fish Farming","Kurli"),HH != "A104507035") %>% 
+  group_by(district,HH) %>%  
+  summarise(Hours=sum(Hours)) %>% 
+  summarise(N=n(),`Total Hours`=mean(Hours),SD=sd(Hours)) %>% 
+  mutate(across (is.numeric,round))
+
+#   plot 600/500 
+rbind(xa,xad,xc,xcd) %>% rename(District = district) %>% 
+  mutate(District = ifelse(District == "Rautahat_Bara_Sarlahi",
+                           "Rautahat\nBara Sarlahi", District)) %>% 
+  mutate(crop= c("Aquaculture","Aquaculture","Aquaculture",
+                 "Cultivated Land","Cultivated Land","Cultivated Land")) %>%
+
+  ggplot(aes(x=crop, y= `Total Hours`, fill=District)) +
+  geom_bar(stat="identity", position=position_dodge()) +
+  geom_errorbar(aes(ymin=`Total Hours`-SD, ymax=`Total Hours`+SD), width=.2,
+                position=position_dodge(.9))+
+
+  geom_text(aes(label=`Total Hours`), vjust=1.6, color="white",
+            position = position_dodge(.9), size=3.5)+
+  labs(title="HH Total irrigation hours  - per day", x=" ")+
+  theme(plot.title = element_text( size = 9))+
+  theme_minimal() +
+  scale_fill_manual(values=c("lightsalmon4", "darkolivegreen4","dimgrey"))+
+  theme(panel.grid.major.x = element_blank(), panel.grid.minor = element_blank(),
+        text = element_text(family = "Georgia"),
+        plot.title = element_text(size = 20, margin = margin(b = 10)),
+        plot.caption = element_text(size = 8, margin = margin(t = 10), color = "grey70", hjust = 0))
 
 
 
-
-# Graph 1: Hours_by_day  Saptari----
+#----------------------------------------------------------------
+#----------------------------------------------------------------
+#    Not in paper        
+# Hours_by_day  Saptari Timeline ----
 Hours_by_day <- water01 %>% 
-# filter(!Seasons %in% c("Annual 2017-2018","Annual 2018-2019","Annual 2019-2020")) %>% 
+  # filter(!Seasons %in% c("Annual 2017-2018","Annual 2018-2019","Annual 2019-2020")) %>% 
   filter(district=="Saptari") %>% 
   group_by(season,date) %>%  # summarise(Flow_Meter=mean(DIFFERENCE))
   summarise(Hours=mean(Hours))
@@ -529,8 +646,7 @@ ggplot()+
   theme(axis.text.x = element_text(angle = 65, vjust=0.5, size = 25), 
         panel.grid.minor = element_blank(),legend.title = element_blank(),legend.position = "none")
 
-
-# Graph : Hours_by_day  Rautahat_Bara_Sarlahi-----------------------------------------------
+# Hours_by_day  Rautahat_Bara_Sarlahi Timeline -----
 Hours_by_day <- water01 %>% 
   filter(!Seasons %in% c("Annual 2017-2018","Annual 2018-2019","Annual 2019-2020")) %>% 
   filter(district=="Rautahat_Bara_Sarlahi") %>% 
@@ -559,10 +675,46 @@ ggplot()+
   scale_x_date(limits = as.Date(c('2017-04-01','2020-01-01')))
 
 ----------------------------------------------------------------------------------------
+  
+# Cultivated Land - HH freq - Hours per day ----
+sh_ <- water01 %>% 
+  filter(!crop %in% c("Fish Farming","Kurli")) %>% 
+  group_by(HH,date) %>%  
+  summarise(Hours=sum(Hours)) %>% 
+  group_by(HH) %>% 
+  summarise(Hours=mean(Hours)) %>% 
+  ggplot(aes(x = Hours))+
+  geom_histogram(color= "gray20", fill = "royalblue2",
+                 breaks=seq(0, 9, by =0.5)) +
+  geom_vline(aes(xintercept = mean(Hours)), 
+             linetype = "dashed", size = 0.7)+
+  labs(title="Cultivated Land - Hours of SIP use for HH") +
+  labs(x="Hours", y="No. of HH") + 
+  scale_x_continuous(breaks = seq(0, 9, 1))+
+  scale_y_continuous(breaks = seq(0, 15,2))
+# HH list - percentage of SPIP usege        ----
+# The "days_use_hh" from "x0 fish farming+Cultivated Land"
+
+library(scales)
+ggplot(days_use_hh, aes(x=HH, y=percentage)) + 
+  geom_bar(stat="identity",width=0.4)+
+  ggtitle("days_use_hh percent out of the total") +
+  xlab(" ") +
+  ylab(" ")+
+  geom_text(aes(x=HH, y=percentage, label = percent(percentage), vjust=1.5),
+            position = position_dodge(width=0.9))+
+  scale_fill_manual(name="HH", values=c("#a1d99b"))+
+  theme(legend.position = "none",
+        plot.title = element_text(size = rel(1.2), face = "bold", hjust = 0.5))+
+  scale_y_continuous(labels = function(x) paste0(x*1, "%"))+
+  coord_flip()
+
+
+
 # Frequency of HH who irrigate each day -----------------
 ----------------------------------------------------------------------
-# Graph 1
-HH_by_day <- water01 %>% 
+  # Graph 1
+  HH_by_day <- water01 %>% 
   select(HH,date,season)%>% 
   count(date)
 
@@ -571,8 +723,8 @@ ggplot() +
            data = HH_by_day, stat="identity")+ geom_col(fill = "blue")
 
 -----------------------------------------------------------------------
-# Graph 2 
-HH_by_day <- water01 %>% 
+  # Graph 2 
+  HH_by_day <- water01 %>% 
   select(HH,date,season)%>% 
   distinct()
 
@@ -583,8 +735,8 @@ ggplot(HH_by_day, aes(x=date, color = season)) +
   theme(legend.position = "none")
 
 -----------------------------------------------------------------------
-# avg. hours - HH 
-pump <- water01 %>% 
+  # avg. hours - for every HH 
+  pump <- water01 %>% 
   filter (HH != "Survey not done") %>% 
   group_by(district, HH,pump_type) %>% 
   summarise (Hours=sum(Hours,na.rm = TRUE)) %>% 
@@ -607,82 +759,6 @@ ggplot(data=pump,aes(x=HH, y=Hours,fill=district)) +
   theme(axis.text.y = element_text(size = rel(0.5), vjust=0.5))+
   facet_wrap(~district, scales="free_y")+
   coord_flip()
----------------------------------------------------------------------
-  ----------------------------------------------------------------------
-  # Graph 1
-  HH_by_day <- water01 %>% 
-  filter (HH != "Survey not done") %>% 
-  select(HH,date,season)%>% 
-  count(HH) 
-
-ggplot(data=pump_type,aes(y = n, x = HH)) +
-  geom_col(fill="steelblue") + 
-  coord_flip()+
-  theme(axis.text.y = element_text(size = rel(2), vjust=0.5))+
-  labs(title="Avg. Irrigation Days for a HH", 
-       subtitle="y axis is 53 HH who monitored in 6/2017-12/2019",
-       x=" ",y=" ")
-  
-
-
------------------------------------------------------------------------
-
-  HH_by_day <- water01 %>% 
-  filter (HH != "Survey not done") %>% 
-  filter(season %in% c("Monsoon_2017_2018","Winter_2017_2018","Summer_2017_2018")) %>% 
-  select(HH,date,season)%>% 
-  distinct() %>% 
-  group_by(season,HH) %>% 
-  summarise(n=n() )
-
-HH_by_day <- water01 %>% 
-  filter (HH != "Survey not done") %>% 
-  filter(season %in% c("Monsoon_2018_2019","Winter_2018_2019","Summer_2018_2019")) %>% 
-  select(HH,date,season)%>% 
-  distinct() %>% 
-  group_by(season,HH) %>% 
-  summarise(n=n() )
-
-HH_by_day <- water01 %>% 
-  filter (HH != "Survey not done") %>% 
-  select(HH,date,season)%>% 
-  distinct() %>% 
-  group_by(season,HH) %>% 
-  summarise(n=n() )
-
-ggplot(HH_by_day, aes(x=HH, y=n ,fill=season))+
-  geom_col(fill="steelblue") + 
-  coord_flip()+
-  facet_wrap(~season, scales="free_y")+
-  theme(axis.text.y = element_text(size = rel(0.2), vjust=0.5))+
-  labs(title="Avg. Irrigation Days for a HH by season", 
-       subtitle="y axis is 53 HH who monitored ",
-       x=" ",y=" ")+
-  theme(axis.text.x = element_text(size =15, vjust=0.5))
-
-ggplot(HH_by_day, aes(x=HH, y=n ,fill=season))+
-  geom_col(fill="steelblue") + 
-  coord_flip()+
-  facet_wrap(~season, scales="free_y")+
-  theme(axis.text.y = element_text(size = rel(0.2), vjust=0.5))+
-  labs( x=" ",y=" ")+
-  theme(axis.text.x = element_text(size =15, vjust=0.5))
-
-
-  
-
-
------------------------------------------------------------------------
-  
-
-
-
-
-
-
-
-
-
 
 
 # Saptari
@@ -742,22 +818,19 @@ xxRautahat_Bara_Sarlahi <- water01 %>%
 
 kable(xxRautahat_Bara_Sarlahi) %>% kable_styling()
 -------------------------------------------------------------------------
-
--------------------------------------------------------------------------
-#by season
+  
+  -------------------------------------------------------------------------
+  # row: HH , col: seasons ----
 hr_per_season <- water %>%  
   filter (`HH ID` != "Survey not done") %>% 
   select(`HH ID`,Seasons,hr_n_diff,District) %>%
   group_by(District,`HH ID`,Seasons) %>%
   summarise_at(c("hr_n_diff"), sum, na.rm = TRUE) %>%
-    mutate(across(is.numeric,round))
+  mutate(across(is.numeric,round))
 hr_per_season <-  spread(hr_per_season, Seasons, hr_n_diff)
 hr_per_season[48,9] <- 71
 hr_per_season[48,8] <- NA
 hr_per_season <- select(hr_per_season,-`Monsoon 2017`)
-
-District <- hr_per_season[,c(1,2)]
-
 
 # Fish Farming
 hr_aqua_season <- water %>%  
@@ -785,6 +858,8 @@ hr_aqua_District <- water %>%
   mutate(across(is.numeric,round,2))
 hr_aqua_District <-  spread(hr_aqua_District, Seasons, hr_n_diff)
 
+District <- hr_per_season[,c(1,2)]
+
 trmt_water_hr_use <-
   hr_per_season %>% 
   left_join(hr_aqua_season) %>% 
@@ -793,95 +868,17 @@ trmt_water_hr_use <-
 write.csv(trmt_water_hr_use,"C:/Users/Dan/Documents/R/Saptari/data/trmt_water_hr_use.csv", row.names = FALSE)
 
 ------------------------------------------------------------------------------------------
-#by season + Method info
-hr_Method <- water %>%
-  rename(metod= `Method (1= Solar, 2 = Diesel, 3 = Electric, 4 = Canal)`) %>% 
-  filter (`HH ID` != "Survey not done") %>% 
-  select(`HH ID`,metod,Seasons,hr_n_diff,District) %>%
-  group_by(District,`HH ID`,Seasons,metod) %>%
-  summarise_at(c("hr_n_diff"), sum, na.rm = TRUE) %>%
-  mutate(across(is.numeric,round,2))
-hr_Method <-  spread(hr_Method, Seasons, hr_n_diff)
-hr_Method[59,10] <- 71 #T210709001
-hr_Method[59,9] <- NA
-hr_Method<- select(hr_Method,-`Monsoon 2017`)
-
-hr_aqua_metod <- water %>%  
-  rename(metod= `Method (1= Solar, 2 = Diesel, 3 = Electric, 4 = Canal)`) %>% 
-  filter (`HH ID` != "Survey not done",`Crop Name (Separate row for each crop)`== "Fish Farming") %>% 
-  select(`HH ID`,Seasons,hr_n_diff,metod) %>%
-  group_by(`HH ID`,metod,Seasons) %>%
-  summarise_at(c("hr_n_diff"), sum, na.rm = TRUE) %>% 
-  mutate(across(is.numeric,round,2))
-hr_aqua_metod <-  spread(hr_aqua_metod, Seasons, hr_n_diff)
-
-hr_aqua_metod <- hr_aqua_metod %>% 
-  rename(aqua_17_18=`Annual 2017-2018`,
-         aqua_18_19=`Annual 2018-2019`,
-         aqua_19_20=`Annual 2019-2020`)
-hr_aqua_metod[13,4] <- 956
-hr_aqua_metod[13,6] <- NA
-
-hr_aqua_metod <- select(hr_aqua_metod,1,2,3,4,5)
-hr_aqua_season$fish_farming <- 1
-
-trmt_water_method_hr_use <-
-  hr_Method %>% 
-  left_join(hr_aqua_metod) %>% 
-  left_join(District)
-
-write.csv(trmt_water_hr_use,"C:/Users/Dan/Documents/R/Saptari/data/trmt_water_hr_use.csv", row.names = FALSE)
-
-trmt_water_hr_use <- trmt_water_hr_use %>% inner_join(treatment_water,by="HH ID")
-
-trmt_water <- trmt_water_hr_use %>% 
-  filter(District=="Saptari") %>% 
-  summarise(M2018=mean(`2017_2018`,na.rm = T,M2019=mean(`2018_2019`,na.rm = T)))
-            
-  summarise_at(c("2017_2018","2018_2019"), mean, na.rm = TRUE) %>% 
-  mutate(across(is.numeric,round))
-
-fix(trmt_water)
-trmt_water$`2017_2018` <- as.numeric(trmt_water$`2017_2018`)
-gather(year, hours, 2:3)
-
-# aquacultur ponds-----
-
-
-ponds <- 
-  water %>%
-  mutate(aqua_y_n  = ifelse(`Crop Name (Separate row for each crop)` == "Fish Farming",1,0))
-
-avg_cultivated_area <- ponds %>%
-  filter (`HH ID` != "Survey not done") %>% 
-  group_by(aqua_y_n,Seasons,`HH ID`) %>% 
-  summarise(cultivated_area=max(`Total Area Cultivated`,na.rm = TRUE)) %>% 
-  group_by(aqua_y_n,Seasons) %>% 
-  summarise(cultivated_area=mean(cultivated_area)) %>% 
-  mutate(across(is.numeric,round))
-
-total_cultivated_area <- ponds %>%
-  filter (`HH ID` != "Survey not done") %>% 
-  group_by(Seasons,`HH ID`) %>% 
-  summarise(cultivated_area=max(`Total Area Cultivated`,na.rm = TRUE))
-
-total_cultivated_area <-  spread(total_cultivated_area, Seasons, cultivated_area)
-total_cultivated_area[is.na(total_cultivated_area) ] <- 0
-
-
-x <- total_cultivated_area %>% 
-  mutate(Y2017 = `Annual 2017-2018` + `Monsoon 2017-2018`+ `Monsoon 2017`+`Summer 2016-2017`+ `Winter 2017-2018`,
-         Y2018 = `Annual 2018-2019` + `Monsoon 2018-2019`+`Summer 2017-2018`+ `Winter 2018-2019`,
-         Y2019 = `Annual 2019-2020` + `Monsoon 2019-2020`+`Summer 2018-2019`+ `Winter 2019-2020`+`winter 2019-2020`) %>% 
-  summarise(avg2017=mean(Y2017),avg2018=mean(Y2018),avg2019=mean(Y2019))
   
-# --------------by day------------------------------------------------------------
+  
+  
+  
+  # by day------------------------------------------------------------
 
 class(water$`Record Date (mm/dd/yyyy)`)
 water$`Record Date (mm/dd/yyyy)` <-  as.IDate(water$`Record Date (mm/dd/yyyy)`, "%Y-%m-%d")
 
 --------------------------------------------------------------------------|
-A <- water %>% 
+  A <- water %>% 
   filter (`HH ID` != "Survey not done") %>% 
   rename(date=`Record Date (mm/dd/yyyy)`) %>% 
   rename(Hours=`hr_n_diff`) %>% 
@@ -904,58 +901,7 @@ number_irri_days_per_season <-
 kable(number_irri_days_per_season) %>% kable_styling()
 
 
------------------------------------------------------------------------------
-
-A <- water %>% filter(`Crop Name (Separate row for each crop)`%in% c("Fish Farming","Fish Pond")) %>% 
-  rename(date=`Record Date (mm/dd/yyyy)`) %>% 
-  rename(Hours=`hr_n_diff`) %>% 
-  group_by(date) %>% 
-  summarise(av_Hours=mean(Hours,na.rm = TRUE))
-
-A <- water %>% filter(`Crop Name (Separate row for each crop)`!="Fish Farming") %>% 
-  rename(date=`Record Date (mm/dd/yyyy)`) %>% 
-  rename(Hours=`hr_n_diff`) %>% 
-  group_by(date) %>% 
-  summarise(av_Hours=mean(Hours,na.rm = TRUE))
-
-Sunny <- water %>% filter(`Crop Name (Separate row for each crop)`!="Fish Farming") %>% 
-  filter(`Weather (1=Sunny , 2= Partly Cloudy, 3=Cloudy, 4=Highly Cloudy)`==1) %>% 
-  rename(date=`Record Date (mm/dd/yyyy)`) %>% 
-  rename(Hours=`hr_n_diff`) %>% 
-  group_by(date) %>% 
-  summarise(Sunny=mean(Hours,na.rm = TRUE))
-
-Partly_Cloudy <- water %>% filter(`Crop Name (Separate row for each crop)`!="Fish Farming") %>% 
-  filter(`Weather (1=Sunny , 2= Partly Cloudy, 3=Cloudy, 4=Highly Cloudy)`==2) %>% 
-  rename(date=`Record Date (mm/dd/yyyy)`) %>% 
-  rename(Hours=`hr_n_diff`) %>% 
-  group_by(date) %>% 
-  summarise(Partly_Cloudy=mean(Hours,na.rm = TRUE))
-
-A <- full_join(Sunny,Partly_Cloudy,by="date")
-
-Cloudy <- water %>% filter(`Crop Name (Separate row for each crop)`!="Fish Farming") %>% 
-  filter(`Weather (1=Sunny , 2= Partly Cloudy, 3=Cloudy, 4=Highly Cloudy)`%in% c (3,4)) %>% 
-  rename(date=`Record Date (mm/dd/yyyy)`) %>% 
-  rename(Hours=`hr_n_diff`) %>% 
-  group_by(date) %>% 
-  summarise(Cloudy=mean(Hours,na.rm = TRUE))
-
-A <- full_join(A,Cloudy,by="date")
-
-A<- right_join (A,dt,by="date") %>% 
-  mutate(across(is.numeric,round,1))
-
-kable(A) %>% kable_styling()
-
-# Weather (1=Sunny , 2= Partly Cloudy, 3=Cloudy, 4=Highly Cloudy)
-
-class(A$date)
-
-date <- seq(as.IDate("2017-01-02"), as.IDate("2019-11-01"), 1)
-dt <- data.table(date=date)
-
-# ------------------   scatterplot MONITORING vs. SURVEY--------------------------------------------
+# scatterplot MONITORING vs. SURVEY         --------------------------------------------
 # the `xs` dataset from `WEM_irri` tab
 
 B <- water %>% 
